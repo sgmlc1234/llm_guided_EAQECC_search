@@ -38,6 +38,10 @@ def main():
                     choices=["residual", "original", "pinned"])
     ap.add_argument("--base", default=None,
                     help="ablation directory (default: artifacts/ablation)")
+    ap.add_argument("--ci", action="store_true",
+                    help="bootstrap the rounds (2000 resamples) and print a 95%% "
+                         "interval for the number of cells closed within the budget")
+    ap.add_argument("--seed", type=int, default=0)
     args = ap.parse_args()
     global BASE
     if args.base:
@@ -68,6 +72,26 @@ def main():
               f"{crashes:6d} {alloc:9.2f} {actual:10.2f}")
         curves[arm] = [(r["compute_s"] / 3600, r["cumulative_closed"])
                        for r in rounds]
+        if args.ci:
+            # Rounds are independent seeds, so resampling them with
+            # replacement gives the sampling distribution of "cells closed
+            # within this budget" for one program at this compute.
+            import random
+            rng = random.Random(args.seed)
+            per_round = [set(r["closed"]) for r in rounds]
+            per_kind = {k: set() for k in ("gap", "record")}
+            for f in (BASE / args.targets / arm / "solutions").glob("*.json"):
+                d = json.loads(f.read_text())
+                per_kind[d["target"].get("kind", "gap")].add(f"[[{d['target']['n']},{d['target']['k']},{d['target']['d']};{d['target']['c']}]]")
+            tot, gap = [], []
+            for _ in range(2000):
+                u = set().union(*(per_round[rng.randrange(len(per_round))]
+                                  for _ in range(len(per_round))))
+                tot.append(len(u)); gap.append(len(u & per_kind["gap"]))
+            tot.sort(); gap.sort()
+            lo, hi = tot[int(0.025 * len(tot))], tot[int(0.975 * len(tot)) - 1]
+            glo, ghi = gap[int(0.025 * len(gap))], gap[int(0.975 * len(gap)) - 1]
+            print(f"       95% bootstrap over rounds: closed {lo}-{hi} (gap {glo}-{ghi})")
         if summary and summary["closed"]:
             for key in summary["closed"]:
                 t = summary["first_closure_compute_s"][key] / 3600

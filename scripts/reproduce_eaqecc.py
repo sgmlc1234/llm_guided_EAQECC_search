@@ -70,6 +70,15 @@ EXPECTED = {
     "refutations_total": 9,                  # entries in the registry
     "refutations_certified": 7,              # of which ship CNF + DRAT
     "magma": 122,
+    # What the archived task specifications must say. The first campaigns
+    # OFFERED the cyclic-shift symmetry ansatz as one of seven directions;
+    # the later ones STATED the finding. Asserting both keeps the paper's
+    # attribution honest in both directions: an archive edited to hide the
+    # hint fails here as loudly as one edited to invent it.
+    "prompts": {"campaign1": ["cyclic qubit shifts"],
+                "campaign2": ["cyclic qubit shifts"],
+                "campaign3": ["cyclic-shift ansatz", "[[7,1,6;4]]"],
+                "campaign4": ["cyclic-shift ansatz", "[[7,1,6;4]]"]},
 }
 
 
@@ -557,6 +566,43 @@ def check_novelty_drift() -> dict:
     }
 
 
+
+# -------------------------------------------------- prompt-provenance
+def check_prompt_provenance() -> dict:
+    """The task specifications the model was given, archived verbatim.
+
+    Two claims in the paper are only checkable against them: that the
+    first campaigns were offered a cyclic-shift symmetry ansatz as one
+    direction among seven, and that the later campaigns had the finding
+    written into their prompt (which is what makes their seeds unusable as
+    baselines). Each archived text must contain the phrases the paper
+    quotes from it."""
+    P = ROOT / "artifacts" / "campaigns" / "prompts"
+    missing, wrong, found = [], [], {}
+    for label, phrases in EXPECTED["prompts"].items():
+        f = P / f"{label}.txt"
+        if not f.exists():
+            missing.append(label)
+            continue
+        text = f.read_text()
+        absent = [ph for ph in phrases if ph not in text]
+        found[label] = {"chars": len(text), "phrases_present": len(phrases) - len(absent)}
+        if absent:
+            wrong.append({"campaign": label, "expected_phrase_absent": absent})
+    ok = not missing and not wrong
+    same12 = ((P / "campaign1.txt").exists() and (P / "campaign2.txt").exists()
+              and (P / "campaign1.txt").read_text() == (P / "campaign2.txt").read_text())
+    return {
+        "status": PASS if ok else FAIL,
+        "detail": (f"missing {missing}; " if missing else "")
+        + (f"phrases absent {wrong}; " if wrong else "")
+        + f"{len(found)} archived task specifications; campaigns 1-2 "
+        + ("share one text" if same12 else "differ")
+        + "; campaign 1 offers the cyclic-shift symmetry ansatz as a direction, "
+          "campaign 3 states the finding",
+        "campaigns": found,
+    }
+
 # ------------------------------------------------ search-determinism
 FP_SEEDS = [20260814, 20260815, 20260816, 20260817]
 FP_EVALS = 5000
@@ -643,6 +689,9 @@ CLAIMS = {
                          "algebra system"),
     "search-determinism": ("search", check_search_determinism,
                            "the seeded discovery step reproduces bit-for-bit"),
+    "prompt-provenance": ("deterministic", check_prompt_provenance,
+                          "the task specifications given to the model are "
+                          "archived and say what the paper says they say"),
 }
 
 

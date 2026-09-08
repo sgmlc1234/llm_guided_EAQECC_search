@@ -1,0 +1,26 @@
+Target: 68 open entries of the codetables.de qubit EAQECC table (Grassl).
+Each target {n, k, c, d} asks for an entanglement-assisted quantum code
+[[n,k,d;c]] whose existence is open: the best known distance is d-1 and d
+is the proven upper bound. Constructing ANY of them is a new best-known
+quantum code (checked against the July 2026 literature — all 68 remain
+open; two nearby cases were just proven nonexistent by exhaustion, these
+68 are not those).
+
+Representation: stabilizer set = s = n-k+c integers of 2n bits (per qubit
+i: bit 2i = X, bit 2i+1 = Z). Required: symplectic Gram rank exactly 2c on
+span S; then d = min symplectic weight over S^perp \ S_iso must reach the
+target. E.evaluate(n, gens, d_target) verifies everything exactly in
+~1-20 ms and reports "offending" = number of logical operators below the
+target distance (0 + matching signature = target closed, +1e6).
+
+The search space is tiny per target (2n <= 26 bits per generator, 4-12
+generators) but the constraint is sharp. Promising directions: constructive
+warm starts — build S as c explicit hyperbolic pairs plus n-k-c isotropic
+generators; derive candidates from classical GF(4) additive codes
+(Wilde-Brun: c = rank of H H^dagger); modify known-good stabilizer codes of
+nearby parameters (the c=0 entries of codetables.de are all constructible);
+exploit that targets sharing (n, c) can reuse structure; coupled
+multi-generator moves; symmetry ansatz (cyclic qubit shifts). Exact
+full-neighborhood scans are affordable — evaluate() is milliseconds.
+Numeric care: generators are Python ints up to 2^26; avoid uint8/int32
+numpy bit accumulation. Programs that crash or hang waste their slot.

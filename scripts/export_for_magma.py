@@ -15,13 +15,20 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, "scripts")
-sys.path.insert(0, "scripts/alphaevolve_eaqecc")
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
+sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE / "alphaevolve_eaqecc"))
 
 import helpers_eaqecc as H2  # noqa: E402  (qubit, bit-packed)
 from helpers_eaqecc_fq import Fq, vecq  # noqa: E402
 
-ROOT = Path(".")
+W = ROOT / "artifacts" / "witnesses"
+# The archived run (artifacts/magma/eaqecc_data.m + log) predates this
+# layout and omitted the q=3 witnesses. A fresh export goes to pending/ so
+# the archived data file keeps matching the archived log until Magma has
+# been re-run on the new export; then move both into artifacts/magma/.
+OUT = ROOT / "artifacts" / "magma" / "pending" / "eaqecc_data.m"
 recs = []
 
 
@@ -31,7 +38,7 @@ def add(q, n, k, d, c, basis, tag):
 
 
 # ---- qubit: archived stabilizer sets -> L = S^perp (bit-packed ints) -------
-for p in sorted(glob.glob("artifacts/alphaevolve_eaqecc/harvest/SOLUTION_*.json")):
+for p in sorted(glob.glob(str(W / "q2" / "SOLUTION_*.json"))):
     s = json.load(open(p))
     t = s["target"]
     n = t["n"]
@@ -39,17 +46,11 @@ for p in sorted(glob.glob("artifacts/alphaevolve_eaqecc/harvest/SOLUTION_*.json"
     basis = [[(int(v) >> b) & 1 for b in range(2 * n)] for v in L]
     add(2, n, t["k"], t["d"], t["c"], basis, Path(p).stem)
 
-# ---- qubit: SAT witnesses from the corridor campaign ----------------------
-for p in sorted(glob.glob("artifacts/floor_sat/WITNESS2_*.json")):
-    s = json.load(open(p))
-    t = s["target"]
-    add(2, t["n"], t["k"], t["d"], t["c"], s["L_basis"], Path(p).stem)
-
 # ---- qutrit / q=4 / q=5 witnesses (L basis stored directly) ---------------
-for pat, q in (("artifacts/qutrit_harvest/SOLUTION3_*.json", 3),
-               ("artifacts/gamma4/SOLUTION4_*.json", 4),
-               ("artifacts/gamma5/SOLUTION5_*.json", 5)):
-    for p in sorted(glob.glob(pat)):
+for pat, q in ((W / "q3" / "SOLUTION3_*.json", 3),
+               (W / "q4" / "SOLUTION4_*.json", 4),
+               (W / "q5" / "SOLUTION5_*.json", 5)):
+    for p in sorted(glob.glob(str(pat))):
         s = json.load(open(p))
         t = s["target"]
         add(q, t["n"], t["k"], t["d"], t["c"], s["L_basis"], Path(p).stem)
@@ -112,8 +113,10 @@ for i, r in enumerate(recs):
     out.append(f'  <{r["q"]}, {r["n"]}, {r["k"]}, {r["d"]}, {r["c"]}, '
                f'[{L}], "{r["tag"]}">{"," if i + 1 < len(recs) else ""}')
 out.append("];")
-Path("artifacts/magma/eaqecc_data.m").parent.mkdir(parents=True, exist_ok=True)
-Path("artifacts/magma/eaqecc_data.m").write_text("\n".join(out) + "\n")
-print(f"exported {len(recs)} codes -> artifacts/magma/eaqecc_data.m")
+OUT.parent.mkdir(parents=True, exist_ok=True)
+OUT.write_text("\n".join(out) + "\n")
+print(f"exported {len(recs)} codes -> {OUT.relative_to(ROOT)}")
+print("next: magma -b", OUT.relative_to(ROOT), "scripts/verify_eaqecc.magma "
+      "> artifacts/magma/pending/magma_verification.log")
 from collections import Counter
 print("by q:", dict(Counter(r["q"] for r in recs)))

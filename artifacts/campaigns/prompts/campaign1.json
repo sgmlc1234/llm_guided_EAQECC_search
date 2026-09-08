@@ -1,0 +1,33 @@
+{
+ "createTime": "2026-07-13T05:32:03.656649Z",
+ "config": {
+  "title": "EAQECC codetables gaps (68 open targets, n<=13)",
+  "problemDescription": "Target: 68 open entries of the codetables.de qubit EAQECC table (Grassl).\nEach target {n, k, c, d} asks for an entanglement-assisted quantum code\n[[n,k,d;c]] whose existence is open: the best known distance is d-1 and d\nis the proven upper bound. Constructing ANY of them is a new best-known\nquantum code (checked against the July 2026 literature \u2014 all 68 remain\nopen; two nearby cases were just proven nonexistent by exhaustion, these\n68 are not those).\n\nRepresentation: stabilizer set = s = n-k+c integers of 2n bits (per qubit\ni: bit 2i = X, bit 2i+1 = Z). Required: symplectic Gram rank exactly 2c on\nspan S; then d = min symplectic weight over S^perp \\ S_iso must reach the\ntarget. E.evaluate(n, gens, d_target) verifies everything exactly in\n~1-20 ms and reports \"offending\" = number of logical operators below the\ntarget distance (0 + matching signature = target closed, +1e6).\n\nThe search space is tiny per target (2n <= 26 bits per generator, 4-12\ngenerators) but the constraint is sharp. Promising directions: constructive\nwarm starts \u2014 build S as c explicit hyperbolic pairs plus n-k-c isotropic\ngenerators; derive candidates from classical GF(4) additive codes\n(Wilde-Brun: c = rank of H H^dagger); modify known-good stabilizer codes of\nnearby parameters (the c=0 entries of codetables.de are all constructible);\nexploit that targets sharing (n, c) can reuse structure; coupled\nmulti-generator moves; symmetry ansatz (cyclic qubit shifts). Exact\nfull-neighborhood scans are affordable \u2014 evaluate() is milliseconds.\nNumeric care: generators are Python ints up to 2^26; avoid uint8/int32\nnumpy bit accumulation. Programs that crash or hang waste their slot.\n",
+  "programLanguage": "python",
+  "runSettings": {
+   "maxPrograms": 120,
+   "concurrency": 4,
+   "maxDuration": "86400s"
+  },
+  "generationSettings": {
+   "models": [
+    {
+     "name": "gemini-3.5-flash",
+     "weight": 0.5
+    },
+    {
+     "name": "gemini-3.1-pro-preview",
+     "weight": 0.5
+    }
+   ]
+  }
+ },
+ "stats": {
+  "candidatesCount": 123,
+  "evaluatedCandidatesCount": 121,
+  "inputTokenCount": "524086",
+  "outputTokenCount": "1212503"
+ },
+ "state": "COMPLETED",
+ "initialAlphaEvolveProgram": "<RESOURCE>"
+}

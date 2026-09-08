@@ -1,0 +1,33 @@
+{
+ "createTime": "2026-07-14T06:14:17.021798Z",
+ "config": {
+  "title": "EAQECC codetables gaps (68 open targets, n<=13)",
+  "problemDescription": "Target: 329 open parameter points of the codetables.de qubit EAQECC table\n(Grassl), 5 <= n <= 13. Each target {n, k, c, d, dl, kind} asks for an\nentanglement-assisted quantum code [[n,k,d;c]]. kind=\"gap\": listed entry\nwith open distance gap. kind=\"record\": an (n,k,c) cell ABSENT from the\ntable where reaching d beats the monotone staircase of known codes \u2014 a\nbrand-new parameter set. All targets respect the EA-Plotkin bound\n(4^k-1)d <= 3*4^{k-1}n and EA-Singleton; eight proven-nonexistent points\nare excluded. Closing ANY target is a new best-known quantum code.\n\nProven meta-lesson of this campaign: STRUCTURED CONSTRUCTION PROGRAMS beat\npoint search. A cyclic-shift ansatz (generators = 2-bit cyclic shifts of\none or two base Pauli strings) closed [[7,1,6;4]], [[9,1,8;6]],\n[[11,1,10;8]] and was generalized by hand into an infinite optimal family\nfor odd n; a block ansatz (radical <X^b, Z^b> on a b-qubit block, logicals\n= one-of-each-Pauli \"transversal\" block patterns times uniform tails) gave\nthe even-n branch. One good ansatz sweeps a whole ladder of targets at\nonce. Evolve NEW construction families: other shift steps / quasi-cyclic\norbits, multi-block radicals, GF(4)-additive constructions (Wilde-Brun:\nc = rank of H H^dagger), extension/shortening/puncturing of the\nalready-closed [[n,1,n-1;n-3]] family, hyperbolic pairs + isotropic\ncompletion, and transfer of a working ansatz across all targets sharing\nits structure.\n\nRepresentation: stabilizer set = s = n-k+c integers of 2n bits (per qubit\ni: bit 2i = X, bit 2i+1 = Z); Gram rank exactly 2c required. You may also\nconstruct the SMALL side L = S^perp (dim n+k-c) and convert via\nE.nullspace([E._J(v, n) for v in L], 2*n). E.evaluate(n, gens, d_target)\nverifies exactly in ~1-20 ms (\"offending\" = logical operators below the\ntarget distance; 0 + matching (k,c) closes the target, +1e6 jackpot each).\nNumeric care: generators are Python ints up to 2^26; avoid uint8/int32\nnumpy bit accumulation. Programs that crash or hang waste their slot.\n",
+  "programLanguage": "python",
+  "runSettings": {
+   "maxPrograms": 80,
+   "concurrency": 4,
+   "maxDuration": "86400s"
+  },
+  "generationSettings": {
+   "models": [
+    {
+     "name": "gemini-3.5-flash",
+     "weight": 0.5
+    },
+    {
+     "name": "gemini-3.1-pro-preview",
+     "weight": 0.5
+    }
+   ]
+  }
+ },
+ "stats": {
+  "candidatesCount": 82,
+  "evaluatedCandidatesCount": 81,
+  "inputTokenCount": "407779",
+  "outputTokenCount": "673334"
+ },
+ "state": "COMPLETED",
+ "initialAlphaEvolveProgram": "<RESOURCE>"
+}

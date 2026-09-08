@@ -122,7 +122,7 @@ LEGEND = {
         ("thm", r"closed form read off from witnesses"),
         ("deep", r"search witness, deepest layer"),
         ("lift", r"implied by ebit lifting"),
-        ("ref", r"refuted: no such code exists"),
+        ("ref", r"refuted (DRAT-certified) or implied by it"),
         ("wall", r"search wall --- \emph{not} a proof"),
         ("bdh", r"BDH diagonal $c=n-3$"),
     ],
@@ -144,7 +144,7 @@ CAPTION = {
   $d=n-1$: rows are lengths $n$, columns ebits $c$. No table of best-known
   codes is published at $q=4,5$, so every filled cell there is new. The key
   is below the panels and Sec.~\ref{sec:tables} reads the map.}""",
-    "iclr": r"""\caption{Every cell the pipeline settled at $k=1$, $d=n-1$. Rows are lengths, columns ebits. \textcolor{achieve}{Solid teal}: constructed here, on the closed-form diagonal (white tick) or the floor layer one column left. \textcolor{achieve!35}{Pale teal}: implied by ebit lifting. \textcolor{refute}{Red}: refuted, by SAT decision or by contraposition of the lifting lemma; the two DRAT-certified cases are $k=2$ and so fall outside this figure. Outlined: search wall, evidence and not proof. Dashed: the BDH diagonal.}""",
+    "iclr": r"""\caption{Every cell the pipeline settled at $k=1$, $d=n-1$. Rows are lengths, columns ebits. \textcolor{achieve}{Solid teal}: constructed here, on the closed-form diagonal (white tick) or the floor layer one column left. Pale teal: implied by ebit lifting. \textcolor{refute}{Red}: refuted, by a DRAT-certified SAT refutation at the cell directly beneath the floor or by contraposition of the lifting lemma for the cells to its left. Outlined: search wall, evidence and not proof. Dashed: the BDH diagonal.}""",
 }
 
 

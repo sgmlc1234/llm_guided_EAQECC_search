@@ -18,8 +18,8 @@ data, environment, randomness, compute, and what is *not* reproducible.
 | Randomness | `EVAL_RNG_SEED`, `MAX_EVALS` | seed + evaluation budget fix the search output; wall clock never enters |
 | Search replay | claim `search-determinism`, `scripts/eaqecc_baselines/search_fingerprint.json` | 3 programs × 4 seeds, proposal lists compared bit for bit |
 | Compute | paper App. B; `artifacts/campaigns/*.log` | 401 candidates × 240 s ≈ 26.7 h evaluator time across four campaigns |
-| Ablation data | `artifacts/ablation/{residual,original,pinned}/` | every round of every arm, `rounds.jsonl` + closures |
-| Prompts | paper App. B.3; `scripts/alphaevolve_eaqecc/run_evolution.py` | the campaign-3 task text is the one in the script; campaign-1 text in the paper |
+| Ablation data | `artifacts/ablation/{residual,original,pinned}/`, `artifacts/ablation_evalbudget/residual/` | every round of every arm under wall-clock and under an evaluation budget; `summarize.py --ci` for bootstrap intervals |
+| Prompts | `artifacts/campaigns/prompts/campaign{1..4}.{txt,json}`, claim `prompt-provenance` | recovered from the service with `scripts/alphaevolve_eaqecc/fetch_experiment_prompts.py`; includes per-campaign token counts |
 | Negative controls | `tests/test_auditor_negative_controls.py` | the auditor is shown to FAIL on a damaged archive |
 | Not reproducible | the evolutionary run itself | LLM sampling is nondeterministic; we replay programs, not their discovery |
 

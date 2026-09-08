@@ -1,0 +1,31 @@
+Target: 329 open parameter points of the codetables.de qubit EAQECC table
+(Grassl), 5 <= n <= 13. Each target {n, k, c, d, dl, kind} asks for an
+entanglement-assisted quantum code [[n,k,d;c]]. kind="gap": listed entry
+with open distance gap. kind="record": an (n,k,c) cell ABSENT from the
+table where reaching d beats the monotone staircase of known codes — a
+brand-new parameter set. All targets respect the EA-Plotkin bound
+(4^k-1)d <= 3*4^{k-1}n and EA-Singleton; eight proven-nonexistent points
+are excluded. Closing ANY target is a new best-known quantum code.
+
+Proven meta-lesson of this campaign: STRUCTURED CONSTRUCTION PROGRAMS beat
+point search. A cyclic-shift ansatz (generators = 2-bit cyclic shifts of
+one or two base Pauli strings) closed [[7,1,6;4]], [[9,1,8;6]],
+[[11,1,10;8]] and was generalized by hand into an infinite optimal family
+for odd n; a block ansatz (radical <X^b, Z^b> on a b-qubit block, logicals
+= one-of-each-Pauli "transversal" block patterns times uniform tails) gave
+the even-n branch. One good ansatz sweeps a whole ladder of targets at
+once. Evolve NEW construction families: other shift steps / quasi-cyclic
+orbits, multi-block radicals, GF(4)-additive constructions (Wilde-Brun:
+c = rank of H H^dagger), extension/shortening/puncturing of the
+already-closed [[n,1,n-1;n-3]] family, hyperbolic pairs + isotropic
+completion, and transfer of a working ansatz across all targets sharing
+its structure.
+
+Representation: stabilizer set = s = n-k+c integers of 2n bits (per qubit
+i: bit 2i = X, bit 2i+1 = Z); Gram rank exactly 2c required. You may also
+construct the SMALL side L = S^perp (dim n+k-c) and convert via
+E.nullspace([E._J(v, n) for v in L], 2*n). E.evaluate(n, gens, d_target)
+verifies exactly in ~1-20 ms ("offending" = logical operators below the
+target distance; 0 + matching (k,c) closes the target, +1e6 jackpot each).
+Numeric care: generators are Python ints up to 2^26; avoid uint8/int32
+numpy bit accumulation. Programs that crash or hang waste their slot.

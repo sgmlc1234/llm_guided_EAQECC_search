@@ -26,6 +26,7 @@ SKIPPED_NO_DATA  novelty-drift      [deterministic] only 1 snapshot present; add
 PASS             refutations        [external]      7 certified (CNF + DRAT shipped), 1 certified on demand, 1 solver decision; 8/8 CNFs re-decided UNSAT
 SKIPPED_NO_TOOL  magma-crosscheck   [external]      no Magma binary; archived log: 122 of 122 exported records verified, 0 mismatches
 PASS             search-determinism [search]        12 seeded searches re-run at 5000 evaluations (B0, B1f, B2); 0 differ
+PASS             prompt-provenance  [deterministic] 4 archived task specifications; campaign 1 offers the cyclic-shift symmetry ansatz as a direction, campaign 3 states the finding
 ```
 
 ## Install
@@ -65,6 +66,7 @@ would hide the one distinction that matters.
 | `refutations` | external | re-decides every archived CNF and replays every DRAT proof; lists decisions as decisions |
 | `magma-crosscheck` | external | re-runs the Magma verification if Magma is present; otherwise reports the archived log *as a log* |
 | `search-determinism` | search | replays three programs × four seeds under an evaluation budget, bit for bit |
+| `prompt-provenance` | deterministic | the task specifications given to the model are archived verbatim and contain the phrases the paper quotes |
 
 `deterministic` holds on any machine. `external` is `SKIPPED_NO_TOOL` when
 the tool is absent --- never a failure, never a pass --- and **binding when
@@ -147,14 +149,21 @@ arm is archived under `artifacts/ablation/`.
 | Name | Directory | What it is |
 |---|---|---|
 | `Anneal` | `B0` | the human heuristic that preceded evolution |
-| `Ansatz-seed` | `B1f` | the later human-written seed, already carrying the discovered construction |
+| `Ansatz-seed` | `B1f` | the later seed produced by the write-back step, already carrying the discovered construction |
 | `Evolved` | `B2` | the best program the search returned |
 
 ```bash
-python3 scripts/eaqecc_baselines/summarize.py --targets residual
+python3 scripts/eaqecc_baselines/summarize.py --targets residual --ci                       # wall-clock run
+python3 scripts/eaqecc_baselines/summarize.py --targets residual --ci --base artifacts/ablation_evalbudget   # evaluation-budget run
 python3 scripts/eaqecc_baselines/run_baseline.py --arm B0 --targets residual \
-    --rounds 80 --budget 240 --workers 4 --out /tmp/my_ablation
+    --rounds 80 --budget 240 --max-evals 100000 --workers 4 --out /tmp/my_ablation
 ```
+
+Two archived runs: `artifacts/ablation/` under a 240 s wall-clock budget
+per round (the campaign's protocol) and `artifacts/ablation_evalbudget/`
+under 10^5 exact evaluations per round through the deterministic driver,
+which replays bit for bit. `--ci` bootstraps the rounds for a 95%
+interval on the number of cells closed.
 
 `Ansatz-seed` and `Evolved` are refused on the pre-campaign target sets
 (`original`, `pinned`): their program headers and prompts name the
@@ -188,8 +197,9 @@ artifacts/witnesses/q{2,3,4,5}/    every archived code, generators only
 artifacts/refutations/             registry, CNFs, DRAT proofs
 artifacts/tables/                  EA-Plotkin corrections, bound map
 artifacts/magma/                   Magma export, archived log, version
-artifacts/campaigns/               campaign logs and the top evolved programs
-artifacts/ablation/                every round of every arm
+artifacts/campaigns/               campaign logs, the top evolved programs, and prompts/ (task specifications, recovered from the service)
+artifacts/ablation/                every round of every arm, wall-clock budget
+artifacts/ablation_evalbudget/     the same three arms under an evaluation budget (replayable)
 tests/                             negative controls, evaluator, determinism
 docs/                              GCP setup, reproducibility checklist, anonymization checklist
 ```
