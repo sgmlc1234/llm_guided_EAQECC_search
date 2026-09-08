@@ -1,0 +1,1317 @@
+INFO:alpha_evolve.experiment:Creating a new Gemini Enterprise session.
+INFO:alpha_evolve.experiment:Created session: projects/<PROJECT>/locations/global/collections/default_collection/engines/<ENGINE>/sessions/9188841063061891932
+INFO:alpha_evolve.experiment:Creating a new AlphaEvolve experiment
+INFO:alpha_evolve.client:Creating AlphaEvolve experiment on session: projects/<PROJECT>/locations/global/collections/default_collection/engines/<ENGINE>/sessions/9188841063061891932.
+INFO:alpha_evolve.experiment:experiment_name: projects/<PROJECT>/locations/global/collections/default_collection/engines/<ENGINE>/sessions/9188841063061891932/alphaEvolveExperiments/14872735658423587497
+INFO:alpha_evolve.experiment:Creating an initial program
+INFO:alpha_evolve.client:Creating initial program for experiment: projects/<PROJECT>/locations/global/collections/default_collection/engines/<ENGINE>/sessions/9188841063061891932/alphaEvolveExperiments/14872735658423587497
+INFO:alpha_evolve.experiment:projects/<PROJECT>/locations/global/collections/default_collection/engines/<ENGINE>/sessions/9188841063061891932/alphaEvolveExperiments/14872735658423587497/alphaEvolvePrograms/12219455607826869913
+INFO:alpha_evolve.experiment:Starting an AlphaEvolve experiment
+INFO:alpha_evolve.client:Starting AlphaEvolve experiment: projects/<PROJECT>/locations/global/collections/default_collection/engines/<ENGINE>/sessions/9188841063061891932/alphaEvolveExperiments/14872735658423587497.
+INFO:alpha_evolve.experiment:{'name': 'projects/<PROJECT>/locations/global/collections/default_collection/engines/<ENGINE>/operations/start-alpha-evolve-experiment-6303031257010061044', 'metadata': {'@type': 'type.googleapis.com/google.cloud.discoveryengine.v1alpha.StartExperimentMetadata'}, 'done': True, 'response': {'@type': 'type.googleapis.com/google.cloud.discoveryengine.v1alpha.AlphaEvolveExperiment', 'name': 'projects/<PROJECT>/locations/global/collections/default_collection/engines/<ENGINE>/sessions/9188841063061891932/alphaEvolveExperiments/14872735658423587497'}}
+INFO:alpha_evolve.controller:Parallel evaluation enabled (concurrency=4)
+INFO:alpha_evolve.controller:Evolution loop started: 4 sampler(s), 4 evaluator(s), target=120 programs
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=0, evaluated=0/120, idle=11s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265091
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265091
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=1, evaluated=0/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265287
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265287
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265385
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265385
+INFO:alpha_evolve.controller:Progress: generated=3, evaluated=0/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=62s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=72s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=83s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=93s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=103s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=114s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=3, evaluated=0/120, idle=124s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265189
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265189
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=36s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=46s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=56s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=67s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=77s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=0/120, idle=87s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265091 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=1/120, idle=2s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265287 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=4, evaluated=2/120, idle=2s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265385 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264837
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264837
+INFO:alpha_evolve.controller:Progress: generated=5, evaluated=3/120, queued=0
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267424
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267424
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=55s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=65s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=76s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=86s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=96s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=3/120, idle=107s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265189 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=6, evaluated=4/120, idle=1s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264857
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264857
+INFO:alpha_evolve.workers:Candidate 17715826764135264857 evaluated → eaqecc_score=-1000000000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=7, evaluated=4/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=7, evaluated=5/120, idle=8s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=7, evaluated=5/120, idle=19s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135268345
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135268345
+INFO:alpha_evolve.controller:Progress: generated=8, evaluated=5/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=5/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=5/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=5/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=5/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=5/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=5/120, idle=61s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=5/120, idle=72s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264837 evaluated → eaqecc_score=995.0000, targets_closed=0.0000, best_offending=5.0000
+INFO:alpha_evolve.workers:Candidate 17715826764135267424 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=6/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=7/120, idle=9s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=7/120, idle=19s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=7/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=7/120, idle=40s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=8, evaluated=7/120, idle=50s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265543
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265543
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=9, evaluated=7/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266974
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266974
+INFO:alpha_evolve.controller:Progress: generated=10, evaluated=7/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=10, evaluated=7/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=10, evaluated=7/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=10, evaluated=7/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=10, evaluated=7/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=10, evaluated=7/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=10, evaluated=7/120, idle=61s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=10, evaluated=7/120, idle=71s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=10, evaluated=7/120, idle=82s)
+INFO:alpha_evolve.workers:Candidate 17715826764135268345 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264387
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264387
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=46s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=56s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=66s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=77s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=87s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=98s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=108s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=119s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=129s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265543 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=8/120, idle=139s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=9/120, idle=9s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266974 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=11, evaluated=10/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267602
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267602
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=12, evaluated=10/120, idle=2s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=12, evaluated=10/120, idle=12s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=12, evaluated=10/120, idle=23s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=12, evaluated=10/120, idle=33s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265093
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265093
+INFO:alpha_evolve.controller:Progress: generated=13, evaluated=10/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=13, evaluated=10/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=13, evaluated=10/120, idle=20s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264387 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264819
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264819
+INFO:alpha_evolve.controller:Progress: generated=14, evaluated=11/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=61s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=71s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=82s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=92s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=102s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=113s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=123s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=14, evaluated=11/120, idle=133s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135268053
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135268053
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=15, evaluated=11/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=15, evaluated=11/120, idle=16s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267602 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=15, evaluated=12/120, idle=1s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266466
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266466
+INFO:alpha_evolve.controller:Progress: generated=16, evaluated=12/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=16, evaluated=12/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=16, evaluated=12/120, idle=20s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265093 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=16, evaluated=12/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=16, evaluated=13/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=16, evaluated=13/120, idle=17s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=16, evaluated=13/120, idle=28s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264819 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=16, evaluated=14/120, idle=3s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264820
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264820
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267838
+INFO:alpha_evolve.controller:Progress: generated=18, evaluated=14/120, queued=1
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267838
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=61s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=72s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=82s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=92s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=103s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=14/120, idle=113s)
+INFO:alpha_evolve.workers:Candidate 17715826764135268053 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=15/120, idle=4s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=15/120, idle=14s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=15/120, idle=24s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266466 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=15/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=18, evaluated=16/120, idle=6s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267819
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267819
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=19, evaluated=16/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=19, evaluated=16/120, idle=14s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=19, evaluated=16/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=19, evaluated=16/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=19, evaluated=16/120, idle=46s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=19, evaluated=16/120, idle=56s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264820 evaluated → eaqecc_score=994.0000, targets_closed=0.0000, best_offending=6.0000
+INFO:alpha_evolve.workers:Candidate 17715826764135267838 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=19, evaluated=17/120, idle=1s)
+INFO:alpha_evolve.workers:Acquired 2 new candidate(s): 17715826764135264468, 17715826764135266075
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264468
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266075
+INFO:alpha_evolve.controller:Progress: generated=21, evaluated=18/120, queued=0
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264546
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264546
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=27s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=37s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=48s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=58s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=68s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=78s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=89s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=99s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=109s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=120s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=130s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=141s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=18/120, idle=152s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267819 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=22, evaluated=19/120, idle=3s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267075
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267075
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=23, evaluated=19/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=23, evaluated=19/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=23, evaluated=19/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=23, evaluated=19/120, idle=36s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=23, evaluated=19/120, idle=46s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=23, evaluated=19/120, idle=56s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264468 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Candidate 17715826764135266075 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=23, evaluated=19/120, idle=67s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264546 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=23, evaluated=22/120, idle=1s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265233
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265233
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265919
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265919
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=14s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=56s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=66s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=77s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=88s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=98s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=110s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=120s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=131s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=141s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=22/120, idle=153s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267075 evaluated → eaqecc_score=995.0000, targets_closed=0.0000, best_offending=5.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=25, evaluated=23/120, idle=7s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266331
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266331
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265331
+INFO:alpha_evolve.controller:Progress: generated=27, evaluated=23/120, queued=1
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265331
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=27, evaluated=23/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=27, evaluated=23/120, idle=21s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=27, evaluated=23/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=27, evaluated=23/120, idle=42s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=27, evaluated=23/120, idle=52s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265233 evaluated → eaqecc_score=999.0000, targets_closed=0.0000, best_offending=1.0000
+INFO:alpha_evolve.workers:Candidate 17715826764135265919 evaluated → eaqecc_score=999.0000, targets_closed=0.0000, best_offending=1.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=27, evaluated=24/120, idle=3s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265077
+INFO:alpha_evolve.controller:Progress: generated=28, evaluated=25/120, queued=1
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265077
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=62s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=72s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=83s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=93s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=104s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=114s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=124s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=134s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=145s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=25/120, idle=155s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266331 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Candidate 17715826764135265331 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=28, evaluated=26/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265587
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265587
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=29, evaluated=27/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=29, evaluated=27/120, idle=14s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=29, evaluated=27/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=29, evaluated=27/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=29, evaluated=27/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=29, evaluated=27/120, idle=55s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265077 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=29, evaluated=27/120, idle=66s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135268233
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135268233
+INFO:alpha_evolve.controller:Progress: generated=30, evaluated=28/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=30, evaluated=28/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=30, evaluated=28/120, idle=21s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=30, evaluated=28/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=30, evaluated=28/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=30, evaluated=28/120, idle=52s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=30, evaluated=28/120, idle=62s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=30, evaluated=28/120, idle=73s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264587
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264587
+INFO:alpha_evolve.controller:Progress: generated=31, evaluated=28/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=31, evaluated=28/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=31, evaluated=28/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=31, evaluated=28/120, idle=30s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266077
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266077
+INFO:alpha_evolve.controller:Progress: generated=32, evaluated=28/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=32, evaluated=28/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=32, evaluated=28/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=32, evaluated=28/120, idle=31s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265587 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=32, evaluated=29/120, idle=2s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264745
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264745
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=33, evaluated=29/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=33, evaluated=29/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=33, evaluated=29/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=33, evaluated=29/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=33, evaluated=29/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=33, evaluated=29/120, idle=55s)
+INFO:alpha_evolve.workers:Candidate 17715826764135268233 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=33, evaluated=30/120, queued=0
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266999
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266999
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=34, evaluated=30/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=34, evaluated=30/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=34, evaluated=30/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=34, evaluated=30/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=34, evaluated=30/120, idle=44s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=34, evaluated=30/120, idle=54s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=34, evaluated=30/120, idle=65s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264587 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Progress: generated=34, evaluated=31/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=34, evaluated=31/120, idle=10s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267450
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267450
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=35, evaluated=31/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=35, evaluated=31/120, idle=13s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266077 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Progress: generated=35, evaluated=32/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=35, evaluated=32/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=35, evaluated=32/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=35, evaluated=32/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=35, evaluated=32/120, idle=41s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264745 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=35, evaluated=33/120, idle=1s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266196
+INFO:alpha_evolve.controller:Progress: generated=36, evaluated=33/120, queued=1
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266196
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=33/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=33/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=33/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=33/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=33/120, idle=51s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266999 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=34/120, idle=2s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=34/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=34/120, idle=23s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=34/120, idle=33s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=34/120, idle=43s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=36, evaluated=34/120, idle=55s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266725
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266725
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=37, evaluated=34/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=37, evaluated=34/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=37, evaluated=34/120, idle=24s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267450 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=37, evaluated=35/120, idle=3s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264805
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264805
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=38, evaluated=35/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=38, evaluated=35/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=38, evaluated=35/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=38, evaluated=35/120, idle=34s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266255
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266255
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=35/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=35/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=35/120, idle=27s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266196 evaluated → eaqecc_score=988.0000, targets_closed=0.0000, best_offending=12.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=35/120, idle=37s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=18s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=39s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=49s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=59s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=70s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=80s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=91s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=101s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=36/120, idle=111s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266725 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=39, evaluated=37/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=39, evaluated=37/120, idle=10s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264590
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264590
+INFO:alpha_evolve.workers:Candidate 17715826764135264590 evaluated → eaqecc_score=-1000000000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=40, evaluated=38/120, idle=1s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265256
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265256
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=41, evaluated=38/120, idle=5s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264805 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=41, evaluated=39/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=41, evaluated=39/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=41, evaluated=39/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=41, evaluated=39/120, idle=30s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266255 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=41, evaluated=40/120, idle=1s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=41, evaluated=40/120, idle=11s)
+INFO:alpha_evolve.workers:Acquired 2 new candidate(s): 17715826764135265374, 17715826764135267530
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265374
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267530
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=8s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=19s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=29s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=39s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=50s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=60s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=72s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=83s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=93s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=103s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=43, evaluated=40/120, idle=114s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266256
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266256
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=44, evaluated=40/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=44, evaluated=40/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=44, evaluated=40/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=44, evaluated=40/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=44, evaluated=40/120, idle=44s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265256 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=44, evaluated=41/120, idle=4s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264434
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264434
+INFO:alpha_evolve.workers:Candidate 17715826764135264434 evaluated → eaqecc_score=-1000000000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=45, evaluated=41/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=45, evaluated=42/120, idle=8s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=45, evaluated=42/120, idle=19s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=45, evaluated=42/120, idle=29s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=45, evaluated=42/120, idle=40s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267530 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Candidate 17715826764135265374 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=45, evaluated=43/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=45, evaluated=44/120, idle=9s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266786
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266786
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=46, evaluated=44/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=46, evaluated=44/120, idle=13s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266884
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266884
+INFO:alpha_evolve.controller:Progress: generated=47, evaluated=44/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=47, evaluated=44/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=47, evaluated=44/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=47, evaluated=44/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=47, evaluated=44/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=47, evaluated=44/120, idle=51s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267217
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267217
+INFO:alpha_evolve.controller:Progress: generated=48, evaluated=44/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=48, evaluated=44/120, idle=10s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266256 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=48, evaluated=45/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266316
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266316
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=55s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=65s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=75s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=86s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=96s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=106s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=45/120, idle=116s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266786 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=49, evaluated=46/120, idle=2s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265944
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265944
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=50, evaluated=46/120, idle=3s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266884 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=50, evaluated=46/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=50, evaluated=47/120, idle=8s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=50, evaluated=47/120, idle=18s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266826
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266826
+INFO:alpha_evolve.controller:Progress: generated=51, evaluated=47/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=51, evaluated=47/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=51, evaluated=47/120, idle=20s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267217 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=51, evaluated=47/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=51, evaluated=48/120, idle=8s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=51, evaluated=48/120, idle=18s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266316 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=51, evaluated=49/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=51, evaluated=49/120, idle=10s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267767
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267767
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=17s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=38s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=48s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=59s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=69s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=79s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=90s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=100s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=49/120, idle=110s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265944 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=52, evaluated=50/120, idle=1s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267395
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267395
+INFO:alpha_evolve.controller:Progress: generated=53, evaluated=50/120, queued=0
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264690
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264690
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=50/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=50/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=50/120, idle=24s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266826 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=51/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=51/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=51/120, idle=27s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=51/120, idle=37s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=51/120, idle=47s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=51/120, idle=58s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=51/120, idle=68s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267767 evaluated → eaqecc_score=995.0000, targets_closed=0.0000, best_offending=5.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=54, evaluated=52/120, idle=2s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264769
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264769
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=4s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=36s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=46s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=56s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=66s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=77s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=87s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=97s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=108s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=52/120, idle=118s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267395 evaluated → eaqecc_score=999.0000, targets_closed=0.0000, best_offending=1.0000
+INFO:alpha_evolve.workers:Candidate 17715826764135264690 evaluated → eaqecc_score=994.0000, targets_closed=0.0000, best_offending=6.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=53/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=55, evaluated=54/120, idle=9s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267043
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267043
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=56, evaluated=54/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264926
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264926
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=57, evaluated=54/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=57, evaluated=54/120, idle=13s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264456
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264456
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=58, evaluated=54/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=58, evaluated=54/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=58, evaluated=54/120, idle=26s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=58, evaluated=54/120, idle=37s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=58, evaluated=54/120, idle=47s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=58, evaluated=54/120, idle=58s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264769 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=58, evaluated=55/120, idle=1s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135268082
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135268082
+INFO:alpha_evolve.controller:Progress: generated=59, evaluated=55/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=31s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=61s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=71s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=82s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=92s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=103s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=113s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=55/120, idle=123s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267043 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=59, evaluated=56/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=59, evaluated=56/120, idle=10s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264926 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267906
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267906
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=60, evaluated=57/120, idle=6s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264496
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264496
+INFO:alpha_evolve.workers:Candidate 17715826764135264456 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=61, evaluated=58/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=61, evaluated=58/120, idle=10s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267377
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267377
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=58/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=58/120, idle=17s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=58/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=58/120, idle=38s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=58/120, idle=48s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=58/120, idle=59s)
+INFO:alpha_evolve.workers:Candidate 17715826764135268082 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=17s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=27s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=37s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=48s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=58s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=69s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=79s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=89s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=62, evaluated=59/120, idle=100s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265535
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265535
+INFO:alpha_evolve.controller:Progress: generated=63, evaluated=59/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=63, evaluated=59/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=63, evaluated=59/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=63, evaluated=59/120, idle=30s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267906 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=63, evaluated=60/120, idle=3s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264496 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267456
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267456
+INFO:alpha_evolve.controller:Progress: generated=64, evaluated=61/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=61/120, idle=10s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267377 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=62/120, idle=4s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=62/120, idle=14s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=62/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=62/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=62/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=62/120, idle=55s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=62/120, idle=65s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=64, evaluated=62/120, idle=76s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264732
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264732
+INFO:alpha_evolve.controller:Progress: generated=65, evaluated=62/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=65, evaluated=62/120, idle=10s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266045
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266045
+INFO:alpha_evolve.controller:Progress: generated=66, evaluated=62/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=62/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=62/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=62/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=62/120, idle=40s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=62/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=62/120, idle=61s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265535 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=63/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=63/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=66, evaluated=63/120, idle=26s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267339
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267339
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=67, evaluated=63/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=67, evaluated=63/120, idle=14s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267456 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=67, evaluated=64/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=67, evaluated=64/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=67, evaluated=64/120, idle=27s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=67, evaluated=64/120, idle=37s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=67, evaluated=64/120, idle=47s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=67, evaluated=64/120, idle=58s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266908
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266908
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=64/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=64/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=64/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=64/120, idle=35s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264732 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=65/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=65/120, idle=15s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266045 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=66/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=66/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=66/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=66/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=66/120, idle=46s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266908 evaluated → eaqecc_score=-1000000000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=67/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=68, evaluated=67/120, idle=15s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266105
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266105
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=69, evaluated=67/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=69, evaluated=67/120, idle=16s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267339 evaluated → eaqecc_score=999.0000, targets_closed=0.0000, best_offending=1.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=69, evaluated=67/120, idle=27s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=69, evaluated=68/120, idle=8s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267575
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267575
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=70, evaluated=68/120, idle=3s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265752
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265752
+INFO:alpha_evolve.controller:Progress: generated=71, evaluated=68/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=71, evaluated=68/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=71, evaluated=68/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=71, evaluated=68/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=71, evaluated=68/120, idle=40s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264537
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264537
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=44s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=55s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=65s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=76s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=86s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=97s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=107s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=117s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=68/120, idle=127s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266105 evaluated → eaqecc_score=993.0000, targets_closed=0.0000, best_offending=7.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=69/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=69/120, idle=14s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=69/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=69/120, idle=34s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267575 evaluated → eaqecc_score=994.0000, targets_closed=0.0000, best_offending=6.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=70/120, idle=1s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=72, evaluated=70/120, idle=11s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266439
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266439
+INFO:alpha_evolve.workers:Candidate 17715826764135265752 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=73, evaluated=71/120, idle=2s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=73, evaluated=71/120, idle=12s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=73, evaluated=71/120, idle=22s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265067
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265067
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=74, evaluated=71/120, idle=3s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264537 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=74, evaluated=72/120, idle=2s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264597
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264597
+INFO:alpha_evolve.controller:Progress: generated=75, evaluated=72/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=52s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=62s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=72s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=84s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=95s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=105s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=115s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=75, evaluated=72/120, idle=126s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267223
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267223
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=76, evaluated=72/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=76, evaluated=72/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=76, evaluated=72/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=76, evaluated=72/120, idle=34s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266439 evaluated → eaqecc_score=-6000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=76, evaluated=73/120, idle=2s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=76, evaluated=73/120, idle=12s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265597
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265597
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=77, evaluated=73/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=77, evaluated=73/120, idle=16s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265067 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=77, evaluated=74/120, idle=6s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264774
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264774
+INFO:alpha_evolve.controller:Progress: generated=78, evaluated=74/120, queued=0
+INFO:alpha_evolve.workers:Candidate 17715826764135264597 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=2s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=23s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=33s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=44s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=54s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=64s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=74s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=85s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=78, evaluated=75/120, idle=95s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265754
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265754
+INFO:alpha_evolve.controller:Progress: generated=79, evaluated=75/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=75/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=75/120, idle=20s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267223 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=79, evaluated=76/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=76/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=76/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=76/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=76/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=76/120, idle=51s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265597 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=77/120, idle=2s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=79, evaluated=77/120, idle=12s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265147
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265147
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=77/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=77/120, idle=16s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264774 evaluated → eaqecc_score=-6000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=27s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=37s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=48s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=58s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=68s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=78s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=80, evaluated=78/120, idle=89s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265382
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265382
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=81, evaluated=78/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=81, evaluated=78/120, idle=13s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265754 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264422
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264422
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=23s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=44s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=54s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=65s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=75s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=86s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=79/120, idle=96s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265147 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=82, evaluated=80/120, idle=3s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135264599
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135264599
+INFO:alpha_evolve.controller:Progress: generated=83, evaluated=80/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=83, evaluated=80/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=83, evaluated=80/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=83, evaluated=80/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=83, evaluated=80/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=83, evaluated=80/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=83, evaluated=80/120, idle=61s)
+INFO:alpha_evolve.workers:Candidate 17715826764135264599 evaluated → eaqecc_score=-1000000000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=83, evaluated=80/120, idle=71s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=83, evaluated=81/120, idle=8s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135265755
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135265755
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=84, evaluated=81/120, idle=3s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265382 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=84, evaluated=81/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=84, evaluated=82/120, idle=8s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135266128
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135266128
+INFO:alpha_evolve.workers:Candidate 17715826764135264422 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=85, evaluated=82/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=85, evaluated=83/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=85, evaluated=83/120, idle=18s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267049
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267049
+INFO:alpha_evolve.controller:Progress: generated=86, evaluated=83/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=86, evaluated=83/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=86, evaluated=83/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=86, evaluated=83/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=86, evaluated=83/120, idle=40s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=86, evaluated=83/120, idle=51s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 17715826764135267010
+INFO:alpha_evolve.workers:Evaluating candidate 17715826764135267010
+INFO:alpha_evolve.controller:Progress: generated=87, evaluated=83/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=40s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=50s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=61s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=71s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=81s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=91s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=101s)
+INFO:alpha_evolve.workers:Candidate 17715826764135265755 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=83/120, idle=112s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=84/120, idle=8s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=84/120, idle=19s)
+INFO:alpha_evolve.workers:Candidate 17715826764135266128 evaluated → eaqecc_score=-1000000000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Progress: generated=87, evaluated=85/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=85/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=85/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=85/120, idle=30s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267049 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=86/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=86/120, idle=14s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=86/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=86/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=86/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=86/120, idle=55s)
+INFO:alpha_evolve.workers:Candidate 17715826764135267010 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=1s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=11s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=22s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=32s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=42s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=53s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=63s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=73s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=84s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=94s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=104s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=115s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=87, evaluated=87/120, idle=125s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154882616
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154882616
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=88, evaluated=87/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884054
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884054
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=89, evaluated=87/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=89, evaluated=87/120, idle=17s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=89, evaluated=87/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=89, evaluated=87/120, idle=38s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=89, evaluated=87/120, idle=48s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=89, evaluated=87/120, idle=59s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=89, evaluated=87/120, idle=69s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154885274
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154885274
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=90, evaluated=87/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=90, evaluated=87/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=90, evaluated=87/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=90, evaluated=87/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=90, evaluated=87/120, idle=45s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154883836
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154883836
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=23s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=33s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=44s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=54s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=64s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=75s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=85s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=87/120, idle=95s)
+INFO:alpha_evolve.workers:Candidate 13770176987154882616 evaluated → eaqecc_score=999.0000, targets_closed=0.0000, best_offending=1.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=88/120, idle=2s)
+INFO:alpha_evolve.workers:Candidate 13770176987154884054 evaluated → eaqecc_score=991.0000, targets_closed=0.0000, best_offending=9.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=89/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=89/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=89/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=89/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=89/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=89/120, idle=55s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=91, evaluated=89/120, idle=65s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884138
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884138
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=92, evaluated=89/120, idle=3s)
+INFO:alpha_evolve.workers:Candidate 13770176987154885274 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=92, evaluated=90/120, idle=7s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154886163
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154886163
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=93, evaluated=90/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=93, evaluated=90/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=93, evaluated=90/120, idle=23s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154886469
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154886469
+INFO:alpha_evolve.controller:Progress: generated=94, evaluated=90/120, queued=0
+INFO:alpha_evolve.workers:Candidate 13770176987154883836 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=94, evaluated=91/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154886293
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154886293
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=23s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=33s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=44s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=54s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=64s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=74s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=85s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=95s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=105s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=116s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=126s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=136s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=146s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=157s)
+INFO:alpha_evolve.workers:Candidate 13770176987154884138 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=91/120, idle=167s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=95, evaluated=92/120, idle=7s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884134
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884134
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=96, evaluated=92/120, idle=3s)
+INFO:alpha_evolve.workers:Candidate 13770176987154886163 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=96, evaluated=93/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=96, evaluated=93/120, idle=17s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154886247
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154886247
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=93/120, idle=5s)
+INFO:alpha_evolve.workers:Candidate 13770176987154886469 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=94/120, idle=4s)
+INFO:alpha_evolve.workers:Candidate 13770176987154886293 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=94/120, idle=14s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=17s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=38s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=48s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=59s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=69s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=79s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=89s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=99s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=109s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=119s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=130s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=97, evaluated=95/120, idle=140s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884830
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884830
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=98, evaluated=95/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=98, evaluated=95/120, idle=13s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154885375
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154885375
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=99, evaluated=95/120, idle=3s)
+INFO:alpha_evolve.workers:Candidate 13770176987154884134 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=99, evaluated=95/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=99, evaluated=96/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=99, evaluated=96/120, idle=17s)
+INFO:alpha_evolve.workers:Candidate 13770176987154886247 evaluated → eaqecc_score=625.0000, targets_closed=0.0000, best_offending=375.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=99, evaluated=96/120, idle=27s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154885786
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154885786
+INFO:alpha_evolve.controller:Progress: generated=100, evaluated=97/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=100, evaluated=97/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=100, evaluated=97/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=100, evaluated=97/120, idle=30s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154885220
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154885220
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=36s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=46s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=56s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=67s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=77s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=87s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=97s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=107s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=97/120, idle=117s)
+INFO:alpha_evolve.workers:Candidate 13770176987154884830 evaluated → eaqecc_score=993.0000, targets_closed=0.0000, best_offending=7.0000
+INFO:alpha_evolve.controller:Progress: generated=101, evaluated=98/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=101, evaluated=98/120, idle=10s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154883736
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154883736
+INFO:alpha_evolve.workers:Candidate 13770176987154885375 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=98/120, idle=2s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=99/120, idle=9s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=99/120, idle=19s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=99/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=99/120, idle=40s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=99/120, idle=50s)
+INFO:alpha_evolve.workers:Candidate 13770176987154885786 evaluated → eaqecc_score=999.0000, targets_closed=0.0000, best_offending=1.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=100/120, idle=4s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=100/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=100/120, idle=26s)
+INFO:alpha_evolve.workers:Candidate 13770176987154885220 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Progress: generated=102, evaluated=101/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=101/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=101/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=101/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=101/120, idle=40s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=102, evaluated=101/120, idle=50s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884541
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884541
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=103, evaluated=101/120, idle=4s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154883082
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154883082
+INFO:alpha_evolve.controller:Progress: generated=104, evaluated=101/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=104, evaluated=101/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=104, evaluated=101/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=104, evaluated=101/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=104, evaluated=101/120, idle=40s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=104, evaluated=101/120, idle=50s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=104, evaluated=101/120, idle=60s)
+INFO:alpha_evolve.workers:Candidate 13770176987154883736 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=104, evaluated=101/120, idle=72s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=104, evaluated=102/120, idle=6s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154883384
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154883384
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=105, evaluated=102/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=105, evaluated=102/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=105, evaluated=102/120, idle=25s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884998
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884998
+INFO:alpha_evolve.controller:Progress: generated=106, evaluated=102/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=41s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=51s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=61s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=72s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=82s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=102/120, idle=92s)
+INFO:alpha_evolve.workers:Candidate 13770176987154884541 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=103/120, idle=2s)
+INFO:alpha_evolve.workers:Candidate 13770176987154883082 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=103/120, idle=12s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=104/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=104/120, idle=18s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=104/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=104/120, idle=38s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=104/120, idle=49s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=106, evaluated=104/120, idle=59s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154883099
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154883099
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=107, evaluated=104/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=107, evaluated=104/120, idle=13s)
+INFO:alpha_evolve.workers:Candidate 13770176987154883384 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=107, evaluated=105/120, idle=2s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=107, evaluated=105/120, idle=12s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154886126
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154886126
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154886650
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154886650
+INFO:alpha_evolve.controller:Progress: generated=109, evaluated=105/120, queued=0
+INFO:alpha_evolve.workers:Candidate 13770176987154884998 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=105/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=9s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=19s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=29s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=39s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=49s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=60s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=70s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=80s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=90s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=101s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=111s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=121s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=109, evaluated=106/120, idle=131s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154885254
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154885254
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=106/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=106/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=106/120, idle=23s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=106/120, idle=34s)
+INFO:alpha_evolve.workers:Candidate 13770176987154883099 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Progress: generated=110, evaluated=107/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=107/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=107/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=107/120, idle=30s)
+INFO:alpha_evolve.workers:Candidate 13770176987154886126 evaluated → eaqecc_score=993.0000, targets_closed=0.0000, best_offending=7.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=108/120, idle=2s)
+INFO:alpha_evolve.workers:Candidate 13770176987154886650 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=109/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=109/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=109/120, idle=26s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=110, evaluated=109/120, idle=36s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884772
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884772
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=8s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=18s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=38s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=49s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=59s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=69s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=79s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=90s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=100s)
+INFO:alpha_evolve.workers:Candidate 13770176987154885254 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=111, evaluated=109/120, idle=110s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884315
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884315
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=112, evaluated=110/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154886600
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154886600
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=113, evaluated=110/120, idle=8s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=113, evaluated=110/120, idle=18s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=113, evaluated=110/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=113, evaluated=110/120, idle=38s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=113, evaluated=110/120, idle=49s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=113, evaluated=110/120, idle=59s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=113, evaluated=110/120, idle=70s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154883007
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154883007
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=114, evaluated=110/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=114, evaluated=110/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=114, evaluated=110/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=114, evaluated=110/120, idle=34s)
+INFO:alpha_evolve.workers:Candidate 13770176987154884772 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=114, evaluated=111/120, idle=6s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154883984
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154883984
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=17s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=27s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=37s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=48s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=58s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=68s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=78s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=88s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=111/120, idle=98s)
+INFO:alpha_evolve.workers:Candidate 13770176987154884315 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=115, evaluated=112/120, idle=1s)
+INFO:alpha_evolve.workers:Candidate 13770176987154886600 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154885682
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154885682
+INFO:alpha_evolve.controller:Progress: generated=116, evaluated=113/120, queued=0
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154882588
+INFO:alpha_evolve.controller:Progress: generated=117, evaluated=113/120, queued=1
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154882588
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=113/120, idle=10s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=113/120, idle=20s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=113/120, idle=30s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=113/120, idle=40s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=113/120, idle=50s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=113/120, idle=61s)
+INFO:alpha_evolve.workers:Candidate 13770176987154883007 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=114/120, idle=6s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=114/120, idle=16s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=114/120, idle=26s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=114/120, idle=36s)
+INFO:alpha_evolve.workers:Candidate 13770176987154883984 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=114/120, idle=47s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=117, evaluated=115/120, idle=8s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154883850
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154883850
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=7s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=17s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=28s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=39s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=49s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=60s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=70s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=80s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=90s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=115/120, idle=101s)
+INFO:alpha_evolve.workers:Candidate 13770176987154885682 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=116/120, idle=3s)
+INFO:alpha_evolve.workers:Candidate 13770176987154882588 evaluated → eaqecc_score=997.0000, targets_closed=0.0000, best_offending=3.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=118, evaluated=117/120, idle=5s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154885112
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154885112
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=5s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=15s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=25s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=36s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=46s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=56s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=67s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=78s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=88s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=98s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=117/120, idle=108s)
+INFO:alpha_evolve.workers:Candidate 13770176987154883850 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=119, evaluated=118/120, idle=3s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154884940
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154886592
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154884940
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154886592
+INFO:alpha_evolve.controller:Progress: generated=121, evaluated=118/120, queued=0
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=121, evaluated=118/120, idle=10s)
+INFO:alpha_evolve.workers:Acquired 1 new candidate(s): 13770176987154882781
+INFO:alpha_evolve.workers:Evaluating candidate 13770176987154882781
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=34s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=44s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=54s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=64s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=76s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=118/120, idle=86s)
+INFO:alpha_evolve.workers:Candidate 13770176987154885112 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=3s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=13s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=24s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=35s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=45s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=55s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=66s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=78s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=89s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=99s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=110s)
+INFO:alpha_evolve.controller:Waiting for the backend to generate candidates... (generated=122, evaluated=119/120, idle=120s)
+INFO:alpha_evolve.workers:Candidate 13770176987154884940 evaluated → eaqecc_score=998.0000, targets_closed=0.0000, best_offending=2.0000
+INFO:alpha_evolve.workers:Candidate 13770176987154886592 evaluated → eaqecc_score=-1000000000.0000, targets_closed=0.0000, best_offending=1000000000.0000
+INFO:alpha_evolve.controller:Stopping criteria met (120/120 programs evaluated).
+INFO:alpha_evolve.controller:Evolution loop terminated.
+INFO:alpha_evolve.experiment:Listing programs with params: None
+
+=== 100 programs in experiment ===
+rank 1: score=999.0 name=17715826764135265233
+rank 2: score=999.0 name=17715826764135265919
+rank 3: score=999.0 name=17715826764135267395
+rank 4: score=999.0 name=17715826764135267339
+rank 5: score=999.0 name=13770176987154882616
+rank 6: score=998.0 name=17715826764135265091
+rank 7: score=998.0 name=17715826764135265189
+rank 8: score=998.0 name=17715826764135265385
+rank 9: score=998.0 name=17715826764135267424
+rank 10: score=998.0 name=17715826764135264387
+rank 11: score=998.0 name=17715826764135264819
+rank 12: score=998.0 name=17715826764135268053
+rank 13: score=998.0 name=17715826764135266466
+rank 14: score=998.0 name=17715826764135267838
+rank 15: score=998.0 name=17715826764135264546

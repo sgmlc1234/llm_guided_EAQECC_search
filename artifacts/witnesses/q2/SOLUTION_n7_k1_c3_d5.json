@@ -1,0 +1,1 @@
+{"target": {"n": 7, "k": 1, "c": 3, "d": 5, "dl": 4, "j": 3, "dim": 5}, "generators": [3077, 7170, 7176, 13328, 7200, 9280, 1152, 14592, 2560], "verified": {"s": 9, "c": 3, "iso": 3, "k": 1, "d": 5, "offending": 0}, "provenance": "normal-form SAT (long run)"}

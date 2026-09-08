@@ -1,0 +1,1 @@
+{"target": {"n": 5, "k": 1, "c": 2, "d": 4}, "generators": [261, 770, 776, 336, 544, 640], "verified": {"n": 5, "s": 6, "c": 2, "iso": 2, "k": 1, "d": 4, "offending": 0}, "provenance": "closed-form family theorem"}

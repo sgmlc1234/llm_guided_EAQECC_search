@@ -1,0 +1,4 @@
+# Test and lint tooling. Not needed to reproduce anything.
+-r requirements.txt
+pytest>=7
+ruff>=0.4

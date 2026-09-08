@@ -1,0 +1,5 @@
+# Only for regenerating figures from the archived run records:
+#   scripts/eaqecc_baselines/summarize.py --plot
+# The reproduction command does not import matplotlib.
+-r requirements.txt
+matplotlib>=3.7

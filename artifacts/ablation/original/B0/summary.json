@@ -1,0 +1,22 @@
+{
+ "arm": "B0",
+ "program": "scripts/eaqecc_baselines/seed_naive_sa.py",
+ "target_set": "original",
+ "n_targets": 68,
+ "rounds": 240,
+ "budget_s": 240.0,
+ "total_search_s": 57600.0,
+ "actual_search_s": 57610.48894095421,
+ "crashed_rounds": 0,
+ "wall_s": 9605.115307807922,
+ "seed0": 20260814,
+ "closed": [
+  "[[7,1,6;4]]",
+  "[[9,1,8;6]]"
+ ],
+ "n_closed": 2,
+ "first_closure_compute_s": {
+  "[[7,1,6;4]]": 240.0,
+  "[[9,1,8;6]]": 19680.0
+ }
+}

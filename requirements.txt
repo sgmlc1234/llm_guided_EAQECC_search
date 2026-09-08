@@ -1,0 +1,7 @@
+# Core: everything needed to re-derive the archived results.
+#
+# scripts/reproduce_eaqecc.py needs this and nothing else -- no solver, no
+# network, no cloud credentials. numpy 2.0 is a hard floor, not a
+# preference: the exact evaluator counts symplectic weight with
+# np.bitwise_count, which was added in 2.0.
+numpy>=2.0

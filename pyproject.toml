@@ -1,0 +1,17 @@
+# Tooling configuration only. The artifact is run as scripts, not installed
+# as a package: `python3 scripts/reproduce_eaqecc.py` is the interface.
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+extend-exclude = ["artifacts", "scripts/alphaevolve_eaqecc/program.py",
+                  "scripts/eaqecc_baselines/seed_*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B"]
+# The encoders and verifiers are archival instruments; their one-line
+# assert/print style is left as written.
+ignore = ["E501", "E402", "B007", "E701", "E702", "E731", "E741", "B023", "F841"]

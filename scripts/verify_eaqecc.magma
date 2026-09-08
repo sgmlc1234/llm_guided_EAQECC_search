@@ -1,0 +1,94 @@
+// Independent re-verification of our EAQECC parameters in Magma.
+//
+// Input: only a basis of L = S^perp over F_q for each code.  Magma re-derives
+// everything with its own linear algebra and its own weight routine:
+//     S    := L^perp   (symplectic dual, Magma Nullspace)
+//     rad  := L meet S
+//     c    := (dim S - dim rad)/2,      k := n - dim S + c
+//     d    := min symplectic weight over L \ rad
+// Symplectic weight is evaluated as the Hamming weight of the image under
+// (x_i, z_i) |-> x_i + w z_i  in K = GF(q^2), so Magma's built-in Weight()
+// does the counting — an implementation independent of ours in every step.
+//
+// Usage:  magma -b eaqecc_data.m verify_eaqecc.magma
+
+SetColumns(0);
+
+npass := 0; nfail := 0; failures := [];
+
+for rec in DATA do
+    q := rec[1]; n := rec[2]; kc := rec[3]; dc := rec[4]; cc := rec[5];
+    rows := rec[6]; tag := rec[7];
+
+    // ---- field and our integer encoding -> field elements ----
+    if q eq 4 then
+        F<w4> := GF(4);  E := [F!0, F!1, w4, w4 + 1];
+    else
+        F := GF(q);      E := [F!i : i in [0 .. q - 1]];
+    end if;
+    V := VectorSpace(F, 2 * n);
+
+    // ---- symplectic form ----
+    J := ZeroMatrix(F, 2 * n, 2 * n);
+    for i in [1 .. n] do
+        J[2*i - 1, 2*i] :=  F!1;
+        J[2*i, 2*i - 1] := -F!1;
+    end for;
+
+    L := sub< V | [V ! [E[x + 1] : x in row] : row in rows] >;
+    m := Dimension(L);
+    Lmat := Matrix(F, [Eltseq(b) : b in Basis(L)]);
+
+    // ---- S = L^perp :  { u : u * (J * Lmat^T) = 0 } ----
+    S := Nullspace(J * Transpose(Lmat));
+    error if Degree(S) ne 2 * n or Dimension(S) ne 2 * n - m,
+        "dual space wrong for " cat tag;
+    for u in Basis(S) do
+        for l in Basis(L) do
+            error if (Matrix(u) * J * Transpose(Matrix(l)))[1,1] ne 0,
+                "orthogonality check failed for " cat tag;
+        end for;
+    end for;
+    Ssub := sub< V | [V ! Eltseq(b) : b in Basis(S)] >;
+
+    rad := L meet Ssub;
+    s := Dimension(Ssub);  iso := Dimension(rad);
+    error if not IsEven(s - iso), "odd symplectic rank for " cat tag;
+    c := (s - iso) div 2;
+    k := n - s + c;
+
+    // ---- symplectic weight via GF(q^2) Hamming weight ----
+    K := GF(q^2);  Embed(F, K);
+    ww := [x : x in K | not x in {K ! y : y in F}][1];   // w notin F_q
+    W := VectorSpace(K, n);
+    phi := function(v)
+        return W ! [ (K ! v[2*i - 1]) + ww * (K ! v[2*i]) : i in [1 .. n] ];
+    end function;
+
+    bas := ExtendBasis(rad, L);          // first `iso` span rad
+    reps := [bas[i] : i in [iso + 1 .. m]];
+    tq := #reps;
+    error if tq ne 2 * k, "quotient dimension is not 2k for " cat tag;
+    radimgs := [phi(r) : r in rad];
+
+    d := n + 1;
+    for cc in CartesianPower(Set(F), tq) do
+        if &and[cc[i] eq 0 : i in [1 .. tq]] then continue; end if;
+        base := phi(&+[cc[i] * reps[i] : i in [1 .. tq]]);
+        for ri in radimgs do
+            wt := Weight(base + ri);
+            if wt lt d then d := wt; end if;
+        end for;
+    end for;
+
+    good := (k eq kc) and (c eq cc) and (d eq dc);
+    if good then npass +:= 1; else
+        nfail +:= 1; Append(~failures, <tag, kc, dc, cc, k, d, c>);
+    end if;
+    printf "%-36o q=%o  claimed [[%o,%o,%o;%o]]  magma [[%o,%o,%o;%o]]  %o\n",
+        tag, q, n, kc, dc, cc, n, k, d, c, good select "OK" else "MISMATCH";
+end for;
+
+printf "\n===== %o verified, %o mismatches =====\n", npass, nfail;
+for f in failures do print f; end for;
+quit;

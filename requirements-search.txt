@@ -1,0 +1,11 @@
+# Only for evolving NEW programs against AlphaEvolve on Google Cloud.
+# Replaying the archived search needs none of this -- see
+# docs/alphaevolve_gcp_setup.md for the boundary.
+-r requirements.txt
+google-auth>=2.0
+requests>=2.28
+nest-asyncio>=1.5
+pydantic>=2.7
+# Google's public client for AlphaEvolve on Cloud (Apache-2.0), pinned to
+# the commit the campaigns ran against.
+alpha_evolve @ git+https://github.com/Google-Cloud-AI/alphaevolve-on-googlecloud.git@8693985fa0eebf1a3b8fe2a64b7594e74ddb6557

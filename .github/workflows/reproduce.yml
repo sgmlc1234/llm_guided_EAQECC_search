@@ -1,0 +1,67 @@
+name: reproduce
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 6 1 * *"   # monthly: the archive must keep re-deriving on a fresh machine
+
+jobs:
+  deterministic:
+    name: deterministic tier (py${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements-dev.txt
+      - name: archive matches manifest
+        run: python scripts/make_manifest.py --check
+      - name: re-derive every deterministic claim
+        run: python scripts/reproduce_eaqecc.py --tier deterministic
+      - name: negative controls and evaluator tests
+        run: python -m pytest -q tests/test_auditor_negative_controls.py tests/test_evaluator.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reproduction-report-py${{ matrix.python }}
+          path: artifacts/reproduce_eaqecc/
+
+  external:
+    name: refutations with a real solver and checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y cadical drat-trim
+      - run: python -m pip install -r requirements.txt
+      - name: re-decide and replay every certified refutation
+        run: python scripts/reproduce_eaqecc.py --claim refutations
+
+  search:
+    name: search tier (seeded replay, bit for bit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python scripts/reproduce_eaqecc.py --claim search-determinism
+      - run: python -m pytest -q tests/test_search_determinism.py
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install ruff
+      - run: ruff check scripts tests
