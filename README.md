@@ -3,7 +3,7 @@
 A research pipeline that develops executable search programs from researcher
 proposals and exact feedback, then independently checks the resulting codes.
 This repository contains the paper, generated programs, complete controlled-study
-records, witnesses, proof certificates and reproducibility tools.
+records, codes, proof certificates and reproducibility tools.
 
 [Paper](paper/iclr2027/paper/main.pdf) · [Start reproducing](docs/REVIEWER_GUIDE.md) · [Result-to-evidence map](docs/RESULTS_AND_EVIDENCE.md) · [Validation record](docs/VALIDATION.md) · [SAT & Magma setup](docs/EXTERNAL_VERIFICATION.md)
 
@@ -13,9 +13,9 @@ records, witnesses, proof certificates and reproducibility tools.
   <img src="paper/iclr2027/figures/discovery_pipeline.png" alt="Figure 1: researcher-guided program evolution, exact verification and certified code discovery" width="900">
 </p>
 
-Researchers supply mathematical directions, inspect verified witnesses and refine
+Researchers supply mathematical directions, inspect verified codes and refine
 the next task. The LLM evolves a search program; an exact evaluator supplies its
-feedback. Independent witness checks establish constructions, while checked SAT
+feedback. Independent code checks establish constructions, while checked SAT
 certificates establish exclusions. The program, the code it constructs and the
 proof of a bound are distinct outputs with distinct evidence.
 
@@ -41,7 +41,7 @@ per target, while the initial program has eight executions per target. All use
 0.239 for independent proposals and 0.358 for iterative evolution; the direction
 of the difference varies across the four generation blocks.
 
-**Generalization to longer codes.** The program shown in Algorithm 1,
+**Generalization to longer codes.** The supplementary program shown in Algorithm 2,
 [`b02_evolution_g02`](experiments/hitl_ablation/candidates/b02_evolution_g02/program.py),
 reconstructs both the length-13 and length-15 targets in **3/4 executions each**
 under a separate 30,000-call allowance. These lengths were withheld during
@@ -49,11 +49,11 @@ training and selection. Across all selected programs, the longer-length outcome
 is 6/32 for iterative evolution and 0/32 for independent proposals; all six
 successes come from that one program.
 
-[Study protocol and records](experiments/hitl_ablation/README.md) · [Replay instructions](docs/REVIEWER_GUIDE.md#3-re-execute-algorithm-1-and-the-policy-comparison)
+[Study protocol and records](experiments/hitl_ablation/README.md) · [Replay instructions](docs/REVIEWER_GUIDE.md#3-re-execute-the-programs-and-the-policy-comparison)
 
 ## Verified mathematical results
 
-| Core witness files | Listed gaps closed by the family and ebit lifting | Certified exclusions |
+| Core code records | Listed gaps closed by the family and ebit lifting | Certified exclusions |
 |:---:|:---:|:---:|
 | **115** across q=2,3,4,5 | **54** | **10** |
 
@@ -62,30 +62,36 @@ successes come from that one program.
 </p>
 
 The map distinguishes a verified construction, a certified exclusion and a
-search that found no witness. Its construction markers classify entanglement
+search that found no code. Its construction markers classify entanglement
 cost relative to the displayed family; they do not by themselves assert optimality.
 Applying the known EA-Plotkin bound separately tightens **398** listed upper bounds.
 An archived Magma run checks **148/148** objects with zero mismatches. A fresh
 Magma check requires the [separate installation](docs/EXTERNAL_VERIFICATION.md#2-magma).
 Nine CNF/DRAT pairs are shipped; the tenth proof is generated on demand.
 
-The 115 core witness files and the controlled study's 235 witness files are
+The 115 core code records and the controlled study's 235 code records are
 separate collections. Repeated runs are not counted as additional new parameter
-sets. [Every row of Tables 1 and 2 has a witness link](docs/RESULTS_AND_EVIDENCE.md).
+sets. [Every row of Tables 1 and 2 has a code link](docs/RESULTS_AND_EVIDENCE.md).
 
-## How researcher guidance entered the earlier campaigns
+## How the search program changed
 
 <p align="center">
-  <img src="paper/iclr2027/figures/historical_program.png" alt="Figure 2: historical construction development from an annealing seed to cyclic shifts, researcher write-back and wider shifts" width="760">
+  <img src="paper/iclr2027/figures/program_evolution.png" alt="Figure 2: campaign seed versus Algorithm 1, comparing fixed and progress-dependent target sampling, fresh initialization and resumed search, and local Pauli updates with added generator-row rotation" width="900">
 </p>
 
-This is the historical cyclic-construction sequence from Figure 2. The task
-specification suggested cyclic shifts; generated programs implemented and extended
-the construction, and later tasks incorporated the mathematical findings.
-Algorithm 1 and the controlled comparison above concern a different, preserved
-program that searches the symplectic dual.
+Algorithm 1 presents the archived
+[evolved search program](artifacts/campaigns/run9_top_programs/rank05_1001000.py).
+Compared with its campaign seed, it uses progress-dependent target probabilities,
+resumes eligible attempts from the target's stored best proposal, and adds cyclic
+rotation of an entire generator row during repair. The seed already stored best
+proposals for output; Algorithm 1 feeds those records back into the search.
 
-[Original task specifications](artifacts/campaigns/prompts/) · [Historical programs](artifacts/campaigns/run9_top_programs/) · [Figure regeneration](docs/paper_figures.md)
+The figure is a schematic of actual code changes, not a performance comparison.
+Cyclic and block constructions were already available in the seed. The separate
+controlled study above measures iterative program feedback; its supplementary
+dual-space program is Algorithm 2 in Appendix D.4.
+
+[Original program](artifacts/campaigns/run9_top_programs/rank05_1001000.py) · [Campaign seed](scripts/alphaevolve_eaqecc/program.py) · [Replay instructions](docs/REVIEWER_GUIDE.md#3-re-execute-the-programs-and-the-policy-comparison) · [Figure regeneration](docs/paper_figures.md)
 
 ## Reproduction details accompanying Appendix C
 
@@ -96,8 +102,8 @@ expected results. For a direct result-to-file lookup use
 
 | Goal | Command from the repository root | Expected result |
 |---|---|---|
-| Check mathematical evidence | `python3 scripts/reproduce_eaqecc.py --tier deterministic` | 115 core witnesses, 54 family gap closures, 398 upper-bound corrections; PASS |
-| Inspect Tables 1 and 2 | `python3 scripts/paper_results.py` | All 18 rows linked to witnesses, 13 historical intervals checked |
+| Check mathematical evidence | `python3 scripts/reproduce_eaqecc.py --tier deterministic` | 115 core codes, 54 family gap closures, 398 upper-bound corrections; PASS |
+| Inspect Tables 1 and 2 | `python3 scripts/paper_results.py` | All 18 rows linked to codes, 13 historical intervals checked |
 | Audit the controlled study | `python3 scripts/eaqecc_ablation/audit.py` | Selection and prompts verified; 21/64 vs 38/64 main-test successes |
 | Re-execute selected programs | `python3 scripts/eaqecc_ablation/replay_selected.py --out ../checks/replay` | 208 archived executions matched; requires the recorded macOS sandbox backend |
 | Replay historical programs | `python3 scripts/reproduce_eaqecc.py --claim search-determinism` | 12 proposal lists match at nominal N=5,000 |
@@ -152,9 +158,9 @@ would hide the one distinction that matters.
 | `witnesses` | deterministic | recomputes $(n,k,d;c)$ for 115 archived codes from generators alone, at $q=2,3,4,5$ |
 | `families` | deterministic | instantiates the closed forms $[[n,1,n-1;n-q-1]]_q$ at every $q$, verifies each member, counts the listed-open cells they settle |
 | `table-correction` | deterministic | recomputes 398 EA-Plotkin corrections to listed upper bounds from the snapshot |
-| `openness` | deterministic | reports table-relative witness status; separates 65 q=2 files from 61 unique parameter cells |
-| `solver-refinement` | deterministic | independently recomputes two refinement witnesses and checks their upper-bound links |
-| `novelty-drift` | deterministic | compares q=2,3 bounds and unique witness cells across snapshots; does not infer independent authorship |
+| `openness` | deterministic | reports table-relative code status; separates 65 q=2 files from 61 unique parameter cells |
+| `solver-refinement` | deterministic | independently recomputes two refinement codes and checks their upper-bound links |
+| `novelty-drift` | deterministic | compares q=2,3 bounds and unique code cells across snapshots; does not infer independent authorship |
 | `refutations` | external | re-decides all 10 archived CNFs and replays available DRAT proofs; separately checks the qutrit normalization metadata |
 | `magma-crosscheck` | external | re-runs Magma locally or with explicit MAGMA_SSH_HOST; otherwise reports the archived log as archive-only evidence |
 | `search-determinism` | search | replays three programs × four seeds under an evaluation budget, bit for bit |
@@ -175,7 +181,7 @@ python3 scripts/reproduce_eaqecc.py --claim witnesses
 
 An auditor that only ever says `PASS` proves nothing, so
 `tests/test_auditor_negative_controls.py` damages a private copy of the
-archive in each of the ways that would flatter us --- a missing witness, a
+archive in each of the ways that would flatter us --- a missing code, a
 forged generator, a truncated snapshot (which makes results look *more*
 novel), a schema break deep in the table, an altered correction list, a
 solver that lies --- and asserts the auditor fails.
@@ -271,7 +277,7 @@ The balanced comparison contains 56 proposals (seven per policy and block),
 rather than the planned 96, after two consecutive unavailable model responses.
 The completion-only truncation rule was frozen before validation and test.
 The bundle retains all 60 attempted requests, 58 received responses, later
-excluded proposals, interruption amendments and independently checked witnesses.
+excluded proposals, interruption amendments and independently checked codes.
 
 ```bash
 python3 scripts/eaqecc_ablation/audit.py

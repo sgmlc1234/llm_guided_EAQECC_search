@@ -44,6 +44,9 @@
 \setcounter{bottomnumber}{1}
 \setcounter{totalnumber}{3}
 
+\newcommand{\algdelta}[1]{\begingroup\setlength{\fboxsep}{0.65pt}\colorbox{achieve!13}{#1}\endgroup}
+\newcommand{\algside}[1]{\Comment{\parbox[t]{.34\linewidth}{\raggedright\footnotesize #1}}}
+
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newcommand{\F}{\mathbb{F}}
@@ -65,7 +68,7 @@ verifying a result and reproducing the search that produced it are
 separate requirements. We study both for entanglement-assisted quantum
 error-correcting codes (EAQECCs), using targets derived from tabulated
 EAQECC bounds and an exact symplectic evaluator. The core construction archive
-contains 115 verified code witnesses, a closed-form construction
+contains 115 verified codes, a closed-form construction
 $[[n,1,n-1;n-q-1]]_q$ for every prime power at the stated admissible
 lengths, and ten nonexistence results backed by DRAT certificates.
 The construction and ebit lifting settle 54 listed gaps; applying the
@@ -75,10 +78,10 @@ programs using an evaluation-based stopping rule. It does not reproduce
 the LLM sampling that generated those programs. The pipeline supports researcher proposals that change the search
 representation and can be developed through program-level feedback.
 Under identical guidance to search the symplectic dual, a four-block
-comparison yields 38/64 successful held-out executions for iterative
-program development and 21/64 for independent proposals. One
-validation-selected later-generation program also reconstructs the
-length-13 and length-15 targets in three of four executions each.
+comparison increases held-out success from 50.0\% to 68.8\% at $n=9$
+and from 15.6\% to 50.0\% at $n=11$ when independent proposals are
+replaced by iterative program development. One validation-selected
+later-generation program achieves 75.0\% success at each of $n=13,15$.
 \end{abstract}
 
 %==============================================================
@@ -120,7 +123,7 @@ a complete history of improvement attempts.
   (Section~\ref{sec:related}).
 \item \textbf{A researcher-guided pipeline and reproduction protocol.}
   Researchers can revise construction ideas and campaign targets through
-  archived task specifications. The auditor checks witnesses, family
+  archived task specifications. The auditor checks codes, family
   instances, table comparisons, nonexistence evidence and prompt provenance. A virtual
   clock tied to evaluator calls makes fixed-program search replayable
   under an evaluation-based stopping rule; negative controls test
@@ -128,7 +131,7 @@ a complete history of improvement attempts.
 \item \textbf{EAQECC constructions and nonexistence results.}
   A closed form at distance $n-1$ settles 54 listed gaps, including
   qutrit entries obtained by ebit lifting. We also archive finite
-  witnesses using less entanglement and nonexistence results that
+  codes using less entanglement and nonexistence results that
   establish minimum entanglement at specified lengths. Applying the
   known EA-Plotkin bound tightens 398 listed upper bounds
   (Tables~\ref{tab:results} and~\ref{tab:results-qudit}).
@@ -154,7 +157,7 @@ Our discovery pipeline combines human-in-the-loop (HITL) research with
 LLM-guided program evolution and exact verification. Researchers propose
 construction ideas, inspect verified instances and revise the task between
 campaigns. Figure~\ref{fig:overview} connects these interventions to the
-automated search and evaluation loop. Code witnesses establish lower
+automated search and evaluation loop. Constructed codes establish lower
 distance bounds; SAT refutations with checked certificates lower upper
 bounds. Independent verification and archived evidence support both routes.
 The resulting constructions can inform further searches and human
@@ -175,7 +178,12 @@ contains identical intervals at all 11,640 qubit and qutrit entries.
 
 \subsection{LLM-guided program evolution}
 
-In the archived discovery campaigns, an LLM modifies a designated block of a seed program. Each candidate
+The discovery campaigns use AlphaEvolve~\citep{AlphaEvolve} through
+Google Cloud Vertex AI. We provide a seed program, a task specification
+and an exact evaluator; AlphaEvolve manages model-generated revisions
+and uses returned scores and feedback to guide further program evolution.
+The controller evaluates candidates in parallel and archives their source
+and results. An LLM modifies a designated block of the seed. Each candidate
 program searches the target list and returns up to 16 proposals. The
 external evaluator checks these proposals, assigns the candidate its
 best proposal score, and supplies numerical and textual feedback for
@@ -192,7 +200,6 @@ The four campaign logs record $401$ completed candidate searches,
 corresponding to $26.7$\,h of allocated search budget
 (Appendix~\ref{app:campaign}).
 
-\paragraph{Researcher-guided campaign updates.}
 Researchers can add construction ideas through the task specification
 while retaining the evaluator and execution interface. In this study,
 the initial program used annealing, while the researcher-written
@@ -206,15 +213,6 @@ The archived specifications document these updates
 next campaign; those later seeds are consequently not independent
 baselines for rediscovering the earlier instances.
 
-\input{fig_program}
-
-\paragraph{Historical construction development.}
-Figure~\ref{fig:lineage} shows the earlier cyclic-construction sequence:
-a researcher proposal was implemented, reused in a later seed and
-modified through wider shifts and wrap correction. The archived tasks
-(Appendix~\ref{app:prompts}) document this historical development, separately
-from the dual-space example.
-
 \subsection{Independent verification}
 
 The Magma export represents each code as a basis of the symplectic dual
@@ -222,11 +220,11 @@ $L=S^{\perp}$, where $S$ spans its stabilizer generators
 (Appendix~\ref{app:symplectic}), without derived quantities.
 Magma recomputes the symplectic dual, radical,
 and $k,c,d$ independently of the Python implementation. The full export
-contains the $115$ core witnesses at $q=2,3,4,5$ and $33$ family instances.
+contains the $115$ core codes at $q=2,3,4,5$ and $33$ family instances.
 All $148$ objects were re-verified with $0$ mismatches under Magma
 V2.28-20. A separate binary linear-algebra implementation also checks
 the two solver-refined qubit results below. Magma provides additional
-corroboration; every archived witness can also be checked in Python
+corroboration; every archived code can also be checked in Python
 (Appendix~\ref{app:repro}).
 
 %==============================================================
@@ -241,15 +239,17 @@ that every satisfying assignment is already an EAQECC. The distance
 constraints account for most of the encoding, and the encoding is given in
 Appendix~\ref{app:sat}.
 
-A DRAT checker verifies nonexistence certificates independently of the
-solver~\citep{DRATtrim}. The qutrit encoding uses a coordinate-normalization
+For an unsatisfiable encoding, the SAT solver produces a DRAT proof,
+a certificate of unsatisfiability checked independently by
+DRAT-trim~\citep{DRATtrim}. Together with the encoding's completeness,
+this establishes the corresponding code nonexistence result. The qutrit encoding uses a coordinate-normalization
 lemma to preserve completeness. Appendix~\ref{app:sat} gives the proof
 scope and encoding, and Section~\ref{sec:optimality-results} reports the
 certified results.
 
 \subsection{Reproducibility}\label{sec:repro}
 
-The auditor checks witnesses, family instances, nonexistence evidence,
+The auditor checks codes, family instances, nonexistence evidence,
 reference bounds and prompt provenance, and reports which checks were
 completed (Appendix~\ref{app:repro}). Fixed-program replay replaces wall
 time with a virtual clock tied to evaluator calls, preserving each
@@ -265,14 +265,19 @@ protocol and execution costs.
 \section{Results}\label{sec:results}
 %==============================================================
 
-An evolved search program is a primary pipeline output.
-Algorithm~\ref{alg:search} presents the validation-selected block-3
-program evaluated in Section~\ref{sec:ablation}; its annotations mark
-changes from the immediate parent. The code constructions and certified
-exclusions below combine earlier campaigns, researcher generalization
-and solver refinement.
+Algorithm~\ref{alg:search} presents one of the
+highest-scoring archived programs from the AlphaEvolve construction
+campaign. Figure~\ref{fig:lineage} compares three changes with its campaign
+seed: progress-dependent target selection, reuse of a stored proposal for
+initialization, and cyclic rotation of a whole generator during repair.
+The seed already stored best proposals for output; the evolved program
+also uses those records to guide subsequent search. Shading marks these
+principal changes. The controlled policy comparison in Section~\ref{sec:ablation}
+uses separately generated programs, including Algorithm~\ref{alg:ablation-search}
+in Appendix~\ref{app:hitl-program}.
 
 \input{alg_search}
+\input{fig_program}
 
 \subsection{Distance improvements}\label{sec:distance-results}
 
@@ -287,15 +292,15 @@ No historical interval is assigned where no comparison entry exists.
 
 \input{tab_results}
 
-The tables describe individual codes. Algorithm~\ref{alg:search} is an
-executable search procedure; its success rates and search
-costs are evaluated separately in Section~\ref{sec:ablation}.
+The tables report codes obtained across discovery campaigns, family
+constructions and solver refinement. Section~\ref{sec:ablation} separately
+evaluates the programs generated in the controlled study.
 The daggered $n=13,15$ results show that the evolved program also
 constructs codes at lengths not used for training or selection (Section~\ref{sec:longer-codes}). The $n=15$ row adds a finite construction to the table;
 these parameters are already covered by the family theorem and are not
 counted again among its 54 gap closures.
 
-Our witnesses and the upper bounds close all nine listed qubit gaps
+Our codes and the upper bounds close all nine listed qubit gaps
 in Table~\ref{tab:results}. At $(n,k,c)=(10,1,6)$ and $(12,1,8)$,
 the distance increases by two. Five odd-length family instances also
 close listed gaps and are included in the family count below. The two
@@ -311,13 +316,13 @@ The other eight qubit baselines and the four displayed qutrit baselines
 follow from the 2022 version of \citet{Luo2022}. Appendix~\ref{app:bound-history}
 records the source codes and propagation rules for each cell.
 
-The 65 core qubit witness files cover 61 distinct $(n,k,c)$ cells: eight listed
-and 53 absent cells. The 27 qutrit witnesses comprise 15 improvements
+The 65 core qubit code records cover 61 distinct $(n,k,c)$ cells: eight listed
+and 53 absent cells. The 27 qutrit codes comprise 15 improvements
 to listed entries, 11 constructions at absent cells and one code whose
-distance is already listed. Multiple witnesses at one cell are not
+distance is already listed. Multiple codes at one cell are not
 counted as separate table entries. Four of these listed core cells overlap the
 family results in Section~\ref{sec:family-results}. The additional
-$n=15$ witness is kept in the controlled-study archive, separately from
+$n=15$ code record is kept in the controlled-study archive, separately from
 these core-file counts.
 
 \subsection{Code families and reduced entanglement}\label{sec:family-results}
@@ -330,12 +335,12 @@ At $q=3$, increasing the supplied entanglement by one pair gives codes
 at $c=n-3$, closing another 25 listed gaps. Together, these constructions
 settle 54 listed entries in the archived tables.
 
-Additional finite witnesses attain $d=n-1$ at $c=n-q-2$.
+Additional constructions attain $d=n-1$ at $c=n-q-2$.
 The displayed $q=4,5$ examples include $[[10,1,9;4]]_4$ and
 $[[12,1,11;5]]_5$, requiring four and five shared pairs, respectively.
 These constructions establish achievable
 entanglement costs; smaller costs at $q=4,5$ have not been excluded.
-The archive contains 13 witnesses at $q=4$ and 10 at $q=5$.
+The archive contains 13 codes at $q=4$ and 10 at $q=5$.
 Table~\ref{tab:results-qudit} selects those using the least entanglement
 reached at the displayed lengths.
 
@@ -346,7 +351,7 @@ and target distance $n-1$. Teal at $(q,n,c)$ denotes a construction
 with distance at least $n-1$. The white tick, solid fill and
 pale fill distinguish $c=n-q-1$, smaller $c$ and larger $c$, respectively;
 these are positions relative to the family line, not claims of minimum
-entanglement. Pale cells may have direct witnesses or follow from ebit
+entanglement. Pale cells correspond to explicit constructions or ebit
 lifting. Red cells are excluded by released, checked certificates or
 by their implications at smaller $c$ through ebit lifting. A dotted
 outline records an unsuccessful search, not nonexistence. Unmarked gray
@@ -358,17 +363,17 @@ bound in this regime (Appendix~\ref{app:tables}).
 
 Solver refinement settles the two remaining qubit gaps from
 Table~\ref{tab:results}. Normal-form SAT finds $[[12,2,9;9]]_2$,
-improving our previous $d=8$ witness. EA-Plotkin gives
+improving our previous $d=8$ code. EA-Plotkin gives
 $d\le\lfloor144/15\rfloor=9$, so the new code is distance-optimal.
 At $(n,k,c)=(13,1,8)$, a DRAT-certified refutation excludes $d\ge12$;
-our existing $d=11$ witness is therefore optimal. Both witnesses are
+our existing $d=11$ code is therefore optimal. Both codes are
 checked by separate binary linear-algebra code, and DRAT-trim replays
 the nonexistence certificate. We attribute these two closures to solver refinement.
 
 Matching nonexistence results also establish minimum entanglement at
 selected lengths. For qubits at $k=1$, $d=n-1$, the minimum is $n-3$
 at $n=7,9,11$ and $n-4$ at $n=6,8,10$. For qutrits, the certified
-exclusion of $[[10,1,9;4]]_3$ and a witness at $c=5$ give
+exclusion of $[[10,1,9;4]]_3$ and a code at $c=5$ give
 $\cmins(10,1,9)=5$. These exclusions have checked DRAT certificates,
 with one large qubit proof regenerated on demand. Two further certified
 exclusions, $[[5,2,4;3]]_2$ and $[[6,2,5;4]]_2$, were also checked by
@@ -398,7 +403,7 @@ $[[9,1,8;6]]_2$ and $[[11,1,10;8]]_2$, this replaces a basis of 14 or
 the feasible code set but changes the variables and local mutations.
 A preliminary calibration compares the initial $S$-side program with
 a working $L$-side control and fixes a budget at which the change can
-produce measurable success. Neither the control's source nor witness
+produce measurable success. Neither the control's source nor generator
 matrices are supplied to the model.
 
 \emph{Independent proposals} always receive the initial program and its
@@ -425,11 +430,13 @@ and the interruption amendment.
 \input{fig_ablation_comparison}
 
 Figure~\ref{fig:ablation-comparison} compares the initial program,
-independent proposals and iterative evolution. The curves cross at
-$n=9$, while the gap is larger at $n=11$ (16/32 versus 5/32 at 10,000 calls).
+independent proposals and iterative evolution. At 10,000 calls, success at $n=9$ is
+68.8\% (22/32) for iterative evolution and 50.0\% (16/32) for
+independent proposals; their curves cross at lower budgets. At $n=11$,
+the corresponding rates are 50.0\% (16/32) and 15.6\% (5/32).
 Overall, iterative evolution succeeds in 38/64 executions (59.4\%),
 versus 21/64 (32.8\%) for independent proposals. The initial program
-records 0/8 at each length on the same eight test seeds; each policy
+records 0\% (0/8) at each length on the same eight test seeds; each policy
 aggregates four selected programs, hence 32 executions per length. Mean normalized curve area increases from
 0.239 to 0.358, with positive differences in two of four generation blocks.
 Charging unsuccessful executions the full allowance gives mean costs of
@@ -441,17 +448,17 @@ The eight validation-selected programs are evaluated separately on
 $[[13,1,12;10]]_2$ and $[[15,1,14;12]]_2$, using four new seeds and
 30,000 evaluations per target. These targets and their measurements
 are withheld during generation and selection. The later-generation program
-selected in block 3 succeeds in 3/4 executions at \emph{each} length;
-its corresponding $n=9,11$ test result is 16/16. The independent
+selected in block 3 succeeds in 75.0\% (3/4) of executions at \emph{each}
+length; its corresponding $n=9,11$ test result is 100\% (16/16). The independent
 programs find no solutions at either longer length. Across all four selected
-programs per policy, success is 6/32 versus 0/32; all six successes
+programs per policy, success is 18.8\% (6/32) versus 0\% (0/32); all six successes
 come from that one iterative program.
 
 Its preserved parent--child record shows changes beyond the initial
 representation conversion: stronger objective weights, a mixture of
 row replacement and row mixing, and backtracking with temperature
-adjustment from a saved local best (Algorithm~\ref{alg:search}). Successful construction takes 3,260--9,755 evaluations
-at $n=13$ and 7,125--16,756 at $n=15$. Each resulting witness passes an
+adjustment from a saved local best (Algorithm~\ref{alg:ablation-search}). Successful construction takes 3,260--9,755 evaluations
+at $n=13$ and 7,125--16,756 at $n=15$. Each resulting code passes an
 independent linear-algebra check. Table~\ref{tab:results} reports these code parameters alongside their
 prior distance intervals. Generalization of the search program
 is additional evidence beyond the family existence proof. The code record
@@ -465,7 +472,7 @@ are not separated by this policy comparison.
 
 \paragraph{Limitations.}
 The controlled study covers four generation blocks, one model and
-binary targets with known witnesses. Its balanced comparison contains
+binary targets with known constructions. Its balanced comparison contains
 seven proposals per policy and block rather than the planned twelve
 because of unavailable model responses. Both policies receive the
 same explicit researcher proposal, so the contrast measures iterative
@@ -489,7 +496,7 @@ with sustained dual-space search: both policies implement the shared
 proposal, while iterative development yields higher mean held-out
 success and a preserved program that generalizes to two longer targets.
 The program sources, parent relationships and independently checked
-witnesses connect the research proposal to executable results.
+codes connect the research proposal to executable results.
 
 The mathematical outputs include a human-derived family that, with
 ebit lifting, closes 54 listed gaps. Solver refinement establishes
@@ -500,7 +507,7 @@ and communication resources. The generative component operates on
 search code, while the domain supplies the object representation,
 evaluator and certification rules. This interface makes the requirements
 for applying the pipeline to another discrete construction problem
-explicit. Archived programs, witnesses and proofs support further
+explicit. Archived programs, codes and proofs support further
 search and mathematical generalization.
 
 % Statements are excluded from the ICLR 2027 main-text page limit.
@@ -522,6 +529,8 @@ on the receiver's halves into commuting constraints. Their commutation
 relations determine the entanglement cost~\citep{BrunDevetakHsieh2006,WildeBrun2008}.
 Nonadditive EAQECCs form a different search space~\citep{Shin2011}.
 
+We write vectors in bold, scalar coordinates and coefficients in italic,
+and subspaces with italic capitals such as $S,L,R$.
 Modulo phase, a Pauli operator is represented by
 $\vct{u}=(x_1,z_1,\ldots,x_n,z_n)\in\F_q^{2n}$. For qubits, the pairs
 $(0,0),(1,0),(0,1),(1,1)$ represent $I,X,Z,Y$, respectively. The
@@ -671,7 +680,7 @@ published constructions.
 The familiar BDH Singleton expression $2(d-1)\le n-k+c$ is not a
 general bound in the large-distance regime~\citep{Grassl2021}. Our
 principal family has $d=n-1$, so we use the applicable generalized
-Singleton bounds of \citet{GHW2022}. The $[[12,1,11;5]]_5$ witness,
+Singleton bounds of \citet{GHW2022}. The $[[12,1,11;5]]_5$ code,
 for example, uses four fewer pairs than substitution into the BDH
 expression would suggest; it does not contradict a valid upper bound.
 
@@ -752,15 +761,15 @@ campaigns shared one task specification and the last two another
 \paragraph{Discovery records and budgets.}
 The retained campaign logs support nominal search allowances rather
 than elapsed discovery times. Campaign 1 starts 122 candidate searches
-and records 120 completions. Its first new $[[9,1,8;6]]_2$ witness
+and records 120 completions. Its first new $[[9,1,8;6]]_2$ code
 immediately precedes completion 4, and the first $[[11,1,10;8]]_2$
-witness completion 119. At 240\,s per completed search, these correspond
+code completion 119. At 240\,s per completed search, these correspond
 to 0.267\,h and 7.933\,h of nominal allowance, excluding model generation,
 queueing, verification and in-flight work. The logs have no event
 timestamps and suppress later discoveries of the same parameter cell.
 A subsequent task specification names $[[7,1,6;4]]_2$ as an earlier
 construction without preserving its first-hit budget. The
-$[[13,1,12;10]]_2$ witness records the closed-form theorem as provenance
+$[[13,1,12;10]]_2$ code record cites the closed-form theorem as provenance
 and is not counted as an original campaign discovery. The controlled
 reconstructions in Section~\ref{sec:ablation} use newly generated,
 preserved programs and a separate protocol.
@@ -771,6 +780,57 @@ report. Symplectic weight is obtained by embedding
 $(x_i,z_i)\mapsto x_i+\omega z_i$ into $\mathrm{GF}(q^2)$, so that Magma's
 own \texttt{Weight()} does the counting: the check does not inherit our
 notion of weight, only our generators.
+
+\paragraph{The archived construction program.}\label{app:construction-program}
+Algorithm~\ref{alg:search} summarizes the evolved construction program; its preserved source is linked from the artifact README.
+The generator matrix $\mathbf{G}$ spans $S$, and $best[t]$ stores the
+lowest-cost proposal seen for target $t$. The objective remains
+$5000|r.c-c_t|+1000|r.k-k_t|+r.\mathrm{offending}$, with cost $10^9$
+for an evaluator error. The campaign seed used fixed target weights
+$n_t^{-2}$. The evolved program uses normalized weights proportional to
+$n_t^{-1.5}(1+10b_t)$, initially with $b_t=0$. After a repair attempt,
+\textsc{ProgressBonus} uses the stored best cost $o_t^\star$:
+\[
+ b_t\gets
+ \begin{cases}
+  (1+o_t^\star)^{-1},&0<o_t^\star<100,\\
+  0,&o_t^\star=0,\\
+  b_t,&\text{otherwise}.
+ \end{cases}
+\]
+If no proposal was recorded, take $o_t^\star=10^9$. A proposal with
+zero cost at its initial evaluation takes the earlier \textbf{continue}
+branch and skips this bonus update, exactly as in the source.
+
+For a new attempt, the program samples one scalar $u$ and tests branches
+in order. If $u<0.2$ and a stored positive-cost proposal exists, it resumes
+from that matrix. Otherwise, \textsc{Construct} uses a cyclic construction
+when \algdelta{$u<0.4$} and $s\le2n$, a \algdelta{divisor-stride} construction when \algdelta{$u<0.6$}
+and $s\le2n$, or a block construction when \algdelta{$u<0.8$}. If none applies,
+or the resulting rank is not $s$, it uses a random stabilizer.
+The construction branches and their validity checks remain subject to the
+same exact evaluator as the seed.
+
+The cyclic branches use one or two nonzero base vectors. Row $i$ takes
+base \algdelta{$i\bmod m$} and rotates it by
+\algdelta{$2h\lfloor i/m\rfloor\bmod 2n$} bits, where $m$ is the number of bases.
+The ordinary cyclic branch sets $h=1$; the added branch samples a positive
+proper divisor of $n$. The block branch extends the allowed dual dimension
+from 8 to \algdelta{12} and block sizes from $\{2,4,6\}$ to $\{2,4,6,\algdelta{$8$}\}$.
+
+During repair, \textsc{MixedMove} samples $v\in[0,1)$. If $v<0.2$ and
+$s\ge2$, it XORs two distinct rows. Otherwise, if $v<0.4$, it rotates
+one row by a uniformly chosen number of qubits from $1,\ldots,n-1$.
+The remaining branch applies a Pauli perturbation of weight 1--3 to one
+row. Thus the added operation moves a complete generator pattern; it
+is not a simultaneous coordinate permutation of the entire code.
+Rank-deficient proposals increment $f$ and skip evaluation. The inherited
+annealing loop cools by a factor of 0.995 to a floor of 0.1, accepts by
+the Metropolis rule, and restarts after 1,500 attempts without an accepted
+strict improvement. The best accepted proposal for each target is retained;
+at most 16 are returned for external verification. Figure~\ref{fig:lineage}
+is a schematic of these source-level changes, not a measurement of their
+individual performance effects.
 
 \subsection{The refutation encoding}\label{app:sat}
 The small side $L=S^{\perp}$ is encoded in symplectic normal form:
@@ -834,7 +894,7 @@ metadata. DRAT checks unsatisfiability of this CNF; the lemma establishes
 that its coordinate normalization loses no possible code. The auditor
 checks the unit clauses and hashes, rather than mechanically verifying
 the lemma. As a positive control, the normalized encoder remains SAT
-when fixed to the archived $[[10,1,9;5]]_3$ witness.
+when fixed to the archived $[[10,1,9;5]]_3$ code.
 
 \subsection{What the model was told}\label{app:prompts}
 \input{fig_prompts}

@@ -34,8 +34,8 @@ python3 scripts/make_bound_map_figure.py --data ../checks/bound_map.json --out-d
 
 The output is `fig_boundmap_iclr.tex`. Pass the positional argument `latest` to
 `build_bound_map.py` only for an explicitly updated comparison, not paper replay.
-Figure 2 is the historical construction lineage in `fig_program.tex`; the
-controlled comparison and Algorithm 1 describe a separate preserved program.
+Figure 2 compares the campaign seed with rank05 in `fig_program.tex`;
+Algorithm 2 and the controlled comparison describe a separate preserved program.
 
 ## Figures embedded in the README
 
@@ -45,3 +45,9 @@ Run `python3 scripts/make_readme_figures.py` to export Figures 2 and 3 from the
 current manuscript TeX. These exports omit the paper captions and replace the
 external appendix reference with “archived prompts”; plotted content and the
 complete Figure 3 legend are preserved. No experimental results are regenerated.
+
+Figure 2 is in Section 4 beside Algorithm 1, with a seed-versus-rank05 comparison of three program changes. Algorithm 2 remains the supplementary dual-space program in Appendix D.4.
+
+The Figure 2 exports are named `program_evolution.pdf/png/svg`. Its Pauli rows
+are illustrative operator patterns, not additional experimental constructions.
+The diagram has no empirical height or color scale.

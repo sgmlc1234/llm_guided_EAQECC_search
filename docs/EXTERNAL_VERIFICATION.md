@@ -68,14 +68,14 @@ cross-machine runtime guarantee; inspect logs before increasing it. Full success
 requires all ten decisions and all ten proof checks to succeed. The report gives
 separate statuses per entry. Retain both its JSON and Markdown outputs.
 
-To regenerate the qutrit proof or run its known-witness positive control, use
+To regenerate the qutrit proof or run its known-code positive control, use
 [the qutrit certificate instructions](qutrit_certificate.md). The mathematical
 coordinate-normalization lemma remains part of the justification; a DRAT check
 does not mechanically establish that lemma.
 
 ## 2. Magma
 
-The archived cross-check used Magma V2.28-20 on 148 objects: 115 core witnesses
+The archived cross-check used Magma V2.28-20 on 148 objects: 115 core codes
 and 33 family instances. Use that version when available to match the recorded
 software environment, and record the version if using a different release.
 

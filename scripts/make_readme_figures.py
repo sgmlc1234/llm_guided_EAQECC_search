@@ -28,12 +28,13 @@ PREAMBLE = r'''\documentclass[border=2pt]{standalone}
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    for name, source in [('historical_program', 'fig_program.tex'),
+    for name, source in [('program_evolution', 'fig_program.tex'),
                          ('construction_map', 'fig_boundmap.tex')]:
         lines = (PAPER / source).read_text().splitlines()
         body = '\n'.join(line for line in lines if not line.lstrip().startswith(
             (r'\begin{figure}', r'\end{figure}', r'\caption{', r'\label{')))
         body = body.replace(r'App.~\ref{app:prompts}', 'archived prompts')
+        body = body.replace(r'\ref{alg:search}', '1')
         with tempfile.TemporaryDirectory(prefix='eaqecc-readme-figure-') as temp:
             temp = Path(temp)
             (temp / 'figure.tex').write_text(PREAMBLE + body +

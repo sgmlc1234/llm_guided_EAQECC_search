@@ -1,10 +1,16 @@
 """Verify latest-study sources, prompts, selection, witnesses and reported metrics offline."""
 import argparse
 import json
+import math
 from pathlib import Path
 from statistics import mean
 import sys
 from common import BUNDLE, read, sha, code_hash, ranked, rank_key, expected_prompt
+
+
+def ledger_total_matches(values, recorded):
+    """Allow sub-nanowon summation roundoff, not substantive ledger changes."""
+    return math.isclose(math.fsum(values), recorded, rel_tol=0.0, abs_tol=1e-9)
 
 
 def audit(bundle):
@@ -81,7 +87,7 @@ def audit(bundle):
     for arms in heldout.values(): diffs.append(arms['evolution']['test']['mean_utility']-arms['independent']['test']['mean_utility'])
     summary=read(bundle/'summary.json')
     assert abs(mean(diffs)-summary['mean_difference'])<1e-12
-    assert sum(c['committed_krw'] for c in ledger['calls'])==ledger['committed_krw']
+    assert ledger_total_matches((c['committed_krw'] for c in ledger['calls']), ledger['committed_krw'])
     assert p['prior_committed_krw']+ledger['committed_krw']<24000
     return dict(status='PASS',included_requests=len(included),received_sources=58,witnesses_verified=checked,
                 arms=arm_metrics,block_area_differences=diffs,mean_area_difference=mean(diffs),

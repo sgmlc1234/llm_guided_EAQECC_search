@@ -23,13 +23,16 @@ if __name__=='__main__':
         n,seed=job
         result=evaluate_target_program(code,b/'feasibility'/f'target_n{n}.json',[seed],budget,b/'runtime')
         c=result['runs'][0]['per_target'][0]
+        # Preserve process diagnostics even when archive comparison fails.
+        (args.out/f'n{n}_seed{seed}.json').write_text(json.dumps(result,indent=2)+'\n')
+        if c.get('error'):
+            raise RuntimeError(f"target n={n}, seed={seed}: {c['error']}")
         if c['closed']:
             path=args.out/f'n{n}_seed{seed}.witness.json'; t={**c['target'],'d':c['parameters']['d']}
             path.write_text(json.dumps(dict(target=t,generators=c['generators']))+'\n'); verify(path,[t[k] for k in ('n','k','d','c')])
         old=next((x for x in reference if x['target']['n']==n and x['seed']==c['seed']),None)
         if old:
             assert all(c.get(k)==old.get(k) for k in ('closed','n_evals','parameters','generators')), (n,seed)
-        (args.out/f'n{n}_seed{seed}.json').write_text(json.dumps(result,indent=2)+'\n')
         return dict(n=n,seed=seed,success=c['closed'],calls=c['n_evals'],matches_archive=old is not None,error=c.get('error'))
     with ThreadPoolExecutor(max_workers=4) as pool: rows=list(pool.map(one,[(n,s) for n in lengths for s in seeds]))
     result=dict(program=args.program,split=args.split,records=rows,successes=sum(x['success'] for x in rows))

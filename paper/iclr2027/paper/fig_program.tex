@@ -1,85 +1,70 @@
-% Lineage of the construction, drawn as the thing being constructed.
-%
-% Each grid is the generator layout that stage produces: columns are
-% qubits, rows are stabilizer generators, a filled cell means the
-% generator acts there. Random scatter, then a shift-1 staircase, then a
-% shift-2 staircase that wraps. The point is visible without reading the
-% labels: evolution replaced an unstructured set with a structured one,
-% and then widened the structure.
-%
-% One coordinate system throughout (x=y=2.6mm). Every row is placed at its
-% own y, and a grid is drawn inside a scope shifted to that same y, so
-% markers, grids and annotations cannot drift apart.
-\newcommand{\gcell}[3]{\fill[#3] (#1,-#2) rectangle ++(0.82,0.82);}
-
+% A schematic comparison of the archived campaign seed with rank05.
+% Symbolic rows illustrate allowed mutations, not additional measured codes.
 \begin{figure}[tb]
 \centering
-\begin{tikzpicture}[x=2.05mm, y=2.05mm, font=\scriptsize,
-  lbl/.style={anchor=west, font=\scriptsize},
-  ann/.style={anchor=west, font=\scriptsize, text width=40mm},
-  mach/.style={circle, fill=achieve, draw=achieve, inner sep=1.35pt},
-  hum/.style={circle, fill=white, draw=black!55, inner sep=1.2pt},
-  pipe/.style={rectangle, fill=achieve!30, draw=achieve, inner sep=1.7pt}]
-
-\node[anchor=west, font=\scriptsize] at (-14,3.4)
-  {\tikz\node[mach]{};\ machine \quad \tikz\node[hum]{};\ human \quad
-   \tikz\node[pipe]{};\ pipeline write-back \quad
-   \textit{columns: qubits \ $\cdot$ \ rows: generators}};
-
-% ---------------- seed --------------------------------------------------
-\node[hum] at (-14,0) {};
-\node[lbl] at (-12.8,0) {seed};
-\begin{scope}[shift={(0,1.4)}]
-  \foreach \r/\cs in {0/{1,4,5,9}, 1/{0,3,7}, 2/{2,5,6,10}, 3/{1,8,9,11}}
-    \foreach \c in \cs { \gcell{\c}{\r}{black!30} }
-\end{scope}
-\node[ann] at (15,0) {random stabilizer set, annealed by single-generator
-  bit flips};
-
-% ---------------- gen 1-2: cyclic, step 1 -------------------------------
-\node[mach] at (-14,-7) {};
-\node[lbl] at (-12.8,-7) {gen.\ 1--2};
-\begin{scope}[shift={(0,-5.6)}]
-  \foreach \r in {0,1,2,3} {
-    \pgfmathtruncatemacro{\a}{\r} \pgfmathtruncatemacro{\b}{\r+1}
-    \pgfmathtruncatemacro{\e}{\r+4}
-    \gcell{\a}{\r}{achieve} \gcell{\b}{\r}{achieve}
-    \gcell{\e}{\r}{achieve!45}
-  }
-\end{scope}
-\node[ann] at (15,-7) {generators become cyclic shifts of one base
-  string: \mbox{$\vct{g},\ \vct{g}\lll 2,\ \vct{g}\lll 4,\dots$}};
-
-% ---------------- reseed -------------------------------------------------
-\node[pipe] at (-14,-12.6) {};
-\node[lbl] at (-12.8,-12.6) {write-back};
-\node[ann] at (15,-12.6) {the pipeline writes the finding into the seed
-  program \emph{and} the task specification (App.~\ref{app:prompts})};
-
-% ---------------- gen 3: quasi-cyclic, step 2, wrapping -----------------
-\node[mach] at (-14,-18.4) {};
-\node[lbl] at (-12.8,-18.4) {gen.\ 3};
-\begin{scope}[shift={(0,-17)}]
-  \foreach \r in {0,1,2,3} {
-    \pgfmathtruncatemacro{\a}{mod(2*\r,12)}
-    \pgfmathtruncatemacro{\b}{mod(2*\r+1,12)}
-    \pgfmathtruncatemacro{\e}{mod(2*\r+6,12)}
-    \gcell{\a}{\r}{achieve} \gcell{\b}{\r}{achieve}
-    \gcell{\e}{\r}{achieve!45}
-  }
-  \draw[black!45, ->] (12.4,-3.2) .. controls (13.9,-2.0) and (13.9,-0.8) ..
-        (12.4,0.3);
-\end{scope}
-\node[ann] at (15,-18.4) {shift step widened to $\{1,2,3\}$ and reduced
-  $\bmod\ 2n$, so orbits wrap instead of overflowing};
-
-% ---------------- gen 4 --------------------------------------------------
-\node[mach] at (-14,-23.6) {};
-\node[lbl] at (-12.8,-23.6) {gen.\ 4};
-\node[ann] at (15,-23.6) {no further structural change};
-
-\draw[black!25, line width=0.6pt] (-14,0.7) -- (-14,-24.2);
-\end{tikzpicture}
-\caption{Evolution of the search program.}
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,>=stealth,
+  font=\rmfamily\fontsize{8.2}{9.8}\selectfont,
+  heading/.style={font=\rmfamily\bfseries\fontsize{9}{10.5}\selectfont},
+  rowlabel/.style={anchor=west,text width=2cm,font=\rmfamily\bfseries\fontsize{8.2}{9.8}\selectfont},
+  small/.style={font=\rmfamily\fontsize{7.4}{8.6}\selectfont},
+  box/.style={draw=black!28,rounded corners=2pt,fill=white,minimum height=.45cm,inner sep=4pt},
+  arr/.style={->,draw=black!55,line width=.65pt}]
+\path[use as bounding box] (0,-4.90) rectangle (15.8,.50);
+\fill[black!5,rounded corners=3pt] (2.25,-4.85) rectangle (7.40,.48);
+\fill[achieve!8,rounded corners=3pt] (7.65,-4.85) rectangle (15.8,.48);
+\node[heading] at (4.82,.22) {Campaign seed};
+\node[heading,text=achieve] at (11.72,.22) {Evolved program (Algorithm~\ref{alg:search})};
+\draw[black!16] (2.4,-.05)--(7.25,-.05);
+\draw[achieve!35] (7.8,-.05)--(15.65,-.05);
+\node[rowlabel] at (0,-.78) {Target\\selection};
+\node at (4.82,-.58) {$\pi_t\propto n_t^{-2}$};
+\node[small] at (4.82,-1.08) {fixed length-based weights};
+\node at (10.72,-.58) {$\pi_t\propto n_t^{-1.5}(1+10b_t)$};
+\node[box,small,text=achieve,draw=achieve!50] (score) at (14.40,-.63) {stored cost};
+\node[small,text=achieve] (bonus) at (12.65,-1.12) {near-miss bonus $b_t$};
+\draw[arr,draw=achieve] (score.south) |- (bonus.east);
+\draw[arr,draw=achieve] (bonus.west) -| (10.8,-.81);
+\draw[black!15] (2.4,-1.47)--(7.25,-1.47);
+\draw[achieve!25] (7.8,-1.47)--(15.65,-1.47);
+\node[rowlabel] at (0,-2.20) {Search\\initialization};
+\node[box] (fresh) at (3.85,-2.05) {fresh candidate};
+\node[box] (repair) at (6.25,-2.05) {repair};
+\draw[arr] (fresh)--(repair);
+\node[small] at (4.82,-2.63) {new initialization on each attempt};
+\node[box,draw=achieve!55] (saved) at (9.15,-2.05) {saved $best[t]$};
+\node[box,draw=achieve!55] (resume) at (11.95,-2.05) {resume repair};
+\node[box,draw=achieve!55] (update) at (14.55,-2.05) {update $best[t]$};
+\draw[arr,draw=achieve] (saved)--(resume);
+\draw[arr,draw=achieve] (resume)--(update);
+\draw[arr,draw=achieve] (update.south) -- (14.55,-2.70) -- (9.15,-2.70) -- (saved.south);
+\node[small,fill=achieve!8,inner sep=2pt,text=achieve] at (11.85,-2.70) {conditional reuse on a later attempt};
+\draw[black!15] (2.4,-3.03)--(7.25,-3.03);
+\draw[achieve!25] (7.8,-3.03)--(15.65,-3.03);
+\node[rowlabel] at (0,-3.94) {Generator\\mutation};
+% One Pauli row before and after a local update (seed).
+\foreach \i/\p in {0/X,1/I,2/Z,3/Y,4/I,5/X}{
+ \draw[fill=white,draw=black!20] (3.47+.45*\i,-3.62) rectangle ++(.43,.38);
+ \node[small] at (3.685+.45*\i,-3.43) {$\mathrm{\p}$};}
+\foreach \i/\p in {0/X,1/I,2/Z,3/Y,4/Z,5/X}{
+ \draw[fill=white,draw=black!20] (3.47+.45*\i,-4.29) rectangle ++(.43,.38);
+ \ifnum\i=4\fill[black!22] (3.47+.45*\i,-4.29) rectangle ++(.43,.38);\fi
+ \node[small] at (3.685+.45*\i,-4.10) {$\mathrm{\p}$};}
+\draw[arr] (4.82,-3.67)--(4.82,-3.86);
+\node[small] at (4.82,-4.61) {local Pauli update (example)};
+% A whole-row cyclic rotation is added by rank05; wrapped symbols are tinted.
+\foreach \i/\p in {0/X,1/I,2/Z,3/Y,4/I,5/X}{
+ \draw[fill=white,draw=achieve!30] (9.50+.45*\i,-3.62) rectangle ++(.43,.38);
+ \ifnum\i>3\fill[achieve!25] (9.50+.45*\i,-3.62) rectangle ++(.43,.38);\fi
+ \node[small] at (9.715+.45*\i,-3.43) {$\mathrm{\p}$};}
+\foreach \i/\p in {0/I,1/X,2/X,3/I,4/Z,5/Y}{
+ \draw[fill=white,draw=achieve!30] (9.50+.45*\i,-4.29) rectangle ++(.43,.38);
+ \ifnum\i<2\fill[achieve!25] (9.50+.45*\i,-4.29) rectangle ++(.43,.38);\fi
+ \node[small] at (9.715+.45*\i,-4.10) {$\mathrm{\p}$};}
+\draw[arr,draw=achieve] (10.85,-3.67)--(10.85,-3.86);
+\node[small,align=left,text=achieve] at (14.00,-3.80) {rotate one row\\by whole qubits};
+\node[small] at (11.72,-4.61) {row rotation added to the existing moves};
+\end{tikzpicture}}
+\caption{Program changes in Algorithm~\ref{alg:search} (schematic).}
 \label{fig:lineage}
 \end{figure}

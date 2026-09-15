@@ -13,7 +13,7 @@ re-derives every archived result locally:
 python3 scripts/reproduce_eaqecc.py
 ```
 
-That covers witness re-derivation, the closed-form families, the table
+That covers code re-derivation, the closed-form families, the table
 correction, openness against the dated snapshots, the archived
 refutations, and the *seeded search itself* — the last one replays the
 archived programs under a deterministic driver, which needs no network.

@@ -19,7 +19,7 @@ python scripts/paper_results.py --out ../table-evidence.json
 ```
 
 The ablation audit recomputes selection, prompt/parent relationships, metrics and
-235 witness checks. Expected held-out counts are 21/64 (independent) and 38/64
+235 code checks. Expected held-out counts are 21/64 (independent) and 38/64
 (iterative); at longer lengths they are 0/32 and 6/32. All six longer-length
 successes come from the selected `b02_evolution_g02`: 3/4 at n=13 and 3/4 at n=15.
 This audit uses archived records; it does not execute fresh model sampling.
@@ -45,27 +45,50 @@ python scripts/reproduce_eaqecc.py --tier deterministic --out ../checks/determin
 python scripts/reproduce_eaqecc.py --claim search-determinism --out ../checks/historical-search
 ```
 
-The first command recomputes all 115 core witnesses, the 54 family gap closures,
+The first command recomputes all 115 core codes, the 54 family gap closures,
 398 upper-bound corrections, snapshot comparisons, refinement links and prompt
 provenance. The second re-executes historical fixed programs against their seeded
 fingerprints. These checks work without cloud services. Family verification can
 be the longest deterministic step; it enumerates exact finite-field objects.
 
-The 115 core matrices and 235 study witness files are different collections.
+The 115 core matrices and 235 study code records are different collections.
 The latter include repeated outcomes across runs; neither file count is a count
-of distinct new bounds. The n=15 Table 1 witness is in the study archive, and its
+of distinct new bounds. The n=15 Table 1 code is in the study archive, and its
 parameters were already covered by the family theorem.
 
-## 3. Re-execute Algorithm 1 and the policy comparison
+## 3. Re-execute the programs and the policy comparison
+
+Algorithm 1 is the archived `rank05_1001000.py`. To execute this unchanged
+program with a fixed random seed and nominal evaluation budget, use the archived
+virtual-clock driver and an empty harvest directory:
+
+```bash
+mkdir -p ../rank05-replay/empty-harvest
+PYTHONPATH=scripts/alphaevolve_eaqecc \
+HARVEST_DIR=../rank05-replay/empty-harvest \
+MAX_EVALS=5000 EVAL_RNG_SEED=20260814 TIME_BUDGET_S=240 \
+python3 scripts/eaqecc_baselines/driver_deterministic.py \
+  artifacts/campaigns/run9_top_programs/rank05_1001000.py \
+  ../rank05-replay/result.json
+```
+
+The output contains proposed generator lists, an error field and the actual
+number of evaluator calls. Not every returned proposal necessarily reaches its
+target. This executes the preserved program; it neither reproduces model generation
+nor recreates the historical novelty-dependent campaign score. The existing
+`search-determinism` claim still checks its original B0/B1f/B2 fingerprints, where
+B2 is rank01. Those records are not relabeled or changed.
+
+Algorithm 2 is the supplementary `b02_evolution_g02` program used below.
 
 The recorded OS-sandbox backend requires macOS with `/usr/bin/sandbox-exec`.
 Python 3.12.12 and NumPy 2.5.1 were used for the archived executions. The offline
-record and witness audits above are not macOS-specific. A Linux/Windows process
+record and code audits above are not macOS-specific. A Linux/Windows process
 backend is not supplied or claimed to reproduce the original sandbox protocol.
 
 ```bash
-python scripts/eaqecc_ablation/replay.py --program b02_evolution_g02 --split test --out ../checks/algorithm1-test
-python scripts/eaqecc_ablation/replay.py --program b02_evolution_g02 --split transfer --out ../checks/algorithm1-longer-codes
+python scripts/eaqecc_ablation/replay.py --program b02_evolution_g02 --split test --out ../checks/algorithm2-test
+python scripts/eaqecc_ablation/replay.py --program b02_evolution_g02 --split transfer --out ../checks/algorithm2-longer-codes
 ```
 
 Expected: 16/16 at n=9,11; 6/8 at n=13,15. `transfer` is the frozen machine-readable

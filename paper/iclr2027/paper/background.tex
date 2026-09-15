@@ -31,37 +31,40 @@ lowers the entanglement needed before transmission~\citep{Luo2022}.
 \subsection{Code discovery as program search}
 \label{sec:tables-search-background}
 
-We search linear stabilizer codes, represented by generator matrices
-over the finite field $\F_q$. We use bold symbols for vectors
-(e.g., $\vct{v}$), italic symbols for scalar coordinates and coefficients
-(e.g., $x_i,\alpha$); subspaces retain italic capitals such as $S,L$. These matrices specify algebraic
-error-detection constraints. The LLM modifies a \emph{search program}
-that proposes such matrices; an exact evaluator computes their
-$(k,c,d)$ and returns feedback. Appendix~\ref{app:symplectic} gives
-the subspace representation and verification formulas.
+We search linear stabilizer EAQECCs represented by generator matrices
+over $\F_q$. The LLM revises a search program that proposes matrices;
+an exact evaluator computes their $(k,c,d)$. At fixed $(q,n,k,c)$,
+reference tables give a constructed lower distance bound $d_\ell$ and
+an upper bound $d_u$~\citep{Codetables,Luo2022}. Finding $d>d_\ell$
+improves the lower bound, while reaching $d_u$ closes the gap.
+We also construct codes at unlisted cells and minimize entanglement,
+denoted $\cmins(n,k,d)$ within our stabilizer class. Applicable bounds
+filter impossible targets~\citep{GHW2022}; Appendix~\ref{app:domain}
+gives the representation, notation and comparison rules.
 
-At fixed $(q,n,k,c)$, EAQECC tables record a constructed lower
-bound $d_\ell$ and a proven upper bound $d_u$~\citep{Codetables,Luo2022}.
-This interval concerns the best achievable distance at those resources,
-not uncertainty in a single code: each verified generator matrix has an
-exact distance. Finding a code with $d>d_\ell$ improves the known protection; reaching
-$d_u$ establishes the optimal distance. \citet{GHW2022} established
-correct generalized Singleton bounds for EAQECCs, clarifying how shared
-entanglement changes the achievable distance and why the distance regime
-matters. These bounds exclude impossible targets before search and provide
-reference limits for verified constructions. We target listed gaps and
-cells absent from the reference tables, and
-also minimize shared entanglement, denoted $\cmins(n,k,d)$ within our
-stabilizer class. Appendix~\ref{app:tables} details the bound filters and
-comparison conventions.
+FunSearch evolves programs that construct mathematical objects or make
+algorithmic decisions, using an evaluator to select useful revisions.
+It produced larger cap-set constructions in extremal combinatorics
+and improved heuristics for online bin packing~\citep{FunSearch}.
+Its output is an executable construction procedure, allowing researchers
+to inspect a solution strategy and develop the mathematical ideas it uses.
 
-Our method follows program evolution in FunSearch and
-AlphaEvolve~\citep{FunSearch,AlphaEvolve,Georgiev2025}. CodeEvolve,
-OpenEvolve, TurboEvolve and ShinkaEvolve provide related search
-frameworks~\citep{CodeEvolve,OpenEvolve,TurboEvolve,ShinkaEvolve}.
-Quantum-code discovery has also been studied with reinforcement
-learning~\citep{Nautrup2019,Su2023,Mauron2023,Olle2024}.
-EAQECC search combines a discrete construction problem with exact
-feedback and independently checkable outputs. We evaluate the generated
-search programs as well as their code witnesses; Section~\ref{sec:repro}
-describes fixed-program replay.
+AlphaEvolve extends evaluator-guided program evolution to broader
+scientific and computational tasks~\citep{AlphaEvolve,Georgiev2025}.
+Its applications include searches for matrix-multiplication algorithms,
+data-center scheduling, hardware-circuit simplification and optimization
+of model-training kernels. LLMs edit executable programs, and measured
+performance guides subsequent proposals. We use AlphaEvolve as the
+evolution engine for EAQECC discovery, supplying the target parameters,
+exact evaluator and researcher-directed construction ideas.
+
+Quantum-code search has also used genetic and reinforcement-learning
+methods. \citet{WebsterBrowne2024} mutate and recombine binary
+representations of stabilizer codes to optimize distance and performance
+under biased noise. Reinforcement learning has been used to discover
+quantum codes, optimize tensor-network constructions, and jointly design
+codes and encoders~\citep{Nautrup2019,Su2023,Mauron2023,Olle2024}.
+Our search instead evolves the executable procedure that proposes codes.
+This permits changes to construction rules and search policies while
+retaining the same exact verification interface; the controlled study
+measures the contribution of iterative program feedback.

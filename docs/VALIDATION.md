@@ -6,19 +6,20 @@ the immutable evidence directories. No cloud model calls were made.
 
 | Check | Observed result |
 |---|---|
-| Mathematical deterministic tier | PASS: 115 core witnesses, family checks and 54 gap closures, 398 upper-bound corrections, prior intervals, novelty drift, refinement and prompt evidence |
-| Latest-study offline audit | PASS: 56 analyzed proposals, 58 received sources, 235 independently verified study witness files |
-| Table 1/2 evidence mapping | PASS: 18 rows linked to witnesses; all 13 historical intervals match the frozen snapshot |
+| Mathematical deterministic tier | PASS: 115 core codes, family checks and 54 gap closures, 398 upper-bound corrections, prior intervals, novelty drift, refinement and prompt evidence |
+| Latest-study offline audit | PASS: 56 analyzed proposals, 58 received sources, 235 independently verified study code records |
+| Table 1/2 evidence mapping | PASS: 18 rows linked to codes; all 13 historical intervals match the frozen snapshot |
 | Historical program replay | PASS: 12 seeded runs; no proposal-list differences |
+| Algorithm 1 (rank05) direct replay | PASS: two executions at seed 20260814 and nominal N=5,000 produce identical proposal lists and evaluation counts; this is not a performance comparison |
 | Fresh selected-policy and baseline replay | PASS: 208/208 executions match archived success, evaluation count, parameters and generators; zero process errors |
 | Independent policy | 21/64 test successes; 0/32 at longer lengths |
 | Iterative policy | 38/64 test successes; 6/32 at longer lengths |
-| Algorithm 1 | 16/16 at n=9,11; 3/4 at each of n=13,15 |
+| Supplementary program (now Algorithm 2) | 16/16 at n=9,11; 3/4 at each of n=13,15 |
 | Initial program | 0/16 on the main test seeds |
-| Clean-extraction test suite | 40 passed, 1 skipped (a SAT solver is required for the skipped known-witness control) |
+| Clean-extraction test suite | 40 passed, 1 skipped (a SAT solver is required for the skipped known-code control) |
 | Snapshot-default regression tests added after the clean-extraction check | 2 passed; default reproduces the frozen map, latest is an explicit override |
 | Lint | PASS for scripts and tests |
-| Paper build | PASS from the extracted source package, 19 total PDF pages |
+| Paper build | PASS; the current manuscript compiles with nine research pages. The added appendix algorithm increases the total PDF length |
 | Figure sources | Figures 1, 3 and 4 regenerate byte-identical TeX content; Figure 4 also exports PDF/SVG/PNG |
 | SAT/DRAT and Magma fresh checks | NOT RUN: tools unavailable in this validation environment; the auditor correctly reports PARTIAL/SKIPPED_NO_TOOL |
 
@@ -31,7 +32,7 @@ and the archived map did not change.
 The release builder scans all included text and PDF text/metadata, checks the
 full-file manifest and writes the ZIP only on PASS. Identity-specific checks use
 a private term list that is not distributed. The original 1,512 protected files
-(model programs, complete latest-study records, witnesses, campaign records,
+(model programs, complete latest-study records, codes, campaign records,
 snapshots and certificates) remain byte-identical to the pre-cleanup snapshot.
 The root archive manifest was refreshed only for anonymizing one historical log.
 Raw originals, internal editorial notes and Git history remain recoverable in a

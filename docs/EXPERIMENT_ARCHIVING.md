@@ -30,6 +30,6 @@ model-generated Python source bytes and all numerical observations are preserved
 Internal editorial reviews, submission-form working copy and obsolete export helper
 are also preserved outside the source tree. Generated TeX auxiliary files are not
 release inputs. Historical discovery sources, calibration controls, prompts,
-failures, selected and excluded candidates, and all witness/certificate records
+failures, selected and excluded candidates, and all code/certificate records
 needed by the current manuscript remain in the public artifact. A before-change
 working-tree snapshot, file hashes and Git bundle are kept privately for recovery.

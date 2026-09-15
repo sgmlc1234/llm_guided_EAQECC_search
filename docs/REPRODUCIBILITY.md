@@ -33,7 +33,7 @@ together; otherwise `archive-integrity` fails, by design.
 
 ## New refinement and snapshot coverage
 
-The bundle includes a new `[[12,2,9;9]]_2` witness and a checked d>=12 exclusion at `(n,k,c)=(13,1,8)`. The `solver-refinement` claim verifies witnesses and links upper-bound evidence, while `refutations` replays certificates. `openness` distinguishes 65 q=2 files from 61 unique cells. `novelty-drift` compares both q=2 and q=3 and does not label a changed table value as an independent discovery.
+The bundle includes a new `[[12,2,9;9]]_2` code and a checked d>=12 exclusion at `(n,k,c)=(13,1,8)`. The `solver-refinement` claim verifies codes and links upper-bound evidence, while `refutations` replays certificates. `openness` distinguishes 65 q=2 files from 61 unique cells. `novelty-drift` compares both q=2 and q=3 and does not label a changed table value as an independent discovery.
 
 ## Regenerating certificates
 
@@ -53,6 +53,16 @@ each cell once; two of the 398 Plotkin-corrected cells are also cells where
 we constructed or refuted a code, and they are counted under that class
 instead. The correction list itself has 398 entries.
 
-The q=3 witness `[[8,1,7;5]]_3` is listed in the qutrit table already
-(`dl = du = 7`): it re-derives a known value and is kept as a witness of the
+The q=3 code `[[8,1,7;5]]_3` is listed in the qutrit table already
+(`dl = du = 7`): it re-derives a known value and is kept as a code of the
 closed-form cell, not claimed as new. The `openness` claim reports this.
+
+## Manuscript terminology and algorithm numbering
+
+The paper uses **codes**, **code constructions** and **generator matrices** for
+existence results, and **DRAT proofs** or **certificates of unsatisfiability**
+for solver-produced nonexistence evidence. Historical directory names such as
+`artifacts/witnesses/`, `.witness.json` files and the `witnesses` auditor claim
+remain unchanged so prior records, commands and integrity hashes remain valid.
+Algorithm 1 is the archived AlphaEvolve rank05 construction program; Algorithm 2
+in Appendix D.4 is the supplementary dual-space program from the ablation.

@@ -139,8 +139,8 @@ __CELLS__
 \node[font=\fontsize{10.6}{12}\selectfont] at (12.215,2.38) {$[[11,1,10;8]]_2$};
 \node[font=\rmfamily\bfseries\fontsize{15}{17}\selectfont,text=ovteal] at (11.37,1.77) {__WITNESS_COUNT__};
 \node[font=\rmfamily\bfseries\fontsize{15}{17}\selectfont,text=ovred] at (13.02,1.77) {__REFUTATION_COUNT__};
-\node[small] at (11.37,1.24) {witnesses};
-\node[small] at (13.02,1.24) {refutations};
+\node[small] at (11.37,1.24) {codes};
+\node[small] at (13.02,1.24) {exclusions};
 
 % Main construction route and a separate nonexistence route.
 \draw[flow] (2.44,3.37)--(2.94,3.37);
@@ -153,7 +153,7 @@ __CELLS__
 \draw[humanflow] (4.53,5.81)--(4.53,4.54);
 \node[small,fill=white,inner sep=2pt,text=ovhuman] at (4.53,5.18) {task specification};
 \draw[humanflow] (12.20,4.52)--(12.20,5.20)--(8.03,5.20)--(8.03,5.79);
-\node[small,fill=white,inner sep=2pt,text=ovhuman] at (10.42,5.20) {inspect witnesses};
+\node[small,fill=white,inner sep=2pt,text=ovhuman] at (10.42,5.20) {inspect codes};
 \end{tikzpicture}%
 """.replace("__CELLS__", "\n".join(cells))
     content = content.replace("__WITNESS_COUNT__", str(witness_count))

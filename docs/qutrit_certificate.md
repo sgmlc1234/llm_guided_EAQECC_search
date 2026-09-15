@@ -2,7 +2,7 @@
 
 The archive excludes `[[10,1,9;4]]_3` using a coordinate-normalized
 free-radical SAT encoding. Together with the archived `[[10,1,9;5]]_3`
-witness and ebit lifting, this gives minimum entanglement 5 at `(n,k,d)=(10,1,9)`.
+code and ebit lifting, this gives minimum entanglement 5 at `(n,k,d)=(10,1,9)`.
 
 ## Why the normalization is complete
 
@@ -87,7 +87,7 @@ python3 scripts/reproduce_eaqecc.py --claim refutations
 qubit proof. Missing tools or that cache produce a partial full-registry audit.
 
 The positive-control test fixes the normalized `(10,1,9;5)` encoding to an
-existing archived witness and requires a real SAT solver to return SAT.
+existing archived code and requires a real SAT solver to return SAT.
 This checks that the implementation accepts a known code; it is not a
 substitute for the completeness proof.
 

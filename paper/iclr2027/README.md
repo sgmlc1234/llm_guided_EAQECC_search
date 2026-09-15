@@ -28,9 +28,10 @@ transfer results remain in the body and appendix; no transfer panel is included.
 Regenerating Figure 4 requires Tectonic and Poppler and writes TikZ source plus
 standalone PDF/SVG/PNG. The main manuscript includes the TikZ directly.
 
-Algorithm 1 summarizes the validation-selected block-3 dual-space program.
-Tinted expressions identify changes from its immediate parent. The body explains
-the objective, mutation and recovery changes; the initial-to-L representation
-change is separately described. The historical cyclic lineage remains separate.
-
-Algorithm 1 is now the first program result in the opening of Section 4, before the distance-improvement subsection. Section 3 describes the generation and verification procedures. The right-hand annotations and parent-relative shading are preserved.
+Algorithm 1 in Section 4 summarizes `rank05_1001000.py`. Figure 2 compares
+its progress-dependent target selection, reuse of stored proposals and added
+whole-generator rotation with the construction-campaign seed. Shading identifies
+these principal source-level changes. Appendix B.1 defines the remaining routines,
+including their rank checks and early-exit behavior. Algorithm 2 in Appendix D.4
+contains the separate controlled-study dual-space program, `b02_evolution_g02`,
+with its existing immediate-parent comparison.

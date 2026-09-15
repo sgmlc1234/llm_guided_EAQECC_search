@@ -88,11 +88,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-      - run: python -m pip install -r requirements-ablation.txt
+          python-version: "3.12.12"
+      - name: install into a sandbox-readable virtual environment
+        run: |
+          python -m venv "$RUNNER_TEMP/eaqecc-venv"
+          "$RUNNER_TEMP/eaqecc-venv/bin/python" -m pip install -r requirements-ablation.txt
+          echo "$RUNNER_TEMP/eaqecc-venv/bin" >> "$GITHUB_PATH"
       - run: python scripts/eaqecc_ablation/audit.py
       - run: python scripts/eaqecc_ablation/replay_selected.py --out ../ablation-replay
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: ablation-replay
           path: ../ablation-replay/

@@ -124,7 +124,7 @@ LEGEND = {
         ("deep", r"Code exists: $c<n-q-1$"),
         ("lift", r"Code exists: $c>n-q-1$"),
         ("ref", r"Nonexistence certified, including implications at smaller $c$"),
-        ("wall", r"Search found no witness; nonexistence unproved"),
+        ("wall", r"No code found; nonexistence unproved"),
         ("bdh", r"Reference $c=n-3$; not a general bound"),
     ],
 }
