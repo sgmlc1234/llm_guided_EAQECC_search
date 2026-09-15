@@ -2,7 +2,7 @@
 """Build the (n,k,c) bound-provenance map for the two EAQECC papers.
 
 Cross-references our results against a dated codetables.de snapshot
-(newest present unless named on the command line) and emits JSON that
+(the manuscript's frozen comparison unless explicitly overridden) and emits JSON that
 scripts/make_bound_map_figure.py turns into the provenance figure.
 
 Cell classes (per (q,n,k,c)):
@@ -12,6 +12,7 @@ Cell classes (per (q,n,k,c)):
   plotkin -- upper bound lowered by the (known) EA-Plotkin bound we applied
 """
 
+import argparse
 import json
 from pathlib import Path
 
@@ -19,14 +20,20 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 SNAP_ROOT = ROOT / "artifacts" / "codetables_snapshots"
-# No date is compiled in: use the newest dated snapshot present, or the one
-# named on the command line (build_bound_map.py 2026-07-17).
+# Match the auditor: a newer snapshot must not silently change the paper figure.
+parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+parser.add_argument('snapshot', nargs='?', default='paper',
+                    help='paper (default), latest, or an archived date')
+parser.add_argument('--out', type=Path, default=ROOT / 'artifacts/tables/bound_map.json')
+args = parser.parse_args()
 _snaps = sorted(d for d in SNAP_ROOT.iterdir()
                 if d.is_dir() and (d / "qubit.json").exists())
-if len(sys.argv) > 1:
-    SNAP = SNAP_ROOT / sys.argv[1]
-else:
+if args.snapshot == 'paper':
+    SNAP = SNAP_ROOT / json.loads((ROOT / 'artifacts/paper_reference.json').read_text())['snapshot']
+elif args.snapshot == 'latest':
     SNAP = _snaps[-1]
+else:
+    SNAP = SNAP_ROOT / args.snapshot
 if not SNAP.exists():
     sys.exit(f"snapshot not found: {SNAP}")
 
@@ -92,6 +99,16 @@ LOWER.append((2, 9, 1, 2, 7, "c_min(9,1,7)=2 — SAT witness", 2))
 for (n, c) in [(7, 1), (8, 1), (10, 3), (11, 3), (12, 5), (13, 5)]:
     UPPER.append((2, n, 1, c, n - 2,
                   "second-level floor — complete SAT refutation", 2))
+
+# Released witness and refutation records take precedence over older summaries.
+for path in sorted((ROOT / "artifacts/witnesses/q2").glob("SOLUTION*.json")):
+    record = json.loads(path.read_text())
+    t = record["target"]
+    LOWER.append((2, t["n"], t["k"], t["c"], t["d"],
+                  f"archived witness: {path.name}", 1))
+for e in json.loads((ROOT / "artifacts/refutations/registry.json").read_text()):
+    UPPER.append((e["q"], e["n"], e["k"], e["c"], e["d"],
+                  f"registry: {e['tag']} ({e['status']})", 1))
 
 # ---------------------------------------------------------------- table data
 def load(q):
@@ -191,10 +208,16 @@ for key, cell in cells.items():
     else:
         cell["kind"] = kind
     # effect bookkeeping
+    effective_upper = cell["du"]
+    if up:
+        effective_upper = up["d"] - 1 if effective_upper is None else min(effective_upper, up["d"] - 1)
+    if cell.get("plotkin"):
+        effective_upper = (cell["plotkin"]["du_new"] if effective_upper is None
+                           else min(effective_upper, cell["plotkin"]["du_new"]))
     if lo:
         if cell["listed"]:
             if cell["dl"] < lo["d"]:
-                if lo["d"] >= cell["du"]:
+                if effective_upper is not None and lo["d"] >= effective_upper:
                     stats["gap_closed"] += 1
                     note.append("closes a listed gap (d_lower raised to d_upper)")
                 else:
@@ -221,8 +244,6 @@ for cell in out:
     dl, du = cell["dl"], cell["du"]
     if cell["lower"]:
         dl = cell["lower"]["d"] if dl is None else max(dl, cell["lower"]["d"])
-        if du is None:
-            du = dl
     if cell["upper"]:
         du = cell["upper"]["d"] - 1 if du is None else min(du, cell["upper"]["d"] - 1)
     if cell.get("plotkin"):
@@ -231,7 +252,8 @@ for cell in out:
 
 payload = {"cells": out, "stats": stats, "nmax": NMAX, "q45": q45,
            "q45_nmax": Q45_NMAX, "snapshot": f"codetables.de, {SNAP.name}"}
-dst = ROOT / "artifacts" / "tables" / "bound_map.json"
+dst = args.out
+dst.parent.mkdir(parents=True, exist_ok=True)
 dst.write_text(json.dumps(payload))
 print(json.dumps(stats, indent=1))
 print("cells written:", len(out), "->", dst)

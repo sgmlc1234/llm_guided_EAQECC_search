@@ -1,0 +1,8 @@
+{
+  "created_unix": 1789388283.929246,
+  "original_protocol_sha256": "b8e6f98228b584ed87ce4bbb84894fd9bbe649fd9fa42a08bfa625d9ac635c3f",
+  "recovery_source_sha256": "a411d5307d0f2cf51ec1f502a00df372e377c5c64abc864b1f1b266d7c64d86a",
+  "rule": "An already attempted request with unavailable response consumes its proposal slot and retains the full monetary reservation. It is never sent again. Its explicitly marked unavailable-source placeholder receives zero utility and failure feedback. Continue only unattempted planned slots with unchanged targets, seeds, policies, budgets and selection. Apply the same rule to either policy. Stop on a second consecutive unavailable response. This operational amendment precedes all validation/test observations.",
+  "sensitivity": "Also report the paired mean contrast excluding any campaign block with an unavailable generation response; do not replace the primary all-block contrast.",
+  "deviation": "The original runner stopped on transport uncertainty. This separately frozen recovery continues the remaining unique slots instead of truncating the comparison."
+}

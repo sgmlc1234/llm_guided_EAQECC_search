@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    r = n + k - c  # Rank of L is 4 for the training targets\\n    \\n    def get_S(L):\\n        # Convert L to S via symplectic dual\\n        # S = nullspace(J(L))\\n        eqs = [E._J(v, n) for v in L]\\n        return E.nullspace(eqs, 2 * n)\\n    \\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    # Initialize L as a independent set of size r\\n    # We can start by generating random vectors and checking independence\\n    def generate_random_L():\\n        while True:\\n            candidate = []\\n            for _ in range(r):\\n                # Generate a non-zero random vector\\n                val = 0\\n                while val == 0:\\n                    val = int(rng.integers(1, 1 << (2 * n)))\\n                candidate.append(val)\\n            if len(E.gf2_basis(candidate)) == r:\\n                return candidate\\n\\n    while E.remaining:\\n        L = generate_random_L()\\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c and res.get(\\\"k\\\") == k:\\n            return S\\n\\n        temp, fails = 30.0, 0\\n        while fails < 1000 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            idx = int(rng.integers(r))\\n            old_val = L[idx]\\n            \\n            # Mutate L[idx]\\n            mutant_val = old_val ^ random_pauli()\\n            if mutant_val == 0:\\n                fails += 1\\n                continue\\n                \\n            L[idx] = mutant_val\\n            if len(E.gf2_basis(L)) != r:\\n                L[idx] = old_val\\n                fails += 1\\n                continue\\n                \\n            S = get_S(L)\\n            res = E.evaluate(S)\\n            new_obj = objective(res)\\n            \\n            if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c and res.get(\\\"k\\\") == k:\\n                return S\\n                \\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                cur = new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else: \\n                L[idx] = old_val\\n                fails += 1\\n                \\n    return None\"}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 860,
+    "totalTokenCount": 3024,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 860
+      }
+    ],
+    "thoughtsTokenCount": 366
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:07:59.318747Z"
+}

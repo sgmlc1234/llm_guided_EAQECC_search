@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n = target[\\\"n\\\"]\\n    k = target[\\\"k\\\"]\\n    c_target = target[\\\"c\\\"]\\n    d_target = target[\\\"d\\\"]\\n    l_rank = n + k - c_target\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        off = res[\\\"offending\\\"]\\n        c_diff = abs(res[\\\"c\\\"] - c_target)\\n        d_val = res.get(\\\"d\\\")\\n        if d_val is not None:\\n            d_penalty = 1000 * max(0, d_target - d_val)\\n        else:\\n            d_penalty = 1000 * d_target\\n        return 5000 * c_diff + off + d_penalty\\n\\n    def random_pauli():\\n        # Favor smaller perturbations (1 or 2 qubits) to preserve structure\\n        r = rng.random()\\n        size = 1 if r < 0.65 else (2 if r < 0.9 else 3)\\n        size = min(size, n)\\n        qubits = rng.choice(n, size=size, replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    while E.remaining:\\n        # Initial construction of a linearly independent L\\n        L = []\\n        while len(L) < l_rank:\\n            candidate = int(rng.integers(1, 1 << (2 * n)))\\n            test_L = L + [candidate]\\n            if len(E.gf2_basis(test_L)) == len(test_L):\\n                L.append(candidate)\\n        \\n        S = get_S(L)\\n        cur = objective(E.evaluate(S))\\n        best_L = list(L)\\n        best_obj = cur\\n        \\n        temp = 40.0\\n        fails = 0\\n        stagnant = 0\\n\\n        while fails < 800 and E.remaining:\\n            temp = max(0.05, temp * 0.996)\\n            candidate_L = list(L)\\n            idx = int(rng.integers(l_rank))\\n            \\n            # Mutate L by either replacing or perturbing a generator\\n            if rng.random() < 0.4:\\n                candidate_L[idx] = random_pauli()\\n            else:\\n                candidate_L[idx] ^= random_pauli()\\n\\n            if len(E.gf2_basis(candidate_L)) != l_rank:\\n                fails += 1\\n                continue\\n\\n            S_cand = get_S(candidate_L)\\n            res = E.evaluate(S_cand)\\n            new_obj = objective(res)\\n            delta = new_obj - cur\\n\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = candidate_L, new_obj\\n                if new_obj < best_obj:\\n                    best_obj = new_obj\\n                    best_L = list(candidate_L)\\n                    stagnant = 0\\n                else:\\n                    stagnant += 1\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n                stagnant += 1\\n\\n            # If stuck, occasionally perturbation-jump from the best local minimum\\n            if stagnant > 120:\\n                L = list(best_L)\\n                # Perturb one element randomly to escape local minimum\\n                pidx = int(rng.integers(l_rank))\\n                L[pidx] ^= random_pauli()\\n                if len(E.gf2_basis(L)) == l_rank:\\n                    S_cand = get_S(L)\\n                    cur = objective(E.evaluate(S_cand))\\n                else:\\n                    L = list(best_L)\\n                    cur = best_obj\\n                stagnant = 0\\n                temp = min(30.0, temp * 1.3)\\n\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3313,
+    "candidatesTokenCount": 1111,
+    "totalTokenCount": 6002,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3313
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1111
+      }
+    ],
+    "thoughtsTokenCount": 1578
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:03:32.499935Z"
+}

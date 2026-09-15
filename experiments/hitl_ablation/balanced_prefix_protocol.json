@@ -1,0 +1,15 @@
+{
+  "created_unix": 1789388571.369188,
+  "original_protocol_sha256": "b8e6f98228b584ed87ce4bbb84894fd9bbe649fd9fa42a08bfa625d9ac635c3f",
+  "finish_source_sha256": "f931fa5e012bfc0fff269e191a1ceb383d13214821ce195d9e63821ffffb30f3",
+  "cohorts_sha256": "9d1cd598948ee8aa3a425660cffeed1c614f895a754883fd00efc3cb27a6c000",
+  "ledger_sha256": "e1e2015d793db676af7bbb09ff25fad1445d6db48cdce0871b4a0cc40bce233e",
+  "proposals_per_arm": 7,
+  "blocks": 4,
+  "analyzed_proposals": 56,
+  "planned_proposals": 96,
+  "attempted_requests": 60,
+  "received_responses": 58,
+  "rule": "Use the longest contiguous generation prefix fully received and evaluated in EVERY block/policy. This is determined only by completion, not score. Exclude later completed proposals symmetrically, preserve them as supplementary records. No additional paid calls. Keep original training metrics, validation selection, targets, evaluation budgets and fresh execution seeds.",
+  "limitation": "Infrastructure-truncated follow-up: fewer proposals than originally planned; not completion of the planned 96-candidate study. Frozen before any validation/test results."
+}

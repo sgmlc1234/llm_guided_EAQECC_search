@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    rank_L = n + k - c\\n    \\n    def get_S(L):\\n        return E.nullspace([E._J(v, n) for v in L], 2 * n)\\n        \\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_vector():\\n        val = 0\\n        for q in range(n):\\n            val |= int(rng.integers(0, 4)) << (2 * q)\\n        return val\\n\\n    def generate_independent_L():\\n        while True:\\n            L = []\\n            for _ in range(rank_L):\\n                L.append(random_vector())\\n            if len(E.gf2_basis(L)) == rank_L:\\n                return L\\n\\n    best_L = generate_independent_L()\\n    best_S = get_S(best_L)\\n    best_obj = objective(E.evaluate(best_S))\\n\\n    temp = 30.0\\n    fails = 0\\n    \\n    while E.remaining:\\n        if fails > 200:\\n            # Restart\\n            best_L = generate_independent_L()\\n            best_S = get_S(best_L)\\n            best_obj = objective(E.evaluate(best_S))\\n            fails = 0\\n            temp = 30.0\\n            \\n        temp = max(0.1, temp * 0.995)\\n        candidate_L = list(best_L)\\n        idx = int(rng.integers(rank_L))\\n        # Mutate one element of L\\n        candidate_L[idx] ^= random_vector()\\n        \\n        if len(E.gf2_basis(candidate_L)) != rank_L:\\n            fails += 1\\n            continue\\n            \\n        cand_S = get_S(candidate_L)\\n        res = E.evaluate(cand_S)\\n        new_obj = objective(res)\\n        \\n        if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c and res.get(\\\"k\\\") == k:\\n            return cand_S\\n            \\n        delta = new_obj - best_obj\\n        if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n            best_L, best_obj = candidate_L, new_obj\\n            fails = 0 if delta < 0 else fails + 1\\n        else:\\n            fails += 1\\n            \\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 734,
+    "totalTokenCount": 3227,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 734
+      }
+    ],
+    "thoughtsTokenCount": 695
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:03:48.433548Z"
+}

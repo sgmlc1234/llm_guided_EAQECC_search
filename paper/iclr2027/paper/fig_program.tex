@@ -1,0 +1,85 @@
+% Lineage of the construction, drawn as the thing being constructed.
+%
+% Each grid is the generator layout that stage produces: columns are
+% qubits, rows are stabilizer generators, a filled cell means the
+% generator acts there. Random scatter, then a shift-1 staircase, then a
+% shift-2 staircase that wraps. The point is visible without reading the
+% labels: evolution replaced an unstructured set with a structured one,
+% and then widened the structure.
+%
+% One coordinate system throughout (x=y=2.6mm). Every row is placed at its
+% own y, and a grid is drawn inside a scope shifted to that same y, so
+% markers, grids and annotations cannot drift apart.
+\newcommand{\gcell}[3]{\fill[#3] (#1,-#2) rectangle ++(0.82,0.82);}
+
+\begin{figure}[tb]
+\centering
+\begin{tikzpicture}[x=2.05mm, y=2.05mm, font=\scriptsize,
+  lbl/.style={anchor=west, font=\scriptsize},
+  ann/.style={anchor=west, font=\scriptsize, text width=40mm},
+  mach/.style={circle, fill=achieve, draw=achieve, inner sep=1.35pt},
+  hum/.style={circle, fill=white, draw=black!55, inner sep=1.2pt},
+  pipe/.style={rectangle, fill=achieve!30, draw=achieve, inner sep=1.7pt}]
+
+\node[anchor=west, font=\scriptsize] at (-14,3.4)
+  {\tikz\node[mach]{};\ machine \quad \tikz\node[hum]{};\ human \quad
+   \tikz\node[pipe]{};\ pipeline write-back \quad
+   \textit{columns: qubits \ $\cdot$ \ rows: generators}};
+
+% ---------------- seed --------------------------------------------------
+\node[hum] at (-14,0) {};
+\node[lbl] at (-12.8,0) {seed};
+\begin{scope}[shift={(0,1.4)}]
+  \foreach \r/\cs in {0/{1,4,5,9}, 1/{0,3,7}, 2/{2,5,6,10}, 3/{1,8,9,11}}
+    \foreach \c in \cs { \gcell{\c}{\r}{black!30} }
+\end{scope}
+\node[ann] at (15,0) {random stabilizer set, annealed by single-generator
+  bit flips};
+
+% ---------------- gen 1-2: cyclic, step 1 -------------------------------
+\node[mach] at (-14,-7) {};
+\node[lbl] at (-12.8,-7) {gen.\ 1--2};
+\begin{scope}[shift={(0,-5.6)}]
+  \foreach \r in {0,1,2,3} {
+    \pgfmathtruncatemacro{\a}{\r} \pgfmathtruncatemacro{\b}{\r+1}
+    \pgfmathtruncatemacro{\e}{\r+4}
+    \gcell{\a}{\r}{achieve} \gcell{\b}{\r}{achieve}
+    \gcell{\e}{\r}{achieve!45}
+  }
+\end{scope}
+\node[ann] at (15,-7) {generators become cyclic shifts of one base
+  string: \mbox{$\vct{g},\ \vct{g}\lll 2,\ \vct{g}\lll 4,\dots$}};
+
+% ---------------- reseed -------------------------------------------------
+\node[pipe] at (-14,-12.6) {};
+\node[lbl] at (-12.8,-12.6) {write-back};
+\node[ann] at (15,-12.6) {the pipeline writes the finding into the seed
+  program \emph{and} the task specification (App.~\ref{app:prompts})};
+
+% ---------------- gen 3: quasi-cyclic, step 2, wrapping -----------------
+\node[mach] at (-14,-18.4) {};
+\node[lbl] at (-12.8,-18.4) {gen.\ 3};
+\begin{scope}[shift={(0,-17)}]
+  \foreach \r in {0,1,2,3} {
+    \pgfmathtruncatemacro{\a}{mod(2*\r,12)}
+    \pgfmathtruncatemacro{\b}{mod(2*\r+1,12)}
+    \pgfmathtruncatemacro{\e}{mod(2*\r+6,12)}
+    \gcell{\a}{\r}{achieve} \gcell{\b}{\r}{achieve}
+    \gcell{\e}{\r}{achieve!45}
+  }
+  \draw[black!45, ->] (12.4,-3.2) .. controls (13.9,-2.0) and (13.9,-0.8) ..
+        (12.4,0.3);
+\end{scope}
+\node[ann] at (15,-18.4) {shift step widened to $\{1,2,3\}$ and reduced
+  $\bmod\ 2n$, so orbits wrap instead of overflowing};
+
+% ---------------- gen 4 --------------------------------------------------
+\node[mach] at (-14,-23.6) {};
+\node[lbl] at (-12.8,-23.6) {gen.\ 4};
+\node[ann] at (15,-23.6) {no further structural change};
+
+\draw[black!25, line width=0.6pt] (-14,0.7) -- (-14,-24.2);
+\end{tikzpicture}
+\caption{Evolution of the search program.}
+\label{fig:lineage}
+\end{figure}

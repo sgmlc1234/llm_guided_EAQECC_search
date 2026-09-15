@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    r_L = n + k - c\\n    s = n - k + c\\n    target_d = target[\\\"d\\\"]\\n\\n    def symp_weight(v):\\n        w = 0\\n        for i in range(n):\\n            if (v >> (2 * i)) & 3:\\n                w += 1\\n        return w\\n\\n    def get_S(L):\\n        J_L = [E._J(v, n) for v in L]\\n        return E.nullspace(J_L, 2 * n)\\n\\n    def random_vector():\\n        val = 0\\n        while val == 0:\\n            for i in range(n):\\n                val |= int(rng.integers(0, 4)) << (2 * i)\\n        return val\\n\\n    def mutate_vector(v):\\n        v_new = v\\n        num_muts = int(rng.choice([1, 2, 3], p=[0.7, 0.2, 0.1]))\\n        for _ in range(num_muts):\\n            q = int(rng.integers(0, n))\\n            op = int(rng.integers(1, 4))\\n            v_new ^= (op << (2 * q))\\n        return v_new\\n\\n    def init_L():\\n        while True:\\n            candidate = [random_vector() for _ in range(r_L)]\\n            if len(E.gf2_basis(candidate)) == r_L:\\n                return candidate\\n\\n    def analyze_L(L):\\n        # Compute the span of J(L)\\n        JL = [E._J(v, n) for v in L]\\n        span_JL = [0]\\n        for v in JL:\\n            span_JL += [x ^ v for x in span_JL]\\n        \\n        # Identify radical of J(L) under symplectic form\\n        radical = []\\n        for x in span_JL:\\n            is_radical = True\\n            for y in JL:\\n                if E.sform(x, y, n):\\n                    is_radical = False\\n                    break\\n            if is_radical:\\n                radical.append(x)\\n        \\n        rad_dim = int(math.log2(len(radical)))\\n        \\n        # Compute local distance\\n        min_d = 999\\n        radical_set = set(radical)\\n        for x in span_JL:\\n            if x not in radical_set:\\n                w = symp_weight(x)\\n                if w < min_d:\\n                    min_d = w\\n        return rad_dim, min_d\\n\\n    # Generate and filter candidates purely offline until we find a match\\n    while E.remaining:\\n        L = init_L()\\n        stagnant = 0\\n        while stagnant < 100:\\n            rad_dim, d_local = analyze_L(L)\\n            # If we match the required parameters, evaluate\\n            if rad_dim == n - k - c and d_local >= target_d:\\n                S = get_S(L)\\n                if len(S) == s:\\n                    res = E.evaluate(S)\\n                    if res and res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c and res.get(\\\"d\\\", 0) >= target_d:\\n                        return S\\n            \\n            # Mutate L\\n            new_L = list(L)\\n            mut_idx = int(rng.integers(r_L))\\n            if rng.random() < 0.15:\\n                new_L[mut_idx] = random_vector()\\n            else:\\n                new_L[mut_idx] = mutate_vector(new_L[mut_idx])\\n            \\n            if len(E.gf2_basis(new_L)) == r_L:\\n                L = new_L\\n                stagnant = 0\\n            else:\\n                stagnant += 1\\n\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3410,
+    "candidatesTokenCount": 1034,
+    "totalTokenCount": 9727,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3410
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1034
+      }
+    ],
+    "thoughtsTokenCount": 5283
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:09:45.205654Z"
+}

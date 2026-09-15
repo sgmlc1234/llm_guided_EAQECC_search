@@ -31,6 +31,9 @@ sys.path.insert(0, str(HERE))
 from solver import find_solver, solver_version  # noqa: E402
 
 ENCODERS = {
+    "coordinate-normal-q3": (HERE / "sat_free_radical_q3.py",
+                            lambda e: [str(e["n"]), str(e["c"]), str(e["d"]),
+                                       "--coordinate-normalize", "--binary-proof"]),
     "normal-form-q2": (HERE / "sat_normal_form_q2.py",
                        lambda e: ["--only", f"{e['n']},{e['k']},{e['c']},{e['d']}"]),
     "free-radical-q3": (HERE / "sat_free_radical_q3.py",

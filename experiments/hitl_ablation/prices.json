@@ -1,0 +1,14 @@
+{
+  "input": {
+    "sku_id": "9733-FF95-45E3",
+    "krw_per_token": 0.002074919,
+    "description": "Gemini 3.5 Flash Global Text Input - Predictions",
+    "effective_time": "2026-09-14T07:00:00Z"
+  },
+  "output": {
+    "sku_id": "4E73-15BD-0D78",
+    "krw_per_token": 0.012449519,
+    "description": "Gemini 3.5 Flash Global Text Output - Predictions",
+    "effective_time": "2026-09-13T07:00:00Z"
+  }
+}

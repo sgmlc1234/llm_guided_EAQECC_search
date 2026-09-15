@@ -1,0 +1,166 @@
+\begin{thebibliography}{22}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Assump{\c{c}}{\~a}o et~al.(2026)Assump{\c{c}}{\~a}o, Ferreira, Campos,
+  and Murai]{CodeEvolve}
+Henrique Assump{\c{c}}{\~a}o, Diego Ferreira, Leandro Campos, and Fabricio
+  Murai.
+\newblock {CodeEvolve}: an open-source evolutionary framework for algorithmic
+  discovery and optimization.
+\newblock \emph{arXiv preprint arXiv:2510.14150}, 2026.
+
+\bibitem[Brun et~al.(2006)Brun, Devetak, and Hsieh]{BrunDevetakHsieh2006}
+Todd Brun, Igor Devetak, and Min-Hsiu Hsieh.
+\newblock Correcting quantum errors with entanglement.
+\newblock \emph{Science}, 314\penalty0 (5798):\penalty0 436--439, 2006.
+\newblock \doi{10.1126/science.1131563}.
+
+\bibitem[Calderbank et~al.(1997)Calderbank, Rains, Shor, and Sloane]{CRSS1997}
+A.~R. Calderbank, E.~M. Rains, P.~W. Shor, and N.~J.~A. Sloane.
+\newblock Quantum error correction via codes over {GF}(4).
+\newblock arXiv:quant-ph/9608006v5, 1997.
+\newblock URL \url{https://arxiv.org/abs/quant-ph/9608006v5}.
+\newblock Version dated 10 September 1997.
+
+\bibitem[Georgiev et~al.(2025)Georgiev, G{\'o}mez-Serrano, Tao, and
+  Wagner]{Georgiev2025}
+Bogdan Georgiev, Javier G{\'o}mez-Serrano, Terence Tao, and Adam~Zsolt Wagner.
+\newblock Mathematical exploration and discovery at scale.
+\newblock \emph{arXiv preprint arXiv:2511.02864}, 2025.
+
+\bibitem[Grassl(2021)]{Grassl2021}
+Markus Grassl.
+\newblock Entanglement-assisted quantum communication beating the quantum
+  {S}ingleton bound.
+\newblock \emph{Physical Review A}, 103:\penalty0 L020601, 2021.
+\newblock \doi{10.1103/PhysRevA.103.L020601}.
+
+\bibitem[Grassl(2026)]{Codetables}
+Markus Grassl.
+\newblock Bounds on the parameters of various types of codes.
+\newblock (\url{http://www.codetables.de}), 2026.
+\newblock Accessed on 17 July 2026; table data preserved in the accompanying
+  artifact.
+
+\bibitem[Grassl et~al.(2020)Grassl, Huber, and Winter]{GHW2020}
+Markus Grassl, Felix Huber, and Andreas Winter.
+\newblock Entropic proofs of {S}ingleton bounds for quantum error-correcting
+  codes.
+\newblock arXiv:2010.07902v1, 2020.
+\newblock URL \url{https://arxiv.org/abs/2010.07902v1}.
+\newblock First public version, 15 October 2020; Theorem 7.
+
+\bibitem[Grassl et~al.(2022)Grassl, Huber, and Winter]{GHW2022}
+Markus Grassl, Felix Huber, and Andreas Winter.
+\newblock Entropic proofs of {S}ingleton bounds for quantum error-correcting
+  codes.
+\newblock \emph{IEEE Transactions on Information Theory}, 68\penalty0
+  (6):\penalty0 3942--3950, 2022.
+\newblock \doi{10.1109/TIT.2022.3149291}.
+
+\bibitem[Guo \& Li(2013)Guo and Li]{GuoLi2013}
+Luobin Guo and Ruihu Li.
+\newblock Linear {P}lotkin bound for entanglement-assisted quantum codes.
+\newblock \emph{Physical Review A}, 87:\penalty0 032309, 2013.
+\newblock \doi{10.1103/PhysRevA.87.032309}.
+
+\bibitem[Lange et~al.(2025)Lange, Imajuku, and Cetin]{ShinkaEvolve}
+Robert~Tjarko Lange, Yuki Imajuku, and Edoardo Cetin.
+\newblock {ShinkaEvolve}: Towards open-ended and sample-efficient program
+  evolution.
+\newblock \emph{arXiv preprint arXiv:2509.19349}, 2025.
+
+\bibitem[Luo et~al.(2022)Luo, Ezerman, Grassl, and Ling]{Luo2022}
+Gaojun Luo, Martianus~Frederic Ezerman, Markus Grassl, and San Ling.
+\newblock How much entanglement does a quantum code need?
+\newblock \emph{arXiv preprint arXiv:2207.05647}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2207.05647v1}.
+\newblock First public version, 12 July 2022; Table I and Section IV.
+
+\bibitem[Mauron et~al.(2023)Mauron, Farrelly, and Stace]{Mauron2023}
+Caroline Mauron, Terry Farrelly, and Thomas~M. Stace.
+\newblock Optimization of tensor network codes with reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:2305.11470}, 2023.
+
+\bibitem[Novikov et~al.(2025)Novikov, V{\~u}, Eisenberger, Dupont, Huang,
+  Wagner, Shirobokov, Kozlovskii, Ruiz, Mehrabian, Kumar, See, Chaudhuri,
+  Holland, Davies, Nowozin, Kohli, and Balog]{AlphaEvolve}
+Alexander Novikov, Ng{\^a}n V{\~u}, Marvin Eisenberger, Emilien Dupont, Po-Sen
+  Huang, Adam~Zsolt Wagner, Sergey Shirobokov, Borislav Kozlovskii, Francisco
+  J.~R. Ruiz, Abbas Mehrabian, M.~Pawan Kumar, Abigail See, Swarat Chaudhuri,
+  George Holland, Alex Davies, Sebastian Nowozin, Pushmeet Kohli, and Matej
+  Balog.
+\newblock {AlphaEvolve}: A coding agent for scientific and algorithmic
+  discovery.
+\newblock \emph{arXiv preprint arXiv:2506.13131}, 2025.
+
+\bibitem[Olle et~al.(2024)Olle, Zen, Puviani, and Marquardt]{Olle2024}
+Jan Olle, Remmy Zen, Matteo Puviani, and Florian Marquardt.
+\newblock Simultaneous discovery of quantum error correction codes and encoders
+  with a noise-aware reinforcement learning agent.
+\newblock \emph{npj Quantum Information}, 10:\penalty0 126, 2024.
+
+\bibitem[Poulsen~Nautrup et~al.(2019)Poulsen~Nautrup, Delfosse, Dunjko,
+  Briegel, and Friis]{Nautrup2019}
+Hendrik Poulsen~Nautrup, Nicolas Delfosse, Vedran Dunjko, Hans~J. Briegel, and
+  Nicolai Friis.
+\newblock Optimizing quantum error correction codes with reinforcement
+  learning.
+\newblock \emph{Quantum}, 3:\penalty0 215, 2019.
+\newblock \doi{10.22331/q-2019-12-16-215}.
+
+\bibitem[Romera-Paredes et~al.(2024)Romera-Paredes, Barekatain, Novikov, Balog,
+  Kumar, Dupont, Ruiz, Ellenberg, Wang, Fawzi, Kohli, and Fawzi]{FunSearch}
+Bernardino Romera-Paredes, Mohammadamin Barekatain, Alexander Novikov, Matej
+  Balog, M.~Pawan Kumar, Emilien Dupont, Francisco J.~R. Ruiz, Jordan~S.
+  Ellenberg, Pengming Wang, Omar Fawzi, Pushmeet Kohli, and Alhussein Fawzi.
+\newblock Mathematical discoveries from program search with large language
+  models.
+\newblock \emph{Nature}, 625:\penalty0 468--475, 2024.
+\newblock \doi{10.1038/s41586-023-06924-6}.
+
+\bibitem[Sharma(2025)]{OpenEvolve}
+Asankhaya Sharma.
+\newblock {OpenEvolve}: an open-source evolutionary coding agent.
+\newblock \url{https://github.com/codelion/openevolve}, 2025.
+
+\bibitem[Shin et~al.(2011)Shin, Heo, and Brun]{Shin2011}
+Jeonghwan Shin, Jun Heo, and Todd~A. Brun.
+\newblock Entanglement-assisted codeword stabilized quantum codes.
+\newblock \emph{Physical Review A}, 84:\penalty0 062321, 2011.
+\newblock \doi{10.1103/PhysRevA.84.062321}.
+
+\bibitem[Su et~al.(2023)Su, Cao, Hu, Yanay, Tahan, and Swingle]{Su2023}
+Vincent~Paul Su, ChunJun Cao, Hong-Ye Hu, Yariv Yanay, Charles Tahan, and Brian
+  Swingle.
+\newblock Discovery of optimal quantum error correcting codes via reinforcement
+  learning.
+\newblock \emph{arXiv preprint arXiv:2305.06378}, 2023.
+
+\bibitem[Wetzler et~al.(2014)Wetzler, Heule, and Hunt]{DRATtrim}
+Nathan Wetzler, Marijn J.~H. Heule, and Warren~A. Hunt.
+\newblock {DRAT-trim}: Efficient checking and trimming using expressive clausal
+  proofs.
+\newblock In \emph{Theory and Applications of Satisfiability Testing (SAT)},
+  volume 8561 of \emph{LNCS}, pp.\  422--429, 2014.
+
+\bibitem[Wilde \& Brun(2008)Wilde and Brun]{WildeBrun2008}
+Mark~M. Wilde and Todd~A. Brun.
+\newblock Optimal entanglement formulas for entanglement-assisted quantum
+  coding.
+\newblock \emph{Physical Review A}, 77:\penalty0 064302, 2008.
+\newblock \doi{10.1103/PhysRevA.77.064302}.
+
+\bibitem[Yang et~al.(2026)Yang, Zhong, Li, Wu, Yuan, Chen, Yang, and
+  Yue]{TurboEvolve}
+Yang Yang, Zining Zhong, Jindong Li, Jiemin Wu, Kaishen Yuan, Wenshuo Chen,
+  Menglin Yang, and Yutao Yue.
+\newblock {TurboEvolve}: Towards fast and robust {LLM}-driven program
+  evolution.
+\newblock \emph{arXiv preprint arXiv:2604.18607}, 2026.
+
+\end{thebibliography}

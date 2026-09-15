@@ -1,0 +1,307 @@
+{
+  "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+  "mean_utility": 0.61505,
+  "success_fraction": 0.75,
+  "mean_distance_ratio": 0.975,
+  "errors": 0,
+  "cases": [
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 1907706899987373857,
+      "allocated_evals": 10000,
+      "n_evals": 947,
+      "nullspace_calls": 947,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 947,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 287,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 9053,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        132097,
+        65538,
+        131076,
+        65560,
+        131104,
+        131136,
+        196736,
+        65792,
+        131584,
+        67584,
+        135168,
+        204800,
+        81920,
+        229376
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.17590224999003112,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/candidates/b02_evolution_g01/train/n9_seed202609142002.witness.json",
+        "sha256": "0837a65fbc3cb3bdc1e1c0eb29c24f7edfd4ba4630753348ef486a2b6c495b89",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "8": 8,
+          "9": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.9053
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 6914079767952085449,
+      "allocated_evals": 10000,
+      "n_evals": 3002,
+      "nullspace_calls": 3002,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 3002,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 913,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 6998,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        32769,
+        98306,
+        32772,
+        98312,
+        65552,
+        98336,
+        98368,
+        67712,
+        65792,
+        229888,
+        99328,
+        36864,
+        73728,
+        81920
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.5509552080184221,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/candidates/b02_evolution_g01/train/n9_seed202609142001.witness.json",
+        "sha256": "8aa35205c8f9391a3b049ad7a5637a5245f9488bb666993c9578464fda175421",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "9": 4,
+          "8": 8
+        },
+        "status": "PASS"
+      },
+      "utility": 0.6998
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 11307863343901284075,
+      "allocated_evals": 10000,
+      "n_evals": 10000,
+      "nullspace_calls": 10000,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 10000,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 2848,
+      "final_verifications": 0,
+      "termination": "returned",
+      "error": null,
+      "unused_evals": 0,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 9,
+        "offending": 1,
+        "logical_count": 12
+      },
+      "generators": [
+        3178497,
+        2097154,
+        2097156,
+        262152,
+        262160,
+        2097184,
+        2359360,
+        262272,
+        2097408,
+        2359808,
+        263168,
+        296960,
+        266240,
+        2105344,
+        2408448,
+        327680,
+        2228224,
+        2621440
+      ],
+      "closed": false,
+      "distance_ratio": 0.9,
+      "found_phase": "search",
+      "elapsed_s": 2.8471270001027733,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "utility": 0.0
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 14407166059603432160,
+      "allocated_evals": 10000,
+      "n_evals": 1449,
+      "nullspace_calls": 1449,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 1449,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 406,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 8551,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        2097153,
+        3145730,
+        1048836,
+        3145992,
+        1048592,
+        2097184,
+        3145792,
+        1048704,
+        2097664,
+        2229248,
+        1181696,
+        2101248,
+        1056768,
+        2113536,
+        3178496,
+        3211264,
+        1310720,
+        2621440
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.417572750011459,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/candidates/b02_evolution_g01/train/n11_seed202609142002.witness.json",
+        "sha256": "756fcff148c9bd1ccafc4b8aeeecdebc9368a6ba369d06fb82a900e997afec1d",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "10": 8,
+          "11": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.8551
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    r_L = n + k - c\\n    s = n - k + c\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        val = 5000 * abs(res[\\\"c\\\"] - c) + 10 * res[\\\"offending\\\"]\\n        d = res.get(\\\"d\\\")\\n        if d is not None:\\n            val -= d\\n        return val\\n\\n    def get_S(L):\\n        J_L = [E._J(v, n) for v in L]\\n        return E.nullspace(J_L, 2 * n)\\n\\n    def random_vector():\\n        val = 0\\n        while val == 0:\\n            for i in range(n):\\n                val |= int(rng.integers(0, 4)) << (2 * i)\\n        return val\\n\\n    def mutate_vector(v):\\n        v_new = v\\n        num_muts = int(rng.choice([1, 2], p=[0.7, 0.3]))\\n        for _ in range(num_muts):\\n            q = int(rng.integers(0, n))\\n            op = int(rng.integers(1, 4))\\n            v_new ^= (op << (2 * q))\\n        return v_new\\n\\n    def init_L():\\n        while True:\\n            candidate_L = [random_vector() for _ in range(r_L)]\\n            if len(E.gf2_basis(candidate_L)) == r_L:\\n                return candidate_L\\n\\n    L = init_L()\\n    S = get_S(L)\\n    best_res = E.evaluate(S)\\n    best_obj = objective(best_res)\\n\\n    temp = 20.0\\n    fails = 0\\n\\n    while E.remaining:\\n        if fails > 300:\\n            L = init_L()\\n            S = get_S(L)\\n            best_res = E.evaluate(S)\\n            best_obj = objective(best_res)\\n            temp = 20.0\\n            fails = 0\\n            continue\\n\\n        new_L = list(L)\\n        mut_idx = int(rng.integers(r_L))\\n        if rng.random() < 0.15:\\n            new_L[mut_idx] = random_vector()\\n        else:\\n            new_L[mut_idx] = mutate_vector(new_L[mut_idx])\\n\\n        if len(E.gf2_basis(new_L)) != r_L:\\n            fails += 1\\n            continue\\n\\n        new_S = get_S(new_L)\\n        if len(new_S) != s:\\n            continue\\n\\n        res = E.evaluate(new_S)\\n        obj = objective(res)\\n\\n        delta = obj - best_obj\\n        temp = max(0.01, temp * 0.996)\\n        if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n            L = new_L\\n            best_obj = obj\\n            if delta < 0:\\n                fails = 0\\n            else:\\n                fails += 1\\n        else:\\n            fails += 1\\n\\n    return None\"}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3220,
+    "candidatesTokenCount": 898,
+    "totalTokenCount": 5979,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3220
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 898
+      }
+    ],
+    "thoughtsTokenCount": 1861
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:01:03.281121Z"
+}

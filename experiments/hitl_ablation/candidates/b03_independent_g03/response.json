@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n = target[\\\"n\\\"]\\n    k = target[\\\"k\\\"]\\n    c = target[\\\"c\\\"]\\n    s = n - k + c\\n    l_size = n + k - c\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        val = 5000 * abs(res.get(\\\"c\\\", 0) - c) + res.get(\\\"offending\\\", 999) * 10\\n        if res.get(\\\"c\\\") == c and res.get(\\\"offending\\\") == 0:\\n            d = res.get(\\\"d\\\")\\n            if d is not None:\\n                val -= d\\n        return val\\n\\n    def random_L():\\n        while True:\\n            L = []\\n            for _ in range(l_size):\\n                v = int(rng.integers(1, 1 << (2 * n)))\\n                L.append(v)\\n            if len(E.gf2_basis(L)) == l_size:\\n                return L\\n\\n    L = random_L()\\n    S = get_S(L)\\n    res = E.evaluate(S)\\n    cur = objective(res)\\n\\n    temp = 30.0\\n    fails = 0\\n\\n    while E.remaining:\\n        temp = max(0.1, temp * 0.995)\\n        candidate_L = list(L)\\n        idx = int(rng.integers(l_size))\\n        if rng.random() < 0.2:\\n            candidate_L[idx] = int(rng.integers(1, 1 << (2 * n)))\\n        else:\\n            qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n            delta = 0\\n            for q in qubits:\\n                delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n            candidate_L[idx] ^= delta\\n\\n        if len(E.gf2_basis(candidate_L)) != l_size:\\n            continue\\n\\n        candidate_S = get_S(candidate_L)\\n        res = E.evaluate(candidate_S)\\n        new_obj = objective(res)\\n\\n        delta_val = new_obj - cur\\n        if delta_val <= 0 or rng.random() < math.exp(-delta_val / temp):\\n            L, cur = candidate_L, new_obj\\n            fails = 0\\n        else:\\n            fails += 1\\n            if fails > 200:\\n                L = random_L()\\n                S = get_S(L)\\n                cur = objective(E.evaluate(S))\\n                fails = 0\\n                temp = 30.0\\n\\n    return None\"}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 778,
+    "totalTokenCount": 4361,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 778
+      }
+    ],
+    "thoughtsTokenCount": 1785
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:03:59.028121Z"
+}

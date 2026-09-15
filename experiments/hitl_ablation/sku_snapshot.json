@@ -1,0 +1,90 @@
+[
+  {
+    "name": "services/C7E2-9256-1C43/skus/4E73-15BD-0D78",
+    "skuId": "4E73-15BD-0D78",
+    "description": "Gemini 3.5 Flash Global Text Output - Predictions",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "global"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "count",
+          "displayQuantity": 1000000,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "KRW",
+                "units": "0",
+                "nanos": 12449519
+              }
+            }
+          ],
+          "usageUnitDescription": "count",
+          "baseUnit": "count",
+          "baseUnitDescription": "count",
+          "baseUnitConversionFactor": 1
+        },
+        "currencyConversionRate": 1383.279999727992,
+        "effectiveTime": "2026-09-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "GLOBAL",
+      "regions": []
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/9733-FF95-45E3",
+    "skuId": "9733-FF95-45E3",
+    "description": "Gemini 3.5 Flash Global Text Input - Predictions",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "global"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "count",
+          "displayQuantity": 1000000,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "KRW",
+                "units": "0",
+                "nanos": 2074919
+              }
+            }
+          ],
+          "usageUnitDescription": "count",
+          "baseUnit": "count",
+          "baseUnitDescription": "count",
+          "baseUnitConversionFactor": 1
+        },
+        "currencyConversionRate": 1383.279999727992,
+        "effectiveTime": "2026-09-14T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "GLOBAL",
+      "regions": []
+    }
+  }
+]

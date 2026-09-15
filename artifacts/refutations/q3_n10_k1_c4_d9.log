@@ -1,2 +1,2 @@
-CNF: 33033 vars, 476221 clauses -> /private/tmp/claude-501/-Users-imds-Desktop-icml-2026-solevolve/a56c5a40-576d-4514-bcce-69530061f3bd/scratchpad/q3/q3_n10_k1_c4_d9.cnf
+CNF: 33033 vars, 476221 clauses -> q3_n10_k1_c4_d9.cnf
 UNSAT: no [[10,1,9;4]]_3 EAQECC exists (free radical, complete search space)

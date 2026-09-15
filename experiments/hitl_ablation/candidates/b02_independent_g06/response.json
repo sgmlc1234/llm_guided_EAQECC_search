@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    L_size = n + k - c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    def generate_random_L():\\n        while True:\\n            L = []\\n            for _ in range(L_size):\\n                val = int(rng.integers(1, 1 << (2 * n)))\\n                L.append(val)\\n            if len(E.gf2_basis(L)) == L_size:\\n                return L\\n\\n    best_state = None\\n    best_val = 10**9\\n\\n    while E.remaining:\\n        L = generate_random_L()\\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        if cur < best_val:\\n            best_val = cur\\n            best_state = list(L)\\n\\n        temp, fails = 30.0, 0\\n        while fails < 1500 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            candidate_L = list(L)\\n            candidate_L[int(rng.integers(L_size))] ^= random_pauli()\\n            if len(E.gf2_basis(candidate_L)) != L_size:\\n                fails += 1\\n                continue\\n            \\n            cand_S = get_S(candidate_L)\\n            new_obj = objective(E.evaluate(cand_S))\\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n                if cur < best_val:\\n                    best_val = cur\\n                    best_state = list(L)\\n            else:\\n                fails += 1\\n\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 712,
+    "totalTokenCount": 3266,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 712
+      }
+    ],
+    "thoughtsTokenCount": 756
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:08:54.321250Z"
+}

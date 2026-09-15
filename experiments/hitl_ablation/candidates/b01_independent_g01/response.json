@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    dim_L = 2 * n - s  # which is n + k - c, equals 4 for training cases\\n\\n    def get_S(L):\\n        # Convert L to S using the nullspace of J(L)\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 4)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    # Initialize L as a random linearly independent set of size dim_L\\n    def random_L():\\n        while True:\\n            candidate = []\\n            for _ in range(dim_L):\\n                candidate.append(int(rng.integers(1, 1 << (2 * n))))\\n            if len(E.gf2_basis(candidate)) == dim_L:\\n                return candidate\\n\\n    best_L = None\\n    best_val = 10**9\\n\\n    while E.remaining:\\n        L = random_L()\\n        S = get_S(L)\\n        if len(S) != s:\\n            continue\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        if cur < best_val:\\n            best_val = cur\\n            best_L = list(L)\\n\\n        temp = 30.0\\n        fails = 0\\n        while fails < 1500 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            cand_L = list(L)\\n            idx = int(rng.integers(dim_L))\\n            cand_L[idx] ^= random_pauli()\\n            if len(E.gf2_basis(cand_L)) != dim_L:\\n                fails += 1\\n                continue\\n            cand_S = get_S(cand_L)\\n            if len(cand_S) != s:\\n                fails += 1\\n                continue\\n            new_res = E.evaluate(cand_S)\\n            new_obj = objective(new_res)\\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = cand_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n                if cur < best_val:\\n                    best_val = cur\\n                    best_L = list(L)\\n            else:\\n                fails += 1\\n\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 804,
+    "totalTokenCount": 3177,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 804
+      }
+    ],
+    "thoughtsTokenCount": 575
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T11:59:42.715568Z"
+}

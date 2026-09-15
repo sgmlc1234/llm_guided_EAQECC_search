@@ -19,7 +19,13 @@ Encoding notes:
  - non-acting literal E[cls][t][q] <=> C[cls][q] == -S[t][q];
    at-most-(n-d) of {E[cls][t][q]}_q for every (cls, t).
 
+Optional --coordinate-normalize sets the radical's X coordinates to zero
+when j>2 and d=n-1. The coordinate-projection lemma in the paper's
+refutation appendix proves that local symplectic transformations always
+permit this normalization; it is not a restriction to an assumed code family.
+
 Usage: sat_free_radical_q3.py n c d [--timeout SEC] [--out DIR] [--proof]
+       [--coordinate-normalize] [--binary-proof]
 Exit status: 20 UNSAT, 10 SAT (CaDiCaL convention).
 """
 
@@ -84,6 +90,10 @@ def main():
     out_dir = Path(sys.argv[sys.argv.index("--out") + 1]) if "--out" in sys.argv else None
     want_proof = "--proof" in sys.argv
     j = n - 1 - c
+    normalize = "--coordinate-normalize" in sys.argv
+    binary_proof = "--binary-proof" in sys.argv
+    if normalize and (j <= 2 or d != n - 1):
+        raise ValueError("coordinate normalization requires j>2 and d=n-1")
     N2 = 2 * n
     cnf = CNF()
 
@@ -204,6 +214,14 @@ def main():
                 for v in range(u + 1, len(lits)):
                     cnf.add([-lits[u], -lits[v]])
 
+    # The rank argument implies that every radical coordinate image has
+    # dimension <=1. Independent local symplectic changes send those lines
+    # to the Z axis; row reduction preserves their zero X entries.
+    if normalize:
+        for row in R:
+            for coordinate in range(n):
+                cnf.add([row[2 * coordinate][0]])
+
     tag = f"q3_n{n}_k1_c{c}_d{d}"
     if out_dir is not None:
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -218,7 +236,7 @@ def main():
             f.write(" ".join(map(str, cc)) + " 0\n")
     print(f"CNF: {cnf.n} vars, {len(cnf.cl)} clauses -> {path}", flush=True)
     try:
-        p = run_solver(Path(path), proof=proof, timeout=timeout or None)
+        p = run_solver(Path(path), proof=proof, timeout=timeout or None, binary=binary_proof)
     except subprocess.TimeoutExpired:
         print("TIMEOUT")
         sys.exit(1)

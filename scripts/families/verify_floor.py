@@ -87,7 +87,9 @@ print(f"{tot} bundled witnesses re-verified (q=3,4,5)")
 
 _snaps = sorted(d for d in (ROOT / "artifacts" / "codetables_snapshots").iterdir()
                 if d.is_dir() and (d / "qutrit.json").exists())
-qt = json.load(open(_snaps[-1] / "qutrit.json"))
+selected = os.environ.get("EAQECC_SNAPSHOT")
+snapshot = (ROOT / "artifacts" / "codetables_snapshots" / selected) if selected else _snaps[-1]
+qt = json.load(open(snapshot / "qutrit.json"))
 closed = sorted({e['n'] for e in qt if e['k'] == 1 and e['c'] == e['n']-3
                  and e['dl'] < e['n']-1 <= e['du']})
 print(f"Qutrit table: family closes {len(closed)} listed gap entries "

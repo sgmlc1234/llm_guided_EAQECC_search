@@ -1,0 +1,49 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "c220906eafa74a902b0277af017945711f2cbc7f155ce21345c390eb9ce2d068",
+  "code_sha256": "d6a17d638616a82e6ac7706b0067bd4b2447d50099e35b22bb9f7fbc476fea63",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.0,
+  "score": 0.0,
+  "runs": [
+    {
+      "seed": 202609142002,
+      "closed": 0,
+      "distance_ratio": 0.0,
+      "failed_targets": 1,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 9,
+            "k": 1,
+            "c": 6,
+            "d": 8
+          },
+          "seed": 1907706899987373857,
+          "allocated_evals": 10000,
+          "n_evals": 0,
+          "nullspace_calls": 0,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 0,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 0,
+          "final_verifications": 0,
+          "termination": "candidate_error",
+          "error": "ValueError: define exactly one search(target, max_evals) function",
+          "unused_evals": 10000,
+          "underused_without_solution": true,
+          "closed": false,
+          "distance_ratio": 0.0,
+          "elapsed_s": 3.183400258421898e-05,
+          "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+          "code_sha256": "d6a17d638616a82e6ac7706b0067bd4b2447d50099e35b22bb9f7fbc476fea63",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

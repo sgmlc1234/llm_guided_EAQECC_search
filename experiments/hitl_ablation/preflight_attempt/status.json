@@ -1,0 +1,14 @@
+{
+  "state": "STOPPED",
+  "protocol_sha256": "b9e572cb6dbc58a389af144f4d4bd487ab523440e41592813c3e9d7b1e0c1293",
+  "planned_candidates": 96,
+  "completed_candidates": 0,
+  "started_unix": 1789386961.6252658,
+  "new_committed_krw": 0.0,
+  "aggregate_committed_krw": 17742.11656311375,
+  "block": 0,
+  "generation": 0,
+  "arm": "independent",
+  "reason": "RuntimeError: generation HTTP 400: Invalid value at 'generation_config.seed' (TYPE_INT32), 202609146000",
+  "stopped_unix": 1789386965.340328
+}

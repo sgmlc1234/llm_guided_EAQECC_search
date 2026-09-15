@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The auditor: one command re-derives every claim from the archived artifacts.
+"""Audit the computational EAQECC claims from the archived artifacts.
 
     python3 scripts/reproduce_eaqecc.py                 # every claim
     python3 scripts/reproduce_eaqecc.py --tier deterministic
@@ -15,14 +15,13 @@ distinction that matters:
                   obligation discharged, not a measurement.
   external        needs a tool the reader may not have (Magma, a SAT
                   solver, a DRAT checker). Reported SKIPPED_NO_TOOL when the
-                  tool is absent -- never required for a claim to hold,
-                  always binding when the tool is present and disagrees.
-  search          reproduces the discovery step itself. Meaningful only
+                  tool is absent -- reported separately from archive-only evidence; discrepancies fail.
+  search          replays a fixed archived program. Meaningful only
                   under an evaluation budget: seed + N evaluations fix the
                   output, a wall-clock budget does not.
 
-Exit status is 0 unless some claim FAILs. SKIPPED is not a failure; it is
-the auditor saying what it could not check here and why.
+Exit status is nonzero if a check FAILs. Overall PARTIAL means at least
+one selected check was not completed; it must not be interpreted as PASS.
 
 Data lives under --root (default: the repository this file sits in) and
 code next to this file, so the same auditor can be pointed at a copy of the
@@ -47,7 +46,7 @@ ROOT = Path(os.environ.get("EAQECC_ROOT") or HERE.parent)   # data
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE / "alphaevolve_eaqecc"))
 
-PASS, FAIL = "PASS", "FAIL"
+PASS, FAIL, PARTIAL = "PASS", "FAIL", "PARTIAL"
 SKIP_TOOL, SKIP_DATA = "SKIPPED_NO_TOOL", "SKIPPED_NO_DATA"
 SKIPS = (SKIP_TOOL, SKIP_DATA)
 
@@ -62,14 +61,14 @@ SNAPSHOT_SCHEMA = ("q", "n", "k", "c", "dl", "du")
 # a truncated archive pass quietly, so each claim asserts its number and
 # fails when the archive is not the one the paper describes.
 EXPECTED = {
-    "witnesses": 114,
-    "witnesses_by_q": {2: 64, 3: 27, 4: 13, 5: 10},
+    "witnesses": 115,
+    "witnesses_by_q": {2: 65, 3: 27, 4: 13, 5: 10},
     "family_cells": {2: 29, 3: 25},          # listed-open cells the closed form settles
     "table_corrections": 398,
-    "openness_cells": 64,                    # sporadic q=2 witnesses
-    "refutations_total": 9,                  # entries in the registry
-    "refutations_certified": 7,              # of which ship CNF + DRAT
-    "magma": 122,
+    "openness_cells": 65,                    # q=2 witness files, not unique cells
+    "refutations_total": 10,                  # entries in the registry
+    "refutations_certified": 9,              # of which ship CNF + DRAT
+    "magma": 148,
     # What the archived task specifications must say. The first campaigns
     # OFFERED the cyclic-shift symmetry ansatz as one of seven directions;
     # the later ones STATED the finding. Asserting both keeps the paper's
@@ -93,6 +92,7 @@ def _paths():
         "magma": a / "magma",
         "out": a / "reproduce_eaqecc",
         "manifest": ROOT / "MANIFEST.sha256",
+        "paper_reference": a / "paper_reference.json",
     }
 
 
@@ -112,12 +112,22 @@ def load_snapshot(snap: Path, which: str = "qubit") -> list:
     the claims rely on. A malformed snapshot fails loudly here rather than
     silently skewing an openness check."""
     cells = json.loads((snap / f"{which}.json").read_text())
+    seen = set()
+    expected_q = {"qubit": 2, "qutrit": 3}[which]
     for i, cell in enumerate(cells):
         missing = [f for f in SNAPSHOT_SCHEMA if f not in cell]
         if missing:
-            raise ValueError(
-                f"{snap.name}/{which}.json record {i} lacks {missing}; "
-                f"expected records with {SNAPSHOT_SCHEMA}")
+            raise ValueError(f"{snap.name}/{which}.json record {i} lacks {missing}")
+        if any(type(cell[f]) is not int for f in SNAPSHOT_SCHEMA):
+            raise ValueError(f"{which} record {i}: parameters must be integers")
+        if (cell["q"] != expected_q or cell["n"] < 1
+                or not 0 <= cell["k"] <= cell["n"] or cell["c"] < 0
+                or not 0 <= cell["dl"] <= cell["du"]):
+            raise ValueError(f"{which} record {i}: invalid parameter range")
+        key = (cell["q"], cell["n"], cell["k"], cell["c"])
+        if key in seen:
+            raise ValueError(f"{which} record {i}: duplicate cell {key}")
+        seen.add(key)
     return cells
 
 
@@ -268,7 +278,7 @@ def check_families() -> dict:
                        ("unified", [str(HERE / "families" / "verify_floor.py")])):
         proc = subprocess.run([sys.executable, *argv], capture_output=True,
                               text=True, cwd=str(HERE / "families"),
-                              env=dict(os.environ, EAQECC_ROOT=str(ROOT)))
+                              env=dict(os.environ, EAQECC_ROOT=str(ROOT), EAQECC_SNAPSHOT=SNAPSHOT.name))
         tail = (proc.stdout or proc.stderr).strip().splitlines()[-2:]
         runs[name] = {"returncode": proc.returncode, "tail": tail}
     cells = _family_cells_closed()
@@ -323,6 +333,16 @@ def check_table_correction() -> dict:
 
 
 # ---------------------------------------------------------- openness
+def _best_witness_targets(q: int) -> dict:
+    best = {}
+    for path in _witness_files(q):
+        t = dict(json.loads(path.read_text())["target"], q=q)
+        key = (t["n"], t["k"], t["c"])
+        if key not in best or t["d"] > best[key]["d"]:
+            best[key] = t
+    return best
+
+
 def _openness_split(q: int, which: str) -> dict:
     cells = {(c["n"], c["k"], c["c"]): c for c in load_snapshot(SNAPSHOT, which)}
     open_gap, open_record, not_open = [], [], []
@@ -336,8 +356,13 @@ def _openness_split(q: int, which: str) -> dict:
         else:
             not_open.append({"code": _tag(t), "snapshot_dl": cell["dl"],
                              "snapshot_du": cell["du"]})
+    best = _best_witness_targets(q)
     return {"snapshot_cells": len(cells), "gap": open_gap,
-            "record": open_record, "not_open": not_open}
+            "record": open_record, "not_open": not_open,
+            "unique_cells": len(best),
+            "unique_listed_cells": sum(key in cells for key in best),
+            "unique_absent_cells": sum(key not in cells for key in best)}
+
 
 
 def check_openness() -> dict:
@@ -365,17 +390,59 @@ def check_openness() -> dict:
                    f"{total}; " if short else "")
         + ("no cell was listed-and-open, which usually means the "
            "snapshot is truncated; " if suspicious else "")
-        + f"{len(q2['gap'])} closed q=2 cells were listed-and-open and "
-        f"{len(q2['record'])} were absent from the table in "
+        + f"{total} q=2 witness files: {len(q2['gap'])} listed-and-open, "
+        f"{len(q2['record'])} absent; {q2['unique_cells']} unique cells "
+        f"({q2['unique_listed_cells']} listed, {q2['unique_absent_cells']} absent) in "
         f"{SNAPSHOT.name}; {len(q2['not_open'])} were not open"
         + (f" (q=3 witnesses: {extra['q3_gap']} listed-and-open, "
            f"{extra['q3_record']} absent, {len(extra['q3_not_open'])} not open)"
            if extra else ""),
         "gap_cells": len(q2["gap"]),
         "record_cells": len(q2["record"]),
+        "unique_cells": q2["unique_cells"],
+        "unique_listed_cells": q2["unique_listed_cells"],
+        "unique_absent_cells": q2["unique_absent_cells"],
         "not_open": q2["not_open"],
         **extra,
     }
+
+
+def check_solver_refinement() -> dict:
+    from verify_solver_refinement import verify
+    claims = json.loads((ROOT / "artifacts/solver_refinement/claims.json").read_text())
+    expected = {"qubit_12_2_9": [12, 2, 9, 9], "qubit_13_1_8": [13, 1, 11, 8]}
+    if len(claims) != 2 or {c["id"] for c in claims} != set(expected):
+        return {"status": FAIL, "detail": "refinement ledger must contain both named cells"}
+    registry = {e["tag"]: e for e in json.loads(
+        (_paths()["refutations"] / "registry.json").read_text())}
+    checked = []
+    for c in claims:
+        params = [c["n"], c["k"], c["d"], c["c"]]
+        if params != expected[c["id"]]:
+            return {"status": FAIL, "detail": f"incorrect refinement parameters: {c['id']}"}
+        result = verify(ROOT / "artifacts" / c["witness"], params)
+        if c["upper_kind"] == "EA-Plotkin":
+            upper = (3 * 4 ** (c["k"] - 1) * c["n"]) // (4 ** c["k"] - 1)
+        elif c["upper_kind"] == "certified-refutation":
+            e = registry[c["refutation_tag"]]
+            if ([e["q"], e["n"], e["k"], e["c"], e["d"]]
+                    != [c["q"], c["n"], c["k"], c["c"], c["d"] + 1]
+                    or e.get("status") != "certified"
+                    or not (_paths()["refutations"] / e["cnf"]).is_file()
+                    or not (_paths()["refutations"] / e["drat"]).is_file()):
+                return {"status": FAIL, "detail": "refinement certificate link is invalid"}
+            upper = e["d"] - 1
+        else:
+            return {"status": FAIL, "detail": "unknown refinement upper-bound source"}
+        if upper != c["d"]:
+            return {"status": FAIL, "detail": "refinement lower and upper bounds disagree"}
+        result.update({"upper_bound": upper, "upper_kind": c["upper_kind"]})
+        checked.append(result)
+    return {"status": PASS,
+            "detail": "two refinement witnesses independently re-derived; distance 9 "
+                      "matches EA-Plotkin, distance 11 links to the archived d>=12 "
+                      "certificate (fresh replay is reported by refutations)",
+            "checked": checked}
 
 
 # -------------------------------------------------- magma-crosscheck
@@ -391,10 +458,10 @@ def check_magma_crosscheck() -> dict:
     log, data, version = (m / "magma_verification.log", m / "eaqecc_data.m",
                           m / "magma_version.txt")
     script = HERE / "verify_eaqecc.magma"
-    magma = shutil.which("magma")
-    # The archived export holds every object Magma was given: the witnesses
-    # of this artifact plus the instantiated family members, and two
-    # corridor witnesses from a companion study. Whatever Magma reports
+    magma = os.environ.get("MAGMA_PATH") or shutil.which("magma")
+    ssh_host = os.environ.get("MAGMA_SSH_HOST")
+    # The current export holds all witnesses plus the family instances.
+    # Earlier exports remain under history/. Whatever Magma reports
     # must equal the number of records it was handed, not a number typed
     # into this file.
     n_records = sum(1 for line in data.read_text().splitlines()
@@ -404,17 +471,40 @@ def check_magma_crosscheck() -> dict:
                 "detail": f"archived Magma export holds {n_records} records, "
                           f"the paper says {EXPECTED['magma']}"}
 
-    if magma and data.exists() and script.exists():
-        proc = subprocess.run([magma, "-b", str(data), str(script)],
-                              capture_output=True, text=True,
-                              cwd=str(m), timeout=3600)
-        out = proc.stdout
-        mm = re.search(r"(\d+) verified", out)
-        n = int(mm.group(1)) if mm else 0
-        ok = "MISMATCH" not in out and n == n_records
-        return {"status": PASS if ok else FAIL, "mode": "re-ran Magma",
-                "detail": f"re-ran Magma on {n_records} records: {n} verified"
-                          + ("" if ok else " -- disagreement")}
+    if (magma or ssh_host) and data.exists() and script.exists():
+        if magma:
+            proc = subprocess.run([magma, "-b", str(data), str(script)],
+                                  capture_output=True, text=True,
+                                  cwd=str(m), timeout=3600)
+            mode = "re-ran Magma locally"
+        else:
+            import shlex
+            if ssh_host.startswith("-"):
+                raise ValueError("invalid MAGMA_SSH_HOST")
+            ssh = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", ssh_host]
+            remote = subprocess.check_output(
+                [*ssh, "mktemp -d /tmp/eaqecc-verify.XXXXXX"], text=True, timeout=30).strip()
+            if not re.fullmatch(r"/tmp/eaqecc-verify\.[A-Za-z0-9]+", remote):
+                raise ValueError("unexpected remote temporary directory")
+            try:
+                subprocess.run(["scp", "-q", str(data), str(script), f"{ssh_host}:{remote}/"],
+                               check=True, capture_output=True, timeout=60)
+                command = (f"cd {shlex.quote(remote)} && timeout 3600 magma -b "
+                           f"{shlex.quote(data.name)} {shlex.quote(script.name)}")
+                proc = subprocess.run([*ssh, command], capture_output=True,
+                                      text=True, timeout=3660)
+            finally:
+                cleanup = (f"rm -f {shlex.quote(remote + '/' + data.name)} "
+                           f"{shlex.quote(remote + '/' + script.name)} && rmdir {shlex.quote(remote)}")
+                subprocess.run([*ssh, cleanup], capture_output=True, timeout=30)
+            mode = "re-ran Magma over SSH"
+        text = proc.stdout
+        mm = re.search(r"(\d+) verified, (\d+) mismatches", text)
+        n, bad = (int(mm.group(1)), int(mm.group(2))) if mm else (0, -1)
+        ok = proc.returncode == 0 and bad == 0 and n == n_records
+        return {"status": PASS if ok else FAIL, "mode": mode,
+                "detail": f"{mode}: {n}/{n_records} records verified, {bad} mismatches",
+                "returncode": proc.returncode, "export_sha256": sha256(data, full=True)}
 
     if not log.exists():
         return {"status": SKIP_TOOL,
@@ -443,128 +533,180 @@ def _find_solver() -> Path | None:
     return Path(w) if w else None
 
 
-def check_refutations() -> dict:
-    """Cells closed by proving them empty.
+def validate_qutrit_normalization(entry: dict, cnf: Path) -> dict:
+    """Check the recorded representative-CNF transformation, not the lemma's proof."""
+    meta = json.loads((_paths()["refutations"] / entry["normalization"]).read_text())
+    n, k, c, d, q = (entry[x] for x in ("n", "k", "c", "d", "q"))
+    j = n - k - c
+    if q != 3 or k != 1 or d != n - 1 or j <= 2:
+        return {"status": FAIL, "detail": "coordinate-normalization lemma does not apply"}
+    if any(meta.get(key) != entry[key] for key in ("q", "n", "k", "c", "d")):
+        return {"status": FAIL, "detail": "normalization metadata target mismatch"}
+    units = [1 + 3 * (i * 2 * n + 2 * t) for i in range(j) for t in range(n)]
+    lines = cnf.read_text().splitlines()
+    header = lines[0].split()
+    if (meta.get("unit_literals") != units
+            or lines[-len(units):] != [f"{u} 0" for u in units]
+            or int(header[3]) != meta["base_clauses"] + len(units)):
+        return {"status": FAIL, "detail": "normalization clauses do not match the declared frame"}
+    header[3] = str(meta["base_clauses"])
+    original = " ".join(header) + "\n" + "\n".join(lines[1:-len(units)]) + "\n"
+    if (hashlib.sha256(original.encode()).hexdigest() != meta["source_sha256"]
+            or sha256(cnf, full=True) != meta["normalized_sha256"]):
+        return {"status": FAIL, "detail": "normalization source/CNF hash mismatch"}
+    return {"status": PASS, "detail": f"{len(units)} coordinate-frame units; "
+            "applicability and source hash checked; see the coordinate-projection lemma"}
 
-    The registry lists every nonexistence result the paper uses, in three
-    grades. *Certified*: CNF and DRAT proof shipped, so the refutation can
-    be replayed by any conforming checker and re-decided by any solver
-    without trusting ours. *Certified on demand*: CNF shipped and the proof
-    regenerable in about a minute, but too large to ship. *Decision*: the
-    solver's answer is on record and nothing else; never counted as
-    certified. Presence of a tool never decides the status; only what the
-    tool says does."""
+
+def check_refutations() -> dict:
+    """Report archive grade, solver re-decision and proof replay separately."""
     import gzip
     import tempfile
-    R = _paths()["refutations"]
-    reg_path = R / "registry.json"
-    if not reg_path.exists():
-        return {"status": FAIL, "detail": "no refutation registry"}
-    registry = json.loads(reg_path.read_text())
-    solver, checker = _find_solver(), shutil.which("drat-trim")
+    ref_dir = _paths()["refutations"]
+    registry = json.loads((ref_dir / "registry.json").read_text())
+    solver = _find_solver()
+    checker = os.environ.get("DRAT_TRIM_PATH") or shutil.which("drat-trim")
+    cache = Path(os.environ["EAQECC_PROOF_CACHE"]) if os.environ.get("EAQECC_PROOF_CACHE") else None
+    certified, on_demand, decisions, malformed, entries = [], [], [], [], []
+    unsat = replayed = with_cnf = proof_available = 0
 
-    certified, on_demand, decisions, malformed = [], [], [], []
-    with_cnf, unsat, replayed = 0, 0, 0
+    def execute(argv, timeout, success):
+        try:
+            result = subprocess.run(argv, capture_output=True, text=True, timeout=timeout)
+        except subprocess.TimeoutExpired:
+            return {"status": PARTIAL, "detail": "verification timed out"}
+        ok = success(result)
+        return {"status": PASS if ok else FAIL, "returncode": result.returncode,
+                "detail": result.stdout[-300:] if not ok else "verified"}
+
     for e in registry:
-        cnf = R / e["cnf"] if e.get("cnf") else None
-        drat = R / e["drat"] if e.get("drat") else None
-        if cnf is None or not cnf.exists():
+        cnf = ref_dir / e["cnf"] if e.get("cnf") else None
+        shipped = ref_dir / e["drat"] if e.get("drat") else None
+        entry = {"tag": e["tag"], "grade": e.get("status", ""),
+                 "solver": {"status": SKIP_TOOL},
+                 "certificate": {"status": SKIP_DATA}}
+        entries.append(entry)
+        if cnf is None:
+            if not e.get("status", "").startswith("decision"):
+                malformed.append(e["tag"])
             decisions.append(e["tag"])
+            entry["solver"] = {"status": SKIP_DATA, "detail": "no archived CNF; decision record only"}
             continue
-        head = cnf.read_text().splitlines()[0].split()
-        if not (len(head) == 4 and head[0] == "p" and head[1] == "cnf"):
+        if not cnf.is_file():
             malformed.append(e["tag"])
             continue
-        if drat is None:
+        with cnf.open() as stream:
+            header = stream.readline().split()
+        if len(header) != 4 or header[:2] != ["p", "cnf"]:
+            malformed.append(e["tag"])
+            continue
+        if e.get("encoder") == "coordinate-normal-q3":
+            entry["normalization"] = validate_qutrit_normalization(e, cnf)
+            if entry["normalization"]["status"] != PASS:
+                malformed.append(e["tag"])
+                continue
+        proof = shipped
+        if shipped is not None:
+            if not shipped.is_file() or shipped.stat().st_size == 0:
+                malformed.append(e["tag"])
+                continue
+            certified.append(e["tag"])
+        elif e.get("status") == "certified-on-demand":
             on_demand.append(e["tag"])
-        elif not (drat.exists() and drat.stat().st_size > 0):
+            candidate = cache / (e["tag"] + ".drat") if cache else None
+            proof = candidate if candidate and candidate.is_file() else None
+        else:
             malformed.append(e["tag"])
             continue
-        else:
-            certified.append(f"{e['tag']} ({head[2]} vars, {head[3]} clauses)")
         with_cnf += 1
         if solver:
-            r = subprocess.run([str(solver), "-q", str(cnf)],
-                               capture_output=True, text=True, timeout=1800)
-            unsat += 1 if r.returncode == 20 else 0      # 20 = UNSAT, 10 = SAT
-        if checker and drat is not None:
-            if drat.suffix == ".gz":
-                with tempfile.NamedTemporaryFile(suffix=".drat", delete=False) as tmp:
-                    tmp.write(gzip.decompress(drat.read_bytes()))
-                    proof = Path(tmp.name)
-            else:
-                proof = drat
-            r = subprocess.run([checker, str(cnf), str(proof)],
-                               capture_output=True, text=True, timeout=3600)
-            replayed += 1 if "s VERIFIED" in r.stdout else 0
-            if proof != drat:
-                proof.unlink()
-
+            entry["solver"] = execute([str(solver), "-q", str(cnf)], 1800,
+                                      lambda result: result.returncode == 20)
+            unsat += entry["solver"]["status"] == PASS
+        if proof is None:
+            entry["certificate"]["detail"] = "on-demand proof not in EAQECC_PROOF_CACHE"
+            continue
+        proof_available += 1
+        if not checker:
+            entry["certificate"] = {"status": SKIP_TOOL, "detail": "no DRAT checker"}
+            continue
+        with tempfile.TemporaryDirectory(prefix="eaqecc_proof_") as tmp:
+            uncompressed = proof
+            if proof.suffix == ".gz":
+                uncompressed = Path(tmp) / "proof.drat"
+                with gzip.open(proof, "rb") as source, uncompressed.open("wb") as target:
+                    shutil.copyfileobj(source, target)
+            entry["certificate"] = execute([str(checker), str(cnf), str(uncompressed)], 3600,
+                lambda result: result.returncode == 0
+                and re.search(r"^s VERIFIED\s*$", result.stdout, re.MULTILINE) is not None)
+        replayed += entry["certificate"]["status"] == PASS
     short = (len(registry) != EXPECTED["refutations_total"]
-             or len(certified) != EXPECTED["refutations_certified"])
-    detail = ((f"expected {EXPECTED['refutations_total']} registry entries with "
-               f"{EXPECTED['refutations_certified']} certified, found "
-               f"{len(registry)}/{len(certified)}; " if short else "")
-              + f"{len(certified)} certified (CNF + DRAT shipped), "
-              f"{len(on_demand)} certified on demand (CNF shipped, proof "
-              f"regenerable), {len(decisions)} solver decisions on record only"
-              + (f" [{', '.join(decisions)}]" if decisions else "") + "; "
-              + (f"{unsat}/{with_cnf} CNFs re-decided UNSAT" if solver
-                 else "no solver found (CADICAL_PATH or cadical on PATH), "
-                      "nothing re-decided") + "; "
-              + (f"{replayed}/{len(certified)} proofs replayed" if checker
-                 else "no DRAT checker (drat-trim) found, proofs not replayed"))
-    if malformed or short:
+             or len(certified) != EXPECTED["refutations_certified"]
+             or len(on_demand) != 1 or len(decisions) != 0)
+    statuses = [v[operation]["status"] for v in entries for operation in ("solver", "certificate")]
+    if malformed or short or FAIL in statuses:
         status = FAIL
-    elif solver and unsat != with_cnf:
-        status = FAIL
-    elif checker and replayed != len(certified):
-        status = FAIL
-    elif solver or checker:
-        status = PASS
-    else:
+    elif not solver and not checker:
         status = SKIP_TOOL
+    elif any(v != PASS for v in statuses):
+        status = PARTIAL
+    else:
+        status = PASS
+    detail = (f"{len(certified)} CNF/proof pairs, {len(on_demand)} on-demand proof, "
+              f"{len(decisions)} decision-only record; {unsat}/{with_cnf} CNFs "
+              f"re-decided UNSAT; {replayed}/{proof_available} available certificates "
+              "replayed; unperformed checks are listed per entry")
+    if malformed or short:
+        detail = "registry or artifact coverage mismatch; " + detail
     return {"status": status, "detail": detail, "certified": certified,
-            "on_demand": on_demand, "decisions": decisions, "malformed": malformed}
+            "on_demand": on_demand, "decisions": decisions, "malformed": malformed,
+            "entries": entries, "solver_redecided": unsat,
+            "certificates_replayed": replayed, "certificates_available": proof_available}
 
 
 # ----------------------------------------------------- novelty-drift
 def check_novelty_drift() -> dict:
-    """Novelty is a claim about a moving object, so it has to be re-checked
-    as the object moves. For every cell we closed, compare the oldest and
-    newest snapshots available; a cell since closed by someone else is
-    priority information the reader is entitled to. Drop a fresh dated
-    directory into artifacts/codetables_snapshots/ to run this."""
+    """Compare dated bounds for both q=2 and q=3, without inferring authorship."""
     snaps = available_snapshots()
     if len(snaps) < 2:
-        return {"status": SKIP_DATA,
-                "detail": f"only {len(snaps)} snapshot(s) present "
-                          f"({', '.join(s.name for s in snaps) or 'none'}); "
-                          f"add a newer dated directory to measure drift",
-                "snapshots": [s.name for s in snaps]}
+        return {"status": SKIP_DATA, "detail": "only one snapshot; add a newer dated snapshot"}
     old, new = snaps[0], snaps[-1]
-    old_cells = {(c["n"], c["k"], c["c"]): c for c in load_snapshot(old)}
-    new_cells = {(c["n"], c["k"], c["c"]): c for c in load_snapshot(new)}
-
-    still_open, closed_by_others = [], []
-    for p in _witness_files(2):
-        t = json.loads(p.read_text())["target"]
-        cell = new_cells.get((t["n"], t["k"], t["c"]))
-        if cell is None or cell["dl"] < t["d"]:
-            still_open.append(_tag(t))
-        else:
-            closed_by_others.append(
-                {"code": _tag(t), "was": old_cells.get((t["n"], t["k"], t["c"]), {}).get("dl"),
-                 "now": cell["dl"]})
-    return {
-        "status": PASS,
-        "detail": f"{old.name} -> {new.name}: {len(still_open)} of our cells "
-                  f"still unmatched, {len(closed_by_others)} reached "
-                  f"independently since",
-        "compared": [old.name, new.name],
-        "superseded": closed_by_others,
-    }
-
+    by_q, missing, changed_total = {}, [], 0
+    for q, name in ((2, "qubit"), (3, "qutrit")):
+        if not (old / f"{name}.json").exists() or not (new / f"{name}.json").exists():
+            missing.append(name)
+            continue
+        old_cells = {(c["n"], c["k"], c["c"]): c for c in load_snapshot(old, name)}
+        new_cells = {(c["n"], c["k"], c["c"]): c for c in load_snapshot(new, name)}
+        removed = sorted(set(old_cells) - set(new_cells))
+        if removed:
+            return {"status": FAIL, "detail": f"latest {name} snapshot omits "
+                    f"{len(removed)} previously listed cells; check source completeness"}
+        changes = [{"cell": key, "before": [old_cells[key]["dl"], old_cells[key]["du"]],
+                    "after": [new_cells[key]["dl"], new_cells[key]["du"]]}
+                   for key in old_cells.keys() & new_cells.keys()
+                   if (old_cells[key]["dl"], old_cells[key]["du"])
+                   != (new_cells[key]["dl"], new_cells[key]["du"])]
+        changed_total += len(changes)
+        unmatched, previously_matched, newly_matched = [], [], []
+        for key, t in _best_witness_targets(q).items():
+            previous, current = old_cells.get(key), new_cells.get(key)
+            if current is None or current["dl"] < t["d"]:
+                unmatched.append(_tag(t))
+            elif previous is not None and previous["dl"] >= t["d"]:
+                previously_matched.append(_tag(t))
+            else:
+                newly_matched.append({"code": _tag(t), "now": current["dl"],
+                                      "provenance": current.get("title", "")})
+        by_q[q] = {"old_records": len(old_cells), "new_records": len(new_cells),
+                   "bound_changes": changes, "unmatched": unmatched,
+                   "previously_matched": previously_matched, "newly_matched": newly_matched}
+    return {"status": SKIP_DATA if missing else PASS,
+            "detail": f"{old.name} -> {new.name}: q=2,3 comparison; {changed_total} "
+                      f"changed bounds; {sum(len(v['newly_matched']) for v in by_q.values())} "
+                      "witness cells newly matched by listed bounds; independent discovery "
+                      "is not inferred from a table update",
+            "compared": [old.name, new.name], "by_q": by_q, "missing_tables": missing}
 
 
 # -------------------------------------------------- prompt-provenance
@@ -678,6 +820,8 @@ CLAIMS = {
                  "at every q, and their table cells counted"),
     "table-correction": ("deterministic", check_table_correction,
                          "EA-Plotkin correction recomputed from the snapshot"),
+    "solver-refinement": ("deterministic", check_solver_refinement,
+                          "independent witness and upper-bound links for two refined cells"),
     "openness": ("deterministic", check_openness,
                  "every closed cell was open in the dated snapshot"),
     "novelty-drift": ("deterministic", check_novelty_drift,
@@ -701,10 +845,9 @@ def main(argv=None):
     ap.add_argument("--claim", default=None, choices=sorted(CLAIMS))
     ap.add_argument("--tier", default=None,
                     choices=["deterministic", "external", "search"])
-    ap.add_argument("--snapshot", default="latest",
-                    help="dated snapshot directory name, or 'latest' "
-                         "(default). Claims are always evaluated against a "
-                         "named state of the tables, never a live query.")
+    ap.add_argument("--snapshot", default="paper",
+                    help="paper (default: artifacts/paper_reference.json), latest, "
+                         "or a dated directory name")
     ap.add_argument("--list-snapshots", action="store_true")
     ap.add_argument("--root", default=None,
                     help="directory holding artifacts/ and MANIFEST.sha256 "
@@ -730,6 +873,8 @@ def main(argv=None):
         sys.exit(f"no table snapshots under {_paths()['snapshots']}; each must "
                  f"be a dated directory holding qubit.json with records "
                  f"{SNAPSHOT_SCHEMA}")
+    if args.snapshot == "paper":
+        args.snapshot = json.loads(_paths()["paper_reference"].read_text())["snapshot"]
     if args.snapshot == "latest":
         SNAPSHOT = snaps[-1]
     else:
@@ -765,10 +910,13 @@ def main(argv=None):
             worst = FAIL
         print(f"{r['status']:16} {cid:18} [{tier}] {r['detail']}", flush=True)
 
+    if worst != FAIL and any(r["status"] != PASS for r in results.values()):
+        worst = PARTIAL
     report = {"snapshot": SNAPSHOT.name,
               "snapshots_available": [s.name for s in snaps],
               "python": sys.version.split()[0],
-              "overall": worst, "claims": results}
+              "overall": worst, "all_selected_checks_completed": worst == PASS,
+              "claims": results}
     (out_dir / "reproduction_report.json").write_text(json.dumps(report, indent=1))
 
     lines = ["# EAQECC reproduction report", "",

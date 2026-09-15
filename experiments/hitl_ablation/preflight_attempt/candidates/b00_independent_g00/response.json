@@ -1,0 +1,18 @@
+{
+  "error": {
+    "code": 400,
+    "message": "Invalid value at 'generation_config.seed' (TYPE_INT32), 202609146000",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.BadRequest",
+        "fieldViolations": [
+          {
+            "field": "generation_config.seed",
+            "description": "Invalid value at 'generation_config.seed' (TYPE_INT32), 202609146000"
+          }
+        ]
+      }
+    ]
+  }
+}

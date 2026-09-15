@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c_target = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    l_dim = n + k - c_target\\n    s_dim = n - k + c_target\\n\\n    def objective(res):\\n        if res is None or \\\"offending\\\" not in res or \\\"c\\\" not in res:\\n            return 10**9\\n        off = res[\\\"offending\\\"]\\n        c_val = res[\\\"c\\\"]\\n        d_val = res.get(\\\"d\\\")\\n        d_err = max(0, target[\\\"d\\\"] - d_val) if d_val is not None else target[\\\"d\\\"]\\n        return 10000 * off + 1000 * abs(c_val - c_target) + d_err\\n\\n    def get_independent_L():\\n        while True:\\n            candidate = []\\n            for _ in range(l_dim):\\n                val = int(rng.integers(1, 1 << (2 * n)))\\n                candidate.append(val)\\n            if len(E.gf2_basis(candidate)) == l_dim:\\n                return candidate\\n\\n    while E.remaining:\\n        L = get_independent_L()\\n        S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n        if len(S) != s_dim:\\n            continue\\n        res = E.evaluate(S)\\n        cur_obj = objective(res)\\n        \\n        fails = 0\\n        temp = 10.0\\n        while fails < 200 and E.remaining:\\n            temp = max(0.01, temp * 0.98)\\n            new_L = list(L)\\n            idx = int(rng.integers(l_dim))\\n            # Mutate one element of L\\n            for _ in range(10):\\n                v = int(rng.integers(1, 1 << (2 * n)))\\n                new_L[idx] = v\\n                if len(E.gf2_basis(new_L)) == l_dim:\\n                    break\\n            else:\\n                continue\\n            \\n            new_S = E.nullspace([E._J(v, n) for v in new_L], 2 * n)\\n            if len(new_S) != s_dim:\\n                fails += 1\\n                continue\\n            \\n            new_res = E.evaluate(new_S)\\n            new_obj = objective(new_res)\\n            delta = new_obj - cur_obj\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur_obj = new_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 730,
+    "totalTokenCount": 3344,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 730
+      }
+    ],
+    "thoughtsTokenCount": 816
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T11:58:14.379322Z"
+}

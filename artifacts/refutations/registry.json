@@ -122,15 +122,45 @@
   "k": 1,
   "c": 4,
   "d": 9,
-  "method": "free-radical RREF SAT over all radicals (complete)",
-  "encoder": "free-radical-q3",
-  "status": "decision (re-decided UNSAT, no proof)",
-  "redecided": {
+  "method": "coordinate-normalized free-radical SAT; complete by coordinate-projection lemma",
+  "encoder": "coordinate-normal-q3",
+  "status": "certified",
+  "historical_decision": {
    "date": "2026-09-08",
    "solver": "CaDiCaL 3.0.0",
    "proof": "not logged: a DRAT proof exceeded 3.9 GB after 14 min and was abandoned",
    "vars": 33033,
    "clauses": 476221
-  }
+  },
+  "cnf": "q3_n10_k1_c4_d9.cnf",
+  "drat": "q3_n10_k1_c4_d9.drat.gz",
+  "normalization": "q3_n10_k1_c4_d9.normalization.json",
+  "checker_log": "q3_n10_k1_c4_d9.checker.log",
+  "proof_format": "binary DRAT (gzip)",
+  "solver": "CaDiCaL 3.0.0",
+  "solver_seconds": 14.229816667,
+  "checker_seconds": 84.760014666,
+  "date": "2026-09-10",
+  "solver_commit": "7b99c07f0bcab5824a5a3ce62c7066554017f641",
+  "checker_commit": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985",
+  "proof_bytes": 30331150,
+  "solver_log": "q3_n10_k1_c4_d9.solver.log",
+  "generation_record": "q3_n10_k1_c4_d9.generation.json"
+ },
+ {
+  "tag": "q2_n13_k1_c8_d12",
+  "q": 2,
+  "n": 13,
+  "k": 1,
+  "c": 8,
+  "d": 12,
+  "method": "normal-form SAT (complete), independently checked DRAT",
+  "encoder": "normal-form-q2",
+  "status": "certified",
+  "cnf": "q2_n13_k1_c8_d12.cnf",
+  "drat": "q2_n13_k1_c8_d12.drat.gz",
+  "date": "2026-09-10",
+  "checker_log": "q2_n13_k1_c8_d12.checker.log",
+  "checker_commit": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985"
  }
 ]

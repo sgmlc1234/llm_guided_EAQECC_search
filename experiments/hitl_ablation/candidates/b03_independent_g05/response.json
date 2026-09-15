@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    dim_L = 2 * n - s  # this is 4 for the training cases\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        # prioritize getting offending = 0, then matching c, then maximizing d\\n        penalty_c = 10000 * abs(res[\\\"c\\\"] - c)\\n        penalty_off = 1000 * res[\\\"offending\\\"]\\n        d = res.get(\\\"d\\\")\\n        bonus_d = (target[\\\"d\\\"] - d) * 100 if d is not None else 1000\\n        return penalty_c + penalty_off + bonus_d\\n\\n    def get_L_rank(L):\\n        return len(E.gf2_basis(L))\\n\\n    def L_to_S(L):\\n        # Convert L to S via symplectic orthogonal complement\\n        # J(v) swaps X and Z bits. E.nullspace computes binary orthogonality.\\n        orth = [E._J(v, n) for v in L]\\n        return E.nullspace(orth, 2 * n)\\n\\n    # Initialize L\\n    L = []\\n    while len(L) < dim_L:\\n        cand = int(rng.integers(1, 1 << (2 * n)))\\n        test_L = L + [cand]\\n        if get_L_rank(test_L) == len(test_L):\\n            L.append(cand)\\n\\n    S = L_to_S(L)\\n    cur_res = E.evaluate(S)\\n    cur_obj = objective(cur_res)\\n\\n    temp = 50.0\\n    fails = 0\\n\\n    while E.remaining:\\n        temp = max(0.01, temp * 0.998)\\n        # Mutate L\\n        idx = int(rng.integers(dim_L))\\n        old_val = L[idx]\\n        \\n        # Try a few mutations until we find one that maintains rank and improves or is accepted\\n        for _ in range(10):\\n            # mutate by adding a small perturbation or random Pauli\\n            mutation = int(rng.integers(1, 1 << (2 * n)))\\n            new_val = old_val ^ mutation\\n            if new_val == 0:\\n                continue\\n            \\n            cand_L = list(L)\\n            cand_L[idx] = new_val\\n            if get_L_rank(cand_L) != dim_L:\\n                continue\\n                \\n            cand_S = L_to_S(cand_L)\\n            if len(cand_S) != s:\\n                continue\\n                \\n            res = E.evaluate(cand_S)\\n            obj = objective(res)\\n            \\n            delta = obj - cur_obj\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L = cand_L\\n                cur_obj = obj\\n                fails = 0\\n                break\\n        else:\\n            fails += 1\\n            if fails > 300:\\n                # Restart with a new random L\\n                L = []\\n                while len(L) < dim_L:\\n                    cand = int(rng.integers(1, 1 << (2 * n)))\\n                    test_L = L + [cand]\\n                    if get_L_rank(test_L) == len(test_L):\\n                        L.append(cand)\\n                S = L_to_S(L)\\n                cur_obj = objective(E.evaluate(S))\\n                temp = 50.0\\n                fails = 0\\n\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 984,
+    "totalTokenCount": 3216,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 984
+      }
+    ],
+    "thoughtsTokenCount": 434
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:07:33.832621Z"
+}

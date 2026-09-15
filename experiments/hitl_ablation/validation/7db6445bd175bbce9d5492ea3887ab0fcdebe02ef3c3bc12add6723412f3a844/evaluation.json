@@ -1,0 +1,623 @@
+{
+  "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+  "mean_utility": 0.5362125,
+  "success_fraction": 0.875,
+  "mean_distance_ratio": 0.984375,
+  "errors": 0,
+  "cases": [
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 2327773063789313539,
+      "allocated_evals": 10000,
+      "n_evals": 6613,
+      "nullspace_calls": 6613,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 6613,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 1816,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 3387,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        163841,
+        131106,
+        32772,
+        163848,
+        163888,
+        131136,
+        163968,
+        229632,
+        98816,
+        33792,
+        165888,
+        36864,
+        172032,
+        180224
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 1.205905957845971,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/validation/7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844/n9_seed202609143002.witness.json",
+        "sha256": "52d026dc98fa29d8c89061c1aeff0b879a2c0aff1a68beec3c68f663a37f3010",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "8": 8,
+          "9": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.3387
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 3303367116662512788,
+      "allocated_evals": 10000,
+      "n_evals": 10000,
+      "nullspace_calls": 10000,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 10000,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 2891,
+      "final_verifications": 0,
+      "termination": "returned",
+      "error": null,
+      "unused_evals": 0,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 7,
+        "offending": 1,
+        "logical_count": 12
+      },
+      "generators": [
+        81921,
+        212994,
+        163844,
+        180232,
+        49168,
+        131104,
+        180288,
+        131200,
+        49408,
+        131584,
+        181248,
+        133120,
+        53248,
+        188416
+      ],
+      "closed": false,
+      "distance_ratio": 0.875,
+      "found_phase": "search",
+      "elapsed_s": 1.825648874975741,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "utility": 0.0
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 13092875465675878659,
+      "allocated_evals": 10000,
+      "n_evals": 3694,
+      "nullspace_calls": 3694,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 3694,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 1089,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 6306,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        65545,
+        131082,
+        196620,
+        65552,
+        196640,
+        197696,
+        132224,
+        65792,
+        197120,
+        67584,
+        135168,
+        73728,
+        147456,
+        98304
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.679855874972418,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/validation/7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844/n9_seed202609143004.witness.json",
+        "sha256": "674bac3cceccfcefcf1cfa3eba6465a5723988821e3babddbdb74a776eaad636",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "9": 4,
+          "8": 8
+        },
+        "status": "PASS"
+      },
+      "utility": 0.6306
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 15995775015530809120,
+      "allocated_evals": 10000,
+      "n_evals": 741,
+      "nullspace_calls": 741,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 741,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 234,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 9259,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        147457,
+        212994,
+        131076,
+        198664,
+        65552,
+        196640,
+        131136,
+        65664,
+        131328,
+        197120,
+        134144,
+        135168,
+        204800,
+        98304
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.14090833393856883,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/validation/7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844/n9_seed202609143001.witness.json",
+        "sha256": "a8b06402ce6edf835f6a933aa8a0fd6b29de036a1832f160bfa9ad23196a33e3",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "8": 8,
+          "9": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.9259
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 6525393611852626064,
+      "allocated_evals": 10000,
+      "n_evals": 1606,
+      "nullspace_calls": 1606,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 1606,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 437,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 8394,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        1049601,
+        3145730,
+        2097156,
+        3145736,
+        1048592,
+        2097184,
+        1310784,
+        2097280,
+        1048832,
+        2097664,
+        3147776,
+        1052672,
+        2105344,
+        2113536,
+        3178496,
+        2162688,
+        1179648,
+        2621440
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.46855487511493266,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/validation/7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844/n11_seed202609143002.witness.json",
+        "sha256": "f60422d5c17a7e4fe4fd7f53a50094c4fba54463d3e2ab96bf2c94d821748cca",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "10": 8,
+          "11": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.8394
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 7496187511265432560,
+      "allocated_evals": 10000,
+      "n_evals": 4281,
+      "nullspace_calls": 4281,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 4281,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 1161,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 5719,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        262209,
+        3407874,
+        3407876,
+        262152,
+        3145744,
+        2359328,
+        3408000,
+        262400,
+        3146240,
+        3408896,
+        264192,
+        3411968,
+        3153920,
+        3162112,
+        3440640,
+        327680,
+        3538944,
+        3670016
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 1.2147764158435166,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/validation/7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844/n11_seed202609143004.witness.json",
+        "sha256": "3aedc06c59dff0f62713b48d7c100fd603253f48628f54ca3b4fe41107711469",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "11": 4,
+          "10": 8
+        },
+        "status": "PASS"
+      },
+      "utility": 0.5719000000000001
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 14228095923077758869,
+      "allocated_evals": 10000,
+      "n_evals": 2564,
+      "nullspace_calls": 2564,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 2564,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 686,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 7436,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        2883585,
+        2097154,
+        786436,
+        2883592,
+        786448,
+        2883616,
+        2097216,
+        2883712,
+        2883840,
+        2097664,
+        787456,
+        2099200,
+        2887680,
+        2105344,
+        1851392,
+        2129920,
+        851968,
+        2752512
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.7439922501798719,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/validation/7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844/n11_seed202609143001.witness.json",
+        "sha256": "0c0da925a39fa3c33a6410b3aa08698263806e1f68201b0f4cb8ca7be4b27947",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "10": 8,
+          "11": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.7436
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 15022481399256036319,
+      "allocated_evals": 10000,
+      "n_evals": 7604,
+      "nullspace_calls": 7604,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 7604,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 2167,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 2396,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        3407873,
+        3145730,
+        3407908,
+        3145768,
+        262192,
+        262208,
+        3145856,
+        262400,
+        3146240,
+        3408896,
+        264192,
+        3149824,
+        2367488,
+        278528,
+        3178496,
+        3473408,
+        393216,
+        3670016
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 2.1561844581738114,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "id": 0,
+      "independent_check": {
+        "path": "experiments/hitl_ablation/validation/7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844/n11_seed202609143003.witness.json",
+        "sha256": "fe2c5fd98a52f82ea4cdd2397b37a1e81dd127857b7b39f2b80cdf08ffb1eeba",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "10": 8,
+          "11": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.23960000000000004
+    }
+  ]
+}

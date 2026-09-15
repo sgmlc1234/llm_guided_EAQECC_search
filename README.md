@@ -1,35 +1,126 @@
-# A reproducible pipeline for LLM-guided discovery of entanglement-assisted quantum codes
+# LLM-guided discovery of entanglement-assisted quantum codes
 
-Code, archived results and the **auditor** for a pipeline that attacks the
-open cells of the entanglement-assisted quantum code tables with LLM-guided
-program evolution, verifies what it finds in a second implementation, and
-closes cells from the other side with SAT refutations.
+A research pipeline that develops executable search programs from researcher
+proposals and exact feedback, then independently checks the resulting codes.
+This repository contains the paper, generated programs, complete controlled-study
+records, witnesses, proof certificates and reproducibility tools.
 
-The repository is organised around one command:
+[Paper](paper/iclr2027/paper/main.pdf) · [Start reproducing](docs/REVIEWER_GUIDE.md) · [Result-to-evidence map](docs/RESULTS_AND_EVIDENCE.md) · [Validation record](docs/VALIDATION.md) · [SAT & Magma setup](docs/EXTERNAL_VERIFICATION.md)
 
-```bash
-python3 scripts/reproduce_eaqecc.py
-```
+## The discovery pipeline
 
-It re-derives every claim the paper makes from the archived artifacts,
-prints one line per claim, exits nonzero if any fails, and writes a report
-to `artifacts/reproduce_eaqecc/`. The [reference report](artifacts/reproduce_eaqecc/REPRODUCTION_REPORT.md)
-is committed so you can compare your run against ours.
+<p align="center">
+  <img src="paper/iclr2027/figures/discovery_pipeline.png" alt="Figure 1: researcher-guided program evolution, exact verification and certified code discovery" width="900">
+</p>
 
-```
-PASS             archive-integrity  [deterministic] 227 archived files listed; 0 missing, 0 altered
-PASS             witnesses          [deterministic] 114 archived witnesses re-derived (q=2: 64, q=3: 27, q=4: 13, q=5: 10); 0 mismatches
-PASS             families           [deterministic] closed forms verified at q=2,3,4,5; families settle 54 listed-open cells (q=2: 29, q=3: 25)
-PASS             table-correction   [deterministic] 398 corrected upper bounds recomputed from the 2026-07-17 snapshot; 0 disagree
-PASS             openness           [deterministic] 8 closed q=2 cells were listed-and-open and 56 were absent from the table; 0 were not open
-SKIPPED_NO_DATA  novelty-drift      [deterministic] only 1 snapshot present; add a newer dated directory to measure drift
-PASS             refutations        [external]      7 certified (CNF + DRAT shipped), 1 certified on demand, 1 solver decision; 8/8 CNFs re-decided UNSAT
-SKIPPED_NO_TOOL  magma-crosscheck   [external]      no Magma binary; archived log: 122 of 122 exported records verified, 0 mismatches
-PASS             search-determinism [search]        12 seeded searches re-run at 5000 evaluations (B0, B1f, B2); 0 differ
-PASS             prompt-provenance  [deterministic] 4 archived task specifications; campaign 1 offers the cyclic-shift symmetry ansatz as a direction, campaign 3 states the finding
-```
+Researchers supply mathematical directions, inspect verified witnesses and refine
+the next task. The LLM evolves a search program; an exact evaluator supplies its
+feedback. Independent witness checks establish constructions, while checked SAT
+certificates establish exclusions. The program, the code it constructs and the
+proof of a bound are distinct outputs with distinct evidence.
+
+## What iterative development achieved
+
+Both generation policies received the same initial program and the same direction
+to search the symplectic dual. The comparison measures what changes when a new
+proposal can use earlier programs and their evaluation feedback.
+
+<p align="center">
+  <img src="paper/iclr2027/figures/hitl_ablation.png" alt="Figure 4: success versus evaluator calls for the initial program, independent proposals and iterative evolution at lengths 9 and 11" width="900">
+</p>
+
+| Held-out target | Initial program | Independent proposals | Iterative evolution |
+|---|---:|---:|---:|
+| Length 9, distance 8 | 0/8 | 16/32 | **22/32** |
+| Length 11, distance 10 | 0/8 | 5/32 | **16/32** |
+| Combined | 0/16 | 21/64 (32.8%) | **38/64 (59.4%)** |
+
+Each policy contributes four validation-selected programs tested on eight seeds
+per target, while the initial program has eight executions per target. All use
+10,000 evaluator calls per execution. Mean normalized success-curve area is
+0.239 for independent proposals and 0.358 for iterative evolution; the direction
+of the difference varies across the four generation blocks.
+
+**Generalization to longer codes.** The program shown in Algorithm 1,
+[`b02_evolution_g02`](experiments/hitl_ablation/candidates/b02_evolution_g02/program.py),
+reconstructs both the length-13 and length-15 targets in **3/4 executions each**
+under a separate 30,000-call allowance. These lengths were withheld during
+training and selection. Across all selected programs, the longer-length outcome
+is 6/32 for iterative evolution and 0/32 for independent proposals; all six
+successes come from that one program.
+
+[Study protocol and records](experiments/hitl_ablation/README.md) · [Replay instructions](docs/REVIEWER_GUIDE.md#3-re-execute-algorithm-1-and-the-policy-comparison)
+
+## Verified mathematical results
+
+| Core witness files | Listed gaps closed by the family and ebit lifting | Certified exclusions |
+|:---:|:---:|:---:|
+| **115** across q=2,3,4,5 | **54** | **10** |
+
+<p align="center">
+  <img src="paper/iclr2027/figures/construction_map.png" alt="Figure 3: constructions, certified exclusions and unresolved searches for distance n minus 1 at q equal to 2, 3, 4 and 5, including the full legend" width="900">
+</p>
+
+The map distinguishes a verified construction, a certified exclusion and a
+search that found no witness. Its construction markers classify entanglement
+cost relative to the displayed family; they do not by themselves assert optimality.
+Applying the known EA-Plotkin bound separately tightens **398** listed upper bounds.
+An archived Magma run checks **148/148** objects with zero mismatches. A fresh
+Magma check requires the [separate installation](docs/EXTERNAL_VERIFICATION.md#2-magma).
+Nine CNF/DRAT pairs are shipped; the tenth proof is generated on demand.
+
+The 115 core witness files and the controlled study's 235 witness files are
+separate collections. Repeated runs are not counted as additional new parameter
+sets. [Every row of Tables 1 and 2 has a witness link](docs/RESULTS_AND_EVIDENCE.md).
+
+## How researcher guidance entered the earlier campaigns
+
+<p align="center">
+  <img src="paper/iclr2027/figures/historical_program.png" alt="Figure 2: historical construction development from an annealing seed to cyclic shifts, researcher write-back and wider shifts" width="760">
+</p>
+
+This is the historical cyclic-construction sequence from Figure 2. The task
+specification suggested cyclic shifts; generated programs implemented and extended
+the construction, and later tasks incorporated the mathematical findings.
+Algorithm 1 and the controlled comparison above concern a different, preserved
+program that searches the symplectic dual.
+
+[Original task specifications](artifacts/campaigns/prompts/) · [Historical programs](artifacts/campaigns/run9_top_programs/) · [Figure regeneration](docs/paper_figures.md)
+
+## Reproduction details accompanying Appendix C
+
+The manuscript keeps verification scope in Appendix C; this README and the
+[reviewer guide](docs/REVIEWER_GUIDE.md) provide installation, exact commands and
+expected results. For a direct result-to-file lookup use
+[the evidence map](docs/RESULTS_AND_EVIDENCE.md).
+
+| Goal | Command from the repository root | Expected result |
+|---|---|---|
+| Check mathematical evidence | `python3 scripts/reproduce_eaqecc.py --tier deterministic` | 115 core witnesses, 54 family gap closures, 398 upper-bound corrections; PASS |
+| Inspect Tables 1 and 2 | `python3 scripts/paper_results.py` | All 18 rows linked to witnesses, 13 historical intervals checked |
+| Audit the controlled study | `python3 scripts/eaqecc_ablation/audit.py` | Selection and prompts verified; 21/64 vs 38/64 main-test successes |
+| Re-execute selected programs | `python3 scripts/eaqecc_ablation/replay_selected.py --out ../checks/replay` | 208 archived executions matched; requires the recorded macOS sandbox backend |
+| Replay historical programs | `python3 scripts/reproduce_eaqecc.py --claim search-determinism` | 12 proposal lists match at nominal N=5,000 |
+| Replay proofs or Magma | `python3 scripts/reproduce_eaqecc.py --claim refutations` or `--claim magma-crosscheck` | Requires the corresponding external tools; unavailable checks remain explicit |
+
+Historical replay replaces the program's `time` module with a virtual clock
+that advances with evaluator calls. Programs retain their original polling
+conditions, so a nominal N=5,000 allowance can be exceeded by a small,
+deterministic number of calls between polls. The stored fingerprints define
+what is compared; one-worker and four-worker runs agree. The controlled study
+uses separate, strictly enforced per-target quotas. Equal call counts do not
+imply equal CPU or wall time. None of these replay commands regenerates LLM
+sampling or mechanically verifies the mathematical proofs.
+
+The two snapshots cover qubit n<=64 and qutrit n<=36. The default comparison
+comes from `artifacts/paper_reference.json`; selecting `latest` is explicit.
+The study's monetary ledgers remain archived operational provenance, not an
+additional scientific endpoint. Evaluator quotas, model settings, token records,
+execution seeds and resource limits needed for reproduction remain available.
 
 ## Install
+
+For SAT/DRAT and Magma installation, pinned tool revisions, proof-cache setup and fresh checks, see the separate [external verification guide](docs/EXTERNAL_VERIFICATION.md).
 
 The deterministic tier needs **Python 3.9+ and NumPy 2.0+** and nothing
 else: no solver, no network, no cloud credentials. The NumPy floor is real
@@ -58,21 +149,22 @@ would hide the one distinction that matters.
 | Claim | Tier | What it does |
 |---|---|---|
 | `archive-integrity` | deterministic | every archived input hashes to `MANIFEST.sha256` |
-| `witnesses` | deterministic | recomputes $(n,k,d;c)$ for 114 archived codes from generators alone, at $q=2,3,4,5$ |
+| `witnesses` | deterministic | recomputes $(n,k,d;c)$ for 115 archived codes from generators alone, at $q=2,3,4,5$ |
 | `families` | deterministic | instantiates the closed forms $[[n,1,n-1;n-q-1]]_q$ at every $q$, verifies each member, counts the listed-open cells they settle |
 | `table-correction` | deterministic | recomputes 398 EA-Plotkin corrections to listed upper bounds from the snapshot |
-| `openness` | deterministic | checks every closed cell was genuinely open (listed gap, or absent) in the dated snapshot |
-| `novelty-drift` | deterministic | compares oldest vs newest snapshot present; reports cells since reached by others |
-| `refutations` | external | re-decides every archived CNF and replays every DRAT proof; lists decisions as decisions |
-| `magma-crosscheck` | external | re-runs the Magma verification if Magma is present; otherwise reports the archived log *as a log* |
+| `openness` | deterministic | reports table-relative witness status; separates 65 q=2 files from 61 unique parameter cells |
+| `solver-refinement` | deterministic | independently recomputes two refinement witnesses and checks their upper-bound links |
+| `novelty-drift` | deterministic | compares q=2,3 bounds and unique witness cells across snapshots; does not infer independent authorship |
+| `refutations` | external | re-decides all 10 archived CNFs and replays available DRAT proofs; separately checks the qutrit normalization metadata |
+| `magma-crosscheck` | external | re-runs Magma locally or with explicit MAGMA_SSH_HOST; otherwise reports the archived log as archive-only evidence |
 | `search-determinism` | search | replays three programs × four seeds under an evaluation budget, bit for bit |
 | `prompt-provenance` | deterministic | the task specifications given to the model are archived verbatim and contain the phrases the paper quotes |
 
-`deterministic` holds on any machine. `external` is `SKIPPED_NO_TOOL` when
+`deterministic` uses the documented Python/NumPy environment. `external` is `SKIPPED_NO_TOOL` when
 the tool is absent --- never a failure, never a pass --- and **binding when
 the tool is present**: a solver that answers SAT fails the claim.
 `SKIPPED_NO_DATA` marks a check that needs an input the archive does not
-yet hold (a second snapshot). Run one tier or one claim:
+yet hold. Per-entry solver and certificate statuses distinguish partial verification. Run one tier or one claim:
 
 ```bash
 python3 scripts/reproduce_eaqecc.py --tier deterministic
@@ -98,8 +190,11 @@ Tables of best-known parameters move, so novelty claims decay after
 publication. A snapshot is a dated directory under
 `artifacts/codetables_snapshots/` holding `qubit.json` (and optionally
 `qutrit.json`) as records `{q, n, k, c, dl, du, ...}`. The auditor
-discovers whichever are present, evaluates against the newest by default,
-and validates every record on load.
+discovers available snapshots and uses the frozen comparison named in
+`artifacts/paper_reference.json` by default. `--snapshot latest` is an
+explicit override. The loader validates integer fields, parameter ranges
+and duplicate cells. The bundle contains 2026-07-17 and 2026-09-10 snapshots;
+all 11,640 q=2,3 distance intervals are unchanged between them.
 
 ```bash
 python3 scripts/reproduce_eaqecc.py --list-snapshots
@@ -107,24 +202,43 @@ python3 scripts/reproduce_eaqecc.py --snapshot 2026-07-17
 ```
 
 Drop in a newer dated directory, run `python3 scripts/make_manifest.py`,
-and `novelty-drift` starts reporting what has changed --- including, if it
-happens, that someone reached one of these cells first.
+and `novelty-drift` reports changed bounds. A newly matching table value
+is not automatically classified as an independent discovery; its provenance
+needs review. Frozen paper counts are checked against the named paper snapshot.
 
 ## Refutations: proofs, not verdicts
 
 `artifacts/refutations/registry.json` lists every nonexistence result the
-paper uses, in three grades the auditor keeps apart:
+paper uses, in two grades the auditor keeps apart:
 
-- **certified** --- CNF and DRAT proof shipped (7 entries; proofs above a
+- **certified** --- CNF and DRAT proof shipped (9 entries; proofs above a
   megabyte are gzipped). Replay with any conforming checker.
 - **certified on demand** --- CNF shipped, proof regenerable in about a
   minute but too large to ship (1 entry, 583 MB).
-- **decision** --- the solver's answer is on record and nothing else
-  (1 entry). Never counted as certified.
+
+There are no remaining decision-only entries. The qutrit result uses a
+normalized CNF: DRAT checks its unsatisfiability, while the coordinate-projection
+lemma proves that the normalization preserves a representative of every possible code.
+
+For proof replay, set `DRAT_TRIM_PATH` or put `drat-trim` on PATH.
+The large on-demand proof can be regenerated into a separate cache:
 
 ```bash
-python3 scripts/refutations/run_registry.py          # regenerate missing proofs (needs CaDiCaL)
+python3 scripts/refutations/sat_normal_form_q2.py --only 10,1,5,9 --proof --timeout 180 --out /tmp/eaqecc_proofs
+EAQECC_PROOF_CACHE=/tmp/eaqecc_proofs python3 scripts/reproduce_eaqecc.py --claim refutations
 ```
+
+The encoder exits 20 for UNSAT (the SAT-solver convention). The raw proof
+uses about 0.6 GB; it is not added to the release bundle.
+The qutrit certificate is shipped as compressed binary DRAT and is checked
+by the same replay path. See [its proof and regeneration instructions](docs/qutrit_certificate.md).
+
+Use local Magma via PATH or `MAGMA_PATH`. To run the same export on an
+SSH host that you control, set `MAGMA_SSH_HOST=your-magma-host`. The host
+needs Magma and `timeout`; the client needs `ssh` and `scp`. The auditor
+copies the two inputs into a unique remote temporary directory, executes
+the verifier, and removes those temporary inputs. No remote execution is
+attempted unless this variable is explicitly set.
 
 ## Reproducing the search, and its boundary
 
@@ -134,43 +248,43 @@ a seeded generator inside a wall-clock loop is not reproducible, because a
 faster machine draws more random numbers and returns something else for
 the same seed. `scripts/eaqecc_baselines/driver_deterministic.py` replaces
 the `time` module the candidate sees with a virtual clock that advances
-once per evaluation, so seed and budget fix the output on any machine.
+once per evaluation; replay is checked for the archived programs and tested environments.
 
 What is **not** reproducible is the evolutionary run that produced those
 programs: the model calls are nondeterministic and we did not attempt to
-make them so. A reader can verify every result and re-run the search that
-finds them; a reader cannot replay the discovery.
+make them so. A reader can inspect the archived evidence and re-execute the supplied search
+programs under the documented conditions. These operations do not reproduce
+the original model sampling or mechanize the mathematical proofs.
 
-## The ablation
+## Research-guided program development
 
-Three programs, matched compute, same target set; every round of every
-arm is archived under `artifacts/ablation/`.
+The active ablation is in [experiments/hitl_ablation](experiments/hitl_ablation).
+Both policies receive the same initial program and researcher proposal to search
+its symplectic dual. With no protected initializer and 10,000 exact evaluations,
+iterative development succeeds in 38/64 held-out executions versus 21/64 for
+independent proposals. A validation-selected later-generation program succeeds
+in 3/4 executions at each of n=13 and n=15 under a separate 30,000-call budget;
+all-policy transfer totals are 6/32 versus 0/32. The average policy gain varies
+across the four generation blocks.
 
-| Name | Directory | What it is |
-|---|---|---|
-| `Anneal` | `B0` | the human heuristic that preceded evolution |
-| `Ansatz-seed` | `B1f` | the later seed produced by the write-back step, already carrying the discovered construction |
-| `Evolved` | `B2` | the best program the search returned |
+The balanced comparison contains 56 proposals (seven per policy and block),
+rather than the planned 96, after two consecutive unavailable model responses.
+The completion-only truncation rule was frozen before validation and test.
+The bundle retains all 60 attempted requests, 58 received responses, later
+excluded proposals, interruption amendments and independently checked witnesses.
 
 ```bash
-python3 scripts/eaqecc_baselines/summarize.py --targets residual --ci                       # wall-clock run
-python3 scripts/eaqecc_baselines/summarize.py --targets residual --ci --base artifacts/ablation_evalbudget   # evaluation-budget run
-python3 scripts/eaqecc_baselines/run_baseline.py --arm B0 --targets residual \
-    --rounds 80 --budget 240 --max-evals 100000 --workers 4 --out /tmp/my_ablation
+python3 scripts/eaqecc_ablation/audit.py
+python3 scripts/eaqecc_ablation/replay.py --program b02_evolution_g02 --split transfer --out /tmp/eaqecc_replay
+python3 scripts/eaqecc_ablation/make_figure.py
 ```
 
-Two archived runs: `artifacts/ablation/` under a 240 s wall-clock budget
-per round (the campaign's protocol) and `artifacts/ablation_evalbudget/`
-under 10^5 exact evaluations per round through the deterministic driver,
-which replays bit for bit. `--ci` bootstraps the rounds for a 95%
-interval on the number of cells closed.
-
-`Ansatz-seed` and `Evolved` are refused on the pre-campaign target sets
-(`original`, `pinned`): their program headers and prompts name the
-construction and the instances it closed, so a "rediscovery" by them would
-be circular. The runner enforces this rather than trusting the operator to
-remember it. Pass `--max-evals N` to run under the reproducible evaluation
-budget instead of wall clock.
+These commands audit or replay the latest study without model calls. Older
+ablation datasets and utilities are preserved outside the submission tree;
+[docs/EXPERIMENT_ARCHIVING.md](docs/EXPERIMENT_ARCHIVING.md) explains the boundary.
+Historical discovery programs and their deterministic fingerprints remain as
+mathematical provenance and replay inputs. The current manuscript and figure
+sources are under [paper/iclr2027](paper/iclr2027).
 
 ## Evolving new programs
 
@@ -185,7 +299,8 @@ a stale default silently calls a project that is not yours.
 ```
 scripts/reproduce_eaqecc.py        the auditor: one claim per function
 scripts/alphaevolve_eaqecc/        search stage: exact evaluator, driver, seed program, campaign launcher
-scripts/eaqecc_baselines/          ablation runner, deterministic driver, search fingerprint
+scripts/eaqecc_baselines/          historical fixed-program replay and search fingerprint
+scripts/eaqecc_ablation/           latest-study audit, replay and figures
 scripts/families/                  pure-Python verification of the closed forms (q = 2; q = 2..5)
 scripts/refutations/               SAT encoders (normal form, free radical), registry runner
 scripts/verify_eaqecc.magma        the second implementation
@@ -198,14 +313,23 @@ artifacts/refutations/             registry, CNFs, DRAT proofs
 artifacts/tables/                  EA-Plotkin corrections, bound map
 artifacts/magma/                   Magma export, archived log, version
 artifacts/campaigns/               campaign logs, the top evolved programs, and prompts/ (task specifications, recovered from the service)
-artifacts/ablation/                every round of every arm, wall-clock budget
-artifacts/ablation_evalbudget/     the same three arms under an evaluation budget (replayable)
+experiments/hitl_ablation/        latest shared-guidance study and its complete provenance
+paper/iclr2027/                   current manuscript, style files and figures
 tests/                             negative controls, evaluator, determinism
 docs/                              GCP setup, reproducibility checklist, anonymization checklist
 ```
 
 Everything under `artifacts/` is hashed in `MANIFEST.sha256`; a change
 there without a manifest update fails `archive-integrity`, by design.
+The latest study has its own `experiments/hitl_ablation/MANIFEST.sha256`,
+checked by the portable ablation audit.
+
+## Anonymous release
+
+[Release instructions](docs/ANONYMIZATION.md) build a checked ZIP without Git
+history or internal editing notes. Original data and prior exploratory studies
+remain in a separate research archive. Current failures and excluded proposals
+are preserved. The release builder does not publish or push anything.
 
 ## License
 

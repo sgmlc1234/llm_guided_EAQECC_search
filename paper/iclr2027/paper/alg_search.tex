@@ -1,0 +1,46 @@
+% Source: b02_evolution_g02; shaded edits are relative to b02_evolution_g01.
+\newcommand{\algdelta}[1]{\begingroup\setlength{\fboxsep}{0.65pt}\colorbox{achieve!13}{#1}\endgroup}
+\newcommand{\algside}[1]{\Comment{\parbox[t]{.34\linewidth}{\raggedright\footnotesize #1}}}
+\begin{algorithm}[H]
+\caption{Evolved search in the symplectic dual.}
+\label{alg:search}
+\small
+\begin{algorithmic}[1]
+\Require target $(n,k_t,c_t,d_t)$, exact-evaluation budget $N$
+\Statex \(\Phi(R)=\algdelta{\(10^4\)}|R.c-c_t|+\algdelta{\(100\)}R.\mathrm{offending}+10^3\Delta_d(R)\)
+  \algside{Increase penalties for entanglement mismatch and low-weight violations.}
+\State $r\gets n+k_t-c_t$
+\While{budget remains}
+  \State $L\gets$ a random independent list of $r$ Pauli vectors
+  \State $C\gets\Phi(\textsc{Eval}(L^\perp))$; \algdelta{$(L_*,C_*)\gets(L,C)$}
+    \algside{Retain the best state within each restart.}
+  \State $\tau\gets\algdelta{\(50\)}$; $f\gets0$; \algdelta{$g\gets0$}
+  \While{$f<\algdelta{\(600\)}$ \textbf{and} budget remains}
+    \State $\tau\gets\max(\algdelta{\(0.01\)},0.995\tau)$
+    \State $L'\gets\algdelta{\(\textsc{MixedMove}(L)\)}$
+      \algside{Add row mixing and allow larger Pauli changes at longer lengths.}
+    \State \textbf{if} $\operatorname{rank}L'\ne r$ \textbf{then} $f\gets f+1$; \textbf{continue}
+    \State $C'\gets\Phi(\textsc{Eval}((L')^\perp))$; $\delta\gets C'-C$
+    \If{$\delta\le0$ \textbf{or} $U(0,1)<\exp(-\delta/\tau)$}
+      \State $(L,C)\gets(L',C')$
+      \If{\algdelta{$C<C_*$}}
+        \State \algdelta{$(L_*,C_*)\gets(L,C)$; $g\gets0$}
+      \Else
+        \State \algdelta{$g\gets g+1$}
+      \EndIf
+      \State $f\gets0$ if $\delta<0$, otherwise $f\gets f+1$
+    \Else
+      \State $f\gets f+1$; \algdelta{$g\gets g+1$}
+    \EndIf
+    \If{\algdelta{$g>80$}}
+      \algside{On stagnation, return to the best state and adjust the temperature.}
+      \State \algdelta{$(L,C)\gets(L_*,C_*)$; $g\gets0$}
+      \State \algdelta{$\tau\gets\min(30,1.5\tau)$}
+    \EndIf
+  \EndWhile
+\EndWhile
+\State \Return the evaluator's best verified record, if any
+\end{algorithmic}
+\vspace{2pt}
+{\footnotesize\algdelta{Shading}: changes from the immediate parent; exact definitions in Appendix~\ref{app:hitl-program}.}
+\end{algorithm}

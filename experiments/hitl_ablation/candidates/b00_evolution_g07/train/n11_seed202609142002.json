@@ -1,0 +1,36 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "7b5732d819890f2a60b9dc8f1abd5d3e33738f9b7de389c8dcbd56cb44c78828",
+  "code_sha256": "bd6bd4a4ce077d5a27ff49b5d2d92fa2681c046342f633199d01bd28b6ca6747",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.0,
+  "score": 0.0,
+  "runs": [
+    {
+      "seed": 202609142002,
+      "closed": 0,
+      "distance_ratio": 0.0,
+      "failed_targets": 1,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 11,
+            "k": 1,
+            "c": 8,
+            "d": 10
+          },
+          "seed": 14407166059603432160,
+          "allocated_evals": 10000,
+          "n_evals": null,
+          "closed": false,
+          "distance_ratio": 0.0,
+          "underused_without_solution": null,
+          "termination": "process_error",
+          "error": "RuntimeError: driver exit -24: ",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

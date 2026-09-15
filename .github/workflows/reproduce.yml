@@ -24,8 +24,12 @@ jobs:
         run: python scripts/make_manifest.py --check
       - name: re-derive every deterministic claim
         run: python scripts/reproduce_eaqecc.py --tier deterministic
+      - name: current study and manuscript evidence links
+        run: |
+          python scripts/eaqecc_ablation/audit.py
+          python scripts/paper_results.py > table-evidence.json
       - name: negative controls and evaluator tests
-        run: python -m pytest -q tests/test_auditor_negative_controls.py tests/test_evaluator.py
+        run: python -m pytest -q
       - uses: actions/upload-artifact@v4
         with:
           name: reproduction-report-py${{ matrix.python }}
@@ -39,7 +43,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: sudo apt-get update && sudo apt-get install -y cadical drat-trim
+      - name: build the recorded solver and checker revisions
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential git
+          git clone https://github.com/arminbiere/cadical.git "$RUNNER_TEMP/cadical"
+          git -C "$RUNNER_TEMP/cadical" checkout --detach 7b99c07f0bcab5824a5a3ce62c7066554017f641
+          (cd "$RUNNER_TEMP/cadical" && ./configure && make -j2)
+          git clone https://github.com/marijnheule/drat-trim.git "$RUNNER_TEMP/drat-trim"
+          git -C "$RUNNER_TEMP/drat-trim" checkout --detach 2e3b2dc0ecf938addbd779d42877b6ed69d9a985
+          make -C "$RUNNER_TEMP/drat-trim" drat-trim
+          echo "CADICAL_PATH=$RUNNER_TEMP/cadical/build/cadical" >> "$GITHUB_ENV"
+          echo "DRAT_TRIM_PATH=$RUNNER_TEMP/drat-trim/drat-trim" >> "$GITHUB_ENV"
       - run: python -m pip install -r requirements.txt
       - name: re-decide and replay every certified refutation
         run: python scripts/reproduce_eaqecc.py --claim refutations
@@ -65,3 +80,29 @@ jobs:
           python-version: "3.12"
       - run: python -m pip install ruff
       - run: ruff check scripts tests
+
+  ablation-replay:
+    name: selected-program replay in the recorded OS sandbox
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements-ablation.txt
+      - run: python scripts/eaqecc_ablation/audit.py
+      - run: python scripts/eaqecc_ablation/replay_selected.py --out ../ablation-replay
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ablation-replay
+          path: ../ablation-replay/
+
+  anonymous-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: python scripts/release/build.py --out ../anonymous-release

@@ -1,0 +1,37 @@
+{
+  "state": "COMPLETED_BALANCED_PREFIX",
+  "blocks": 4,
+  "block_differences": [
+    -0.11358125,
+    0.2293375,
+    0.3949625,
+    -0.03556875000000004
+  ],
+  "mean_difference": 0.11878749999999999,
+  "arms": {
+    "independent": {
+      "mean_utility": 0.2390671875,
+      "success_fraction": 0.328125,
+      "mean_distance_ratio": 0.9203125
+    },
+    "evolution": {
+      "mean_utility": 0.3578546875,
+      "success_fraction": 0.59375,
+      "mean_distance_ratio": 0.94921875
+    }
+  },
+  "new_estimated_model_krw": 1700.871841681,
+  "new_committed_krw": 2703.82007866625,
+  "aggregate_committed_krw": 20445.936641779997,
+  "planned_proposals": 96,
+  "analyzed_proposals": 56,
+  "proposals_per_policy_per_block": 7,
+  "received_responses": 58,
+  "attempted_requests": 60,
+  "unavailable_responses": [
+    "b01_independent_g07",
+    "b01_evolution_g07"
+  ],
+  "uncertain_reserved_krw": 577.7302765649999,
+  "balanced_prefix_protocol_sha256": "6e5498d55afd66e70a92bec97a3ebe917f199e4558baf6237a20e7697d806e09"
+}

@@ -5,5 +5,4 @@ authors:
   - name: "Anonymous authors (paper under double-blind review)"
 year: 2026
 type: software
-repository-code: "https://github.com/sgmlc1234/llm_guided_EAQECC_search"
 license: MIT

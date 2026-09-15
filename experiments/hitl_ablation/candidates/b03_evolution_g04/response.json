@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c, target_d = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"], target[\\\"d\\\"]\\n    r = n + k - c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        val = 5000 * abs(res[\\\"c\\\"] - c) + 100 * res[\\\"offending\\\"]\\n        if res.get(\\\"d\\\") is not None:\\n            val += 10 * max(0, target_d - res[\\\"d\\\"])\\n        return val\\n\\n    def random_pauli():\\n        w = int(rng.choice([1, 2, 3], p=[0.5, 0.35, 0.15]))\\n        qubits = rng.choice(n, size=min(n, w), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_S(L):\\n        return E.nullspace([E._J(v, n) for v in L], 2 * n)\\n\\n    while E.remaining:\\n        L = []\\n        while len(L) < r:\\n            candidate = int(rng.integers(1, 1 << (2 * n)))\\n            test_L = L + [candidate]\\n            if len(E.gf2_basis(test_L)) == len(test_L):\\n                L.append(candidate)\\n        \\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c and res.get(\\\"d\\\", 0) >= target_d:\\n            return S\\n\\n        temp = 30.0\\n        fails = 0\\n        no_imp = 0\\n        best_cur = cur\\n        \\n        while fails < 400 and no_imp < 800 and E.remaining:\\n            temp = max(0.05, temp * 0.995)\\n            cand_L = list(L)\\n            idx = int(rng.integers(r))\\n            if rng.random() < 0.4:\\n                other = int(rng.integers(r))\\n                if other != idx:\\n                    cand_L[idx] ^= cand_L[other]\\n            cand_L[idx] ^= random_pauli()\\n            \\n            if len(E.gf2_basis(cand_L)) != r:\\n                fails += 1\\n                no_imp += 1\\n                continue\\n                \\n            cand_S = get_S(cand_L)\\n            cand_res = E.evaluate(cand_S)\\n            new_obj = objective(cand_res)\\n            \\n            if cand_res.get(\\\"offending\\\") == 0 and cand_res.get(\\\"c\\\") == c and cand_res.get(\\\"d\\\", 0) >= target_d:\\n                return cand_S\\n                \\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = cand_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n                if cur < best_cur:\\n                    best_cur = cur\\n                    no_imp = 0\\n                else:\\n                    no_imp += 1\\n            else:\\n                fails += 1\\n                no_imp += 1\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3271,
+    "candidatesTokenCount": 944,
+    "totalTokenCount": 4946,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3271
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 944
+      }
+    ],
+    "thoughtsTokenCount": 731
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:05:48.287337Z"
+}

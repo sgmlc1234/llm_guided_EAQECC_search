@@ -1,0 +1,58 @@
+% Separate numbered tables, top-aligned side by side.
+\begin{table}[!ht]
+\centering
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{minipage}[t]{0.485\linewidth}
+\vspace{0pt}
+\centering
+\footnotesize
+\caption{Qubit EAQECCs ($q=2$).}
+\label{tab:results}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Previous & Ours $d$ & \multirow{2}{*}{References} \\
+$[[n,k,d_\ell\text{--}d_u;c]]_q$ & (2026) & \\
+\midrule
+$[[7,1,5\text{--}6;4]]_2$ & $\mathbf{6}$ & \citet{GHW2020} \\
+$[[9,1,7\text{--}8;6]]_2$ & $\mathbf{8}$ & \citet{Luo2022} \\
+$[[10,1,7\text{--}9;6]]_2$ & $\mathbf{9}$ & \citet{Luo2022} \\
+$[[11,1,9\text{--}10;8]]_2$ & $\mathbf{10}$ & \citet{Luo2022} \\
+$[[12,1,9\text{--}11;8]]_2$ & $\mathbf{11}$ & \citet{Luo2022} \\
+$[[12,2,7\text{--}10;9]]_2$ & $\mathbf{9}$ & \citet{Luo2022} \\
+$[[13,1,9\text{--}12;8]]_2$ & $\mathbf{11}$ & \citet{Luo2022} \\
+$[[13,1,11\text{--}12;10]]_2$ & $\mathbf{12}^{\dagger}$ & \citet{Luo2022} \\
+$[[15,1,13\text{--}14;12]]_2$ & $\mathbf{14}^{\dagger}$ & \citet{Luo2022} \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}
+{\scriptsize $\dagger$ Constructed by the evolved program at unseen code lengths.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
+\vspace{0pt}
+\centering
+\footnotesize
+\caption{Qudit EAQECCs ($q=3,4,5$).}
+\label{tab:results-qudit}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Previous & Ours $d$ & \multirow{2}{*}{References} \\
+$[[n,k,d_\ell\text{--}d_u;c]]_q$ & (2026) & \\
+\midrule
+$[[9,1,7\text{--}8;4]]_3$ & $\mathbf{8}$ & \citet{Luo2022} \\
+$[[10,1,8\text{--}9;5]]_3$ & $\mathbf{9}$ & \citet{Luo2022} \\
+$[[11,1,9\text{--}10;7]]_3$ & $\mathbf{10}$ & \citet{Luo2022} \\
+$[[13,1,10\text{--}12;8]]_3$ & $\mathbf{12}$ & \citet{Luo2022} \\
+\midrule
+\multicolumn{3}{@{}l@{}}{\emph{New constructions:} $[[n,k,d;c]]_q$} \\
+\midrule
+$[[10,1,9;4]]_4$ & $9$ & Ours \\
+$[[12,1,11;6]]_4$ & $11$ & Ours \\
+$[[14,1,13;8]]_4$ & $13$ & Ours \\
+\midrule
+$[[12,1,11;5]]_5$ & $11$ & Ours \\
+$[[14,1,13;7]]_5$ & $13$ & Ours \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}

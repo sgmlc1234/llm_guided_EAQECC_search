@@ -1,0 +1,17 @@
+{
+  "calls": [
+    {
+      "id": "b00_independent_g00",
+      "status": "http_error",
+      "reserved_krw": 283.153923735,
+      "committed_krw": 0.0,
+      "http_status": 400
+    }
+  ],
+  "service_cap_krw": 6257.883436886252,
+  "safety_multiplier": 1.25,
+  "input_krw_per_token": 0.002074919,
+  "output_krw_per_token": 0.012449519,
+  "committed_krw": 0.0,
+  "estimated_model_krw": 0
+}

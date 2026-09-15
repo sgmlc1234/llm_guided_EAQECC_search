@@ -1,0 +1,35 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    len_L = 2 * n - s  # n + k - c\\n    \\n    # Target: c = target[\\\"c\\\"], offending = 0\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        # Penalize difference from target c, and offending generators\\n        return 1000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def get_S_from_L(L):\\n        # Symplectic dual: S = nullspace of J(L)\\n        J_L = [E._J(v, n) for v in L]\\n        return E.nullspace(J_L, 2 * n)\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 4)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    # To initialize L:\\n    # S has size s. S_perp (the symplectic dual) has size 2*n - s = len_L.\\n    # We can generate a random stabilizer of size s, and find its dual, or generate directly.\\n    # Let's start with a random stabilizer S, compute its dual as our initial L.\\n    \\n    while E.remaining:\\n        # Generate initial independent L\\n        while True:\\n            S_init = E.random_stabilizer(n, s, rng)\\n            J_S = [E._J(v, n) for v in S_init]\\n            L = E.nullspace(J_S, 2 * n)\\n            if len(L) == len_L and len(E.gf2_basis(L)) == len_L:\\n                break\\n        \\n        S_cand = get_S_from_L(L)\\n        cur_obj = objective(E.evaluate(S_cand))\\n        \\n        temp, fails = 30.0, 0\\n        while fails < 1200 and E.remaining:\\n            temp = max(0.05, temp * 0.995)\\n            candidate_L = list(L)\\n            idx = int(rng.integers(len_L))\\n            candidate_L[idx] ^= random_pauli()\\n            \\n            if len(E.gf2_basis(candidate_L)) != len_L:\\n                fails += 1\\n                continue\\n                \\n            S_cand = get_S_from_L(candidate_L)\\n            if len(S_cand) != s or len(E.gf2_basis(S_cand)) != s:\\n                fails += 1\\n                continue\\n                \\n            new_obj = objective(E.evaluate(S_cand))\\n            delta = new_obj - cur_obj\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur_obj = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 861,
+    "totalTokenCount": 2659,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 861
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:02:58.012595Z"
+}

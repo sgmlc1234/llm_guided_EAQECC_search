@@ -1,0 +1,48 @@
+% What the model was told, before and after the discovery. Printed
+% because two claims in this paper are only checkable against it: that the
+% idea was supplied through the task, and that later seeds already
+% contain the resulting construction.
+%
+% NOT a float. As a figure it drifted out of this appendix and landed in
+% the middle of the bibliography, leaving the section empty; there is no
+% reason to float a verbatim excerpt in an appendix.
+The specifications record two stages of researcher input. Campaigns 1
+and 2 received human-proposed directions, including cyclic qubit shifts,
+while their initial program did not implement that construction.
+Campaigns 3 and 4 received the discovered instances, their human-derived
+generalization, and directions for further constructions. The task
+specification therefore supports HITL updates between campaigns.
+Website formatting is normalized in the excerpts below; all four
+specifications are archived verbatim. Later seeds and prompts
+contain the earlier findings and cannot serve as independent rediscovery
+baselines (Section~\ref{sec:ablation}).
+
+\begin{promptbox}{Task specification, campaigns 1--2 --- the runs that found the instances}
+\footnotesize\ttfamily
+Target: 68 open entries of the qubit EAQECC table (codetables.de). Each
+target \{n, k, c, d\} asks for an entanglement-assisted quantum code
+[[n,k,d;c]] whose existence is open [\dots] Required: symplectic Gram
+rank exactly 2c on span S; then d = min symplectic weight over
+S\textasciicircum perp \textbackslash{} S\_iso must reach the target.
+[\dots] \textbf{Promising directions: constructive warm starts --- build S
+as c explicit hyperbolic pairs plus n-k-c isotropic generators; derive
+candidates from classical GF(4) additive codes (Wilde--Brun: c = rank of
+H H\textasciicircum dagger); modify known-good stabilizer codes of nearby
+parameters; exploit that targets sharing (n, c) can reuse structure;
+coupled multi-generator moves; symmetry ansatz (cyclic qubit shifts).}
+[\dots]
+\end{promptbox}
+
+\begin{promptbox}{Task specification, campaigns 3--4 --- after the finding was written back in}
+\footnotesize\ttfamily
+[\dots] \textbf{Proven meta-lesson of this campaign: STRUCTURED
+CONSTRUCTION PROGRAMS beat point search. A cyclic-shift ansatz
+(generators = 2-bit cyclic shifts of one or two base Pauli strings)
+closed [[7,1,6;4]], [[9,1,8;6]], [[11,1,10;8]] and was generalized by
+hand into an infinite optimal family for odd n}; a block ansatz [\dots]
+gave the even-n branch. One good ansatz sweeps a whole ladder of targets
+at once. Evolve NEW construction families: other shift steps /
+quasi-cyclic orbits, multi-block radicals, GF(4)-additive constructions,
+extension/shortening/puncturing of the already-closed [[n,1,n-1;n-3]]
+family [\dots]
+\end{promptbox}

@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c, target_d = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"], target[\\\"d\\\"]\\n    r = n + k - c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        val = 10000 * abs(res[\\\"c\\\"] - c) + 1000 * res[\\\"offending\\\"]\\n        d = res.get(\\\"d\\\")\\n        if d is not None:\\n            val += 100 * max(0, target_d - d)\\n        else:\\n            val += 500\\n        return val\\n\\n    def mutate(L_copy):\\n        idx = int(rng.integers(r))\\n        p = rng.random()\\n        if p < 0.6:\\n            # 1-qubit flip\\n            q = int(rng.integers(n))\\n            L_copy[idx] ^= int(rng.integers(1, 4)) << (2 * q)\\n        elif p < 0.85:\\n            # Linear combination\\n            other = int(rng.integers(r))\\n            if other != idx:\\n                L_copy[idx] ^= L_copy[other]\\n        else:\\n            # 2-qubit flip\\n            qubits = rng.choice(n, size=2, replace=False)\\n            for q in qubits:\\n                L_copy[idx] ^= int(rng.integers(1, 4)) << (2 * int(q))\\n\\n    def get_S(L):\\n        return E.nullspace([E._J(v, n) for v in L], 2 * n)\\n\\n    while E.remaining:\\n        # Initialize L\\n        L = []\\n        while len(L) < r:\\n            candidate = int(rng.integers(1, 1 << (2 * n)))\\n            test_L = L + [candidate]\\n            if len(E.gf2_basis(test_L)) == len(test_L):\\n                L.append(candidate)\\n        \\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c and res.get(\\\"d\\\", 0) >= target_d:\\n            return S\\n\\n        temp = 40.0\\n        fails = 0\\n        while fails < 1000 and E.remaining:\\n            temp = max(0.2, temp * 0.996)\\n            cand_L = list(L)\\n            mutate(cand_L)\\n            \\n            if len(E.gf2_basis(cand_L)) != r:\\n                fails += 1\\n                continue\\n                \\n            cand_S = get_S(cand_L)\\n            cand_res = E.evaluate(cand_S)\\n            new_obj = objective(cand_res)\\n            \\n            if cand_res.get(\\\"offending\\\") == 0 and cand_res.get(\\\"c\\\") == c and cand_res.get(\\\"d\\\", 0) >= target_d:\\n                return cand_S\\n                \\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = cand_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3483,
+    "candidatesTokenCount": 909,
+    "totalTokenCount": 6211,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3483
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 909
+      }
+    ],
+    "thoughtsTokenCount": 1819
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:02:16.815911Z"
+}

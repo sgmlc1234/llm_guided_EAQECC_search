@@ -1,0 +1,1525 @@
+{
+  "calls": [
+    {
+      "id": "b00_independent_g00",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 33.141655165,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 743,
+        "totalTokenCount": 3628,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 743
+          }
+        ],
+        "thoughtsTokenCount": 1087
+      },
+      "estimated_model_krw": 26.513324132
+    },
+    {
+      "id": "b00_evolution_g00",
+      "status": "settled",
+      "reserved_krw": 283.14354914,
+      "committed_krw": 25.8275627525,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 823,
+        "totalTokenCount": 3158,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 823
+          }
+        ],
+        "thoughtsTokenCount": 537
+      },
+      "estimated_model_krw": 20.662050202
+    },
+    {
+      "id": "b01_evolution_g00",
+      "status": "settled",
+      "reserved_krw": 283.14354914,
+      "committed_krw": 19.75842224,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 970,
+        "totalTokenCount": 2768,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 970
+          }
+        ]
+      },
+      "estimated_model_krw": 15.806737792
+    },
+    {
+      "id": "b01_independent_g00",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 36.23847301625,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 798,
+        "totalTokenCount": 3827,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 798
+          }
+        ],
+        "thoughtsTokenCount": 1231
+      },
+      "estimated_model_krw": 28.990778412999997
+    },
+    {
+      "id": "b02_independent_g00",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 28.72207592,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 730,
+        "totalTokenCount": 3344,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 730
+          }
+        ],
+        "thoughtsTokenCount": 816
+      },
+      "estimated_model_krw": 22.977660736
+    },
+    {
+      "id": "b02_evolution_g00",
+      "status": "settled",
+      "reserved_krw": 283.14354914,
+      "committed_krw": 32.3635602275,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 709,
+        "totalTokenCount": 3578,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 709
+          }
+        ],
+        "thoughtsTokenCount": 1071
+      },
+      "estimated_model_krw": 25.890848182
+    },
+    {
+      "id": "b03_evolution_g00",
+      "status": "settled",
+      "reserved_krw": 283.14354914,
+      "committed_krw": 28.5664569325,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 852,
+        "totalTokenCount": 3334,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 852
+          }
+        ],
+        "thoughtsTokenCount": 684
+      },
+      "estimated_model_krw": 22.853165546
+    },
+    {
+      "id": "b03_independent_g00",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 33.7952549125,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 802,
+        "totalTokenCount": 3670,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 802
+          }
+        ],
+        "thoughtsTokenCount": 1070
+      },
+      "estimated_model_krw": 27.03620393
+    },
+    {
+      "id": "b00_evolution_g01",
+      "status": "settled",
+      "reserved_krw": 291.37319662375,
+      "committed_krw": 42.34911079,
+      "usage": {
+        "promptTokenCount": 2888,
+        "candidatesTokenCount": 861,
+        "totalTokenCount": 5128,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2888
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 861
+          }
+        ],
+        "thoughtsTokenCount": 1379
+      },
+      "estimated_model_krw": 33.879288632
+    },
+    {
+      "id": "b00_independent_g01",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 29.313428072500002,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 788,
+        "totalTokenCount": 3382,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 788
+          }
+        ],
+        "thoughtsTokenCount": 796
+      },
+      "estimated_model_krw": 23.450742458
+    },
+    {
+      "id": "b01_independent_g01",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 26.12323882875,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 804,
+        "totalTokenCount": 3177,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 804
+          }
+        ],
+        "thoughtsTokenCount": 575
+      },
+      "estimated_model_krw": 20.898591063
+    },
+    {
+      "id": "b01_evolution_g01",
+      "status": "settled",
+      "reserved_krw": 295.69421544125,
+      "committed_krw": 40.0822602325,
+      "usage": {
+        "promptTokenCount": 3502,
+        "candidatesTokenCount": 1059,
+        "totalTokenCount": 5494,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3502
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1059
+          }
+        ],
+        "thoughtsTokenCount": 933
+      },
+      "estimated_model_krw": 32.065808186
+    },
+    {
+      "id": "b02_evolution_g01",
+      "status": "settled",
+      "reserved_krw": 291.56512663125,
+      "committed_krw": 38.83212161625,
+      "usage": {
+        "promptTokenCount": 2942,
+        "candidatesTokenCount": 760,
+        "totalTokenCount": 4947,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2942
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 760
+          }
+        ],
+        "thoughtsTokenCount": 1245
+      },
+      "estimated_model_krw": 31.065697293
+    },
+    {
+      "id": "b02_independent_g01",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 28.0062285775,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 650,
+        "totalTokenCount": 3298,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 650
+          }
+        ],
+        "thoughtsTokenCount": 850
+      },
+      "estimated_model_krw": 22.404982862
+    },
+    {
+      "id": "b03_independent_g01",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 25.59413427125,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 792,
+        "totalTokenCount": 3143,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 792
+          }
+        ],
+        "thoughtsTokenCount": 553
+      },
+      "estimated_model_krw": 20.475307417
+    },
+    {
+      "id": "b03_evolution_g01",
+      "status": "settled",
+      "reserved_krw": 293.45330292125,
+      "committed_krw": 40.70992378625,
+      "usage": {
+        "promptTokenCount": 3210,
+        "candidatesTokenCount": 1138,
+        "totalTokenCount": 5291,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3210
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1138
+          }
+        ],
+        "thoughtsTokenCount": 943
+      },
+      "estimated_model_krw": 32.567939029
+    },
+    {
+      "id": "b00_independent_g02",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 24.551487055000003,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 752,
+        "totalTokenCount": 3076,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 752
+          }
+        ],
+        "thoughtsTokenCount": 526
+      },
+      "estimated_model_krw": 19.641189644
+    },
+    {
+      "id": "b00_evolution_g02",
+      "status": "settled",
+      "reserved_krw": 293.01238263375,
+      "committed_krw": 51.28682762624999,
+      "usage": {
+        "promptTokenCount": 3220,
+        "candidatesTokenCount": 898,
+        "totalTokenCount": 5979,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3220
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 898
+          }
+        ],
+        "thoughtsTokenCount": 1861
+      },
+      "estimated_model_krw": 41.02946210099999
+    },
+    {
+      "id": "b01_evolution_g02",
+      "status": "settled",
+      "reserved_krw": 296.3555958725,
+      "committed_krw": 53.304686778749996,
+      "usage": {
+        "promptTokenCount": 3590,
+        "candidatesTokenCount": 1034,
+        "totalTokenCount": 6417,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3590
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1034
+          }
+        ],
+        "thoughtsTokenCount": 1793
+      },
+      "estimated_model_krw": 42.643749422999996
+    },
+    {
+      "id": "b01_independent_g02",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 27.58605731125,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 856,
+        "totalTokenCount": 3271,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 856
+          }
+        ],
+        "thoughtsTokenCount": 617
+      },
+      "estimated_model_krw": 22.068845849
+    },
+    {
+      "id": "b02_independent_g02",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 50.1352486,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 891,
+        "totalTokenCount": 4720,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 891
+          }
+        ],
+        "thoughtsTokenCount": 2031
+      },
+      "estimated_model_krw": 40.108198879999996
+    },
+    {
+      "id": "b02_evolution_g02",
+      "status": "settled",
+      "reserved_krw": 292.07348178625,
+      "committed_krw": 32.93416187125,
+      "usage": {
+        "promptTokenCount": 3056,
+        "candidatesTokenCount": 1033,
+        "totalTokenCount": 4663,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3056
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1033
+          }
+        ],
+        "thoughtsTokenCount": 574
+      },
+      "estimated_model_krw": 26.347329497
+    },
+    {
+      "id": "b03_evolution_g02",
+      "status": "settled",
+      "reserved_krw": 296.08845005125,
+      "committed_krw": 51.486538386250004,
+      "usage": {
+        "promptTokenCount": 3483,
+        "candidatesTokenCount": 909,
+        "totalTokenCount": 6211,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3483
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 909
+          }
+        ],
+        "thoughtsTokenCount": 1819
+      },
+      "estimated_model_krw": 41.189230709
+    },
+    {
+      "id": "b03_independent_g02",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 16.941718566250003,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 789,
+        "totalTokenCount": 2587,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 789
+          }
+        ]
+      },
+      "estimated_model_krw": 13.553374853000001
+    },
+    {
+      "id": "b00_evolution_g03",
+      "status": "settled",
+      "reserved_krw": 293.196531695,
+      "committed_krw": 52.2620399125,
+      "usage": {
+        "promptTokenCount": 3254,
+        "candidatesTokenCount": 1182,
+        "totalTokenCount": 6070,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3254
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1182
+          }
+        ],
+        "thoughtsTokenCount": 1634
+      },
+      "estimated_model_krw": 41.80963193
+    },
+    {
+      "id": "b00_independent_g03",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 18.062175276250002,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 861,
+        "totalTokenCount": 2659,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 861
+          }
+        ]
+      },
+      "estimated_model_krw": 14.449740221
+    },
+    {
+      "id": "b01_independent_g03",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 36.70532997875,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 885,
+        "totalTokenCount": 3857,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 885
+          }
+        ],
+        "thoughtsTokenCount": 1174
+      },
+      "estimated_model_krw": 29.364263983
+    },
+    {
+      "id": "b01_evolution_g03",
+      "status": "settled",
+      "reserved_krw": 296.21813248875003,
+      "committed_krw": 34.94942723125,
+      "usage": {
+        "promptTokenCount": 3563,
+        "candidatesTokenCount": 861,
+        "totalTokenCount": 5215,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3563
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 861
+          }
+        ],
+        "thoughtsTokenCount": 791
+      },
+      "estimated_model_krw": 27.959541785
+    },
+    {
+      "id": "b02_evolution_g03",
+      "status": "settled",
+      "reserved_krw": 294.57375918125,
+      "committed_krw": 50.438704047499996,
+      "usage": {
+        "promptTokenCount": 3313,
+        "candidatesTokenCount": 1111,
+        "totalTokenCount": 6002,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3313
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1111
+          }
+        ],
+        "thoughtsTokenCount": 1578
+      },
+      "estimated_model_krw": 40.350963238
+    },
+    {
+      "id": "b02_independent_g03",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 26.901333766249998,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 734,
+        "totalTokenCount": 3227,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 734
+          }
+        ],
+        "thoughtsTokenCount": 695
+      },
+      "estimated_model_krw": 21.521067013
+    },
+    {
+      "id": "b03_independent_g03",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 44.54852694875,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 778,
+        "totalTokenCount": 4361,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 778
+          }
+        ],
+        "thoughtsTokenCount": 1785
+      },
+      "estimated_model_krw": 35.638821559
+    },
+    {
+      "id": "b03_evolution_g03",
+      "status": "settled",
+      "reserved_krw": 293.87088037,
+      "committed_krw": 43.2387322675,
+      "usage": {
+        "promptTokenCount": 3273,
+        "candidatesTokenCount": 919,
+        "totalTokenCount": 5506,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3273
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 919
+          }
+        ],
+        "thoughtsTokenCount": 1314
+      },
+      "estimated_model_krw": 34.590985814
+    },
+    {
+      "id": "b00_independent_g04",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 35.44481618,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 1062,
+        "totalTokenCount": 3776,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1062
+          }
+        ],
+        "thoughtsTokenCount": 916
+      },
+      "estimated_model_krw": 28.355852944
+    },
+    {
+      "id": "b00_evolution_g04",
+      "status": "settled",
+      "reserved_krw": 295.42966326875,
+      "committed_krw": 62.613295942499995,
+      "usage": {
+        "promptTokenCount": 3531,
+        "candidatesTokenCount": 1006,
+        "totalTokenCount": 6966,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3531
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1006
+          }
+        ],
+        "thoughtsTokenCount": 2429
+      },
+      "estimated_model_krw": 50.090636753999995
+    },
+    {
+      "id": "b01_evolution_g04",
+      "status": "settled",
+      "reserved_krw": 295.10286352624996,
+      "committed_krw": 41.04191079499999,
+      "usage": {
+        "promptTokenCount": 3368,
+        "candidatesTokenCount": 964,
+        "totalTokenCount": 5444,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3368
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 964
+          }
+        ],
+        "thoughtsTokenCount": 1112
+      },
+      "estimated_model_krw": 32.833528636
+    },
+    {
+      "id": "b01_independent_g04",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 27.850609589999998,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 752,
+        "totalTokenCount": 3288,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 752
+          }
+        ],
+        "thoughtsTokenCount": 738
+      },
+      "estimated_model_krw": 22.280487672
+    },
+    {
+      "id": "b02_independent_g04",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 22.94861148375,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 724,
+        "totalTokenCount": 2973,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 724
+          }
+        ],
+        "thoughtsTokenCount": 451
+      },
+      "estimated_model_krw": 18.358889187
+    },
+    {
+      "id": "b02_evolution_g04",
+      "status": "settled",
+      "reserved_krw": 295.39853948374997,
+      "committed_krw": 37.85431516875,
+      "usage": {
+        "promptTokenCount": 3399,
+        "candidatesTokenCount": 868,
+        "totalTokenCount": 5265,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3399
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 868
+          }
+        ],
+        "thoughtsTokenCount": 998
+      },
+      "estimated_model_krw": 30.283452134999997
+    },
+    {
+      "id": "b03_evolution_g04",
+      "status": "settled",
+      "reserved_krw": 294.047248485,
+      "committed_krw": 34.5500054675,
+      "usage": {
+        "promptTokenCount": 3271,
+        "candidatesTokenCount": 944,
+        "totalTokenCount": 4946,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3271
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 944
+          }
+        ],
+        "thoughtsTokenCount": 731
+      },
+      "estimated_model_krw": 27.640004374
+    },
+    {
+      "id": "b03_independent_g04",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 44.65746023999999,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 843,
+        "totalTokenCount": 4368,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 843
+          }
+        ],
+        "thoughtsTokenCount": 1727
+      },
+      "estimated_model_krw": 35.725968191999996
+    },
+    {
+      "id": "b00_evolution_g05",
+      "status": "settled",
+      "reserved_krw": 294.07577862125,
+      "committed_krw": 41.28571388375,
+      "usage": {
+        "promptTokenCount": 3360,
+        "candidatesTokenCount": 1055,
+        "totalTokenCount": 5453,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3360
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1055
+          }
+        ],
+        "thoughtsTokenCount": 1038
+      },
+      "estimated_model_krw": 33.028571107
+    },
+    {
+      "id": "b00_independent_g05",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 37.2811202325,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 799,
+        "totalTokenCount": 3894,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 799
+          }
+        ],
+        "thoughtsTokenCount": 1297
+      },
+      "estimated_model_krw": 29.824896186
+    },
+    {
+      "id": "b01_independent_g05",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 17.06621375625,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 797,
+        "totalTokenCount": 2595,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 797
+          }
+        ]
+      },
+      "estimated_model_krw": 13.652971005
+    },
+    {
+      "id": "b01_evolution_g05",
+      "status": "settled",
+      "reserved_krw": 295.44522516125,
+      "committed_krw": 55.345889282499996,
+      "usage": {
+        "promptTokenCount": 3477,
+        "candidatesTokenCount": 980,
+        "totalTokenCount": 6454,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3477
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 980
+          }
+        ],
+        "thoughtsTokenCount": 1997
+      },
+      "estimated_model_krw": 44.276711426
+    },
+    {
+      "id": "b02_evolution_g05",
+      "status": "settled",
+      "reserved_krw": 292.86195100624997,
+      "committed_krw": 32.77594912875,
+      "usage": {
+        "promptTokenCount": 3157,
+        "candidatesTokenCount": 757,
+        "totalTokenCount": 4737,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3157
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 757
+          }
+        ],
+        "thoughtsTokenCount": 823
+      },
+      "estimated_model_krw": 26.220759302999998
+    },
+    {
+      "id": "b02_independent_g05",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 21.843716672499998,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 659,
+        "totalTokenCount": 2902,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 659
+          }
+        ],
+        "thoughtsTokenCount": 445
+      },
+      "estimated_model_krw": 17.474973337999998
+    },
+    {
+      "id": "b03_independent_g05",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 26.73015288,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 984,
+        "totalTokenCount": 3216,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 984
+          }
+        ],
+        "thoughtsTokenCount": 434
+      },
+      "estimated_model_krw": 21.384122303999998
+    },
+    {
+      "id": "b03_evolution_g05",
+      "status": "settled",
+      "reserved_krw": 294.13283889375,
+      "committed_krw": 40.86554268,
+      "usage": {
+        "promptTokenCount": 3300,
+        "candidatesTokenCount": 819,
+        "totalTokenCount": 5376,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3300
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 819
+          }
+        ],
+        "thoughtsTokenCount": 1257
+      },
+      "estimated_model_krw": 32.692434143999996
+    },
+    {
+      "id": "b00_independent_g06",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 23.742268319999997,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 860,
+        "totalTokenCount": 3024,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 860
+          }
+        ],
+        "thoughtsTokenCount": 366
+      },
+      "estimated_model_krw": 18.993814655999998
+    },
+    {
+      "id": "b00_evolution_g06",
+      "status": "settled",
+      "reserved_krw": 294.379235525,
+      "committed_krw": 37.3407724975,
+      "usage": {
+        "promptTokenCount": 3411,
+        "candidatesTokenCount": 1058,
+        "totalTokenCount": 5242,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3411
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1058
+          }
+        ],
+        "thoughtsTokenCount": 773
+      },
+      "estimated_model_krw": 29.872617997999996
+    },
+    {
+      "id": "b01_evolution_g06",
+      "status": "settled",
+      "reserved_krw": 295.6086250325,
+      "committed_krw": 45.60414063375,
+      "usage": {
+        "promptTokenCount": 3507,
+        "candidatesTokenCount": 857,
+        "totalTokenCount": 5853,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3507
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 857
+          }
+        ],
+        "thoughtsTokenCount": 1489
+      },
+      "estimated_model_krw": 36.483312507
+    },
+    {
+      "id": "b01_independent_g06",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 21.54804059625,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 1085,
+        "totalTokenCount": 2883,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1085
+          }
+        ]
+      },
+      "estimated_model_krw": 17.238432477
+    },
+    {
+      "id": "b02_independent_g06",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 27.5082478175,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 712,
+        "totalTokenCount": 3266,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 712
+          }
+        ],
+        "thoughtsTokenCount": 756
+      },
+      "estimated_model_krw": 22.006598254
+    },
+    {
+      "id": "b02_evolution_g06",
+      "status": "settled",
+      "reserved_krw": 291.94898664625,
+      "committed_krw": 27.217757745,
+      "usage": {
+        "promptTokenCount": 3042,
+        "candidatesTokenCount": 841,
+        "totalTokenCount": 4284,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3042
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 841
+          }
+        ],
+        "thoughtsTokenCount": 401
+      },
+      "estimated_model_krw": 21.774206196
+    },
+    {
+      "id": "b03_evolution_g06",
+      "status": "settled",
+      "reserved_krw": 293.24062372375,
+      "committed_krw": 36.305906458749995,
+      "usage": {
+        "promptTokenCount": 3192,
+        "candidatesTokenCount": 877,
+        "totalTokenCount": 4993,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3192
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 877
+          }
+        ],
+        "thoughtsTokenCount": 924
+      },
+      "estimated_model_krw": 29.044725166999996
+    },
+    {
+      "id": "b03_independent_g06",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 48.31450644624999,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 961,
+        "totalTokenCount": 4603,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 961
+          }
+        ],
+        "thoughtsTokenCount": 1844
+      },
+      "estimated_model_krw": 38.65160515699999
+    },
+    {
+      "id": "b00_evolution_g07",
+      "status": "settled",
+      "reserved_krw": 294.51669890875,
+      "committed_krw": 107.14885664124999,
+      "usage": {
+        "promptTokenCount": 3410,
+        "candidatesTokenCount": 1034,
+        "totalTokenCount": 9727,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3410
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1034
+          }
+        ],
+        "thoughtsTokenCount": 5283
+      },
+      "estimated_model_krw": 85.719085313
+    },
+    {
+      "id": "b00_independent_g07",
+      "status": "settled",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 46.447078596249995,
+      "usage": {
+        "promptTokenCount": 1798,
+        "candidatesTokenCount": 995,
+        "totalTokenCount": 4483,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1798
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 995
+          }
+        ],
+        "thoughtsTokenCount": 1690
+      },
+      "estimated_model_krw": 37.15766287699999
+    },
+    {
+      "id": "b01_independent_g07",
+      "status": "uncertain",
+      "reserved_krw": 283.14873643749996,
+      "committed_krw": 283.14873643749996
+    },
+    {
+      "id": "b01_evolution_g07",
+      "status": "uncertain",
+      "reserved_krw": 294.58154012750003,
+      "committed_krw": 294.58154012750003
+    }
+  ],
+  "service_cap_krw": 6257.883436886252,
+  "safety_multiplier": 1.25,
+  "input_krw_per_token": 0.002074919,
+  "output_krw_per_token": 0.012449519,
+  "committed_krw": 2703.82007866625,
+  "estimated_model_krw": 1700.871841681
+}

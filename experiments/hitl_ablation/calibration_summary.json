@@ -1,0 +1,94 @@
+{
+  "state": "PASSED",
+  "protocol_sha256": "cbc130deb01f2f619c90d2dd5106905eddbc076aadeba213d0085c71476a6b43",
+  "curves": [
+    {
+      "n": 7,
+      "control": "initial",
+      "hits": {
+        "1000": 0,
+        "3000": 1,
+        "10000": 3,
+        "30000": 3,
+        "100000": 4
+      },
+      "replicates": 4,
+      "errors": 0
+    },
+    {
+      "n": 7,
+      "control": "dual",
+      "hits": {
+        "1000": 1,
+        "3000": 4,
+        "10000": 4,
+        "30000": 4,
+        "100000": 4
+      },
+      "replicates": 4,
+      "errors": 0
+    },
+    {
+      "n": 9,
+      "control": "initial",
+      "hits": {
+        "1000": 0,
+        "3000": 1,
+        "10000": 1,
+        "30000": 1,
+        "100000": 1
+      },
+      "replicates": 4,
+      "errors": 0
+    },
+    {
+      "n": 9,
+      "control": "dual",
+      "hits": {
+        "1000": 0,
+        "3000": 0,
+        "10000": 2,
+        "30000": 4,
+        "100000": 4
+      },
+      "replicates": 4,
+      "errors": 0
+    },
+    {
+      "n": 11,
+      "control": "initial",
+      "hits": {
+        "1000": 0,
+        "3000": 0,
+        "10000": 0,
+        "30000": 0,
+        "100000": 0
+      },
+      "replicates": 4,
+      "errors": 0
+    },
+    {
+      "n": 11,
+      "control": "dual",
+      "hits": {
+        "1000": 0,
+        "3000": 1,
+        "10000": 2,
+        "30000": 3,
+        "100000": 4
+      },
+      "replicates": 4,
+      "errors": 0
+    }
+  ],
+  "selected": {
+    "9": {
+      "budget": 10000,
+      "kind": "nonfloor"
+    },
+    "11": {
+      "budget": 10000,
+      "kind": "representation-onset"
+    }
+  }
+}

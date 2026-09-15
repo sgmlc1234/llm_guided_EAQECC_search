@@ -26,11 +26,13 @@ def find_solver() -> Path:
 
 
 def run_solver(cnf: Path, proof: Path | None = None,
-               timeout: float | None = None) -> subprocess.CompletedProcess:
-    """Decide `cnf`; with `proof`, write a text DRAT certificate there."""
+               timeout: float | None = None, binary: bool = False) -> subprocess.CompletedProcess:
+    """Decide `cnf`; optionally write text (default) or binary DRAT."""
     cmd = [str(find_solver()), "-q"]
     if proof is not None:
-        cmd += ["--no-binary", str(cnf), str(proof)]
+        if not binary:
+            cmd.append("--no-binary")
+        cmd += [str(cnf), str(proof)]
     else:
         cmd += [str(cnf)]
     return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)

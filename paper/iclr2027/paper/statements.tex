@@ -1,0 +1,66 @@
+% ICLR 2027: these statements are outside the main-text page limit.
+% Headings follow the official template; factual disclosures follow the study record.
+\subsection*{AI use statement}
+We used generative AI in the research workflow and in preparing this
+paper. The discovery campaigns used \texttt{gemini-3.5-flash} and
+\texttt{gemini-3.1-pro-preview} through AlphaEvolve; the controlled
+study used Gemini 3.5 Flash with a local controller. These models
+proposed and revised executable search programs in response to
+researcher-supplied directions and exact evaluation feedback
+(Sections~\ref{sec:pipeline} and~\ref{sec:ablation}). LLM-based coding
+assistants, including Codex, also supported hypothesis and methodological refinement,
+experiment design and calibration, implementation of search, analysis,
+verification and certificate-generation tools, qualitative review of
+program changes, and interpretation of results. Assistance with mathematical claims and proof development
+included the coordinate-normalization argument in
+Lemma~\ref{lem:coordinate-normalization}. Additional uses included
+data normalization and reformatting, literature search and synthesis,
+English drafting, translation and language editing of research discussions,
+manuscript restructuring and editing, and preparation of figures,
+tables and reproducibility artifacts. Generated code witnesses are
+mathematical outputs whose parameters are independently checked.
+Verification uses exact finite-field computations, independent
+linear-algebra checks, Magma cross-checks and checked proof certificates
+as detailed in Appendices~\ref{app:pipeline-detail}--\ref{app:ablations};
+these computational checks do not mechanize every mathematical argument.
+Researcher guidance and mathematical generalization remain part of the
+disclosed workflow. The authors take responsibility for the final text,
+mathematical claims, proofs, code and reported results, including all
+AI-assisted contributions.
+
+\subsection*{Ethics statement}
+This work studies algebraic code constructions and search programs;
+it does not involve experiments on human participants or use
+participant-level or personal datasets. Its potential benefit is to
+improve methods for quantum error correction and communication, while
+the reported idealized parameters do not establish hardware-level
+reliability or operational security. Research-integrity considerations
+are addressed through dated sources, explicit provenance, independent
+verification, and separation of new parameter claims from retrospective
+reconstruction. Unsuccessful searches are distinguished from proved
+nonexistence. The controlled-study records preserve failed and excluded
+attempts, unavailable responses and protocol amendments, and its reviewer
+bundle omits account credentials and machine-local configuration.
+Researcher and AI contributions are disclosed, external sources are
+cited, and the artifact retains software licensing information. Compute
+allowances and model usage are documented in Appendices~\ref{app:campaign}
+and~\ref{app:ablations}.
+
+\subsection*{Reproducibility statement}
+Appendix~\ref{app:domain} specifies the code representation, mathematical
+assumptions, constructions and proofs, and the reference table data
+used for comparisons. Appendix~\ref{app:pipeline-detail} gives campaign
+configuration, preserved prompts, verification methods and refutation
+encodings, including the scope of certificate checks.
+Section~\ref{sec:repro} and Appendix~\ref{app:repro} describe the auditor
+and its verification scope; the artifact README gives installation,
+integrity checks and fixed-program replay commands. Appendix~\ref{app:ablations} and the accompanying
+\texttt{experiments/hitl\_ablation/} bundle preserve calibration and
+evaluation seeds, budgets, attempted requests, received program sources,
+parent relationships, selection records, interruption amendments and
+independently checked witnesses. The artifact supplies offline audit
+and replay entry points and is released under the MIT license.
+These records support recomputation of reported quantities and replay
+of preserved programs; fresh LLM sampling is not guaranteed to reproduce
+the same generated programs. External solver and Magma availability
+is reported separately from completed checks.

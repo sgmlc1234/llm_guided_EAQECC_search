@@ -24,10 +24,8 @@ import helpers_eaqecc as H2  # noqa: E402  (qubit, bit-packed)
 from helpers_eaqecc_fq import Fq, vecq  # noqa: E402
 
 W = ROOT / "artifacts" / "witnesses"
-# The archived run (artifacts/magma/eaqecc_data.m + log) predates this
-# layout and omitted the q=3 witnesses. A fresh export goes to pending/ so
-# the archived data file keeps matching the archived log until Magma has
-# been re-run on the new export; then move both into artifacts/magma/.
+# Stage future exports separately; promote the data together with a successful
+# verification log. Historical exports remain under artifacts/magma/history/.
 OUT = ROOT / "artifacts" / "magma" / "pending" / "eaqecc_data.m"
 recs = []
 

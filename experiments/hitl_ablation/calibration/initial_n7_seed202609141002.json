@@ -1,0 +1,90 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "5473be36fc3d60a6598fd5dad881fdf247b913d9dfb5170bdf591f05a0a45463",
+  "code_sha256": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+  "mean_closed": 1.0,
+  "mean_distance_ratio": 1.0,
+  "score": 1.001,
+  "runs": [
+    {
+      "seed": 202609141002,
+      "closed": 1,
+      "distance_ratio": 1.0,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 7,
+            "k": 1,
+            "c": 4,
+            "d": 6
+          },
+          "seed": 8133687622955316585,
+          "allocated_evals": 100000,
+          "n_evals": 7896,
+          "nullspace_calls": 0,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 7896,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 3005,
+          "final_verifications": 0,
+          "termination": "solved",
+          "error": null,
+          "unused_evals": 92104,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 7,
+            "s": 10,
+            "c": 4,
+            "iso": 2,
+            "k": 1,
+            "d": 6,
+            "offending": 0,
+            "logical_count": 12
+          },
+          "generators": [
+            15690,
+            6308,
+            3302,
+            1021,
+            15559,
+            14078,
+            1781,
+            360,
+            8431,
+            7235
+          ],
+          "closed": true,
+          "distance_ratio": 1.0,
+          "found_phase": "search",
+          "elapsed_s": 0.8207903748843819,
+          "target_sha256": "82197e7edeb583b321ae64e6c78996cd9d0e3c3be19d36743cbe9a381cd012d7",
+          "code_sha256": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+          "id": 0,
+          "independent_check": {
+            "path": "experiments/hitl_ablation/calibration/initial_n7_seed202609141002.witness.json",
+            "sha256": "5c4175fabe550dd3f20014731ff2b75004c1fcfab1ce94119d4b2140a1165b38",
+            "parameters_n_k_d_c": [
+              7,
+              1,
+              6,
+              4
+            ],
+            "rank_S": 10,
+            "dim_dual": 4,
+            "radical_dimension": 2,
+            "logical_weight_distribution": {
+              "6": 8,
+              "7": 4
+            },
+            "status": "PASS"
+          }
+        }
+      ]
+    }
+  ]
+}

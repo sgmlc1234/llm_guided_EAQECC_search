@@ -35,9 +35,10 @@ Credentials — `google.auth.default()` — not an API key.
 
 ## Prerequisites
 
-1. **Access.** AlphaEvolve is not generally available; the project must be
-   allowlisted for it. Without that, the app cannot be created and every
-   request returns a permission error.
+1. **Access.** Verify current project access and IAM permissions using the
+   [official AlphaEvolve guide](https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/reference-guide/api-reference?hl=en).
+   The archived campaigns used an early-access configuration; Google
+   subsequently [opened AlphaEvolve access](https://cloud.google.com/blog/products/ai-machine-learning/alphaevolve-is-available-for-everyone).
 2. **A project with the API enabled.**
    ```bash
    gcloud services enable discoveryengine.googleapis.com --project $PROJECT_ID
@@ -68,10 +69,23 @@ python3 scripts/alphaevolve_eaqecc/run_evolution.py
 the script exits with the commands above if either is unset — a default
 here would silently call a project that is not yours.
 
-## Reproducibility boundary
+The launcher reads exported environment variables; it does not load `.env`
+automatically. The managed campaign launcher has no KRW spending cap.
+Its candidate count is not a monetary budget, and AlphaEvolve has an agent
+charge in addition to Gemini model charges. Check the current
+[Google price list](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing).
 
-A campaign is not reproducible and we do not claim it is: the model calls
-are nondeterministic, so a re-run explores a different trajectory. What
-is reproducible is everything downstream of a fixed program — see the
-`search-determinism` claim, which pins seed and evaluation count so that
-a given program yields a given proposal list on any machine.
+## Latest controlled comparison
+
+The active reviewer bundle is `experiments/hitl_ablation/`. It preserves the
+latest Vertex generateContent comparison, its request bodies, received sources,
+usage ledger, unavailable-response records and pre-test protocol amendments.
+The controlled local feedback loop is distinct from managed AlphaEvolve.
+
+Use `python3 scripts/eaqecc_ablation/audit.py` for an offline audit and
+`python3 scripts/eaqecc_ablation/replay.py --program b02_evolution_g02 --split transfer --out /tmp/eaqecc_replay`
+for fixed-program reconstruction. Neither command calls a cloud model.
+Historical launch sources under `provenance/` record the original operation;
+they may refer to archived local ledgers and are not the portable entry points.
+Account configuration is excluded from the reviewer bundle. No command in the
+portable audit/replay path can consume the remaining model authorization.

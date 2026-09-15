@@ -29,3 +29,13 @@ figures:              ## provenance map from the archived data
 clean:
 	rm -rf artifacts/reproduce_eaqecc/reproduction_report.json figures .pytest_cache
 	find . -name __pycache__ -type d -prune -exec rm -rf {} +
+
+.PHONY: ablation paper-results anonymous-release
+ablation:
+	$(PY) scripts/eaqecc_ablation/audit.py
+
+paper-results:
+	$(PY) scripts/paper_results.py
+
+anonymous-release:
+	$(PY) scripts/release/build.py --out ../anonymous-release

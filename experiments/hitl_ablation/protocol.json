@@ -1,0 +1,112 @@
+{
+  "created_unix": 1789387024.704235,
+  "model": "gemini-3.5-flash",
+  "backend": "Vertex generateContent plus local feedback loop",
+  "blocks": 4,
+  "proposals_per_arm": 12,
+  "arms": [
+    "independent",
+    "evolution"
+  ],
+  "train_lengths": [
+    9,
+    11
+  ],
+  "train_seeds": [
+    202609142001,
+    202609142002
+  ],
+  "validation_seeds": [
+    202609143001,
+    202609143002,
+    202609143003,
+    202609143004
+  ],
+  "test_seeds": [
+    202609144001,
+    202609144002,
+    202609144003,
+    202609144004,
+    202609144005,
+    202609144006,
+    202609144007,
+    202609144008
+  ],
+  "transfer_seeds": [
+    202609145001,
+    202609145002,
+    202609145003,
+    202609145004
+  ],
+  "transfer_lengths": [
+    13,
+    15
+  ],
+  "train_budget": 10000,
+  "validation_budget": 10000,
+  "test_budget": 10000,
+  "transfer_budget": 30000,
+  "model_seed_base": 2026091400,
+  "operational_preflight": "Prior HTTP400 request rejected oversized model seed; zero cost, no generated candidate. Test fixtures updated from unsupported empty-generator n1 to verified n7. Records preserved in preflight_attempt.",
+  "max_output_tokens": 8192,
+  "max_input_tokens": 20000,
+  "user_total_budget_krw": 30000,
+  "aggregate_service_cap_krw": 24000,
+  "prior_committed_krw": 17742.11656311375,
+  "remaining_service_cap_krw": 6257.883436886252,
+  "safety_multiplier": 1.25,
+  "prior_ledgers": {
+    "experiments/controlled_v2/initial_pilot/budget_ledger.json": "c3f312d5e6dbef9fc9f01a2c836b6be758c5848dc13f96ba395e5f073a399885",
+    "experiments/controlled_v2/budget_ledger.json": "1c953fdc133a23223187d1803224d4d3050c58ac32684cf916b5eda162fdcba1",
+    "experiments/architecture_v3/budget_ledger.json": "4a6ebd33db6960c7d5c85afd5f6f20ff0dc6eed81f624ae4d623385027a28206"
+  },
+  "initializer": "none; same unchanged V3 S-side callback in both policies",
+  "primary_endpoint": "Across four paired model-generation blocks, evolution minus independent mean held-out normalized success-curve AUC on n9/n11 at B=10000. Each case utility=max(0,1-first_hit/B), misses zero. Campaign blocks, not execution seeds, are independent units.",
+  "training_selection": "Lexicographic mean utility, success fraction, distance ratio; earlier generation breaks ties. Initial program remains eligible.",
+  "final_selection": "After ALL generation, select among each pool's top three distinct training-ranked programs by the same validation metrics, then training rank. No validation feedback to generation.",
+  "evolution_policy": "best-so-far parent and latest attempt with training feedback; independent always same initial code and feedback",
+  "secondary_endpoints": [
+    "success-versus-calls curve",
+    "success at budget",
+    "code implementation of sustained L-side repair",
+    "n13/n15 transfer, separately at B30000",
+    "token cost",
+    "errors"
+  ],
+  "stopping": "Hard conservative request reservations; no uncertain retry. STOP file checked before a paired generation. Preserve all partial pairs and report missing blocks if aborted.",
+  "scope": "Prospective follow-up calibrated on hand-authored positive control; shared explicit human research proposal; not an unassisted-discovery or HITL-versus-no-HITL experiment.",
+  "input_hashes": {
+    "initial_program.py": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+    "task.txt": "3a7f19492784bec6bc575fb946c3fa02fc6780669fe7992ff8a7661d0cfca506",
+    "prices.json": "dd63e1246a0b0786f3c6e2449a9005d4797f4a403f63bb2f00e0fdcb33eeaa71",
+    "sku_snapshot.json": "6ef71e589967bcad92800127de51f28801142bd0ee17a296c8a46f9a15193433",
+    "calibration_protocol.json": "cbc130deb01f2f619c90d2dd5106905eddbc076aadeba213d0085c71476a6b43",
+    "calibration_summary.json": "ee30c996b9020442c8566e050d86c52b59ca1935a6850d1557c99190af8701fd",
+    "study.py": "8ba135895b94453f821b6051cba7a6c0fd1e776692ec4ed8dac20559cd378981",
+    "runtime/capped_budget.py": "1276e157634ac7ba2beab090bcb2c33a22ef78dac9db7a72f829594bdb038a79",
+    "runtime/controlled_driver.py": "b66a6d9fb5e37463ef3e96c531f8395b7b584e129557d234c3e51f25045bda3b",
+    "runtime/controlled_execution.py": "a912a00ed43facf1a80406972e1571b2f88722495b131fbc92a34113b788b49c",
+    "runtime/controlled_helpers.py": "286c5bacb721edddacddccb7bec4eb5a7a250bf336677533a54cdd01866a2abe",
+    "runtime/independent_verify.py": "95fa3bde41bfa3394f19ade09761e85dd5d0960f8d1049ef5ed6e47029f39743",
+    "runtime/pilot_budget.py": "59f516bb0525db716c4de93e0112e9a774c889ab3b5b1c5ed8b1e792b39ee9f8",
+    "runtime/run_controlled_pilot.py": "079e237bc8fdbfa9fdf94e4e7a806a73c874ea3164c79d6ed3687f6b7f56d214",
+    "runtime/target_driver.py": "ea82b800050563efe3b543544da758a35c07ecc2defd4730f628af93b32f2dff",
+    "runtime/target_execution.py": "8bae40e9aceedb3d08461c8e9dab15b2e07b63074cef0b6671efc0ca41e07b2f",
+    "feasibility/n11.check.json": "1ff5a022c8d7ab7fb80ca512fe43d6ecd2f7ea7ca92bb742e1faa447263e8c4d",
+    "feasibility/n11.json": "9bae0a9cab3ee1da8435f6559a4e6bb00e7fb40a9e07bc3fdb3b889b9fbfbf40",
+    "feasibility/n13.check.json": "658f2de022a49d6f390336de8b5b929781e94ccb87f1db2ae0ad546a238c6f74",
+    "feasibility/n13.json": "ba8500691115226cdbf27c16eb49566a537fdb0ad321b9879f2a6e57d3fa3315",
+    "feasibility/n15.check.json": "828cc32d22d6993f8acc23d7bc00c8e277c4cf810533f9d38e26637a3e7542ac",
+    "feasibility/n15.json": "a9236c82e50a5bfc7f0df7bd9f1a39b97bfdfda0b8b96527541bfed40d63fd02",
+    "feasibility/n7.check.json": "5c92ae928ea5e43537f15c2baac3034574cbe5c9e6b5e0ade2e5c680931a934a",
+    "feasibility/n7.json": "70967cb8cb3b3f4ac5749cde6021f12e96d11e16a370d2c7bf668f364f141b99",
+    "feasibility/n9.check.json": "3a2e0f2fb5bbf18618dabf05020cd9d7571ba093646b38698ea2f4fd9adeacd6",
+    "feasibility/n9.json": "4877b789819e91c30440d3b26a8e6330a694905a51254483a6fbc2ae22902c47",
+    "feasibility/target_n11.json": "7b5732d819890f2a60b9dc8f1abd5d3e33738f9b7de389c8dcbd56cb44c78828",
+    "feasibility/target_n13.json": "101bd1981ef49b638fbc49979c98977f297bd229b59052c603c4eea84accbf11",
+    "feasibility/target_n15.json": "f7e5f7815539d56f461a55f76367d647ccb7eb56dd9980aba39e965ef37973a2",
+    "feasibility/target_n7.json": "5473be36fc3d60a6598fd5dad881fdf247b913d9dfb5170bdf591f05a0a45463",
+    "feasibility/target_n9.json": "c220906eafa74a902b0277af017945711f2cbc7f155ce21345c390eb9ce2d068"
+  },
+  "private_execution_sha256": "9d7aac10c0b8427aea684494966ab4b03e052162ba084ac4703bc0d5299e8c26"
+}

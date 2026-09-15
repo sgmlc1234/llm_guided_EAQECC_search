@@ -1,1 +1,1 @@
-Magma V2.28-20 (verified via GetVersion on magma-lab, 2026-08-14)
+Magma V2.28-20; full 148-record verification on 2026-09-10

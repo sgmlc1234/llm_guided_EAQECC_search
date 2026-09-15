@@ -1,0 +1,12 @@
+{
+  "python_logo.png": {
+    "source": "User-provided attachment",
+    "sha256": "0ed667959694177e3891c12bb99c925847d07b2b6a5be836c3c5fbf102b3c3d8",
+    "pixel_data_modified": false
+  },
+  "magma_logo.png": {
+    "source": "User-provided attachment",
+    "sha256": "df748e7a514251af4b30b069efe0e4741917f94603ef4bf98e160db0a29e8da9",
+    "pixel_data_modified": false
+  }
+}

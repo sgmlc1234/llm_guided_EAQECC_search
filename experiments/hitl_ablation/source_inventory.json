@@ -1,0 +1,656 @@
+[
+  {
+    "id": "b00_evolution_g00",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "e934f57314662399992f0756fc08c45231e13aea391355885f4694a71cc88ad4",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_evolution_g01",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "23e9b6e7b2f82f7ba2a443066c71ff01dd0401d1f6bf5e918464d1d3dea977b9",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_evolution_g02",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "3b37167be193288672171f703b34f96db90e3aa45fba0ab0c6d65a1e6ae11e6d",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_evolution_g03",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 3
+    },
+    "source_sha256": "20fc83d8290a09aab608317a0bc9694aba8ae11ebaa645b225c7329e6d75fff2",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_evolution_g04",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 3
+    },
+    "source_sha256": "e320af34404094184cc8269e793f1d79cdc9c3ce0f91bd7c03e59c4483e4c876",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_evolution_g05",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 3
+    },
+    "source_sha256": "52fddf8f34566c23fd01af6fb1ac7d089d94f80227c6dd400a3692f95bafd9b2",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_evolution_g06",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 3
+    },
+    "source_sha256": "50e0ce1103a94a963a3cafb11f107338ca75a8061b70747f5d8d990cb0059855",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_evolution_g07",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 2,
+      "sform": 1,
+      "gf2_basis": 2,
+      "evaluate": 1
+    },
+    "source_sha256": "bd6bd4a4ce077d5a27ff49b5d2d92fa2681c046342f633199d01bd28b6ca6747",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_independent_g00",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "d2baa385f848fff59dff9495de3bec67ce165e4034098bd813ba7e286881e4e6",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_independent_g01",
+    "E_calls_in_source": {
+      "nullspace": 2,
+      "evaluate": 2,
+      "_J": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "64ad5c13c03a12cbb078d35ed1ba295303f045038c05993ef357e7d43d7b94ca",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_independent_g02",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "e5e10b94fb055a25e3057402cfe92ad3a1e98c5a0c8647130271f8aaae2bfd77",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_independent_g03",
+    "E_calls_in_source": {
+      "nullspace": 2,
+      "_J": 2,
+      "random_stabilizer": 1,
+      "evaluate": 2,
+      "gf2_basis": 3
+    },
+    "source_sha256": "2a0997823b988d1d4b205625b04374859fa4088ea60083366c03453986f4f39e",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_independent_g04",
+    "E_calls_in_source": {
+      "nullspace": 3,
+      "evaluate": 3,
+      "_J": 3,
+      "gf2_basis": 2
+    },
+    "source_sha256": "9a40b621e62b45bbb2b7bad22d54edb3ce50163d3eaca21be8ca0bfae913265a",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_independent_g05",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "644a95a776a411f90fce76c9c7731408435cae92a466832f864cdd093f0827c3",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_independent_g06",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "6e91de89bde7f618edbcb2d10158914849f6964f008b724fb31411af454db2d6",
+    "response_unavailable": false
+  },
+  {
+    "id": "b00_independent_g07",
+    "E_calls_in_source": {
+      "nullspace": 3,
+      "evaluate": 3,
+      "_J": 3,
+      "gf2_basis": 4
+    },
+    "source_sha256": "018012666e2d21e1d9d95b90227da5f5506caa7bae3366e735e2fa419388de00",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_evolution_g00",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "random_stabilizer": 1,
+      "gf2_basis": 3
+    },
+    "source_sha256": "c5b5e4f70b97b3d4d6f21bd11270ddf1c2aa9a3f8bbbffe9efdfb107b6c00022",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_evolution_g01",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "random_stabilizer": 1,
+      "gf2_basis": 3
+    },
+    "source_sha256": "1889fb82f1163594bf6cb704d4ea9723902177a706075e87920c21dca5d0ead4",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_evolution_g02",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "random_stabilizer": 1,
+      "gf2_basis": 5
+    },
+    "source_sha256": "88fffa971b61fb89304fdac6d03fe86eb500519e6ce3a912f59650755491fd4a",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_evolution_g03",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "random_stabilizer": 1,
+      "gf2_basis": 1
+    },
+    "source_sha256": "b434d51f0745e011cf0a9618e1fa2e56fd747b87a29f7db6f6ec902b333819a7",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_evolution_g04",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "random_stabilizer": 1,
+      "gf2_basis": 3
+    },
+    "source_sha256": "e998706626d42247b63d54f66ff7165a72fecd7840600837b56619d4c137cac4",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_evolution_g05",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "random_stabilizer": 1,
+      "gf2_basis": 3
+    },
+    "source_sha256": "d7fd59d8cc5f15ddf2eeeb5a05c81e3662849e5fa61d3c09dc2f81bba9ac346e",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_evolution_g06",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "4a03abdc12b36e1c901fe59ed1f3fed48990d0add421f20b31abb51e586b1e13",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_independent_g00",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "b4058ebf6e719698590497563f445b57224d9bf604d521ffc719c3a1b2012570",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_independent_g01",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "42094d8f9ffc07e6024ab012b2a6ab41a2c779996014762dd3ed8a83f4309cb6",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_independent_g02",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 3,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "0393afe986d99625387ec7d6e6e29aa9efe47e5fcf4b43f98bb7a73dbe3cdf96",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_independent_g03",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "b45f09de5bb5e3728aedc240d8ee2005b1446d7d74e459ce55239fbea49c0584",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_independent_g04",
+    "E_calls_in_source": {
+      "nullspace": 2,
+      "evaluate": 2,
+      "_J": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "a93607a67cfe5390983d42a9518555c4c4cb9eb85ead5fb11a1c01b86d07c39c",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_independent_g05",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "random_stabilizer": 1,
+      "gf2_basis": 1
+    },
+    "source_sha256": "9ff5740a3d14152b42f4f2d20bbd438543c9b14a6eee480de793caadaa57a16f",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_independent_g06",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "b3d543db5035047ba7b4c5e6db46330b6dbe49d7bac9b8fcd57c52a8e5de1c7c",
+    "response_unavailable": false
+  },
+  {
+    "id": "b01_independent_g07",
+    "E_calls_in_source": {},
+    "source_sha256": "d6a17d638616a82e6ac7706b0067bd4b2447d50099e35b22bb9f7fbc476fea63",
+    "response_unavailable": true
+  },
+  {
+    "id": "b02_evolution_g00",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "b6c3700312038ce77f8578cdd4458ec77aaa1562017088b81abbcd851356f512",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_evolution_g01",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_evolution_g02",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "6f72784ec3605df102ddd0af096a4d2f8c6dec03095f3ba9cc019974c908ad97",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_evolution_g03",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 3,
+      "gf2_basis": 3
+    },
+    "source_sha256": "31671c91ddd8e95cfe48734a1c2a189910124b622c6861124f374cc4376c2467",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_evolution_g04",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "c04c01c97fa3220ff8892cc4ed2c1eaa25dee0d90ee2895dfc67967dc9fdaca4",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_evolution_g05",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "7a876683b772eb9be0bd2ba80dec77d95f4f5beef48e41a3c2f5084daf0aa542",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_evolution_g06",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "2eb27193bb0c6c831b1700e3af9a719732c0d7d30afd8092d5c5948035264cad",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_independent_g00",
+    "E_calls_in_source": {
+      "nullspace": 2,
+      "evaluate": 2,
+      "_J": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "8d8448efc4f48f054992a9505519bfa0db068beef492a4d8d5b8f636fcbbcb1c",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_independent_g01",
+    "E_calls_in_source": {
+      "nullspace": 2,
+      "evaluate": 2,
+      "_J": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "855ae5110775ac13a3f688f108473c777be59060d9ce9d386be0acec38a1096f",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_independent_g02",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "2f7e01689ff039e1a8693b767bf73ee54297e7ca0904079ad0e8ab3cf069c06c",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_independent_g03",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 3,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "10ab47a7c879088212a9b16d61bc78df69fa14e4350930cbdf5617846c801914",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_independent_g04",
+    "E_calls_in_source": {
+      "nullspace": 2,
+      "evaluate": 2,
+      "_J": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "861ff265ab1ba5371a0af4e814ec057ef0a174c9fd190165b260735b533ca09f",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_independent_g05",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "evaluate": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "331aadd05658636afde127a1204503ef7bc0923b9d99833979e85a6a843c3329",
+    "response_unavailable": false
+  },
+  {
+    "id": "b02_independent_g06",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "7a1065b4d0531e660dadd40298b6b8739965146699f5de06d282c603f94d05b9",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_evolution_g00",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "004e2059f593d39e4b5ddb20154e6f7fdd9f3d48cebb402ccdc4209d27b4bb77",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_evolution_g01",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "f23bec82497da64557395a431b56406f328abbf877f1ae3e559e6e83e69829b7",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_evolution_g02",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "6c782858c983849bba33aa50e8ba2ae1697e2381e2451a744626a7e368d50865",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_evolution_g03",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "345dbd9e8b84d87e0c361170e1115261195550f6438a08fec6372b32505a8690",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_evolution_g04",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "390a4913cd5bf133955723a8d56abe067e0f7526ea020d230c87c009a6dde82c",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_evolution_g05",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "d6cbdd4cfd6719c1e34b5b87102c01269f2e73e262bc6e2068e0994d2370d474",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_evolution_g06",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "dd28af1bda44022ebeb2fb42669497ce3b9be4ae7590da228ffea5a408d2f23d",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_independent_g00",
+    "E_calls_in_source": {
+      "nullspace": 2,
+      "evaluate": 2,
+      "_J": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "574c0a5dd035a237b859070c0340c2cd31e95a12f585697efd5ce35f1d30b18c",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_independent_g01",
+    "E_calls_in_source": {
+      "nullspace": 2,
+      "evaluate": 2,
+      "_J": 2,
+      "gf2_basis": 2
+    },
+    "source_sha256": "7adb0e26e5992701b28a7f53c358719256a9371a66b78be74d07e0a53487bbf7",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_independent_g02",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "_J": 1,
+      "random_stabilizer": 1,
+      "evaluate": 2,
+      "gf2_basis": 1
+    },
+    "source_sha256": "f786c3cb544154bb1b4c60364852ee3e39a45ad3c56c537d92414afc5f0b69f7",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_independent_g03",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "7aa3f5ebf1e98a7a7a48e85b72df08d0bf333bfa19a64a350d067f9ff401dec8",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_independent_g04",
+    "E_calls_in_source": {
+      "nullspace": 3,
+      "evaluate": 3,
+      "_J": 3,
+      "gf2_basis": 2
+    },
+    "source_sha256": "3aef723b0cb0db1b56565ec1d60e15588940396185d97c913036da96b18f5a2b",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_independent_g05",
+    "E_calls_in_source": {
+      "evaluate": 3,
+      "nullspace": 1,
+      "gf2_basis": 1,
+      "_J": 1
+    },
+    "source_sha256": "41a8a0e6005e928b2967203e76534b88cc2bac41fad41272426739c60ff993b5",
+    "response_unavailable": false
+  },
+  {
+    "id": "b03_independent_g06",
+    "E_calls_in_source": {
+      "nullspace": 1,
+      "evaluate": 2,
+      "_J": 1,
+      "gf2_basis": 2
+    },
+    "source_sha256": "20cc0b4022bd824f3b7b6698755e4831599f57b5673a056eccf04ba2cd1a2c18",
+    "response_unavailable": false
+  }
+]

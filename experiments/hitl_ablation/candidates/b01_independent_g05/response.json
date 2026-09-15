@@ -1,0 +1,35 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    l_rank = n + k - c\\n\\n    def l_to_s(L_basis):\\n        # L is of rank l_rank = 2n - s\\n        # S is the symplectic dual of L: S = {v : sform(v, w) = 0 for all w in L}\\n        # sform(v, w) = v . _J(w) in GF(2).\\n        # So S is the nullspace of [_J(w) for w in L]\\n        swapped = [E._J(w, n) for w in L_basis]\\n        return E.nullspace(swapped, 2 * n)\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def get_random_L():\\n        # Generate a random independent set L of size l_rank\\n        # Symmetrically, we can sample standard stabilizers\\n        return list(E.random_stabilizer(n, l_rank, rng))\\n\\n    # We will search by mutating the basis L of rank l_rank throughout the search.\\n    while E.remaining:\\n        L = get_random_L()\\n        S_cand = l_to_s(L)\\n        if len(S_cand) != s:\\n            continue\\n        res = E.evaluate(S_cand)\\n        cur = objective(res)\\n        \\n        temp, fails = 30.0, 0\\n        while fails < 1000 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            # Mutate L\\n            idx = int(rng.integers(l_rank))\\n            candidate_L = list(L)\\n            # Apply a random small Pauli error\\n            qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n            delta = 0\\n            for q in qubits:\\n                delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n            candidate_L[idx] ^= delta\\n            \\n            if len(E.gf2_basis(candidate_L)) != l_rank:\\n                fails += 1\\n                continue\\n            \\n            S_cand = l_to_s(candidate_L)\\n            if len(S_cand) != s:\\n                fails += 1\\n                continue\\n                \\n            new_res = E.evaluate(S_cand)\\n            new_obj = objective(new_res)\\n            delta_obj = new_obj - cur\\n            if delta_obj <= 0 or rng.random() < math.exp(-delta_obj / temp):\\n                L, cur = candidate_L, new_obj\\n                fails = 0 if delta_obj < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 797,
+    "totalTokenCount": 2595,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 797
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:06:44.759632Z"
+}

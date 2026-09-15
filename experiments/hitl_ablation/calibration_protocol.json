@@ -1,0 +1,44 @@
+{
+  "created_unix": 1789386676.7876039,
+  "stage": "calibration only, no paid generation",
+  "targets": [
+    7,
+    9,
+    11
+  ],
+  "seeds": [
+    202609141001,
+    202609141002,
+    202609141003,
+    202609141004
+  ],
+  "controls": {
+    "initial": "initial_program.py",
+    "dual": "controls/dual_count.py"
+  },
+  "max_evals": 100000,
+  "grid": [
+    1000,
+    3000,
+    10000,
+    30000,
+    100000
+  ],
+  "gate": "At least one cell/budget has initial success in [0.1,0.5], dual success >=0.5 and gain >=0.25. Select its smallest passing budget. Other training cells may be initial-floor if dual success >=0.5 at their smallest such budget.",
+  "training_rule": "Use passing n=9 and n=11 cells; n=7 is a diagnostic only. If n=9 has no calibrated nonfloor cell, stop before model calls.",
+  "note": "Control callbacks do not depend on max_evals except through remaining; prefixes of a 100k run are valid calibration curves. Not an evolution effect.",
+  "input_hashes": {
+    "initial_program.py": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+    "controls/dual_count.py": "ad5717c83f05df24affa8077fd99ba5a91e75d48d090f19b78ce9584080987eb",
+    "calibrate.py": "f3f1491e960e0de992cb8bc47cdd5c937866a5686932a53dd0bf57a05bf684ed",
+    "runtime/capped_budget.py": "1276e157634ac7ba2beab090bcb2c33a22ef78dac9db7a72f829594bdb038a79",
+    "runtime/controlled_driver.py": "b66a6d9fb5e37463ef3e96c531f8395b7b584e129557d234c3e51f25045bda3b",
+    "runtime/controlled_execution.py": "a912a00ed43facf1a80406972e1571b2f88722495b131fbc92a34113b788b49c",
+    "runtime/controlled_helpers.py": "286c5bacb721edddacddccb7bec4eb5a7a250bf336677533a54cdd01866a2abe",
+    "runtime/independent_verify.py": "95fa3bde41bfa3394f19ade09761e85dd5d0960f8d1049ef5ed6e47029f39743",
+    "runtime/pilot_budget.py": "59f516bb0525db716c4de93e0112e9a774c889ab3b5b1c5ed8b1e792b39ee9f8",
+    "runtime/run_controlled_pilot.py": "079e237bc8fdbfa9fdf94e4e7a806a73c874ea3164c79d6ed3687f6b7f56d214",
+    "runtime/target_driver.py": "ea82b800050563efe3b543544da758a35c07ecc2defd4730f628af93b32f2dff",
+    "runtime/target_execution.py": "8bae40e9aceedb3d08461c8e9dab15b2e07b63074cef0b6671efc0ca41e07b2f"
+  }
+}

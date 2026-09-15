@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n = target[\\\"n\\\"]\\n    k = target[\\\"k\\\"]\\n    c_target = target[\\\"c\\\"]\\n    d_target = target[\\\"d\\\"]\\n    l_rank = n + k - c_target\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        off = res[\\\"offending\\\"]\\n        c_diff = abs(res[\\\"c\\\"] - c_target)\\n        d_val = res.get(\\\"d\\\")\\n        d_penalty = 1000 * max(0, d_target - d_val) if d_val is not None else 1000 * d_target\\n        return 5000 * c_diff + off + d_penalty\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 4)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    while E.remaining:\\n        L = []\\n        while len(L) < l_rank:\\n            candidate = int(rng.integers(1, 1 << (2 * n)))\\n            test_L = L + [candidate]\\n            if len(E.gf2_basis(test_L)) == len(test_L):\\n                L.append(candidate)\\n        \\n        S = get_S(L)\\n        cur = objective(E.evaluate(S))\\n        temp = 30.0\\n        fails = 0\\n\\n        while fails < 400 and E.remaining:\\n            temp = max(0.05, temp * 0.995)\\n            candidate_L = list(L)\\n            idx = int(rng.integers(l_rank))\\n            \\n            if rng.random() < 0.5:\\n                candidate_L[idx] = random_pauli()\\n            else:\\n                candidate_L[idx] ^= random_pauli()\\n\\n            if len(E.gf2_basis(candidate_L)) != l_rank:\\n                fails += 1\\n                continue\\n\\n            S_cand = get_S(candidate_L)\\n            res = E.evaluate(S_cand)\\n            new_obj = objective(res)\\n            delta = new_obj - cur\\n\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n\\n    return E.incumbent\\n\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3157,
+    "candidatesTokenCount": 757,
+    "totalTokenCount": 4737,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3157
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 757
+      }
+    ],
+    "thoughtsTokenCount": 823
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:07:13.173272Z"
+}

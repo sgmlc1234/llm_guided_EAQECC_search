@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    L_rank = n + k - c\\n    \\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res.get(\\\"c\\\", 0) - c) + res.get(\\\"offending\\\", 0)\\n\\n    def random_vector():\\n        return int(rng.integers(1, 1 << (2 * n)))\\n\\n    L = []\\n    while len(L) < L_rank:\\n        v = random_vector()\\n        test_L = L + [v]\\n        if len(E.gf2_basis(test_L)) == len(test_L):\\n            L.append(v)\\n            \\n    S = E.nullspace([E._J(v, n) for v in L], 2*n)\\n    res = E.evaluate(S)\\n    cur = objective(res)\\n    \\n    best_L = list(L)\\n    best_cur = cur\\n    temp = 30.0\\n    fails = 0\\n    \\n    while E.remaining:\\n        temp = max(0.1, temp * 0.995)\\n        candidate = list(L)\\n        idx = int(rng.integers(L_rank))\\n        \\n        if rng.random() < 0.5:\\n            candidate[idx] ^= int(rng.integers(1, 1 << (2 * n)))\\n        else:\\n            other_idx = int(rng.integers(L_rank))\\n            if other_idx != idx:\\n                candidate[idx] ^= candidate[other_idx]\\n                candidate[idx] ^= int(rng.integers(1, 4)) << int(2 * rng.integers(n))\\n                \\n        if len(E.gf2_basis(candidate)) != L_rank:\\n            continue\\n            \\n        S_cand = E.nullspace([E._J(v, n) for v in candidate], 2*n)\\n        res_cand = E.evaluate(S_cand)\\n        new_obj = objective(res_cand)\\n        \\n        if res_cand.get(\\\"offending\\\") == 0 and res_cand.get(\\\"c\\\") == c and res_cand.get(\\\"k\\\") == k:\\n            if res_cand.get(\\\"d\\\", 0) is not None and res_cand.get(\\\"d\\\", 0) >= target[\\\"d\\\"]:\\n                return S_cand\\n                \\n        delta = new_obj - cur\\n        if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n            L = candidate\\n            cur = new_obj\\n            if cur < best_cur:\\n                best_cur = cur\\n                best_L = list(L)\\n            fails = 0\\n        else:\\n            fails += 1\\n            if fails > 500:\\n                L = list(best_L)\\n                for _ in range(int(rng.integers(1, 3))):\\n                    midx = int(rng.integers(L_rank))\\n                    L[midx] ^= int(rng.integers(1, 1 << (2 * n)))\\n                if len(E.gf2_basis(L)) != L_rank:\\n                    L = []\\n                    while len(L) < L_rank:\\n                        v = random_vector()\\n                        test_L = L + [v]\\n                        if len(E.gf2_basis(test_L)) == len(test_L):\\n                            L.append(v)\\n                S = E.nullspace([E._J(v, n) for v in L], 2*n)\\n                cur = objective(E.evaluate(S))\\n                fails = 0\\n                temp = 30.0\\n                \\n    return None\"}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 995,
+    "totalTokenCount": 4483,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 995
+      }
+    ],
+    "thoughtsTokenCount": 1690
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:12:19.209618Z"
+}

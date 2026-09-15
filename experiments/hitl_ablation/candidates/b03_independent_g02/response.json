@@ -1,0 +1,35 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    # Size of L is n + k - c\\n    len_L = n + k - c\\n\\n    def get_S(L):\\n        # Convert L to S via symplectic dual nullspace\\n        J_L = [E._J(v, n) for v in L]\\n        S = E.nullspace(J_L, 2 * n)\\n        return S\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    # Initialize L as a independent set of size len_L\\n    # We can start by generating a random stabilizer of size len_L\\n    # and then mutating it.\\n    while E.remaining:\\n        # Construct initial L\\n        L = list(E.random_stabilizer(n, len_L, rng))\\n        S = get_S(L)\\n        if len(S) != s:\\n            # Fallback if nullspace size is incorrect\\n            continue\\n        \\n        cur_obj = objective(E.evaluate(S))\\n        temp, fails = 30.0, 0\\n        \\n        while fails < 1500 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            candidate_L = list(L)\\n            # Mutate one element in L\\n            idx = int(rng.integers(len_L))\\n            candidate_L[idx] ^= random_pauli()\\n            \\n            if len(E.gf2_basis(candidate_L)) != len_L:\\n                fails += 1\\n                continue\\n                \\n            candidate_S = get_S(candidate_L)\\n            if len(candidate_S) != s:\\n                fails += 1\\n                continue\\n                \\n            res = E.evaluate(candidate_S)\\n            new_obj = objective(res)\\n            delta = new_obj - cur_obj\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur_obj = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n                if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c and res.get(\\\"k\\\") == k:\\n                    if res.get(\\\"d\\\") is not None and res[\\\"d\\\"] >= target[\\\"d\\\"]:\\n                        return candidate_S\\n            else:\\n                fails += 1\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 789,
+    "totalTokenCount": 2587,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 789
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:02:34.689813Z"
+}

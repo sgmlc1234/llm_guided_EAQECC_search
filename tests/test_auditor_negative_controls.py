@@ -10,7 +10,7 @@ import os
 import stat
 
 DETERMINISTIC = ("archive-integrity", "witnesses", "families",
-                 "table-correction", "openness")
+                 "table-correction", "openness", "solver-refinement")
 
 
 def test_clean_archive_passes(archive, auditor):
@@ -18,8 +18,9 @@ def test_clean_archive_passes(archive, auditor):
     assert rc == 0, out
     for c in DETERMINISTIC:
         assert rep["claims"][c]["status"] == "PASS", (c, rep["claims"][c]["detail"])
-    # one snapshot only: drift is a skip for want of data, not a tool
-    assert rep["claims"]["novelty-drift"]["status"] == "SKIPPED_NO_DATA"
+    # Both archived snapshots are checked, with an explicit frozen paper reference.
+    assert rep["snapshot"] == "2026-07-17"
+    assert rep["claims"]["novelty-drift"]["status"] == "PASS"
 
 
 def test_missing_witness_fails(archive, auditor):
@@ -28,7 +29,7 @@ def test_missing_witness_fails(archive, auditor):
     rc, rep, _ = auditor(archive, "--tier", "deterministic")
     assert rc == 1
     assert rep["claims"]["witnesses"]["status"] == "FAIL"
-    assert "expected 114, found 113" in rep["claims"]["witnesses"]["detail"]
+    assert "expected 115, found 114" in rep["claims"]["witnesses"]["detail"]
     assert rep["claims"]["archive-integrity"]["status"] == "FAIL"
 
 
@@ -92,11 +93,14 @@ def test_solver_that_says_sat_fails_refutations(archive, auditor, tmp_path):
     assert "0/" in rep["claims"]["refutations"]["detail"]
 
 
-def test_solver_that_says_unsat_passes_refutations(archive, auditor, tmp_path):
+def test_solver_unsat_does_not_claim_certificate_replay(archive, auditor, tmp_path):
     env = dict(os.environ, CADICAL_PATH=str(_fake_solver(tmp_path / "unsat", 20)))
     rc, rep, _ = auditor(archive, "--claim", "refutations", env=env)
     assert rc == 0
-    assert rep["claims"]["refutations"]["status"] == "PASS"
+    assert rep["claims"]["refutations"]["status"] == "PARTIAL"
+    assert rep["claims"]["refutations"]["solver_redecided"] == 10
+    assert rep["claims"]["refutations"]["certificates_replayed"] == 0
+    assert rep["overall"] == "PARTIAL"
 
 
 def test_no_solver_is_a_skip_not_a_pass(archive, auditor):
@@ -122,3 +126,88 @@ def test_registry_entry_without_proof_is_a_decision_not_certified(archive, audit
     rc, rep, _ = auditor(archive, "--claim", "refutations", env=env)
     assert rc == 1, "fewer certified refutations than the paper states must fail"
     assert victim["tag"] in rep["claims"]["refutations"]["decisions"]
+
+
+def test_refinement_forged_new_witness_fails(archive, auditor):
+    path = archive / "artifacts/witnesses/q2/SOLUTION_n12_k2_c9_d9.json"
+    data = json.loads(path.read_text())
+    data["generators"] = [0]
+    path.write_text(json.dumps(data))
+    rc, report, _ = auditor(archive, "--claim", "solver-refinement")
+    assert rc == 1
+    assert report["claims"]["solver-refinement"]["status"] == "FAIL"
+
+
+def test_refinement_wrong_certificate_cell_fails(archive, auditor):
+    path = archive / "artifacts/refutations/registry.json"
+    records = json.loads(path.read_text())
+    next(r for r in records if r["tag"] == "q2_n13_k1_c8_d12")["c"] = 9
+    path.write_text(json.dumps(records))
+    rc, report, _ = auditor(archive, "--claim", "solver-refinement")
+    assert rc == 1
+    assert "certificate link" in report["claims"]["solver-refinement"]["detail"]
+
+
+def test_duplicate_snapshot_cell_fails(archive, auditor):
+    path = archive / "artifacts/codetables_snapshots/2026-09-10/qutrit.json"
+    rows = json.loads(path.read_text())
+    rows.append(rows[0])
+    path.write_text(json.dumps(rows))
+    rc, report, _ = auditor(archive, "--claim", "novelty-drift")
+    assert rc == 1
+    assert "duplicate cell" in report["claims"]["novelty-drift"]["detail"]
+
+
+def test_qutrit_newly_matched_is_not_independent_discovery(archive, auditor):
+    path = archive / "artifacts/codetables_snapshots/2026-09-10/qutrit.json"
+    rows = json.loads(path.read_text())
+    cell = next(r for r in rows if (r["n"], r["k"], r["c"]) == (10, 1, 5))
+    cell["dl"] = 9
+    path.write_text(json.dumps(rows))
+    rc, report, _ = auditor(archive, "--claim", "novelty-drift")
+    assert rc == 0
+    result = report["claims"]["novelty-drift"]
+    assert len(result["by_q"]["3"]["newly_matched"]) == 1
+    assert len(result["by_q"]["3"]["previously_matched"]) == 1
+    assert "not inferred" in result["detail"]
+
+
+def test_removed_snapshot_cell_does_not_become_novel(archive, auditor):
+    path = archive / "artifacts/codetables_snapshots/2026-09-10/qubit.json"
+    rows = json.loads(path.read_text())
+    rows.pop()
+    path.write_text(json.dumps(rows))
+    rc, report, _ = auditor(archive, "--claim", "novelty-drift")
+    assert rc == 1
+    assert "omits 1" in report["claims"]["novelty-drift"]["detail"]
+
+
+def test_openness_counts_files_and_unique_cells_separately(archive, auditor):
+    rc, report, _ = auditor(archive, "--claim", "openness")
+    result = report["claims"]["openness"]
+    assert rc == 0
+    assert result["unique_cells"] == 61
+    assert result["unique_listed_cells"] == 8
+    assert result["unique_absent_cells"] == 53
+    assert result["gap_cells"] + result["record_cells"] == 65
+
+
+def test_false_verified_message_does_not_pass(archive, auditor, tmp_path):
+    checker = tmp_path / "checker"
+    checker.write_text("#!/bin/sh\necho 'not s VERIFIED'\nexit 0\n")
+    checker.chmod(checker.stat().st_mode | stat.S_IEXEC)
+    env = dict(os.environ, CADICAL_PATH=str(_fake_solver(tmp_path / "unsat", 20)),
+               DRAT_TRIM_PATH=str(checker))
+    rc, report, _ = auditor(archive, "--claim", "refutations", env=env)
+    assert rc == 1
+    assert report["claims"]["refutations"]["certificates_replayed"] == 0
+
+
+def test_qutrit_normalization_metadata_tamper_fails(archive, auditor):
+    path = archive / "artifacts/refutations/q3_n10_k1_c4_d9.normalization.json"
+    data = json.loads(path.read_text())
+    data["unit_literals"][0] += 1
+    path.write_text(json.dumps(data))
+    rc, report, _ = auditor(archive, "--claim", "refutations", env={"PATH": "/nonexistent"})
+    assert rc == 1
+    assert "q3_n10_k1_c4_d9" in report["claims"]["refutations"]["malformed"]

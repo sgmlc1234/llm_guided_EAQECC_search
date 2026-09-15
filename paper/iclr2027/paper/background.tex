@@ -1,0 +1,67 @@
+\subsection{Entanglement-assisted quantum error-correcting codes}
+\label{sec:ea-background}
+
+Quantum error correction protects quantum information sent through noisy
+communication links. Early stabilizer constructions imposed algebraic
+compatibility constraints that limited which classical codes could be
+reused. \citet{BrunDevetakHsieh2006} showed that entanglement shared in
+advance between sender and receiver relaxes these constraints, enabling
+a broader class of quantum codes. This is the motivation for
+entanglement-assisted quantum error-correcting codes (EAQECCs).
+
+A code with parameters $[[n,k,d;c]]_q$ encodes $k$ logical qudits into
+$n$ transmitted $q$-level systems using $c$ shared maximally entangled
+pairs. For qubits ($q=2$), each pair supplies one ebit. The receiver's
+halves are assumed noiseless and are not counted in $n$.
+
+The distance $d$ determines the code's guaranteed error protection.
+With ideal decoding, it corrects arbitrary errors on up to
+$\lfloor(d-1)/2\rfloor$ transmitted qudits, or up to $d-1$
+\emph{erasures}, where the lost qudits' locations are
+known~\citep{BrunDevetakHsieh2006,GHW2022}. Increasing $d$ at fixed
+$(q,n,k,c)$ strengthens protection without increasing the transmission or
+entanglement budget. For example, our $[[12,1,11;8]]_2$ code raises
+the listed distance from 9 to 11, increasing the guaranteed correction
+of arbitrary errors from four to five transmitted qubits with the same
+resources (Table~\ref{tab:results}). A verified code thus provides an
+encoding specification for a quantum link with given resource and
+error-protection requirements. Reducing $c$ at fixed $(n,k,d)$ instead
+lowers the entanglement needed before transmission~\citep{Luo2022}.
+
+\subsection{Code discovery as program search}
+\label{sec:tables-search-background}
+
+We search linear stabilizer codes, represented by generator matrices
+over the finite field $\F_q$. We use bold symbols for vectors
+(e.g., $\vct{v}$), italic symbols for scalar coordinates and coefficients
+(e.g., $x_i,\alpha$); subspaces retain italic capitals such as $S,L$. These matrices specify algebraic
+error-detection constraints. The LLM modifies a \emph{search program}
+that proposes such matrices; an exact evaluator computes their
+$(k,c,d)$ and returns feedback. Appendix~\ref{app:symplectic} gives
+the subspace representation and verification formulas.
+
+At fixed $(q,n,k,c)$, EAQECC tables record a constructed lower
+bound $d_\ell$ and a proven upper bound $d_u$~\citep{Codetables,Luo2022}.
+This interval concerns the best achievable distance at those resources,
+not uncertainty in a single code: each verified generator matrix has an
+exact distance. Finding a code with $d>d_\ell$ improves the known protection; reaching
+$d_u$ establishes the optimal distance. \citet{GHW2022} established
+correct generalized Singleton bounds for EAQECCs, clarifying how shared
+entanglement changes the achievable distance and why the distance regime
+matters. These bounds exclude impossible targets before search and provide
+reference limits for verified constructions. We target listed gaps and
+cells absent from the reference tables, and
+also minimize shared entanglement, denoted $\cmins(n,k,d)$ within our
+stabilizer class. Appendix~\ref{app:tables} details the bound filters and
+comparison conventions.
+
+Our method follows program evolution in FunSearch and
+AlphaEvolve~\citep{FunSearch,AlphaEvolve,Georgiev2025}. CodeEvolve,
+OpenEvolve, TurboEvolve and ShinkaEvolve provide related search
+frameworks~\citep{CodeEvolve,OpenEvolve,TurboEvolve,ShinkaEvolve}.
+Quantum-code discovery has also been studied with reinforcement
+learning~\citep{Nautrup2019,Su2023,Mauron2023,Olle2024}.
+EAQECC search combines a discrete construction problem with exact
+feedback and independently checkable outputs. We evaluate the generated
+search programs as well as their code witnesses; Section~\ref{sec:repro}
+describes fixed-program replay.

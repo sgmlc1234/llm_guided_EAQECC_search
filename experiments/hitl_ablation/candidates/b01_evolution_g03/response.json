@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, target_c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + target_c\\n    l_rank = n + k - target_c\\n    \\n    def l_to_s(L_basis):\\n        constraints = [E._J(v, n) for v in L_basis]\\n        null_basis = E.nullspace(constraints, 2 * n)\\n        return list(null_basis)\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 10000 * abs(res[\\\"c\\\"] - target_c) + res[\\\"offending\\\"]\\n\\n    def random_vector():\\n        return int(rng.integers(1, 1 << (2 * n)))\\n\\n    while E.remaining:\\n        # Start with a random stabilizer basis of rank l_rank\\n        L_basis = list(E.random_stabilizer(n, l_rank, rng))\\n        S_basis = l_to_s(L_basis)\\n        if len(S_basis) != s:\\n            continue\\n            \\n        cur_res = E.evaluate(S_basis)\\n        cur = objective(cur_res)\\n        if cur_res.get(\\\"offending\\\") == 0 and cur_res.get(\\\"c\\\") == target_c and cur_res.get(\\\"k\\\") == k:\\n            return S_basis\\n            \\n        temp = 20.0\\n        fails = 0\\n        \\n        while fails < 250 and E.remaining:\\n            temp = max(0.01, temp * 0.98)\\n            candidate_L = list(L_basis)\\n            idx = int(rng.integers(l_rank))\\n            \\n            # Apply a mutation: either small perturbation or complete replacement of one vector\\n            if rng.random() < 0.7:\\n                qubits = rng.choice(n, size=int(rng.choice([1, 2], p=[0.8, 0.2])), replace=False)\\n                delta = 0\\n                for q in qubits:\\n                    delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n                candidate_L[idx] ^= delta\\n            else:\\n                candidate_L[idx] = random_vector()\\n                \\n            if len(E.gf2_basis(candidate_L)) != l_rank:\\n                fails += 1\\n                continue\\n                \\n            cand_S = l_to_s(candidate_L)\\n            if len(cand_S) != s:\\n                fails += 1\\n                continue\\n                \\n            res = E.evaluate(cand_S)\\n            new_obj = objective(res)\\n            if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == target_c and res.get(\\\"k\\\") == k:\\n                return cand_S\\n                \\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L_basis, cur = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n                \\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3563,
+    "candidatesTokenCount": 861,
+    "totalTokenCount": 5215,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3563
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 861
+      }
+    ],
+    "thoughtsTokenCount": 791
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:03:20.164682Z"
+}

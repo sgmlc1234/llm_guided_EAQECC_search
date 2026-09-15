@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n = target[\\\"n\\\"]\\n    k = target[\\\"k\\\"]\\n    c_target = target[\\\"c\\\"]\\n    d_target = target[\\\"d\\\"]\\n    s = n - k + c_target\\n    m = 2 * n - s  # Dimension of L\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        dist = res.get(\\\"d\\\")\\n        dist_penalty = max(0, d_target - dist) if dist is not None else d_target\\n        return 10000 * abs(res[\\\"c\\\"] - c_target) + 100 * res[\\\"offending\\\"] + dist_penalty\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_S(L):\\n        # Symplectic orthogonal complement of L\\n        return E.nullspace([E._J(v, n) for v in L], 2 * n)\\n\\n    while E.remaining:\\n        # Generate initial linearly independent L\\n        L = []\\n        while len(L) < m:\\n            cand = int(rng.integers(1, 1 << (2 * n)))\\n            test_L = L + [cand]\\n            if len(E.gf2_basis(test_L)) == len(test_L):\\n                L.append(cand)\\n        \\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        \\n        # Check if we hit a solution right away\\n        if res and res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c_target and res.get(\\\"d\\\", 0) >= d_target:\\n            return S\\n\\n        temp = 50.0\\n        fails = 0\\n        while fails < 1500 and E.remaining:\\n            temp = max(0.05, temp * 0.995)\\n            idx = int(rng.integers(m))\\n            cand_val = L[idx] ^ random_pauli()\\n            if cand_val == 0:\\n                fails += 1\\n                continue\\n            \\n            candidate_L = list(L)\\n            candidate_L[idx] = cand_val\\n            if len(E.gf2_basis(candidate_L)) != m:\\n                fails += 1\\n                continue\\n            \\n            cand_S = get_S(candidate_L)\\n            cand_res = E.evaluate(cand_S)\\n            new_obj = objective(cand_res)\\n            \\n            if cand_res and cand_res.get(\\\"offending\\\") == 0 and cand_res.get(\\\"c\\\") == c_target and cand_res.get(\\\"d\\\", 0) >= d_target:\\n                return cand_S\\n                \\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 885,
+    "totalTokenCount": 3857,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 885
+      }
+    ],
+    "thoughtsTokenCount": 1174
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:03:06.390174Z"
+}

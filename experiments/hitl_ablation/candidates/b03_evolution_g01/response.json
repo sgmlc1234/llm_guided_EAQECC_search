@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c, target_d = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"], target[\\\"d\\\"]\\n    r = n + k - c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        val = 10000 * abs(res[\\\"c\\\"] - c) + 500 * res[\\\"offending\\\"]\\n        d = res.get(\\\"d\\\")\\n        if d is None:\\n            val += 200\\n        else:\\n            val += 10 * max(0, target_d - d)\\n        return val\\n\\n    def random_pauli():\\n        # Weighted selection: prefer single-qubit perturbations, occasionally 2 or 3 qubits\\n        p = rng.random()\\n        if p < 0.6:\\n            num_qubits = 1\\n        elif p < 0.9:\\n            num_qubits = 2\\n        else:\\n            num_qubits = 3\\n        qubits = rng.choice(n, size=min(n, num_qubits), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_S(L):\\n        return E.nullspace([E._J(v, n) for v in L], 2 * n)\\n\\n    best_L = None\\n    best_obj = 10**9\\n\\n    while E.remaining:\\n        # Initialize L\\n        L = []\\n        while len(L) < r:\\n            candidate = int(rng.integers(1, 1 << (2 * n)))\\n            test_L = L + [candidate]\\n            if len(E.gf2_basis(test_L)) == len(test_L):\\n                L.append(candidate)\\n        \\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == c and res.get(\\\"d\\\", 0) >= target_d:\\n            return S\\n\\n        if cur < best_obj:\\n            best_obj = cur\\n            best_L = list(L)\\n\\n        temp = 50.0\\n        fails = 0\\n        \\n        while fails < 600 and E.remaining:\\n            temp = max(0.05, temp * 0.995)\\n            cand_L = list(L)\\n            \\n            # Soft restart/backtracking mechanism to prevent getting stuck\\n            if fails > 120 and best_L is not None and rng.random() < 0.2:\\n                cand_L = list(best_L)\\n                # Apply a slight perturbation\\n                for _ in range(rng.integers(1, 3)):\\n                    idx = int(rng.integers(r))\\n                    cand_L[idx] ^= random_pauli()\\n            else:\\n                idx = int(rng.integers(r))\\n                if rng.random() < 0.4:\\n                    # Linear combination mutation\\n                    other = int(rng.integers(r))\\n                    if other != idx:\\n                        cand_L[idx] ^= cand_L[other]\\n                cand_L[idx] ^= random_pauli()\\n            \\n            if len(E.gf2_basis(cand_L)) != r:\\n                fails += 1\\n                continue\\n                \\n            cand_S = get_S(cand_L)\\n            cand_res = E.evaluate(cand_S)\\n            new_obj = objective(cand_res)\\n            \\n            if cand_res.get(\\\"offending\\\") == 0 and cand_res.get(\\\"c\\\") == c and cand_res.get(\\\"d\\\", 0) >= target_d:\\n                return cand_S\\n                \\n            if new_obj < best_obj:\\n                best_obj = new_obj\\n                best_L = list(cand_L)\\n                \\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = cand_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"\n}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3210,
+    "candidatesTokenCount": 1138,
+    "totalTokenCount": 5291,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3210
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1138
+      }
+    ],
+    "thoughtsTokenCount": 943
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:00:40.103041Z"
+}

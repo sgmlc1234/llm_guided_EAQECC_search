@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    L_len = 2 * n - s\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    # Generate a valid initial L of rank L_len\\n    while True:\\n        L = [int(rng.integers(1, 1 << (2 * n))) for _ in range(L_len)]\\n        if len(E.gf2_basis(L)) == L_len:\\n            break\\n\\n    S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n    cur = objective(E.evaluate(S))\\n\\n    temp, fails = 30.0, 0\\n    while E.remaining and fails < 3000:\\n        temp = max(0.1, temp * 0.995)\\n        candidate_L = list(L)\\n        idx = int(rng.integers(L_len))\\n        if rng.random() < 0.5:\\n            candidate_L[idx] = random_pauli()\\n        else:\\n            candidate_L[idx] ^= random_pauli()\\n\\n        if len(E.gf2_basis(candidate_L)) != L_len:\\n            fails += 1\\n            continue\\n\\n        candidate_S = E.nullspace([E._J(v, n) for v in candidate_L], 2 * n)\\n        if len(candidate_S) != s:\\n            fails += 1\\n            continue\\n\\n        res = E.evaluate(candidate_S)\\n        new_obj = objective(res)\\n        delta = new_obj - cur\\n        if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n            L, cur = candidate_L, new_obj\\n            fails = 0 if delta < 0 else fails + 1\\n        else:\\n            fails += 1\\n\\n    return None\"}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 650,
+    "totalTokenCount": 3298,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 650
+      }
+    ],
+    "thoughtsTokenCount": 850
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:00:19.919369Z"
+}

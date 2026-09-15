@@ -1,0 +1,23 @@
+[
+  {
+    "id": "qubit_12_2_9",
+    "q": 2,
+    "n": 12,
+    "k": 2,
+    "c": 9,
+    "d": 9,
+    "witness": "witnesses/q2/SOLUTION_n12_k2_c9_d9.json",
+    "upper_kind": "EA-Plotkin"
+  },
+  {
+    "id": "qubit_13_1_8",
+    "q": 2,
+    "n": 13,
+    "k": 1,
+    "c": 8,
+    "d": 11,
+    "witness": "witnesses/q2/SOLUTION_n13_k1_c8_d11.json",
+    "upper_kind": "certified-refutation",
+    "refutation_tag": "q2_n13_k1_c8_d12"
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "5473be36fc3d60a6598fd5dad881fdf247b913d9dfb5170bdf591f05a0a45463",
+  "code_sha256": "ad5717c83f05df24affa8077fd99ba5a91e75d48d090f19b78ce9584080987eb",
+  "mean_closed": 1.0,
+  "mean_distance_ratio": 1.0,
+  "score": 1.001,
+  "runs": [
+    {
+      "seed": 202609141003,
+      "closed": 1,
+      "distance_ratio": 1.0,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 7,
+            "k": 1,
+            "c": 4,
+            "d": 6
+          },
+          "seed": 6921632519173172918,
+          "allocated_evals": 100000,
+          "n_evals": 1105,
+          "nullspace_calls": 1105,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 1105,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 452,
+          "final_verifications": 0,
+          "termination": "solved",
+          "error": null,
+          "unused_evals": 98895,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 7,
+            "s": 10,
+            "c": 4,
+            "iso": 2,
+            "k": 1,
+            "d": 6,
+            "offending": 0,
+            "logical_count": 12
+          },
+          "generators": [
+            12289,
+            4114,
+            14340,
+            6152,
+            12320,
+            8256,
+            12416,
+            12544,
+            8704,
+            11264
+          ],
+          "closed": true,
+          "distance_ratio": 1.0,
+          "found_phase": "search",
+          "elapsed_s": 0.12529712496325374,
+          "target_sha256": "82197e7edeb583b321ae64e6c78996cd9d0e3c3be19d36743cbe9a381cd012d7",
+          "code_sha256": "ad5717c83f05df24affa8077fd99ba5a91e75d48d090f19b78ce9584080987eb",
+          "id": 0,
+          "independent_check": {
+            "path": "experiments/hitl_ablation/calibration/dual_n7_seed202609141003.witness.json",
+            "sha256": "da675d1fe17c5202fcaccf8220fa96e9a6e51629a1762d2f9f08ef0777c63fb9",
+            "parameters_n_k_d_c": [
+              7,
+              1,
+              6,
+              4
+            ],
+            "rank_S": 10,
+            "dim_dual": 4,
+            "radical_dimension": 2,
+            "logical_weight_distribution": {
+              "6": 8,
+              "7": 4
+            },
+            "status": "PASS"
+          }
+        }
+      ]
+    }
+  ]
+}

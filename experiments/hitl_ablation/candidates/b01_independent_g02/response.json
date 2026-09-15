@@ -1,0 +1,36 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    l_rank = n + k - c  # For both training targets, l_rank is 4\\n\\n    def get_S(L):\\n        # Convert L to S using the dual relation\\n        # S is the symplectic dual of L, so we take nullspace of J(L)\\n        J_L = [E._J(v, n) for v in L]\\n        return E.nullspace(J_L, 2 * n)\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        # Penalize difference in c and non-zero offending count\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    # Generate initial linearly independent L\\n    def random_L():\\n        while True:\\n            candidate = []\\n            for _ in range(l_rank):\\n                # Generate a non-zero random Pauli\\n                val = 0\\n                while val == 0:\\n                    val = int(rng.integers(1, 1 << (2 * n)))\\n                candidate.append(val)\\n            if len(E.gf2_basis(candidate)) == l_rank:\\n                return candidate\\n\\n    L = random_L()\\n    S = get_S(L)\\n    best_val = objective(E.evaluate(S))\\n\\n    while E.remaining:\\n        # Mutate L\\n        new_L = list(L)\\n        idx = int(rng.integers(l_rank))\\n        \\n        # Mutation options: replace with a new random Pauli, or modify few bits\\n        mutation_type = rng.integers(0, 3)\\n        if mutation_type == 0:\\n            # Completely new random Pauli\\n            new_val = int(rng.integers(1, 1 << (2 * n)))\\n            new_L[idx] = new_val\\n        elif mutation_type == 1:\\n            # XOR with another element\\n            other_idx = (idx + int(rng.integers(1, l_rank))) % l_rank\\n            new_L[idx] ^= new_L[other_idx]\\n        else:\\n            # Mutate active qubits\\n            qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n            delta = 0\\n            for q in qubits:\\n                delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n            new_L[idx] ^= delta\\n\\n        if len(E.gf2_basis(new_L)) != l_rank:\\n            continue\\n\\n        new_S = get_S(new_L)\\n        res = E.evaluate(new_S)\\n        val = objective(res)\\n        \\n        if val <= best_val or rng.random() < math.exp((best_val - val) / 50.0):\\n            L = new_L\\n            best_val = val\\n            \\n        # Periodic restart to avoid local minima\\n        if rng.random() < 0.01:\\n            L = random_L()\\n            best_val = objective(E.evaluate(get_S(L)))\\n\\n    return None\\n\"}"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1798,
+    "candidatesTokenCount": 856,
+    "totalTokenCount": 3271,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1798
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 856
+      }
+    ],
+    "thoughtsTokenCount": 617
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-14T12:01:37.045383Z"
+}

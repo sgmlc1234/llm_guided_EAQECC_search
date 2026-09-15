@@ -1,0 +1,14 @@
+{
+  "state": "STOPPED",
+  "protocol_sha256": "b8e6f98228b584ed87ce4bbb84894fd9bbe649fd9fa42a08bfa625d9ac635c3f",
+  "planned_candidates": 96,
+  "completed_candidates": 58,
+  "started_unix": 1789387033.345048,
+  "new_committed_krw": 2409.2385385387497,
+  "aggregate_committed_krw": 20151.355101652498,
+  "block": 1,
+  "generation": 7,
+  "arm": "independent",
+  "reason": "RuntimeError: generation response uncertain; reservation retained, no automatic retry",
+  "stopped_unix": 1789388132.684505
+}

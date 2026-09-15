@@ -1,0 +1,18 @@
+{
+  "state": "COMPLETED_BALANCED_PREFIX",
+  "protocol_sha256": "b8e6f98228b584ed87ce4bbb84894fd9bbe649fd9fa42a08bfa625d9ac635c3f",
+  "planned_candidates": 96,
+  "completed_candidates": 59,
+  "started_unix": 1789387033.345048,
+  "new_committed_krw": 2703.82007866625,
+  "aggregate_committed_krw": 20445.936641779997,
+  "block": 1,
+  "generation": 7,
+  "arm": "evolution",
+  "reason": "RuntimeError: two consecutive unavailable responses; stop remaining paid requests",
+  "stopped_unix": 1789388465.0732381,
+  "operational_amendment_sha256": "1ede8c858a73e61001fa2722329965b66cc4aa47a9bbd4f544bd1149cca9df57",
+  "balanced_prefix_protocol_sha256": "6e5498d55afd66e70a92bec97a3ebe917f199e4558baf6237a20e7697d806e09",
+  "analyzed_proposals": 56,
+  "finished_unix": 1789388994.172947
+}

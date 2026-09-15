@@ -1,0 +1,18 @@
+{
+  "path": "experiments/hitl_ablation/feasibility/n9.json",
+  "sha256": "4877b789819e91c30440d3b26a8e6330a694905a51254483a6fbc2ae22902c47",
+  "parameters_n_k_d_c": [
+    9,
+    1,
+    8,
+    6
+  ],
+  "rank_S": 14,
+  "dim_dual": 4,
+  "radical_dimension": 2,
+  "logical_weight_distribution": {
+    "8": 8,
+    "9": 4
+  },
+  "status": "PASS"
+}
