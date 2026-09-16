@@ -1,9 +1,9 @@
-# Current ICLR manuscript
+# From LLM-Guided Program Evolution to General Constructions of EAQECCs
 
 `paper/main.tex` and `paper/main.pdf` contain the current manuscript: nine main
 pages (22 pages including statements, references and appendices), with the latest shared-guidance ablation in Section 5 and its complete
 protocol in Appendix C. AI use, Ethics and Reproducibility statements flow directly after the conclusion
-across pages 9–10 and are excluded from the main-text limit. References begin on page 11. Earlier ablation inputs and figures are not included.
+and are excluded from the main-text limit. References begin on page 11. Earlier ablation inputs and figures are not included.
 The publication snapshot preserves all mathematical results and historical
 program provenance used elsewhere in the paper.
 
@@ -46,3 +46,11 @@ the task-specification layouts from the repository root with
 Appendix D focuses on Theorem 1: exact goal, final proof body, certificate scope
 and separate kernel/Comparator records. The original Lean project is in
 `formal/eaqecc/` at the repository root; Lemma 2 remains supporting codebase evidence.
+
+The abstract and Contributions describe the researcher-in-the-loop pipeline,
+general constructions and measured contribution of iterative evolution. Section 3
+and the Figure 1 caption use “The researcher-in-the-loop discovery pipeline”.
+Section 3.3 combines independent verification and nonexistence checking; Section
+3.4 presents reproducibility in one paragraph. Results begins at the top of page 5.
+The AI use statement retains substantive research/proof assistance and author
+responsibility while grouping editorial and artifact preparation into one sentence.

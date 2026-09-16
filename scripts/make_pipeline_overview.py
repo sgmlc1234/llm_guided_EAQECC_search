@@ -49,12 +49,12 @@ def main():
 \begin{scope}[yshift=.65cm]
 \filldraw[rounded corners=4pt,fill=ovhuman!6,draw=ovhuman!40,line width=.65pt]
   (0,5.18) rectangle (9.95,6.48);
-\fill[ovhuman!12] (.17,5.34) rectangle (2.35,6.32);
+\fill[ovhuman!12] (.17,5.34) rectangle (2.75,6.32);
 \draw[ovhuman,line width=1pt] (.53,6.00) circle (.10);
 \draw[ovhuman,line width=1pt,rounded corners=2pt] (.34,5.62) -- (.34,5.75)
   .. controls (.36,5.92) and (.70,5.92) .. (.72,5.75) -- (.72,5.62);
 \node[label,anchor=west,text=ovhuman] at (.88,6.03) {Researcher};
-\node[small,anchor=west,text=ovhuman] at (.88,5.63) {HITL};
+\node[small,anchor=west,text=ovhuman] at (.88,5.63) {in the loop};
 \node[label,align=center,text width=3.35cm,inner sep=0pt] at (4.30,6.05)
   {Propose and revise ideas};
 \node[small,align=center] at (4.30,5.48) {between campaigns};
@@ -169,7 +169,7 @@ __CELLS__
 \begin{figure}[H]
 \centering
 \resizebox{\linewidth}{!}{\input{fig_overview_content}}
-\caption{Human-in-the-loop discovery and verification.}
+\caption{The researcher-in-the-loop discovery pipeline.}
 \label{fig:overview}
 \end{figure}
 """)

@@ -52,32 +52,33 @@
 \newcommand{\cmins}{c^{\mathrm{s}}_{\min}}
 \newcommand{\claim}[1]{\textbf{\texttt{#1}}}   % auditor claim names
 
-\title{Reproducible LLM-Guided Discovery of\\
-  Entanglement-Assisted Quantum Codes}
+\title{From LLM-Guided Program Evolution\\
+  to General Constructions of EAQECCs}
 \author{Anonymous authors \\ Paper under double-blind review}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We use AlphaEvolve to develop programs that construct entanglement-assisted
-quantum error-correcting codes (EAQECCs) and study how their outputs lead
-to general mathematical results. The initial tasks supplied open code
-parameters, an exact evaluator and construction directions, but not the
-family formula proved in this work. Evolved programs produced finite
-qubit constructions. We analyzed their structure, derived an infinite
-qubit family, and extended the construction to prove the family
+LLM-guided program evolution can produce mathematical constructions,
+but their validity, generality, and reproducibility require distinct
+evidence. We develop a researcher-in-the-loop pipeline that connects evolved
+constructions to mathematical generalization, formal proof checking,
+and reproducible computation. For entanglement-assisted quantum
+error-correcting codes (EAQECCs), finite constructions produced by
+evolved programs led to a general code family. We analyzed their
+structure and extended the qubit construction to prove the family
 $[[n,1,n-1;n-q-1]]_q$ for every prime power at the stated admissible
-lengths. This family and ebit lifting settle 54 listed gaps. The core
-archive contains 115 verified codes and ten nonexistence results backed
-by checked DRAT proofs; applying the known EA-Plotkin bound tightens
-398 upper bounds. Reproduction comprises exact checks of the supplied
-codes, generation and verification of finite family instances, and
-seeded replay of preserved search programs under evaluation budgets.
-The mathematical proof establishes the general claim beyond those
-finite checks; the pipeline extends to formal proof checking in Lean. A separate four-block study tests iterative program
-development under shared guidance to search the symplectic dual.
-Compared with independent proposals, held-out success increases from
+lengths. The initial tasks did not supply this family formula.
+Lean checks the algebraic certificate underlying the general
+construction. The family and ebit lifting settle 54 listed gaps.
+The core archive contains 115 verified codes and ten nonexistence
+results backed by checked DRAT proofs; applying the known EA-Plotkin
+bound tightens 398 upper bounds. Supplied matrices, family
+implementations and preserved search programs support exact parameter
+checks and seeded replay under evaluation budgets. In a separate
+four-block study under shared research guidance, iterative program
+evolution improves held-out success over independent proposals from
 50.0\% to 68.8\% at $n=9$ and from 15.6\% to 50.0\% at $n=11$.
 One validation-selected program achieves 75.0\% success at each of
 $n=13,15$.
@@ -127,23 +128,23 @@ a complete history of improvement attempts.
 
 \paragraph{Contributions.}
 \begin{itemize}\setlength{\itemsep}{1pt}
-\item \textbf{Mathematical discovery from evolved constructions.}
-  Finite qubit constructions obtained through program evolution led to
-  researcher-derived families and the proof of Theorem~\ref{thm:unified}.
-  The unified family and ebit lifting close 54 listed gaps. Additional
-  codes, checked nonexistence proofs and known bounds improve other
-  parameter cells (Section~\ref{sec:results}).
-\item \textbf{A researcher-guided pipeline with reproducible outputs.}
-  We adapt AlphaEvolve to exact EAQECC construction and verification.
-  Archived tasks document how a discovered family is reused in later
-  search. Generator matrices, family implementations and proof records
-  support independent checks; preserved programs can be replayed with
-  fixed seeds and evaluation budgets (Section~\ref{sec:repro}).
-\item \textbf{A controlled test of iterative program development.}
-  Two policies receive the same initial program and research proposal.
-  Iterative feedback increases mean held-out success, with a larger
-  difference at length 11; one selected program also constructs codes
-  at lengths 13 and 15 (Section~\ref{sec:ablation}).
+\item \textbf{A researcher-in-the-loop discovery pipeline.}
+  We connect LLM-guided program evolution with researcher proposals,
+  mathematical generalization and formal proof checking for EAQECC
+  discovery. Preserved programs, code matrices and formal certificates
+  support reconstruction and independent verification of the resulting
+  constructions (Sections~\ref{sec:pipeline} and~\ref{sec:repro}).
+\item \textbf{General constructions from evolved codes.}
+  Finite qubit constructions led to the general family of
+  Theorem~\ref{thm:unified}, whose algebraic construction is checked in Lean.
+  The family and ebit lifting close 54 listed gaps. The initial search
+  tasks did not supply the family formula (Section~\ref{sec:results}).
+\item \textbf{Measured contributions of iterative program evolution.}
+  In a four-block comparison with the same initial program and research
+  guidance, iterative evolution increases held-out success from
+  50.0\% to 68.8\% at $n=9$ and from 15.6\% to 50.0\% at $n=11$.
+  One validation-selected program achieves 75.0\% success at each
+  unseen length $n=13,15$ (Section~\ref{sec:ablation}).
 \end{itemize}
 
 %==============================================================
@@ -153,7 +154,7 @@ a complete history of improvement attempts.
 \input{background}
 
 %==============================================================
-\section{The discovery pipeline}\label{sec:pipeline}
+\section{The researcher-in-the-loop discovery pipeline}\label{sec:pipeline}
 %==============================================================
 
 Our discovery pipeline combines human-in-the-loop (HITL) research with
@@ -214,7 +215,7 @@ search using the mathematical result (Appendix~\ref{app:prompts}).
 The current prime-power theorem extends the qubit construction through
 further researcher-led generalization and proof.
 
-\subsection{Independent verification}
+\subsection{Independent verification and nonexistence checking}\label{sec:refute}
 
 The Magma export supplies only a basis of the symplectic dual
 $L=S^\perp$, where $S$ is the stabilizer space. Magma independently
@@ -228,17 +229,11 @@ Theorem~\ref{thm:unified}. A separate Comparator run checks the submitted
 proof against the exact formal goal and permitted axioms
 (Appendix~\ref{app:lean}).
 
-%==============================================================
-\subsection{Nonexistence checking}
-\label{sec:refute}
 
-To test whether an $[[n,k,d;c]]_q$ code exists, we encode the
-lower-dimensional subspace
-$L=S^{\perp}$ in symplectic normal form, with constraints that force the
-target signature by construction rather than by a subsequent filter, so
-that every satisfying assignment is already an EAQECC. The distance
-constraints account for most of the encoding, and the encoding is given in
-Appendix~\ref{app:sat}.
+To test existence of an $[[n,k,d;c]]_q$ code, we encode the smaller
+subspace $L=S^\perp$ in symplectic normal form. Constraints enforce
+the target signature directly, so every satisfying assignment specifies
+an EAQECC. Distance constraints dominate the encoding.
 
 For an unsatisfiable encoding, the SAT solver produces a DRAT proof,
 a certificate of unsatisfiability checked independently by
@@ -257,8 +252,7 @@ independently. Theorem~\ref{thm:unified} supplies the proof for all admissible
 parameters; the computational checks cover finite instances at
 $q=2,3,4,5$. Archived task specifications document the transition from
 open-parameter search to reuse of the derived qubit family.
-
-Fixed-program replay replaces wall time with a virtual clock tied to
+For preserved programs, replay replaces wall time with a virtual clock tied to
 evaluator calls, preserving the recorded seed and stopping conditions.
 Three archived programs with four seeds each reproduce all twelve stored
 proposal lists; one- and four-worker runs agree. This does not reproduce
@@ -566,12 +560,12 @@ elements at the sizes searched here. All parameters are thus computed
 from the generators, independently of the search program's reports.
 
 \subsection{The closed form, and why it works}\label{app:theorem}
-The empirical starting points include the qubit codes $[[9,1,8;6]]_2$
-and $[[11,1,10;8]]_2$ obtained in the early campaigns
-(Appendix~\ref{app:campaign}). Analysis of the evolved constructions
-motivated the odd-length family $[[n,1,n-1;n-3]]_2$, recorded in the
-later task specifications. The construction below extends that family
-to prime powers. Its general validity is established by the proof.
+Early evolved constructions $[[9,1,8;6]]_2$ and $[[11,1,10;8]]_2$
+(Appendix~\ref{app:campaign}) motivated the odd-length qubit family
+recorded in later tasks. The construction below generalizes it to prime
+powers. Its algebraic properties have also been independently rechecked
+with the Lean kernel; Appendix~\ref{app:lean} gives the formal goal,
+proof and correspondence with this construction.
 
 Fix a prime power $q=p^e$, a length $n\ge 2q+1$, and an enumeration
 $u_1,\dots,u_q$ of $\F_q$. On qudits $1,\dots,2q$ take $q$ disjoint pairs

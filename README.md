@@ -1,17 +1,20 @@
-# LLM-guided discovery of entanglement-assisted quantum codes
+# From LLM-Guided Program Evolution to General Constructions of EAQECCs
 
-A research pipeline in which evolved programs construct quantum codes,
-researchers generalize their structure into mathematical results, and preserved
-implementations and independent checks support reproduction.
-This repository contains the paper, generated programs, complete controlled-study
-records, codes, proof certificates and reproducibility tools.
+A researcher-in-the-loop discovery pipeline for entanglement-assisted quantum
+error-correcting codes (EAQECCs). Evolved programs produce finite constructions;
+researchers generalize their structure into code families and prove the general
+result. Lean checks its algebraic certificate, while preserved matrices and
+programs support independent verification and replay.
+
+This repository contains the paper, generated programs, controlled-study records,
+code constructions, formal proofs, nonexistence certificates and reproduction tools.
 
 [Paper](paper/iclr2027/paper/main.pdf) · [Start reproducing](docs/REVIEWER_GUIDE.md) · [Result-to-evidence map](docs/RESULTS_AND_EVIDENCE.md) · [Validation record](docs/VALIDATION.md) · [SAT & Magma setup](docs/EXTERNAL_VERIFICATION.md)
 
-## The discovery pipeline
+## The researcher-in-the-loop discovery pipeline
 
 <p align="center">
-  <img src="paper/iclr2027/figures/discovery_pipeline.png" alt="Figure 1: researcher-guided program evolution, exact verification and certified code discovery" width="900">
+  <img src="paper/iclr2027/figures/discovery_pipeline.png" alt="Figure 1: researcher-in-the-loop program evolution, mathematical generalization and Lean proof checking, with separate code and nonexistence verification" width="900">
 </p>
 
 Researchers supply mathematical directions, inspect verified codes and refine
@@ -26,6 +29,18 @@ Theorem 1's algebraic certificate in Lean. The repository now includes the
 fresh kernel-build record and the supplied Linux Comparator record. Appendix D
 explains the formal statement and its relation to the EAQECC construction.
 The independent Lemma 2 proof remains available as supporting codebase evidence.
+
+## Main contributions
+
+- **A researcher-in-the-loop discovery pipeline:** researcher proposals, program
+  evolution, mathematical generalization and formal proof checking, with preserved
+  outputs for reconstruction and independent verification.
+- **General constructions from evolved codes:** Theorem 1 and ebit lifting close
+  54 listed gaps; the general family was not supplied in the initial search tasks.
+- **Measured contributions of iterative evolution:** under shared guidance,
+  held-out success rises from 50.0% to 68.8% at length 9 and from 15.6% to 50.0%
+  at length 11. One selected program succeeds in 3/4 runs at each unseen length
+  13 and 15; full block-level results are reported below.
 
 ## From finite constructions to a general theorem
 
@@ -52,6 +67,7 @@ computations separately check implemented instances.
 |---|---|---|
 | Initial search | Researchers proposed construction directions; evolved programs produced finite qubit codes. | [Initial task](artifacts/campaigns/prompts/campaign1.txt), campaign records in Appendix B.1 |
 | Mathematical generalization | Researchers derived the odd-length qubit family, then extended it to the prime-power construction. | Theorem 1 and its full proof in Appendix A.2; [family implementations](scripts/families/) |
+| Formal verification | Lean checks the algebraic construction; the supplied Comparator record checks the exact formal goal and axiom policy. | [Pinned Lean project and verification records](formal/eaqecc/README.md), Appendix D |
 | Further program evolution | Later tasks supplied the discovered qubit family and proposed further construction directions. | [Later task](artifacts/campaigns/prompts/campaign3.txt), Algorithm 1 |
 | Controlled comparison | Both policies received the same proposal to search the symplectic dual; only iterative evolution used earlier generated programs and feedback. | [Shared task](experiments/hitl_ablation/task.txt), [study records](experiments/hitl_ablation/README.md) |
 
@@ -153,7 +169,7 @@ dual-space program is Algorithm 2 in Appendix C.4.
 
 ## Reproducing the results
 
-Section 3.5 defines the verification scope; this README and the
+Section 3.4 defines the verification scope; this README and the
 [reviewer guide](docs/REVIEWER_GUIDE.md) provide installation, exact commands and
 expected results. For a direct result-to-file lookup use
 [the evidence map](docs/RESULTS_AND_EVIDENCE.md).

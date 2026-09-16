@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this pipeline or its archive, please cite the paper."
-title: "A Reproducible Pipeline for LLM-Guided Discovery of Entanglement-Assisted Quantum Codes"
+title: "From LLM-Guided Program Evolution to General Constructions of EAQECCs"
 authors:
   - name: "Anonymous authors (paper under double-blind review)"
 year: 2026
