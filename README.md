@@ -20,6 +20,13 @@ feedback. Independent code checks establish constructions, while checked SAT
 certificates establish exclusions. The program, the code it constructs and the
 proof of a bound are distinct outputs with distinct evidence.
 
+**Formal verification of the discovered construction.** The final stage checks
+Theorem 1's algebraic certificate in Lean. The repository now includes the
+[exact goal, proof and pinned project](formal/eaqecc/README.md), together with a
+fresh kernel-build record and the supplied Linux Comparator record. Appendix D
+explains the formal statement and its relation to the EAQECC construction.
+The independent Lemma 2 proof remains available as supporting codebase evidence.
+
 ## From finite constructions to a general theorem
 
 The pipeline supports mathematical discovery through interaction between program
@@ -37,8 +44,9 @@ $$
 
 for prime powers $q\geq3$ and $n\geq2q+1$, and for $q=2$ at odd lengths
 $n\geq5$. The family and ebit lifting close **54 previously listed gaps**.
-The proof in Appendix A.2 establishes the result for all admissible parameters;
-finite computations check its implemented instances.
+The proof in Appendix A.2 establishes the result for all admissible parameters.
+Appendix D presents the Lean certificate for its algebraic construction; finite
+computations separately check implemented instances.
 
 | Stage | What changed | Evidence to inspect |
 |---|---|---|
@@ -152,6 +160,7 @@ expected results. For a direct result-to-file lookup use
 
 | Goal | Command from the repository root | Expected result |
 |---|---|---|
+| Check formal source integrity | `python3 scripts/audit_lean_certificate.py` | 13 original files; two matching goal/solution pairs; no Lean execution |
 | Check mathematical evidence | `python3 scripts/reproduce_eaqecc.py --tier deterministic` | 115 core codes, 54 family gap closures, 398 upper-bound corrections; PASS |
 | Inspect Tables 1 and 2 | `python3 scripts/paper_results.py` | All 18 rows linked to codes, 13 historical intervals checked |
 | Audit the controlled study | `python3 scripts/eaqecc_ablation/audit.py` | Selection and prompts verified; 21/64 vs 38/64 main-test successes |

@@ -75,7 +75,7 @@ by checked DRAT proofs; applying the known EA-Plotkin bound tightens
 codes, generation and verification of finite family instances, and
 seeded replay of preserved search programs under evaluation budgets.
 The mathematical proof establishes the general claim beyond those
-finite checks. A separate four-block study tests iterative program
+finite checks; the pipeline extends to formal proof checking in Lean. A separate four-block study tests iterative program
 development under shared guidance to search the symplectic dual.
 Compared with independent proposals, held-out success increases from
 50.0\% to 68.8\% at $n=9$ and from 15.6\% to 50.0\% at $n=11$.
@@ -88,11 +88,13 @@ $n=13,15$.
 %==============================================================
 
 LLM-guided program search has produced mathematical constructions and
-algorithms~\citep{FunSearch,AlphaEvolve}. An executable construction can
-also support a general mathematical result: researchers can analyze the
-program and its outputs, identify a construction rule, and prove that it
-works beyond the cases used during search. Studying this process requires
-records of the initial task, the computational discoveries and the
+algorithms~\citep{FunSearch,AlphaEvolve}. Their outputs can also support
+general mathematical results through researcher analysis. This raises
+three questions: \emph{whether evolved programs produce valid codes,
+whether their structure can be generalized and proved to work beyond
+the searched cases, and whether the resulting constructions and preserved
+searches can be independently reproduced}. Addressing these questions
+requires records of the initial task, computational discoveries and
 subsequent mathematical analysis.
 
 We study this process for entanglement-assisted quantum error-correcting
@@ -111,8 +113,9 @@ preserved search programs. Readers can recompute code parameters,
 construct and verify family instances, inspect the proof and replay
 preserved searches. Figure~\ref{fig:overview} summarizes how researcher
 analysis and program evolution interact. Section~\ref{sec:repro}
-specifies which operations are reproducible; the general theorem follows
-from proof, and model generation remains stochastic.
+specifies which operations are reproducible. A final Lean stage checks
+the algebraic construction underlying Theorem~\ref{thm:unified} (Appendix~\ref{app:lean}); model generation
+remains stochastic.
 
 Several improvements concern constructions published in 2020 and 2022
 that remained listed in the EAQECC tables accessed on 17 July
@@ -160,8 +163,8 @@ campaigns. Figure~\ref{fig:overview} connects these interventions to the
 automated search and evaluation loop. Constructed codes establish lower
 distance bounds; SAT refutations with checked certificates lower upper
 bounds. Independent verification and archived evidence support both routes.
-The resulting constructions can inform further searches and human
-mathematical generalization.
+Researchers generalize the discovered constructions and develop proofs,
+then pass the formalized statements and proofs to the Lean checking stage.
 
 \input{fig_overview}
 
@@ -213,17 +216,17 @@ further researcher-led generalization and proof.
 
 \subsection{Independent verification}
 
-The Magma export represents each code as a basis of the symplectic dual
-$L=S^{\perp}$, where $S$ spans its stabilizer generators
-(Appendix~\ref{app:symplectic}), without derived quantities.
-Magma recomputes the symplectic dual, radical,
-and $k,c,d$ independently of the Python implementation. The full export
-contains the $115$ core codes at $q=2,3,4,5$ and $33$ family instances.
-All $148$ objects were re-verified with $0$ mismatches under Magma
-V2.28-20. A separate binary linear-algebra implementation also checks
-the two solver-refined qubit results below. Magma provides additional
-corroboration; every archived code can also be checked in Python
-using the \artifactlink{}.
+The Magma export supplies only a basis of the symplectic dual
+$L=S^\perp$, where $S$ is the stabilizer space. Magma independently
+recomputes the dual, radical and $(k,c,d)$ (Appendix~\ref{app:symplectic}).
+All 148 objects---115 core codes at $q=2,3,4,5$ and 33 family instances---
+were re-verified with zero mismatches under Magma V2.28-20.
+A separate binary implementation checks the two solver-refined qubit
+codes; all code records can also be checked in Python using the
+\artifactlink{}. Lean checks the algebraic certificate underlying
+Theorem~\ref{thm:unified}. A separate Comparator run checks the submitted
+proof against the exact formal goal and permitted axioms
+(Appendix~\ref{app:lean}).
 
 %==============================================================
 \subsection{Nonexistence checking}
@@ -508,9 +511,9 @@ for every admissible parameter. The separate controlled study finds
 higher mean held-out success with iterative feedback under shared
 research guidance. Applying this workflow to another construction problem
 requires its own object representation, evaluator and mathematical
-analysis. The contribution is a documented process for obtaining,
-generalizing and verifying mathematical constructions with program
-evolution and researcher input.
+analysis. The final Lean stage connects researcher-derived generalizations
+to machine proof checking. Together, these stages support discovery,
+mathematical generalization and reproducible verification.
 
 % Statements are excluded from the ICLR 2027 main-text page limit.
 \input{statements}
@@ -639,7 +642,8 @@ On pair $i$, the two coordinate pairs are
 \]
 If $\beta=0$, then $\alpha\ne0$ and all $n$ qudits are nonzero.
 If $\beta\ne0$, exactly one index $i$ satisfies
-$u_i=-\alpha/\beta$, since $u_1,\ldots,u_q$ enumerate the field.
+$u_i=-\alpha/\beta$, since $u_1,\ldots,u_q$ enumerate all $q$ elements of the finite field $\F_q$,
+and $-\alpha/\beta\in\F_q$.
 Every other pair has two nonzero $X$ components. On the exceptional
 pair, both $Z$ components could vanish only if
 $t_i=-\beta=\beta z_2$. This is impossible because
@@ -751,24 +755,20 @@ $[[11,1,9;7]]_3$. The fourth baseline is the listed
 $[[13,1,10;8]]_3$ code itself. The $q=4,5$ rows have no prior entry in
 the archived tables and are not included in these historical comparisons.
 
-\section{The pipeline in detail}\label{app:pipeline-detail}
+\section{The discovery pipeline in detail}\label{app:pipeline-detail}
 
 \subsection{Campaign configuration and verification}\label{app:campaign}
 \paragraph{Campaign configuration.}
-Program mutations were proposed by two Gemini models
-(\texttt{gemini-3.5-flash}, \texttt{gemini-3.1-pro-preview}, sampled with
-equal weight) through Google Cloud Vertex AI's AlphaEvolve service, with
-four generation and four evaluation workers running concurrently. The
-four campaigns were configured for $120$, $120$, $80$ and $80$ programs.
-Worker logs record $120$, $121$, $80$ and $80$ completed searches,
-respectively: 401 in total. The service counters are $121$, $122$, $81$
-and $81$, each including an initial program entry with a supplied score.
-We use completed worker searches for budget accounting, giving
-$401\times240$\,s, or $26.73$\,h of nominal search allowance.
-The experiment records, archived with the artifact, put model usage
-at $1.87$\,M input and $3.74$\,M output tokens in total. The first two
-campaigns shared one task specification and the last two another
-(Appendix~\ref{app:prompts}).
+Google Cloud Vertex AI's AlphaEvolve service sampled
+\texttt{gemini-3.5-flash} and \texttt{gemini-3.1-pro-preview} equally,
+with four generation and four evaluation workers. The four campaigns
+requested $120$, $120$, $80$ and $80$ programs; worker logs record
+$120$, $121$, $80$ and $80$ completed searches (401 total). Service
+counters are $121$, $122$, $81$ and $81$, each including an initial
+program with a supplied score. Completed searches determine the nominal
+allowance: $401\times240$\,s, or $26.73$\,h. Archived records report
+$1.87$\,M input and $3.74$\,M output tokens. Campaigns 1--2 share one
+task specification and campaigns 3--4 another (Appendix~\ref{app:prompts}).
 
 \paragraph{Discovery records and budgets.}
 The retained campaign logs support nominal search allowances rather
@@ -821,18 +821,18 @@ branch and skips this bonus update, exactly as in the source.
 For a new attempt, the program samples one scalar $u$ and tests branches
 in order. If $u<0.2$ and a stored positive-cost proposal exists, it resumes
 from that matrix. Otherwise, \textsc{Construct} uses a cyclic construction
-when \algdelta{$u<0.4$} and $s\le2n$, a \algdelta{divisor-stride} construction when \algdelta{$u<0.6$}
-and $s\le2n$, or a block construction when \algdelta{$u<0.8$}. If none applies,
+when $u<0.4$ and $s\le2n$, a divisor-stride construction when $u<0.6$
+and $s\le2n$, or a block construction when $u<0.8$. If none applies,
 or the resulting rank is not $s$, it uses a random stabilizer.
 The construction branches and their validity checks remain subject to the
 same exact evaluator as the seed.
 
 The cyclic branches use one or two nonzero base vectors. Row $i$ takes
-base \algdelta{$i\bmod m$} and rotates it by
-\algdelta{$2h\lfloor i/m\rfloor\bmod 2n$} bits, where $m$ is the number of bases.
+base $i\bmod m$ and rotates it by
+$2h\lfloor i/m\rfloor\bmod 2n$ bits, where $m$ is the number of bases.
 The ordinary cyclic branch sets $h=1$; the added branch samples a positive
 proper divisor of $n$. The block branch extends the allowed dual dimension
-from 8 to \algdelta{12} and block sizes from $\{2,4,6\}$ to $\{2,4,6,\algdelta{$8$}\}$.
+from 8 to 12 and block sizes from $\{2,4,6\}$ to $\{2,4,6,8\}$.
 
 During repair, \textsc{MixedMove} samples $v\in[0,1)$. If $v<0.2$ and
 $s\ge2$, it XORs two distinct rows. Otherwise, if $v<0.4$, it rotates
@@ -908,8 +908,8 @@ it independently in $84.8$\,s in the recorded run. The release includes
 the normalized CNF, compressed proof, checker log and transformation
 metadata. DRAT checks unsatisfiability of this CNF; the lemma establishes
 that its coordinate normalization loses no possible code. The auditor
-checks the unit clauses and hashes, rather than mechanically verifying
-the lemma. As a positive control, the normalized encoder remains SAT
+checks the unit clauses and hashes; the argument above justifies the
+coordinate restriction. As a positive control, the normalized encoder remains SAT
 when fixed to the archived $[[10,1,9;5]]_3$ code.
 
 \clearpage
@@ -923,5 +923,9 @@ when fixed to the archived $[[10,1,9;5]]_3$ code.
 \section{Research-guided ablation details}\label{app:ablations}
 \input{app_hitl_ablation}
 \FloatBarrier
+
+\clearpage
+\section{Lean verification of Theorem 1}\label{app:lean}
+\input{app_lean}
 
 \end{document}

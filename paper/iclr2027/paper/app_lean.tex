@@ -1,0 +1,75 @@
+The formal artifact verifies the algebraic construction underlying
+Theorem~\ref{thm:unified}. Its shared definitions import Mathlib; the
+construction proof is a separate module. The challenge imports only
+those definitions, and the submitted solution imports the construction
+proof. The sources and pinned project are in the \artifactlink{}.
+
+\lstdefinestyle{leancode}{basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries,backgroundcolor=\color{achieve!5},
+  frame=single,rulecolor=\color{achieve!35},framerule=.4pt,
+  xleftmargin=4pt,xrightmargin=4pt,framexleftmargin=4pt,
+  breaklines=true,columns=fullflexible,keepspaces=true,
+  showstringspaces=false,escapeinside={(*@}{@*)},
+  morekeywords={theorem,by,exact,let,have,rcases,with,obtain,if,then,else}}
+
+\subsection{Exact goal and mathematical interpretation}\label{app:lean-theorem}
+Let $q=|\mathbb{F}|$ and $t=\texttt{tail}>0$. The coordinate type has
+$n=2q+t$ positions, so the length condition is exactly $n\ge2q+1$.
+The disjunction below gives the $q\ge3$ branch and the odd-length binary
+branch. Within namespace \texttt{ICLR2027EAQECC.Comparator}, the
+submitted declaration is:
+
+\input{lean_theorem1_goal}
+
+\texttt{NormalizerSideCertificate} records properties of the actual
+linear map \texttt{closedWord}, rather than checks at sampled lengths.
+Its proof-bearing fields establish:
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item injectivity of the coefficient-to-vector map and a nonzero Gram entry;
+\item the restricted symplectic-product formula and the radical condition;
+\item normalizer dimension $q+2$ and radical-coefficient dimension $q$;
+\item weight at least $n-1$ outside the radical and a vector attaining $n-1$.
+\end{itemize}
+The injective parametrization identifies the coefficient radical with
+the radical of the constructed space. The standard stabilizer
+correspondence in Appendix~\ref{app:symplectic} then gives
+$k=1$, $d=n-1$ and $c=n-q-1$. The certificate also stores a parameter
+record and BDH excess $q-2$ as default data fields; these fields are not
+additional proofs of the correspondence. Lean checks the algebraic
+certificate; the paper supplies its coding-theoretic interpretation.
+
+\paragraph{Coordinate convention.}
+The formalization indexes paired coordinates by $\mathbb{F}\times\mathrm{Bool}$
+and puts the distinguished $\lambda$ coordinate first in the tail.
+The displayed construction in Appendix~\ref{app:theorem} puts it last.
+These are related by a coordinate permutation, which preserves the
+symplectic product and weight. The declaration's existential $z_2$ is
+instantiated by the proof as $0$ in characteristic two and $1$ otherwise.
+
+\clearpage
+\subsection{Solution and verification record}\label{app:lean-replay}
+The solution above invokes \texttt{theorem1\_exact}. Its proof body is
+reproduced verbatim below. For $q\ge3$, it chooses $\lambda$ outside two
+forbidden values. In the binary branch, odd length permits $\lambda=1$.
+Both branches invoke \texttt{theorem1\_closed\_form}, which assembles the
+certificate from the injectivity, Gram, radical, dimension and distance
+lemmas in the same source module.
+
+\input{lean_theorem1_solution}
+
+The pinned project uses Lean 4.29.0-rc6 and Mathlib revision
+\texttt{1ea3462986d0}. The proof module and submitted solution contain no
+\texttt{sorry} and use only \texttt{propext}, \texttt{Quot.sound} and
+\texttt{Classical.choice}. The statement-only challenge intentionally has
+an unproved body and is not imported by the proof.
+
+The recorded Linux/aarch64 run used Comparator revision
+\texttt{a4f696825c58} and lean4export revision \texttt{048394e1afee}.
+Comparator checks the challenge--solution statement correspondence,
+permitted axioms and acceptance by Lean's default kernel; its
+\texttt{enable\_nanoda} setting is false~\citep{LeanComparator}.
+The supplied record reports acceptance. We separately rebuild the proof
+and solution with the pinned toolchain on macOS; this kernel check is
+recorded separately from the supplied Linux Comparator run. Reproduction
+commands, full source hashes and the reported exporter CLI compatibility
+adjustment are documented in the artifact.

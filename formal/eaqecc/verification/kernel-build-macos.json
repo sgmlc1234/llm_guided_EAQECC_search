@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "date": "2026-09-16",
+  "platform": "macOS arm64",
+  "lean": "4.29.0-rc6",
+  "lean_commit": "00659f8e6071d7e46131ed643bf8003b99b044e9",
+  "mathlib_commit": "1ea3462986d06c85c98fb18c10082274043405e4",
+  "modules": [
+    "Definitions",
+    "Theorem1",
+    "Lemma2",
+    "Comparator.Theorem1Solution",
+    "Comparator.Lemma2Solution"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "sorryAx": false,
+  "comparator_rerun": false,
+  "source_manifest_sha256": "8c728100de72c63571b331f12e18372042be33a592d8c5b53c1fab81dff6f58d",
+  "note": "Fresh kernel build of preserved sources in isolated pinned dependencies. Linux Comparator results are supplied records, not this execution."
+}

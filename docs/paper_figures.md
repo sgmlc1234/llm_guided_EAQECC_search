@@ -73,3 +73,22 @@ Appendix pages use natural vertical spacing. The controlled-study outcomes start
 with Table 3 on a new page; Algorithm 2 can move to the following page top while
 its definitions and verification text use the remaining space. B.3 remains one
 page of native text. No figure or algorithm is rasterized or reduced in font size.
+
+## Figure 1: formal-checking extension
+
+The researcher band combines proposing and revising ideas, then generalizing
+and proving results. A separate box embeds the supplied Lean logo and labels
+the final operation “Machine-check proofs”. Its arrow starts at the researcher
+analysis band; Python/Magma code checks and SAT/DRAT exclusions retain their
+separate routes. Appendix D focuses on the integrated Theorem 1 certificate; the supporting
+Lemma 2 certificate remains in the codebase.
+
+Generate native TikZ and the standalone source with:
+
+```bash
+python3 scripts/make_pipeline_overview.py --out-dir paper/iclr2027/paper --standalone
+tectonic -X compile paper/iclr2027/paper/fig_overview_standalone.tex
+```
+
+Export that PDF with `pdftocairo -svg` for the matching SVG. Figure geometry,
+arrows and type remain vector content; the supplied logos are embedded images.

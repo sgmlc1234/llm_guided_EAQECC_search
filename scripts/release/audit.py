@@ -11,7 +11,7 @@ import re
 import shutil
 import subprocess
 
-BLOCKED = {'.git', '.env', '.venv', '__pycache__', '.pytest_cache', '.ruff_cache',
+BLOCKED = {'.lake', '.git', '.env', '.venv', '__pycache__', '.pytest_cache', '.ruff_cache',
            '.DS_Store', 'private_execution.json', 'application_default_credentials.json'}
 PATTERNS = {
     'personal filesystem path': r'/(?:Users|home)/[A-Za-z0-9_.-]+/',

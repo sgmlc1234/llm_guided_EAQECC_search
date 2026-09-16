@@ -22,7 +22,8 @@ mathematical outputs whose parameters are independently checked.
 Verification uses exact finite-field computations, independent
 linear-algebra checks, Magma cross-checks and checked proof certificates
 as detailed in Appendices~\ref{app:pipeline-detail}--\ref{app:ablations};
-these computational checks do not mechanize every mathematical argument.
+the formal certificate for Theorem~\ref{thm:unified} is checked in Lean
+(Appendix~\ref{app:lean}).
 Researcher guidance and mathematical generalization remain part of the
 disclosed workflow. The authors take responsibility for the final text,
 mathematical claims, proofs, code and reported results, including all
@@ -58,7 +59,11 @@ seeds and evaluation budgets as described in Section~\ref{sec:repro}
 and the \artifactlink{}. Appendix~\ref{app:ablations} and the accompanying
 study records supply generation requests, selections and held-out
 outcomes for the separate controlled comparison. Computational checks
-verify finite cases; general validity rests on the proof. Fresh LLM sampling is not part of this replay. External solver
+verify finite cases; general validity rests on the proof.
+Appendix~\ref{app:lean} gives the exact formal goal and proof structure
+for Theorem~\ref{thm:unified}. The artifact includes the Lean sources,
+pinned dependencies and separate kernel and Comparator verification records.
+Fresh LLM sampling is not part of this replay. External solver
 and Magma checks are reported separately from completed Python checks.
 The artifact is released under the MIT license and is available at
 \url{https://anonymous.4open.science/r/llm_guided_EAQECC_search-4099}.

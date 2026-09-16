@@ -44,3 +44,6 @@ artifacts/sat_sweep/
 *.out
 *.blg
 /paper/**/*.log
+
+# Local Lean dependency/build caches; certificates and lockfiles remain tracked.
+.lake/

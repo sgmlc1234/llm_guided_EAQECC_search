@@ -18,7 +18,7 @@ def main():
     args.out_dir.mkdir(parents=True, exist_ok=True)
     logo_dir = args.out_dir / "overview_assets"
     logo_dir.mkdir(exist_ok=True)
-    for name in ("python_logo.png", "magma_logo.png"):
+    for name in ("python_logo.png", "magma_logo.png", "lean_logo.png"):
         shutil.copyfile(ROOT / "assets/logos" / name, logo_dir / name)
     witness = json.loads((ROOT / "artifacts/witnesses/q2/SOLUTION_n11_k1_c8_d10.json").read_text())
     witness_count = len(list((ROOT / "artifacts/witnesses").glob("q*/SOLUTION*.json")))
@@ -43,24 +43,30 @@ def main():
   small/.style={font=\rmfamily\fontsize{8.2}{9.8}\selectfont},
   label/.style={font=\rmfamily\bfseries\fontsize{9.2}{10.5}\selectfont},
   card/.style={rounded corners=3pt,draw=ovink!40,line width=.75pt,fill=white}]
-\path[use as bounding box] (-.03,.24) rectangle (14.03,7.00);
+\path[use as bounding box] (-.03,.24) rectangle (14.03,7.16);
 
-% Research work is outside the automated candidate-evaluation loop.
+% Researcher analysis and formal checking are separate from the search loop.
 \begin{scope}[yshift=.65cm]
 \filldraw[rounded corners=4pt,fill=ovhuman!6,draw=ovhuman!40,line width=.65pt]
-  (0,5.18) rectangle (14,6.32);
-\fill[ovhuman!12] (.17,5.34) rectangle (2.91,6.16);
-\draw[ovhuman,line width=1pt] (.53,5.91) circle (.10);
-\draw[ovhuman,line width=1pt,rounded corners=2pt] (.34,5.53) -- (.34,5.66)
-  .. controls (.36,5.83) and (.70,5.83) .. (.72,5.66) -- (.72,5.53);
-\node[label,anchor=west,text=ovhuman] at (.88,5.94) {Researcher};
-\node[small,anchor=west,text=ovhuman] at (.88,5.58) {HITL};
-\node[label,anchor=west] at (3.2,5.96) {Propose ideas};
-\node[small,anchor=west] at (3.2,5.57) {e.g., cyclic shifts};
-\node[label,anchor=west] at (6.65,5.96) {Interpret discoveries};
-\node[small,anchor=west] at (6.65,5.57) {generalize and prove};
-\node[label,anchor=west] at (10.33,5.96) {Revise the task};
-\node[small,anchor=west] at (10.33,5.57) {between campaigns};
+  (0,5.18) rectangle (9.95,6.48);
+\fill[ovhuman!12] (.17,5.34) rectangle (2.35,6.32);
+\draw[ovhuman,line width=1pt] (.53,6.00) circle (.10);
+\draw[ovhuman,line width=1pt,rounded corners=2pt] (.34,5.62) -- (.34,5.75)
+  .. controls (.36,5.92) and (.70,5.92) .. (.72,5.75) -- (.72,5.62);
+\node[label,anchor=west,text=ovhuman] at (.88,6.03) {Researcher};
+\node[small,anchor=west,text=ovhuman] at (.88,5.63) {HITL};
+\node[label,align=center,text width=3.35cm,inner sep=0pt] at (4.30,6.05)
+  {Propose and revise ideas};
+\node[small,align=center] at (4.30,5.48) {between campaigns};
+\node[label,align=center,text width=3.35cm,inner sep=0pt] at (8.00,6.05)
+  {Generalize and prove};
+\node[small,align=center] at (8.00,5.48) {from discovered codes};
+% The supplied logo is included unchanged. This box denotes a proof-checking stage.
+\draw[card,draw=ovteal!65] (10.65,5.18) rectangle (14,6.48);
+\node[inner sep=0pt] at (12.325,6.00)
+  {\includegraphics[width=1.55cm]{overview_assets/lean_logo.png}};
+\node[small,text=ovteal] at (12.325,5.39) {Machine-check proofs};
+\draw[flow,ovteal] (9.98,5.83)--(10.62,5.83);
 \end{scope}
 
 % Four stages, with visual examples of the objects they operate on.

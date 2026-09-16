@@ -42,21 +42,21 @@ denoted $\cmins(n,k,d)$ within our stabilizer class. Applicable bounds
 filter impossible targets~\citep{GHW2022}; Appendix~\ref{app:domain}
 gives the representation, notation and comparison rules.
 
-FunSearch evolves programs that construct mathematical objects or make
-algorithmic decisions, using an evaluator to select useful revisions.
-It produced larger cap-set constructions in extremal combinatorics
-and improved heuristics for online bin packing~\citep{FunSearch}.
-Its output is an executable construction procedure, allowing researchers
-to inspect a solution strategy and develop the mathematical ideas it uses.
-
-AlphaEvolve extends evaluator-guided program evolution to broader
-scientific and computational tasks~\citep{AlphaEvolve,Georgiev2025}.
-Its applications include searches for matrix-multiplication algorithms,
-data-center scheduling, hardware-circuit simplification and optimization
-of model-training kernels. LLMs edit executable programs, and measured
-performance guides subsequent proposals. We use AlphaEvolve as the
-evolution engine for EAQECC discovery, supplying the target parameters,
-exact evaluator and researcher-directed construction ideas.
+\textsc{FunSearch} evolves programs that construct mathematical objects or
+make algorithmic decisions, using an evaluator to select useful revisions.
+It produced larger cap-set constructions and improved online bin-packing
+heuristics~\citep{FunSearch}; its executable outputs let researchers inspect
+and develop the underlying mathematical ideas. \textsc{AlphaEvolve}
+extends this approach to matrix-multiplication algorithms, data-center
+scheduling, hardware-circuit simplification and model-training
+kernels~\citep{AlphaEvolve,Georgiev2025}. Related frameworks include
+\textsc{OpenEvolve}, \textsc{CodeEvolve}, \textsc{ShinkaEvolve} and
+\textsc{TurboEvolve}, which implement or extend evaluator-guided program
+evolution with population management and proposal-selection
+strategies~\citep{OpenEvolve,CodeEvolve,ShinkaEvolve,TurboEvolve}.
+We use \textsc{AlphaEvolve} as the evolution engine for EAQECC discovery,
+supplying target parameters, an exact evaluator and researcher-directed
+construction ideas.
 
 Quantum-code search has also used genetic and reinforcement-learning
 methods. \citet{WebsterBrowne2024} mutate and recombine binary

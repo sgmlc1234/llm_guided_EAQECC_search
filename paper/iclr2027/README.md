@@ -1,7 +1,7 @@
 # Current ICLR manuscript
 
 `paper/main.tex` and `paper/main.pdf` contain the current manuscript: nine main
-pages (20 pages including statements, references and appendices), with the latest shared-guidance ablation in Section 5 and its complete
+pages (22 pages including statements, references and appendices), with the latest shared-guidance ablation in Section 5 and its complete
 protocol in Appendix C. AI use, Ethics and Reproducibility statements flow directly after the conclusion
 across pages 9–10 and are excluded from the main-text limit. References begin on page 11. Earlier ablation inputs and figures are not included.
 The publication snapshot preserves all mathematical results and historical
@@ -42,3 +42,7 @@ Appendix C uses natural vertical spacing, keeps Table 3 with the outcome discuss
 and places Algorithm 2 above the intact longer-code result paragraph. Regenerate
 the task-specification layouts from the repository root with
 `python3 scripts/make_task_spec_panels.py`.
+
+Appendix D focuses on Theorem 1: exact goal, final proof body, certificate scope
+and separate kernel/Comparator records. The original Lean project is in
+`formal/eaqecc/` at the repository root; Lemma 2 remains supporting codebase evidence.

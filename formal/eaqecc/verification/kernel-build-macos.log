@@ -1,0 +1,75 @@
+warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it
+⚠ [8200/8204] Built CodingTheoryLib.Research.ICLR2027EAQECC.Definitions (22s)
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Definitions.lean:60:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Definitions.lean:68:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8201/8204] Built CodingTheoryLib.Research.ICLR2027EAQECC.Theorem1 (4.9s)
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:148:53: This simp argument is unused:
+  Fintype.sum_bool
+
+Hint: Omit it from the simp argument list.
+  simp [closedDelta, symplecticProduct, closedWord, aCoeff, bCoeff, Fintype.sum_sum_type,
+  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲Fintype.sum_prod_type, F̵i̵n̵t̵y̵p̵e̵.̵s̵u̵m̵_̵b̵o̵o̵l̵,̵Fin.sum_univ_succ, Nat.cast_card_eq_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:150:6: 'push_cast' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:184:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:202:60: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [aCoeff, bCoeff, mul_one, mul_zero, sub_zero, zero_m̵u̵l̵,̵ ̵z̵e̵r̵o̵_̵sub] at ha hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:339:8: Try `simp at hxy` instead of `simpa using hxy`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:340:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:343:8: Try `simp at hxy` instead of `simpa using hxy`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:397:0: 'ICLR2027EAQECC.theorem1_closed_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean:398:0: 'ICLR2027EAQECC.theorem1_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8202/8204] Built CodingTheoryLib.Research.ICLR2027EAQECC.Lemma2 (5.6s)
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:53:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:73:51: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:93:51: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:66:51: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:81:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:82:54: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:157:30: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:271:0: 'ICLR2027EAQECC.lemma2_coordinate_normalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8203/8204] Built CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Theorem1Solution (3.1s)
+info: CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Theorem1Solution.lean:19:0: 'ICLR2027EAQECC.Comparator.theorem1_exact_goal' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8204/8204] Built CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Lemma2Solution (3.1s)
+info: CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2Solution.lean:21:0: 'ICLR2027EAQECC.Comparator.lemma2_coordinate_normalization_goal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (8204 jobs).

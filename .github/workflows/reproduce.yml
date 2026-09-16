@@ -27,6 +27,7 @@ jobs:
       - name: current study and manuscript evidence links
         run: |
           python scripts/eaqecc_ablation/audit.py
+          python scripts/audit_lean_certificate.py
           python scripts/paper_results.py > table-evidence.json
       - name: negative controls and evaluator tests
         run: python -m pytest -q

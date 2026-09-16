@@ -62,3 +62,24 @@ upload also rejected a relative parent-directory path. The Python 3.12
 deterministic job, external solver/checker job, historical replay, lint and
 anonymous-release jobs passed. This documentation/layout update does not change
 those workflow settings or the preserved experimental runtime.
+
+## Lean certificate integration, 2026-09-16
+
+All 13 supplied package files are preserved byte-identically in `formal/eaqecc/`.
+The nine hashes in the supplied Linux verification record match the imported
+proofs, definitions, challenge/solution files and configurations. Theorem 1 and
+Lemma 2 import only their shared definitions, not each other's proof modules.
+
+A fresh isolated build using Lean 4.29.0-rc6 and the lockfile's Mathlib commit
+`1ea3462986d06c85c98fb18c10082274043405e4` passed on macOS arm64. Both proofs and
+both submitted Solutions report only `propext`, `Classical.choice`, `Quot.sound`;
+no `sorryAx` is present. The original lockfile was not updated. Build output and
+a machine-readable result are preserved in `formal/eaqecc/verification/`.
+
+The Linux Comparator run is the supplied verification record, not a fresh run
+performed during integration. Its missing full raw logs and exact exporter CLI
+patch are identified in the artifact guide. Source-integrity/goal-pair checks
+and a negative control that changes the formal goal pass locally. Appendix D
+presents only Theorem 1, with explicit formalization scope; Lemma 2 remains
+supporting codebase evidence. PDF rendering keeps nine research pages and
+22 total pages. No new search or model-generation experiment was run.

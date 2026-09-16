@@ -1,0 +1,13 @@
+{
+  "challenge_module": "CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Theorem1Challenge",
+  "solution_module": "CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Theorem1Solution",
+  "theorem_names": [
+    "ICLR2027EAQECC.Comparator.theorem1_exact_goal"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
