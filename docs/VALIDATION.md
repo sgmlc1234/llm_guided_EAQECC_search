@@ -38,3 +38,27 @@ The root archive manifest was refreshed only for anonymizing one historical log.
 Raw originals, internal editorial notes and Git history remain recoverable in a
 separate private archive. These local validation checks do not claim that the
 remote CI jobs have run or that a public Git account/history is anonymous.
+
+## Manuscript and README update, 2026-09-16
+
+The revised paper explains how finite evolved constructions led to the general
+family and distinguishes the proof from finite computational checks. Appendix B.3
+now separates researcher proposals, tasks and evaluation feedback as native text.
+Appendix C places Table 3 with its discussion and Algorithm 2 above the complete
+longer-code outcomes. PDF rendering was checked on every appendix page: the paper
+has nine research pages and 20 pages overall, without overfull boxes or unresolved
+references. README links, figure paths and the family verification command were
+checked against the repository.
+
+The Python 3.12.12 deterministic tier passed again: 115 codes, 54 family gap
+closures and 398 bound corrections. The study audit verified 235 saved records;
+the table evidence map, archive manifest and lint checks also passed. These checks
+did not generate new model proposals or rerun SAT/Magma.
+
+The preceding remote workflow at commit `2194124` had two unresolved environment
+issues: Python 3.9 cannot execute the study helper's `int.bit_count`, and the
+macOS runner could not install the pinned Python 3.12.12 build. Its replay-artifact
+upload also rejected a relative parent-directory path. The Python 3.12
+deterministic job, external solver/checker job, historical replay, lint and
+anonymous-release jobs passed. This documentation/layout update does not change
+those workflow settings or the preserved experimental runtime.

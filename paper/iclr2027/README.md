@@ -1,8 +1,8 @@
 # Current ICLR manuscript
 
 `paper/main.tex` and `paper/main.pdf` contain the current manuscript: nine main
-pages, with the latest shared-guidance ablation in Section 5 and its complete
-protocol in Appendix D. AI use, Ethics and Reproducibility statements flow directly after the conclusion
+pages (20 pages including statements, references and appendices), with the latest shared-guidance ablation in Section 5 and its complete
+protocol in Appendix C. AI use, Ethics and Reproducibility statements flow directly after the conclusion
 across pages 9–10 and are excluded from the main-text limit. References begin on page 11. Earlier ablation inputs and figures are not included.
 The publication snapshot preserves all mathematical results and historical
 program provenance used elsewhere in the paper.
@@ -32,6 +32,13 @@ Algorithm 1 in Section 4 summarizes `rank05_1001000.py`. Figure 2 compares
 its progress-dependent target selection, reuse of stored proposals and added
 whole-generator rotation with the construction-campaign seed. Shading identifies
 these principal source-level changes. Appendix B.1 defines the remaining routines,
-including their rank checks and early-exit behavior. Algorithm 2 in Appendix D.4
+including their rank checks and early-exit behavior. Algorithm 2 in Appendix C.4
 contains the separate controlled-study dual-space program, `b02_evolution_g02`,
 with its existing immediate-parent comparison.
+
+Appendix B.3 presents researcher proposals and task specifications as selectable
+Times text with pale shading; matching SVG/PDF/PNG exports are in `task_specs/`.
+Appendix C uses natural vertical spacing, keeps Table 3 with the outcome discussion
+and places Algorithm 2 above the intact longer-code result paragraph. Regenerate
+the task-specification layouts from the repository root with
+`python3 scripts/make_task_spec_panels.py`.

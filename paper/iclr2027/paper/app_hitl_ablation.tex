@@ -68,6 +68,8 @@ never enter selection. All seed lists, requests, source hashes, parent
 relationships, candidate outcomes and selections are retained in
 \texttt{experiments/hitl\_ablation/}.
 
+% Start the results with their table rather than leaving a heading at the page foot.
+\clearpage
 \subsection{Complete policy outcomes}
 Table~\ref{tab:hitl-blocks} gives the independent generation blocks.
 The primary paired mean difference is $+0.1188$, with two positive and
@@ -79,7 +81,7 @@ A sensitivity calculation excluding the block affected by the later
 unavailable responses gives a mean difference of $+0.0819$. All proposals
 included in the balanced comparison precede those unavailable responses.
 
-\begin{table}[ht]
+\begin{table}[!htbp]
 \centering\small
 \begin{tabular}{crrrr}
 \toprule
@@ -111,7 +113,7 @@ limits. Each target/seed runs in a separate macOS sandbox with 120/125\,s
 soft/hard CPU limits, 135\,s wall time and 1\,GiB resident memory. Every
 explicit or returned-candidate verification consumes the same call quota.
 
-\subsection{Preserved program and length transfer}\label{app:hitl-program}
+\subsection{Preserved program and generalization to longer codes}\label{app:hitl-program}
 The program selected in block 3 is
 \texttt{b02\_evolution\_g02}, whose preserved parent is
 \texttt{b02\_evolution\_g01}; generation indices start at zero.
@@ -151,6 +153,8 @@ sets $g=0$ and applies $\tau\leftarrow\min(30,1.5\tau)$. This adjustment
 can lower a temperature still above 30; it is not always a temperature
 increase. The source and its budget behavior remain unchanged.
 
+% Keep the numerical outcomes together below the algorithm.
+\newpage
 The child succeeds in 100\% (16/16) of primary-test executions and
 75.0\% (3/4) at each longer-length target. Its successful $n=13$ executions take
 3,260, 5,263 and 9,755 calls; at $n=15$ they take 7,125, 15,789 and
@@ -170,7 +174,7 @@ verifies 235 saved code records. These files include repeated outcomes
 across calibration, training, validation and test runs, rather than 235
 distinct parameter sets. Failed and excluded attempts and both unavailable
 model responses remain in the artifact. The recorded environment uses
-Python 3.12.12 and NumPy 2.5.1; the artifact README provides the audit and
+Python 3.12.12 and NumPy 2.5.1; the \artifactlink{} provides the audit and
 fixed-program replay commands. Model program bytes, numerical observations
 and generator matrices are preserved, while machine-local paths and opaque
 provider identifiers are omitted from the reviewer bundle.

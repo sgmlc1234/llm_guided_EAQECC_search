@@ -65,4 +65,4 @@ for solver-produced nonexistence evidence. Historical directory names such as
 `artifacts/witnesses/`, `.witness.json` files and the `witnesses` auditor claim
 remain unchanged so prior records, commands and integrity hashes remain valid.
 Algorithm 1 is the archived AlphaEvolve rank05 construction program; Algorithm 2
-in Appendix D.4 is the supplementary dual-space program from the ablation.
+in Appendix C.4 is the supplementary dual-space program from the ablation.

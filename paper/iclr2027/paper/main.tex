@@ -25,10 +25,6 @@
 
 \lstset{basicstyle=\ttfamily\footnotesize, breaklines=true,
   columns=fullflexible, keepspaces=true}
-\newtcolorbox{promptbox}[1]{colback=gray!6, colframe=black!60,
-  title={#1}, fonttitle=\bfseries\small, breakable, boxrule=0.6pt,
-  left=4pt, right=4pt, top=4pt, bottom=4pt}
-
 % ---- figure palette (colour-blind safe, print-legible) ----
 \definecolor{achieve}{RGB}{31,119,120}
 \definecolor{refute}{RGB}{178,58,50}
@@ -50,6 +46,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\artifactlink}{\href{https://anonymous.4open.science/r/llm_guided_EAQECC_search-4099}{anonymous artifact}}
 \newcommand{\vct}[1]{\boldsymbol{#1}} % vectors; coordinates and coefficients remain scalar
 \newcommand{\wt}{\operatorname{wt_s}}
 \newcommand{\cmins}{c^{\mathrm{s}}_{\min}}
@@ -63,47 +60,59 @@
 \maketitle
 
 \begin{abstract}
-LLM-guided program evolution can produce mathematical constructions, but
-verifying a result and reproducing the search that produced it are
-separate requirements. We study both for entanglement-assisted quantum
-error-correcting codes (EAQECCs), using targets derived from tabulated
-EAQECC bounds and an exact symplectic evaluator. The core construction archive
-contains 115 verified codes, a closed-form construction
+We use AlphaEvolve to develop programs that construct entanglement-assisted
+quantum error-correcting codes (EAQECCs) and study how their outputs lead
+to general mathematical results. The initial tasks supplied open code
+parameters, an exact evaluator and construction directions, but not the
+family formula proved in this work. Evolved programs produced finite
+qubit constructions. We analyzed their structure, derived an infinite
+qubit family, and extended the construction to prove the family
 $[[n,1,n-1;n-q-1]]_q$ for every prime power at the stated admissible
-lengths, and ten nonexistence results backed by DRAT certificates.
-The construction and ebit lifting settle 54 listed gaps; applying the
-known EA-Plotkin bound tightens 398 listed upper bounds. An auditor
-checks the archived computational results and replays fixed search
-programs using an evaluation-based stopping rule. It does not reproduce
-the LLM sampling that generated those programs. The pipeline supports researcher proposals that change the search
-representation and can be developed through program-level feedback.
-Under identical guidance to search the symplectic dual, a four-block
-comparison increases held-out success from 50.0\% to 68.8\% at $n=9$
-and from 15.6\% to 50.0\% at $n=11$ when independent proposals are
-replaced by iterative program development. One validation-selected
-later-generation program achieves 75.0\% success at each of $n=13,15$.
+lengths. This family and ebit lifting settle 54 listed gaps. The core
+archive contains 115 verified codes and ten nonexistence results backed
+by checked DRAT proofs; applying the known EA-Plotkin bound tightens
+398 upper bounds. Reproduction comprises exact checks of the supplied
+codes, generation and verification of finite family instances, and
+seeded replay of preserved search programs under evaluation budgets.
+The mathematical proof establishes the general claim beyond those
+finite checks. A separate four-block study tests iterative program
+development under shared guidance to search the symplectic dual.
+Compared with independent proposals, held-out success increases from
+50.0\% to 68.8\% at $n=9$ and from 15.6\% to 50.0\% at $n=11$.
+One validation-selected program achieves 75.0\% success at each of
+$n=13,15$.
 \end{abstract}
 
 %==============================================================
 \section{Introduction}
 %==============================================================
 
-LLM-guided program search has produced new mathematical constructions
-and algorithms~\citep{FunSearch,AlphaEvolve}. Assessing such results
-requires answering three questions: whether the proposed object is
-valid, whether it improves on prior constructions, and what the model
-contributed beyond the initial program and task specification. These
-questions require different evidence. A verified output does not by
-itself establish novelty, and rerunning a final program does not
-reproduce the evolutionary process that generated it.
+LLM-guided program search has produced mathematical constructions and
+algorithms~\citep{FunSearch,AlphaEvolve}. An executable construction can
+also support a general mathematical result: researchers can analyze the
+program and its outputs, identify a construction rule, and prove that it
+works beyond the cases used during search. Studying this process requires
+records of the initial task, the computational discoveries and the
+subsequent mathematical analysis.
 
-We study these distinctions using entanglement-assisted quantum
-error-correcting codes (EAQECCs). Their parameters can be computed
-exactly from a finite list of generators, while tabulated EAQECC bounds
-provide a specific reference for measuring improvements. Figure~\ref{fig:overview} summarizes our researcher-guided pipeline
-for program evolution, exact verification and nonexistence checking.
-The artifact records the mathematical results and the evidence needed
-to check each type of claim.
+We study this process for entanglement-assisted quantum error-correcting
+codes (EAQECCs). Early AlphaEvolve searches produced finite qubit codes
+whose structure led us to an infinite qubit family. Further mathematical
+generalization gives the prime-power construction and proof in
+Theorem~\ref{thm:unified}. The initial instructions suggested directions
+such as cyclic shifts, but did not provide this family formula.
+Later instructions explicitly incorporated the discovered qubit family
+(Appendix~\ref{app:prompts}), allowing it to guide further searches.
+
+Our reproducibility contribution concerns these mathematical
+constructions and their computational evidence. The \artifactlink{} supplies
+code matrices, family implementations, proofs, task specifications and
+preserved search programs. Readers can recompute code parameters,
+construct and verify family instances, inspect the proof and replay
+preserved searches. Figure~\ref{fig:overview} summarizes how researcher
+analysis and program evolution interact. Section~\ref{sec:repro}
+specifies which operations are reproducible; the general theorem follows
+from proof, and model generation remains stochastic.
 
 Several improvements concern constructions published in 2020 and 2022
 that remained listed in the EAQECC tables accessed on 17 July
@@ -115,32 +124,23 @@ a complete history of improvement attempts.
 
 \paragraph{Contributions.}
 \begin{itemize}\setlength{\itemsep}{1pt}
-\item \textbf{A search problem with explicit verification criteria.}
-  We construct targets from tabulated EAQECC bounds. The archived qubit
-  table contains 563 entries whose distance bounds differ by one.
-  We distinguish closing a listed gap, improving a lower bound and
-  constructing a code at a parameter cell absent from the table
-  (Section~\ref{sec:related}).
-\item \textbf{A researcher-guided pipeline and reproduction protocol.}
-  Researchers can revise construction ideas and campaign targets through
-  archived task specifications. The auditor checks codes, family
-  instances, table comparisons, nonexistence evidence and prompt provenance. A virtual
-  clock tied to evaluator calls makes fixed-program search replayable
-  under an evaluation-based stopping rule; negative controls test
-  the auditor's response to damaged inputs (Section~\ref{sec:repro}).
-\item \textbf{EAQECC constructions and nonexistence results.}
-  A closed form at distance $n-1$ settles 54 listed gaps, including
-  qutrit entries obtained by ebit lifting. We also archive finite
-  codes using less entanglement and nonexistence results that
-  establish minimum entanglement at specified lengths. Applying the
-  known EA-Plotkin bound tightens 398 listed upper bounds
-  (Tables~\ref{tab:results} and~\ref{tab:results-qudit}).
-\item \textbf{Research-guided program development with measured outcomes.}
-  Two generation policies receive the same initial program and researcher
-  proposal to search the symplectic dual. Iterative development achieves
-  higher mean held-out success than independent proposals, with the
-  larger difference at length 11. A selected later-generation program
-  also generalizes to lengths 13 and 15 (Section~\ref{sec:ablation}).
+\item \textbf{Mathematical discovery from evolved constructions.}
+  Finite qubit constructions obtained through program evolution led to
+  researcher-derived families and the proof of Theorem~\ref{thm:unified}.
+  The unified family and ebit lifting close 54 listed gaps. Additional
+  codes, checked nonexistence proofs and known bounds improve other
+  parameter cells (Section~\ref{sec:results}).
+\item \textbf{A researcher-guided pipeline with reproducible outputs.}
+  We adapt AlphaEvolve to exact EAQECC construction and verification.
+  Archived tasks document how a discovered family is reused in later
+  search. Generator matrices, family implementations and proof records
+  support independent checks; preserved programs can be replayed with
+  fixed seeds and evaluation budgets (Section~\ref{sec:repro}).
+\item \textbf{A controlled test of iterative program development.}
+  Two policies receive the same initial program and research proposal.
+  Iterative feedback increases mean held-out success, with a larger
+  difference at length 11; one selected program also constructs codes
+  at lengths 13 and 15 (Section~\ref{sec:ablation}).
 \end{itemize}
 
 %==============================================================
@@ -194,24 +194,22 @@ below the target distance. This provides a finer search signal than the
 minimum distance, which often stays constant across mutations.
 
 Each candidate runs in its own subprocess with a fixed 240\,s budget
-and RNG seed. Failures receive a low score, and the campaign continues.
+and a specified seed for its random-number generator. Failures receive a low score, and the campaign continues.
 The same interface supports fixed-program replay (Section~\ref{sec:repro}).
 The four campaign logs record $401$ completed candidate searches,
 corresponding to $26.7$\,h of allocated search budget
 (Appendix~\ref{app:campaign}).
 
-Researchers can add construction ideas through the task specification
-while retaining the evaluator and execution interface. In this study,
-the initial program used annealing, while the researcher-written
-specification suggested cyclic shifts among several directions.
-Evolution implemented this idea and produced finite code instances.
-Researchers then derived a general family and incorporated it into
-later task specifications, which requested further constructions.
-A write-back step also reused the best program as the next seed.
-The archived specifications document these updates
-(Appendix~\ref{app:prompts}). This permits a research result to guide the
-next campaign; those later seeds are consequently not independent
-baselines for rediscovering the earlier instances.
+The initial task specification did not contain the family proved in
+Theorem~\ref{thm:unified}. We started with an annealing seed and instructions suggesting cyclic
+shifts among other construction directions. Evolved programs produced finite qubit codes; analysis of
+their structure led researchers to a general qubit family and its proof.
+The later task specifications included that family and requested further
+constructions, while the best program was reused as a new seed.
+These records distinguish the initial discovery stage from subsequent
+search using the mathematical result (Appendix~\ref{app:prompts}).
+The current prime-power theorem extends the qubit construction through
+further researcher-led generalization and proof.
 
 \subsection{Independent verification}
 
@@ -225,7 +223,7 @@ All $148$ objects were re-verified with $0$ mismatches under Magma
 V2.28-20. A separate binary linear-algebra implementation also checks
 the two solver-refined qubit results below. Magma provides additional
 corroboration; every archived code can also be checked in Python
-(Appendix~\ref{app:repro}).
+using the \artifactlink{}.
 
 %==============================================================
 \subsection{Nonexistence checking}
@@ -249,32 +247,36 @@ certified results.
 
 \subsection{Reproducibility}\label{sec:repro}
 
-The auditor checks codes, family instances, nonexistence evidence,
-reference bounds and prompt provenance, and reports which checks were
-completed (Appendix~\ref{app:repro}). Fixed-program replay replaces wall
-time with a virtual clock tied to evaluator calls, preserving each
-program's loop conditions and stopping point for a given seed and nominal
-budget. Three archived programs with four seeds each reproduce all twelve
-stored proposal lists; one- and four-worker executions also agree.
-This replays recorded program executions, not the LLM sampling that
-generated them. Appendix~\ref{app:ablations} gives the controlled-study
-protocol and execution costs.
+Reproducibility here covers the mathematical constructions and preserved
+program executions. Readers can recompute $(k,c,d)$ from supplied matrices,
+generate the implemented family instances and check their parameters
+independently. Theorem~\ref{thm:unified} supplies the proof for all admissible
+parameters; the computational checks cover finite instances at
+$q=2,3,4,5$. Archived task specifications document the transition from
+open-parameter search to reuse of the derived qubit family.
+
+Fixed-program replay replaces wall time with a virtual clock tied to
+evaluator calls, preserving the recorded seed and stopping conditions.
+Three archived programs with four seeds each reproduce all twelve stored
+proposal lists; one- and four-worker runs agree. This does not reproduce
+the original LLM sampling. The auditor also checks reference bounds,
+nonexistence evidence and input integrity, and identifies unperformed
+checks. Commands and inputs are provided in the \artifactlink{}.
 
 \FloatBarrier
 %==============================================================
 \section{Results}\label{sec:results}
 %==============================================================
 
-Algorithm~\ref{alg:search} presents one of the
-highest-scoring archived programs from the AlphaEvolve construction
-campaign. Figure~\ref{fig:lineage} compares three changes with its campaign
-seed: progress-dependent target selection, reuse of a stored proposal for
-initialization, and cyclic rotation of a whole generator during repair.
-The seed already stored best proposals for output; the evolved program
-also uses those records to guide subsequent search. Shading marks these
-principal changes. The controlled policy comparison in Section~\ref{sec:ablation}
-uses separately generated programs, including Algorithm~\ref{alg:ablation-search}
-in Appendix~\ref{app:hitl-program}.
+Algorithm~\ref{alg:search} presents a later, high-scoring AlphaEvolve
+program whose seed already incorporated the discovered qubit family.
+It illustrates continued search after that generalization.
+Figure~\ref{fig:lineage} and the shading show changes to target selection,
+reuse of stored proposals, construction choices and generator-row
+mutations. The earlier discoveries that motivated the theorem are
+recorded separately (Appendix~\ref{app:campaign}). Section~\ref{sec:ablation}
+evaluates iterative feedback using newly generated programs, including
+Algorithm~\ref{alg:ablation-search} in Appendix~\ref{app:hitl-program}.
 
 \input{alg_search}
 \input{fig_program}
@@ -327,13 +329,13 @@ these core-file counts.
 
 \subsection{Code families and reduced entanglement}\label{sec:family-results}
 
-Theorem~\ref{thm:unified} gives $[[n,1,n-1;n-q-1]]_q$ codes for
-$q\ge3$ and $n\ge2q+1$, and for $q=2$ at odd $n\ge5$.
-The proof establishes the entire family; the auditor checks finite
-instances at $q=2,3,4,5$. The qubit instances close 29 listed gaps.
-At $q=3$, increasing the supplied entanglement by one pair gives codes
-at $c=n-3$, closing another 25 listed gaps. Together, these constructions
-settle 54 listed entries in the archived tables.
+Theorem~\ref{thm:unified} is the mathematical generalization of the
+construction identified through the evolved qubit codes. It gives
+$[[n,1,n-1;n-q-1]]_q$ for $q\ge3$, $n\ge2q+1$, and for $q=2$
+at odd $n\ge5$. The proof in Appendix~\ref{app:theorem} establishes
+the entire family; the implementations verify finite instances at
+$q=2,3,4,5$. The qubit family closes 29 listed gaps. At $q=3$,
+ebit lifting gives $c=n-3$ and closes another 25, for 54 in total.
 
 Additional constructions attain $d=n-1$ at $c=n-q-2$.
 The displayed $q=4,5$ examples include $[[10,1,9;4]]_4$ and
@@ -488,27 +490,27 @@ fixed-program executions in recorded configurations; it does not
 recreate the original model sampling.
 
 \paragraph{Conclusion.}
-The pipeline supports a research process in which a researcher can
-propose a mathematical construction or representation, inspect verified
-outputs, and develop the idea through generated programs and exact
-execution feedback. The controlled study demonstrates this interface
-with sustained dual-space search: both policies implement the shared
-proposal, while iterative development yields higher mean held-out
-success and a preserved program that generalizes to two longer targets.
-The program sources, parent relationships and independently checked
-codes connect the research proposal to executable results.
+The central mathematical result developed from code constructions
+produced by evolved programs. Researchers analyzed their structure,
+derived a qubit family, and extended and proved the prime-power
+construction of Theorem~\ref{thm:unified}. The initial tasks did not
+contain that family formula. Later prompts reused the qubit family,
+showing how a result obtained through program search can guide further
+research. The family and ebit lifting close 54 listed gaps; additional
+constructions, certified exclusions and EA-Plotkin corrections improve
+other bounds.
 
-The mathematical outputs include a human-derived family that, with
-ebit lifting, closes 54 listed gaps. Solver refinement establishes
-optimal distances 9 and 11 at $(n,k,c)=(12,2,9)$ and $(13,1,8)$;
-applying the known EA-Plotkin bound tightens 398 upper bounds.
-These results improve the documented tradeoff between error protection
-and communication resources. The generative component operates on
-search code, while the domain supplies the object representation,
-evaluator and certification rules. This interface makes the requirements
-for applying the pipeline to another discrete construction problem
-explicit. Archived programs, codes and proofs support further
-search and mathematical generalization.
+We make the computational results reproducible through supplied matrices,
+family implementations, independent verifiers and replay of preserved
+programs. These resources let readers check concrete constructions and
+finite instances of the general rule; the proof establishes validity
+for every admissible parameter. The separate controlled study finds
+higher mean held-out success with iterative feedback under shared
+research guidance. Applying this workflow to another construction problem
+requires its own object representation, evaluator and mathematical
+analysis. The contribution is a documented process for obtaining,
+generalizing and verifying mathematical constructions with program
+evolution and researcher input.
 
 % Statements are excluded from the ICLR 2027 main-text page limit.
 \input{statements}
@@ -518,6 +520,8 @@ search and mathematical generalization.
 \bibliography{refs}
 
 \appendix
+% Keep appendix spacing natural when a large display moves to the next page.
+\raggedbottom
 \section{The domain, the tables, and the targets}\label{app:domain}
 
 \subsection{Codes as subspaces of $\F_q^{2n}$}\label{app:symplectic}
@@ -559,6 +563,13 @@ elements at the sizes searched here. All parameters are thus computed
 from the generators, independently of the search program's reports.
 
 \subsection{The closed form, and why it works}\label{app:theorem}
+The empirical starting points include the qubit codes $[[9,1,8;6]]_2$
+and $[[11,1,10;8]]_2$ obtained in the early campaigns
+(Appendix~\ref{app:campaign}). Analysis of the evolved constructions
+motivated the odd-length family $[[n,1,n-1;n-3]]_2$, recorded in the
+later task specifications. The construction below extends that family
+to prime powers. Its general validity is established by the proof.
+
 Fix a prime power $q=p^e$, a length $n\ge 2q+1$, and an enumeration
 $u_1,\dots,u_q$ of $\F_q$. On qudits $1,\dots,2q$ take $q$ disjoint pairs
 and let $\vct{\rho}_i$ be $Z$-type on pair $i$ with $z$-values $(1,-1)$.
@@ -663,7 +674,8 @@ exactly for $q\in\{2,3,4,5\}$ and $2q+1\le n\le 2q+8$ (claim
 \subsection{Reference bounds and target selection}\label{app:tables}
 The reference tables record, for each parameter cell $(q,n,k,c)$,
 the listed lower and upper distance bounds and their construction sources.
-Our comparison uses the bounds accessed on 17 July 2026. The artifact
+Our comparison uses the bounds accessed on 17 July 2026. The reference
+qubit table contains 563 entries whose distance bounds differ by one. The artifact
 preserves these table data and a second copy retrieved on 10 September
 2026; both cover qubit codes with $n\le64$ and qutrit codes with $n\le36$.
 The reproduction command uses the July reference data unless another
@@ -773,6 +785,10 @@ $[[13,1,12;10]]_2$ code record cites the closed-form theorem as provenance
 and is not counted as an original campaign discovery. The controlled
 reconstructions in Section~\ref{sec:ablation} use newly generated,
 preserved programs and a separate protocol.
+The initial and later task specifications document the change from
+search directions to an explicitly stated qubit family generalized by
+researchers. They do not identify a surviving source program for every
+early code discovery; Algorithm~\ref{alg:search} is a later retained program.
 
 \paragraph{How Magma is made independent.}
 The export carries generators only, so Magma re-derives every quantity we
@@ -782,7 +798,7 @@ own \texttt{Weight()} does the counting: the check does not inherit our
 notion of weight, only our generators.
 
 \paragraph{The archived construction program.}\label{app:construction-program}
-Algorithm~\ref{alg:search} summarizes the evolved construction program; its preserved source is linked from the artifact README.
+Algorithm~\ref{alg:search} summarizes the evolved construction program; its preserved source is available in the \artifactlink{}.
 The generator matrix $\mathbf{G}$ spans $S$, and $best[t]$ stores the
 lowest-cost proposal seen for target $t$. The objective remains
 $5000|r.c-c_t|+1000|r.k-k_t|+r.\mathrm{offending}$, with cost $10^9$
@@ -848,7 +864,7 @@ allow $\vct{\rho}_1$ to be $Z$-only on a prefix. No corresponding coordinate
 restriction is imposed on the other radical generators.
 
 For qutrits, each field element is one-hot encoded. The radical basis is
-in reduced row echelon form (RREF), and modular state chains impose its
+in reduced row echelon form, and modular state chains impose its
 Gram constraints. For $k=1$, it suffices to test the four projective
 logical representatives $\vct{u},\vct{v},\vct{u}+\vct{v},\vct{u}+2\vct{v}$, each shifted by every radical
 vector. Their nonzero scalar multiples have the same weights. At
@@ -883,7 +899,7 @@ vector's support, and makes all radical $X$ components zero.
 \end{proof}
 
 For $[[10,1,9;4]]_3$, the radical dimension is $j=5$. After the local
-maps, row reduction preserves the zero $X$ components, so the RREF
+maps, row reduction preserves the zero $X$ components, so the reduced row echelon form
 encoding retains a representative of every possible code. We append
 $jn=50$ unit clauses setting these components to zero. The resulting
 CNF has $33{,}033$ variables and $476{,}271$ clauses. CaDiCaL 3.0.0
@@ -896,29 +912,13 @@ checks the unit clauses and hashes, rather than mechanically verifying
 the lemma. As a positive control, the normalized encoder remains SAT
 when fixed to the archived $[[10,1,9;5]]_3$ code.
 
-\subsection{What the model was told}\label{app:prompts}
-\input{fig_prompts}
-
-\section{Reproduction resources}\label{app:repro}
-The accompanying artifact's \texttt{README.md} is the entry point for
-installation, result-specific verification commands and expected outputs.
-It links every table, figure and program result to its inputs and gives
-separate procedures for mathematical checks, certificate replay and
-fresh execution of the preserved programs.
-
-The archive includes generator matrices, archived table data, proofs,
-model requests and responses, source code, seeds and selection records.
-Checksums identify the released inputs. The paper comparison is fixed
-by \texttt{artifacts/paper\_reference.json}; using table data from a later retrieval date is an
-explicit choice. Section~\ref{sec:repro} describes fixed-program replay,
-and Appendix~\ref{app:ablations} specifies the controlled study.
-
-Verification reports distinguish completed checks from missing tools.
-A solver verdict does not establish that a proof checker ran, and an
-archived Magma log is not a fresh cross-check. Overall \textsc{partial}
-means at least one requested check was not performed. These computational
-checks do not mechanize the mathematical proofs or reproduce the original
-LLM sampling.
+\clearpage
+\begingroup
+\raggedbottom
+\subsection{Researcher proposals and task specifications}\label{app:prompts}
+\input{task_specs}
+\clearpage
+\endgroup
 
 \section{Research-guided ablation details}\label{app:ablations}
 \input{app_hitl_ablation}

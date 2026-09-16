@@ -1,7 +1,8 @@
 # LLM-guided discovery of entanglement-assisted quantum codes
 
-A research pipeline that develops executable search programs from researcher
-proposals and exact feedback, then independently checks the resulting codes.
+A research pipeline in which evolved programs construct quantum codes,
+researchers generalize their structure into mathematical results, and preserved
+implementations and independent checks support reproduction.
 This repository contains the paper, generated programs, complete controlled-study
 records, codes, proof certificates and reproducibility tools.
 
@@ -19,6 +20,55 @@ feedback. Independent code checks establish constructions, while checked SAT
 certificates establish exclusions. The program, the code it constructs and the
 proof of a bound are distinct outputs with distinct evidence.
 
+## From finite constructions to a general theorem
+
+The pipeline supports mathematical discovery through interaction between program
+evolution and researcher analysis. The initial tasks supplied open code
+parameters, exact evaluation and construction directions, but did not supply
+the family formula. Evolved programs produced finite qubit constructions;
+researchers used their structure to derive an infinite qubit family and then
+extended the construction to other prime-power alphabets.
+
+**Theorem 1** proves the family
+
+$$
+[[n,1,n-1;n-q-1]]_q,
+$$
+
+for prime powers $q\geq3$ and $n\geq2q+1$, and for $q=2$ at odd lengths
+$n\geq5$. The family and ebit lifting close **54 previously listed gaps**.
+The proof in Appendix A.2 establishes the result for all admissible parameters;
+finite computations check its implemented instances.
+
+| Stage | What changed | Evidence to inspect |
+|---|---|---|
+| Initial search | Researchers proposed construction directions; evolved programs produced finite qubit codes. | [Initial task](artifacts/campaigns/prompts/campaign1.txt), campaign records in Appendix B.1 |
+| Mathematical generalization | Researchers derived the odd-length qubit family, then extended it to the prime-power construction. | Theorem 1 and its full proof in Appendix A.2; [family implementations](scripts/families/) |
+| Further program evolution | Later tasks supplied the discovered qubit family and proposed further construction directions. | [Later task](artifacts/campaigns/prompts/campaign3.txt), Algorithm 1 |
+| Controlled comparison | Both policies received the same proposal to search the symplectic dual; only iterative evolution used earlier generated programs and feedback. | [Shared task](experiments/hitl_ablation/task.txt), [study records](experiments/hitl_ablation/README.md) |
+
+Appendix B.3 distinguishes researcher proposals, model tasks, exact feedback and
+information withheld. Its text-first summaries also have standalone vector views:
+[initial search](paper/iclr2027/task_specs/initial.svg),
+[after generalization](paper/iclr2027/task_specs/updated.svg) and
+[controlled study](paper/iclr2027/task_specs/controlled.svg).
+The original task files remain unchanged.
+
+**What can be reproduced.** Readers can verify supplied code matrices, generate
+and check family instances, and replay preserved search programs with recorded
+seeds and evaluation budgets. To check the implemented family and the 54 gap
+closures, run:
+
+```bash
+python3 scripts/reproduce_eaqecc.py --claim families
+```
+
+Algorithm 1 is a later retained program whose seed already incorporated the
+qubit family. The archive does not recreate the original model sampling or
+identify a surviving program source for every early discovery. The
+[result-to-evidence map](docs/RESULTS_AND_EVIDENCE.md) connects each claim to its
+records and verification scope.
+
 ## What iterative development achieved
 
 Both generation policies received the same initial program and the same direction
@@ -31,8 +81,8 @@ proposal can use earlier programs and their evaluation feedback.
 
 | Held-out target | Initial program | Independent proposals | Iterative evolution |
 |---|---:|---:|---:|
-| Length 9, distance 8 | 0/8 | 16/32 | **22/32** |
-| Length 11, distance 10 | 0/8 | 5/32 | **16/32** |
+| Length 9, distance 8 | 0/8 (0%) | 16/32 (50.0%) | **22/32 (68.8%)** |
+| Length 11, distance 10 | 0/8 (0%) | 5/32 (15.6%) | **16/32 (50.0%)** |
 | Combined | 0/16 | 21/64 (32.8%) | **38/64 (59.4%)** |
 
 Each policy contributes four validation-selected programs tested on eight seeds
@@ -89,13 +139,13 @@ proposals for output; Algorithm 1 feeds those records back into the search.
 The figure is a schematic of actual code changes, not a performance comparison.
 Cyclic and block constructions were already available in the seed. The separate
 controlled study above measures iterative program feedback; its supplementary
-dual-space program is Algorithm 2 in Appendix D.4.
+dual-space program is Algorithm 2 in Appendix C.4.
 
 [Original program](artifacts/campaigns/run9_top_programs/rank05_1001000.py) · [Campaign seed](scripts/alphaevolve_eaqecc/program.py) · [Replay instructions](docs/REVIEWER_GUIDE.md#3-re-execute-the-programs-and-the-policy-comparison) · [Figure regeneration](docs/paper_figures.md)
 
-## Reproduction details accompanying Appendix C
+## Reproducing the results
 
-The manuscript keeps verification scope in Appendix C; this README and the
+Section 3.5 defines the verification scope; this README and the
 [reviewer guide](docs/REVIEWER_GUIDE.md) provide installation, exact commands and
 expected results. For a direct result-to-file lookup use
 [the evidence map](docs/RESULTS_AND_EVIDENCE.md).

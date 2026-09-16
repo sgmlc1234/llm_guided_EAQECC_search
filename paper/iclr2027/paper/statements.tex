@@ -47,20 +47,18 @@ allowances and model usage are documented in Appendices~\ref{app:campaign}
 and~\ref{app:ablations}.
 
 \subsection*{Reproducibility statement}
-Appendix~\ref{app:domain} specifies the code representation, mathematical
-assumptions, constructions and proofs, and the reference table data
-used for comparisons. Appendix~\ref{app:pipeline-detail} gives campaign
-configuration, preserved prompts, verification methods and refutation
-encodings, including the scope of certificate checks.
-Section~\ref{sec:repro} and Appendix~\ref{app:repro} describe the auditor
-and its verification scope; the artifact README gives installation,
-integrity checks and fixed-program replay commands. Appendix~\ref{app:ablations} and the accompanying
-\texttt{experiments/hitl\_ablation/} bundle preserve calibration and
-evaluation seeds, budgets, attempted requests, received program sources,
-parent relationships, selection records, interruption amendments and
-independently checked codes. The artifact supplies offline audit
-and replay entry points and is released under the MIT license.
-These records support recomputation of reported quantities and replay
-of preserved programs; fresh LLM sampling is not guaranteed to reproduce
-the same generated programs. External solver and Magma availability
-is reported separately from completed checks.
+The artifact supports reconstruction and independent checking of the
+mathematical outputs: generator matrices specify the finite codes,
+implementations generate family instances, and Appendix~\ref{app:theorem}
+provides the general construction and proof of Theorem~\ref{thm:unified}.
+The initial and later task specifications in Appendix~\ref{app:prompts}
+document the transition from initial search directions to reuse of
+the researcher-derived qubit family. Preserved programs can be replayed with fixed
+seeds and evaluation budgets as described in Section~\ref{sec:repro}
+and the \artifactlink{}. Appendix~\ref{app:ablations} and the accompanying
+study records supply generation requests, selections and held-out
+outcomes for the separate controlled comparison. Computational checks
+verify finite cases; general validity rests on the proof. Fresh LLM sampling is not part of this replay. External solver
+and Magma checks are reported separately from completed Python checks.
+The artifact is released under the MIT license and is available at
+\url{https://anonymous.4open.science/r/llm_guided_EAQECC_search-4099}.

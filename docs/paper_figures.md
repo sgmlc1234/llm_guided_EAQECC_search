@@ -46,8 +46,30 @@ current manuscript TeX. These exports omit the paper captions and replace the
 external appendix reference with “archived prompts”; plotted content and the
 complete Figure 3 legend are preserved. No experimental results are regenerated.
 
-Figure 2 is in Section 4 beside Algorithm 1, with a seed-versus-rank05 comparison of three program changes. Algorithm 2 remains the supplementary dual-space program in Appendix D.4.
+Figure 2 is in Section 4 beside Algorithm 1, with a seed-versus-rank05 comparison of three program changes. Algorithm 2 remains the supplementary dual-space program in Appendix C.4.
 
 The Figure 2 exports are named `program_evolution.pdf/png/svg`. Its Pauli rows
 are illustrative operator patterns, not additional experimental constructions.
 The diagram has no empirical height or color scale.
+
+## Appendix B.3 task specifications
+
+The task summaries are typeset as native, selectable text with the paper's Times
+font and pale teal researcher-input rows. They are not figure floats. Regenerate
+the TeX blocks and matching SVG/PDF/PNG views with:
+
+```bash
+python3 scripts/make_task_spec_panels.py
+```
+
+The vector exports are in `paper/iclr2027/task_specs/`. Their content is explicitly
+labeled as structured summaries; the original task files are unchanged. The
+former reproduction appendix has been removed; the controlled-study appendix is
+now Appendix C, and Algorithm 2 is in C.4.
+
+## Appendix page layout
+
+Appendix pages use natural vertical spacing. The controlled-study outcomes start
+with Table 3 on a new page; Algorithm 2 can move to the following page top while
+its definitions and verification text use the remaining space. B.3 remains one
+page of native text. No figure or algorithm is rasterized or reduced in font size.
