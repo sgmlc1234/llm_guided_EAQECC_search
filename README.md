@@ -1,10 +1,13 @@
-# From LLM-Guided Program Evolution to General Constructions of EAQECCs
+# Researcher-in-the-loop<br>Evolutionary Discovery of<br>entanglement-assisted quantum code families
 
-A researcher-in-the-loop discovery pipeline for entanglement-assisted quantum
-error-correcting codes (EAQECCs). Evolved programs produce finite constructions;
-researchers generalize their structure into code families and prove the general
-result. Lean checks its algebraic certificate, while preserved matrices and
-programs support independent verification and replay.
+A researcher-in-the-loop pipeline connecting program evolution, mathematical
+generalization, formal proof checking and reproducible computation. Researchers
+propose and revise search directions; LLMs evolve programs that construct
+entanglement-assisted quantum error-correcting codes (EAQECCs). Researchers
+analyze these finite constructions, derive general
+code families and prove their properties. Lean checks the resulting algebraic
+certificate, while preserved matrices and programs support independent
+verification and replay.
 
 This repository contains the paper, generated programs, controlled-study records,
 code constructions, formal proofs, nonexistence certificates and reproduction tools.

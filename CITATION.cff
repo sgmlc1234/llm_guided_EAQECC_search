@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this pipeline or its archive, please cite the paper."
-title: "From LLM-Guided Program Evolution to General Constructions of EAQECCs"
+title: "Researcher-in-the-loop Evolutionary Discovery of entanglement-assisted quantum code families"
 authors:
   - name: "Anonymous authors (paper under double-blind review)"
 year: 2026

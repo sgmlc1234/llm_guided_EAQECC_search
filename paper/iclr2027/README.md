@@ -1,4 +1,4 @@
-# From LLM-Guided Program Evolution to General Constructions of EAQECCs
+# Researcher-in-the-loop Evolutionary Discovery of entanglement-assisted quantum code families
 
 `paper/main.tex` and `paper/main.pdf` contain the current manuscript: nine main
 pages (22 pages including statements, references and appendices), with the latest shared-guidance ablation in Section 5 and its complete

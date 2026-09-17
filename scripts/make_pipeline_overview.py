@@ -76,10 +76,10 @@ def main():
 \fill[ovblue!9] (2.985,3.91) rectangle (6.255,4.48);
 \fill[ovteal!9] (6.815,3.91) rectangle (9.865,4.48);
 \fill[ovink!6] (10.445,3.91) rectangle (13.985,4.48);
-\node[label,anchor=west] at (.19,4.22) {01\quad TARGET};
-\node[label,anchor=west,text=ovblue] at (3.16,4.22) {02\quad EVOLVE};
-\node[label,anchor=west,text=ovteal] at (6.99,4.22) {03\quad VERIFY};
-\node[label,anchor=west] at (10.62,4.22) {04\quad DISCOVER};
+\node[label,anchor=center] at (1.21,4.22) {01\quad TARGET};
+\node[label,anchor=center,text=ovblue] at (4.62,4.22) {02\quad EVOLVE};
+\node[label,anchor=center,text=ovteal] at (8.34,4.22) {03\quad VERIFY};
+\node[label,anchor=center] at (12.215,4.22) {04\quad DISCOVER};
 
 % A miniature reference-table excerpt (the three family targets).
 \node[small] at (.62,3.50) {$n$};

@@ -214,7 +214,7 @@ def emit(target):
             A(f"    \\node[ax, anchor=north] at ({c},{NLO-0.75}) {{${c}$}};")
         if not flat:
             A(f"    \\node[ax, anchor=north] at ({CHI/2},{NLO-1.7}) {{$c$}};")
-        A(f"    \\node[hd, anchor=west] at (-1.2,{NHI+1.5}) {{$q={q}$}};")
+        A(f"    \\node[hd, anchor=west, inner xsep=0pt, outer sep=0pt] at (-0.5,{NHI+1.5}) {{$q={q}$}};")
         A(r"  \end{scope}")
 
     if target == "iclr":

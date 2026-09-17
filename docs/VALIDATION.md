@@ -83,3 +83,17 @@ and a negative control that changes the formal goal pass locally. Appendix D
 presents only Theorem 1, with explicit formalization scope; Lemma 2 remains
 supporting codebase evidence. PDF rendering keeps nine research pages and
 22 total pages. No new search or model-generation experiment was run.
+
+## Title and figure alignment release, 2026-09-17
+
+The paper, README and citation metadata use the title “Researcher-in-the-loop
+Evolutionary Discovery of entanglement-assisted quantum code families”. Figure 1
+stage headings are centered in their panels; Figure 3 field-size labels align
+with the gray panel edges. Only figure geometry and editorial text changed.
+The PDF retains nine main pages and 22 total pages; title and figure pages were
+rendered and visually checked. The shortened AI use statement is included.
+
+The protected archive manifest and Lean source audit pass. The latest-study
+audit and table evidence mapping pass; five focused release/Lean tests and lint
+pass. README file and image links resolve. This release does not claim a fresh
+Lean, SAT/Magma or model-generation run.
