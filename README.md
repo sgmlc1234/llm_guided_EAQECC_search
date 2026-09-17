@@ -1,4 +1,4 @@
-# Researcher-in-the-loop<br>Evolutionary Discovery of<br>entanglement-assisted quantum code families
+# Researcher-in-the-loop Evolutionary Discovery of<br>entanglement-assisted quantum code families
 
 A researcher-in-the-loop pipeline connecting program evolution, mathematical
 generalization, formal proof checking and reproducible computation. Researchers
