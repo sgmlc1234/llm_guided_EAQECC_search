@@ -11,7 +11,7 @@ data, environment, randomness, compute, and what is *not* reproducible.
 | One-command reproduction | `python3 scripts/reproduce_eaqecc.py` | exits nonzero on any failed claim; writes `artifacts/reproduce_eaqecc/` |
 | Claims graded by what they need | `--tier deterministic \| external \| search` | missing checks produce an overall PARTIAL result; inspect solver/proof status per entry |
 | Archive integrity | `MANIFEST.sha256`, claim `archive-integrity` | every archived input is hashed; CI checks the manifest is current |
-| Environment | `requirements*.txt`, CI matrix py3.9 + py3.12 | deterministic tier: Python ≥ 3.9, NumPy ≥ 2.0, nothing else |
+| Environment | `requirements*.txt`, CI matrix py3.9 + py3.12 | deterministic tier: Python ≥ 3.9, NumPy ≥ 2.0; the preserved controlled-study runtime and its focused tests use Python 3.12.12 |
 | Data | `artifacts/codetables_snapshots/<date>/` | two dated snapshots; paper_reference.json fixes the manuscript comparison; latest is explicit |
 | Witnesses | `artifacts/witnesses/q{2,3,4,5}/` | generators only; every derived quantity is recomputed |
 | Families | `scripts/families/` | closed forms instantiated and verified in pure Python at q = 2, 3, 4, 5 |
