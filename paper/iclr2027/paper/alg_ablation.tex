@@ -17,7 +17,7 @@
     \State $\tau\gets\max(\algdelta{\(0.01\)},0.995\tau)$
     \State $L'\gets\algdelta{\(\textsc{MixedMove}(L)\)}$
       \algside{Add row mixing and allow larger Pauli changes at longer lengths.}
-    \State \textbf{if} $\operatorname{rank}L'\ne r$ \textbf{then} $f\gets f+1$; \textbf{continue}
+    \State \textbf{if} $\operatorname{rank}\,L'\ne r$ \textbf{then} $f\gets f+1$; \textbf{continue}
     \State $C'\gets\Phi(\textsc{Eval}((L')^\perp))$; $\delta\gets C'-C$
     \If{$\delta\le0$ \textbf{or} $U(0,1)<\exp(-\delta/\tau)$}
       \State $(L,C)\gets(L',C')$
@@ -26,7 +26,7 @@
       \Else
         \State \algdelta{$g\gets g+1$}
       \EndIf
-      \State $f\gets0$ if $\delta<0$, otherwise $f\gets f+1$
+      \State \textbf{if} $\delta<0$ \textbf{then} $f\gets0$ \textbf{else} $f\gets f+1$
     \Else
       \State $f\gets f+1$; \algdelta{$g\gets g+1$}
     \EndIf

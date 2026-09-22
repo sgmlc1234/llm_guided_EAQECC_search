@@ -1,0 +1,13 @@
+CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2.json: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2Challenge.lean: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2Solution.lean: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Theorem1.json: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Theorem1Challenge.lean: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Theorem1Solution.lean: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/Definitions.lean: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/README.md: OK
+CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean: OK
+lake-manifest.json: OK
+lakefile.lean: OK
+lean-toolchain: OK

@@ -13,7 +13,8 @@ from audit import audit, BLOCKED
 
 ROOT = Path(__file__).resolve().parents[2]
 DIRECTORIES = ('scripts', 'tests', 'docs', 'assets', 'paper', 'artifacts',
-               'experiments/hitl_ablation', 'formal', '.github')
+               'experiments/hitl_ablation', 'experiments/hitl_followup',
+               'experiments/hitl_replication', 'formal', '.github')
 TOP_FILES = ('README.md', 'LICENSE', 'CITATION.cff', 'Makefile', 'pyproject.toml',
              '.gitignore', '.env.example', 'MANIFEST.sha256')
 EXCLUDE_SUFFIXES = {'.pyc', '.pyo', '.aux', '.out', '.blg'}

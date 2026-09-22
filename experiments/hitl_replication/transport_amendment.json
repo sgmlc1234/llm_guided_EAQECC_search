@@ -1,0 +1,19 @@
+{
+  "created_unix": 1790002018.4880672,
+  "trigger": "confirmed HTTP429 after 16 accepted/evaluated proposals; no generated output and zero committed cost for rejected request",
+  "change": "At most three HTTP attempts per logical proposal, retry only confirmed non-billed HTTP429; 30/60-second backoff and five-second spacing. All attempts retained. Uncertain calls never retried.",
+  "unchanged": [
+    "112 logical proposal slots",
+    "source prompts and model seeds",
+    "training feedback policy",
+    "validation selection",
+    "heldout metrics",
+    "8-block plan",
+    "KRW10000 authorization and KRW8000 conservative service cap",
+    "24-hour deadline from original start"
+  ],
+  "scientific_functions": "Imported unchanged from frozen study.py",
+  "resume_script_sha256": "432811ca30240cd2a1b267f4afb1b97888615811087359149a38253c75e07749",
+  "pricing_reference": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+  "retry_reference": "https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429"
+}

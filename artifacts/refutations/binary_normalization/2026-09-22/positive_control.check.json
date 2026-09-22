@@ -1,0 +1,17 @@
+{
+  "path": "positive_control.json",
+  "sha256": "a339df285e318fb05df07d66768207dea0104c88eb321648559684de72a7c702",
+  "parameters_n_k_d_c": [
+    6,
+    1,
+    5,
+    2
+  ],
+  "rank_S": 7,
+  "dim_dual": 5,
+  "radical_dimension": 3,
+  "logical_weight_distribution": {
+    "5": 24
+  },
+  "status": "PASS"
+}

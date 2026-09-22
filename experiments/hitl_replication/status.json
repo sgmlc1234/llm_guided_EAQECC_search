@@ -1,0 +1,18 @@
+{
+  "state": "COMPLETED",
+  "protocol_sha256": "7acabc772bfa9c08facaac48310f6f705ef554915c754905affdcadcb90c1444",
+  "planned_candidates": 112,
+  "completed_candidates": 111,
+  "started_unix": 1790001424.6721542,
+  "new_committed_krw": 4308.1661316325,
+  "aggregate_committed_krw": 4308.1661316325,
+  "block": 7,
+  "generation": 6,
+  "arm": "independent",
+  "reason": null,
+  "stopped_unix": 1790004632.073468,
+  "retry_attempt": 1,
+  "unavailable_candidates": 1,
+  "finished_unix": 1790010618.685792,
+  "completed_slots": 112
+}

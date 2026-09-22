@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    l_size = n + k - c\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    while E.remaining:\\n        # Initialize L\\n        L = []\\n        while len(L) < l_size:\\n            cand = int(rng.integers(1, 1 << (2 * n)))\\n            test_L = L + [cand]\\n            if len(E.gf2_basis(test_L)) == len(test_L):\\n                L.append(cand)\\n        \\n        S = get_S(L)\\n        cur = objective(E.evaluate(S))\\n        temp, fails = 30.0, 0\\n        \\n        while fails < 1500 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            candidate_L = list(L)\\n            idx = int(rng.integers(l_size))\\n            if rng.random() < 0.5:\\n                candidate_L[idx] ^= random_pauli()\\n            else:\\n                candidate_L[idx] = int(rng.integers(1, 1 << (2 * n)))\\n            \\n            if len(E.gf2_basis(candidate_L)) != l_size:\\n                fails += 1\\n                continue\\n                \\n            cand_S = get_S(candidate_L)\\n            new_obj = objective(E.evaluate(cand_S))\\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 668,
+    "totalTokenCount": 3455,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 668
+      }
+    ],
+    "thoughtsTokenCount": 990
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:46:13.706782Z",
+  "responseId": "RVGxat6RK6eb0ckP272MyQU"
+}

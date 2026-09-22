@@ -26,7 +26,7 @@ can reward a useful edit, not a measurement of evolutionary contribution.
 Independently verified codes establish feasibility at all training and transfer
 parameters before generation.
 
-\subsection{Generation, interruption and selection}
+\subsection{Generation, interruption and selection}\label{app:hitl-selection}
 Four blocks each plan 12 proposals per policy. Independent proposals
 receive the fixed initial source and its fixed training feedback.
 Iterative evolution receives the best-so-far source and the latest
@@ -43,20 +43,21 @@ This equals the normalized integral of the success indicator over the
 available evaluator-call budget. The initial program remains eligible
 for selection. Proposal counts match; token and execution costs need not.
 
-The first operational request was rejected for an out-of-range model
-seed, with no generated candidate. Its record
-is retained and the seed format was corrected. In the subsequent run,
-58 model responses were received before two consecutive requests timed
-out. Neither ambiguous request was resent. An operational recovery attempt and its stopping
-rule are preserved. Before any validation or test observations, a
-completion-only amendment selects the longest contiguous prefix fully
-received and evaluated in every policy and block: seven proposals each,
-56 total. The two additional completed proposals in one block are
-preserved but excluded symmetrically from this balanced analysis.
-The reported follow-up is therefore smaller than the 96-proposal plan.
-It follows earlier exploratory studies whose results motivated the
-calibration and shared guidance; those earlier measurements are not
-pooled into this comparison.
+The planned 12-proposal runs received 58 model responses before
+unavailable responses interrupted generation. Before any validation or
+test observations, a completion-only rule retained the longest fully
+received prefix shared by every policy and block: seven proposals each,
+56 total. The two additional responses and all request records are
+preserved separately. Earlier exploratory studies informed calibration
+and guidance; their measurements are not pooled into this comparison.
+
+For the included 28 requests per policy, recorded input/output/reasoning
+token totals are 50,344/22,891/22,780 for independent proposals and
+86,501/26,145/32,128 for iterative evolution. Mean request latency is
+8.77\,s and 11.93\,s, respectively. The additional source and feedback
+in iterative prompts therefore incur greater model usage despite equal
+proposal counts. Receipt-level accounting is preserved in the artifact; service latency
+is separate from search time.
 
 After generation ends, four new validation seeds at the training
 parameters select among each policy/block's three training-best distinct
@@ -69,52 +70,81 @@ relationships, candidate outcomes and selections are retained in
 \texttt{experiments/hitl\_ablation/}.
 
 % Start the results with their table rather than leaving a heading at the page foot.
-\clearpage
-\subsection{Complete policy outcomes}
-Table~\ref{tab:hitl-blocks} gives the independent generation blocks.
-The primary paired mean difference is $+0.1188$, with two positive and
-two negative blocks. A descriptive two-sided sign-flip calculation over
-the four block differences gives 0.50; this small experiment does not
-establish statistically robust policy superiority. The execution seeds
-within a selected program are not independent generation replications.
-A sensitivity calculation excluding the block affected by the later
-unavailable responses gives a mean difference of $+0.0819$. All proposals
-included in the balanced comparison precede those unavailable responses.
+\subsection{Complete policy outcomes}\label{app:hitl-outcomes}
+Table~\ref{tab:hitl-blocks} reports the original test cohort and the
+32-seed repeat of the same validation-selected programs. Displayed values
+are rounded; differences use unrounded values. The new seeds
+were fixed before execution and did not change any program or selection.
+The original paired mean curve-area difference is $+0.1188$ (two positive
+blocks), versus $+0.0044$ in the repeat (one positive block). Descriptive
+two-sided sign-flip values over the four block differences are 0.50 and
+1.00. These calculations use four generation blocks; execution seeds
+within one program quantify its run-to-run variability. Excluding the
+block affected by later unavailable responses gives an original mean
+difference of $+0.0819$. All included proposals precede those responses.
 
 \begin{table}[!htbp]
 \centering\small
-\begin{tabular}{crrrr}
+\begin{tabular}{crrrrrr}
 \toprule
-& \multicolumn{2}{c}{Successes /16} & \multicolumn{2}{c}{Mean curve area}\\
-\cmidrule(lr){2-3}\cmidrule(lr){4-5}
-Block & Independent & Iterative & Independent & Iterative\\
+& \multicolumn{2}{c}{Original /16} & \multicolumn{2}{c}{Repeat /64}
+& \multicolumn{2}{c}{Curve-area difference}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Block & Independent & Iterative & Independent & Iterative & Original & Repeat\\
 \midrule
-1 & 4 & 3 & 0.180 & 0.066\\
-2 & 4 & 10 & 0.177 & 0.407\\
-3 & 5 & 16 & 0.202 & 0.596\\
-4 & 8 & 9 & 0.398 & 0.362\\
+1 & 4 & 3 & 38 & 7 & $-0.114$ & $-0.201$ \\
+2 & 4 & 10 & 27 & 26 & $+0.229$ & $-0.014$ \\
+3 & 5 & 16 & 34 & 49 & $+0.395$ & $+0.287$ \\
+4 & 8 & 9 & 36 & 33 & $-0.036$ & $-0.055$ \\
 \midrule
-Total/mean & 21/64 & 38/64 & 0.239 & 0.358\\
+Total/mean & 21/64 & 38/64 & 135/256 & 115/256 & $+0.119$ & $+0.004$\\
 \bottomrule
 \end{tabular}
-\caption{Held-out outcomes by generation block.}
-\label{tab:hitl-blocks}
+\caption{Test outcomes by generation block.}\label{tab:hitl-blocks}
 \end{table}
 
-Figure~\ref{fig:ablation-comparison} gives the full success curves.
-The initial program succeeds in 0/8
-executions at each target. Counting a miss at the full allowance, mean
-charged evaluation cost is 7,609.3 for independent proposals and 6,421.5
-for iterative evolution. Mean measured execution times are 1.86\,s and
-1.53\,s, respectively, on the recorded machine; small timing differences
-are subject to machine and execution-order effects. Helper computations
-remain outside the evaluator-call count but inside the common resource
-limits. Each target/seed runs in a separate macOS sandbox with 120/125\,s
-soft/hard CPU limits, 135\,s wall time and 1\,GiB resident memory. Every
-explicit or returned-candidate verification consumes the same call quota.
+Iterative selections are proposals 2, 1, 3 and 1 in blocks 1--4,
+respectively (proposal numbers start at one). Thus two selections are
+first proposals and two incorporate feedback from earlier generated
+programs. The classical $L$-side control uses the shared proposed
+representation with the preserved annealing objective, moves and
+restart policy; its source is unchanged from calibration.
+
+The repeat covers 32 new seeds at each of $n=9,11,13,15$, at 10,000
+calls for the first two lengths and 30,000 for the latter two. It
+includes all eight selected programs, both fixed controls, and the
+first two programs in the block-3 iterative lineage. Together with
+24 executions of the classical control on the original test and
+longer-code seeds, this gives 1,560 executions and 545 independently
+verified successful code records, with no process errors. All records,
+program hashes and the frozen protocol are in
+\texttt{experiments/hitl\_followup/}.
+
+At $n=9,11$, the repeat gives 96/128 and 39/128 successes for independent
+proposals, versus 81/128 and 34/128 for iterative evolution. The classical
+control gives 26/32 and 10/32, and the initial program 1/32 and 0/32.
+Figure~\ref{fig:hitl-followup} shows the longer-code curves; the artifact
+also retains the complete four-length plot.
+
+\input{fig_hitl_followup}
+\FloatBarrier
+
+Helper computations remain outside the evaluator-call count but inside
+the common resource limits. Each target/seed runs in a separate sandbox
+with 120/125\,s soft/hard CPU limits, 135\,s wall time and 1\,GiB resident
+memory. Every explicit or returned-candidate verification consumes the
+same call quota. Execution times and model request latencies are
+recorded separately in the artifact.
+
+The artifact audit reconstructs the original proposal inputs and parent
+relationships, checks validation selections and independently verifies
+saved code records. The complete inputs and replay commands are available
+in the \artifactlink{}.
+
+\input{app_replication}
 
 \subsection{Preserved program and generalization to longer codes}\label{app:hitl-program}
-The program selected in block 3 is
+In the original four-block cohort, the program selected in block 3 is
 \texttt{b02\_evolution\_g02}, whose preserved parent is
 \texttt{b02\_evolution\_g01}; generation indices start at zero.
 The parent already searches $L$ and penalizes distance shortfall.
@@ -125,8 +155,7 @@ length, and restores a saved local best with a capped temperature
 adjustment after stagnation. Tinted expressions in Algorithm~\ref{alg:ablation-search} mark these edits
 relative to this immediate parent; the inherited $L$-side representation
 and distance-shortfall term are not tinted. These changes are observed
-in the preserved source, rather than inferred from performance alone. This comparison does not isolate
-their individual causal effects.
+in the preserved source, rather than inferred from performance alone. The repeat below measures the combined changes in this final step.
 
 \input{alg_ablation}
 
@@ -155,26 +184,32 @@ increase. The source and its budget behavior remain unchanged.
 
 % Keep the numerical outcomes together below the algorithm.
 \newpage
-The child succeeds in 100\% (16/16) of primary-test executions and
-75.0\% (3/4) at each longer-length target. Its successful $n=13$ executions take
-3,260, 5,263 and 9,755 calls; at $n=15$ they take 7,125, 15,789 and
-16,756. The two remaining executions exhaust 30,000 calls. The other
-three iterative selections and all four independent selections record
-zero transfer successes, giving policy totals of 6/32 and 0/32.
-All eight selected programs implement sustained $L$-side repair; none
-computes a full private distance test and invokes the common evaluator
-only on an already filtered solution. Two iterative selections are
-first proposals, so their implementations do not require feedback
-from earlier generated candidates.
+The original child achieves 16/16 primary-test successes and 3/4 at
+each longer length. Its successful longer-code executions use
+3,260--9,755 calls at $n=13$ and 7,125--16,756 at $n=15$.
+Table~\ref{tab:hitl-lineage} reports every preserved lineage stage on
+the 32 new seeds; the original validation selection is unchanged.
+Between the first proposal and parent, the only functional search change
+is the distance-shortfall penalty. Between parent and selected child,
+several policies change together. This lineage was chosen for diagnosis
+after its original performance, so the table describes that program's
+development separately from the four-block policy comparison.
 
-\subsection{Offline verification}
-The offline audit reconstructs all 56 included proposal inputs and
-parent relationships, checks the validation selections, and independently
-verifies 235 saved code records. These files include repeated outcomes
-across calibration, training, validation and test runs, rather than 235
-distinct parameter sets. Failed and excluded attempts and both unavailable
-model responses remain in the artifact. The recorded environment uses
-Python 3.12.12 and NumPy 2.5.1; the \artifactlink{} provides the audit and
-fixed-program replay commands. Model program bytes, numerical observations
-and generator matrices are preserved, while machine-local paths and opaque
-provider identifiers are omitted from the reviewer bundle.
+\begin{table}[!htbp]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Program & $n=9$ & $n=11$ & $n=13$ & $n=15$\\
+\midrule
+First proposal & 27/32 & 19/32 & 13/32 & 3/32\\
+Parent: add distance penalty & 28/32 & 23/32 & 29/32 & 28/32\\
+Validation-selected child & 30/32 & 19/32 & 30/32 & 20/32\\
+\bottomrule
+\end{tabular}
+\caption{Preserved lineage on fresh execution seeds.}\label{tab:hitl-lineage}
+\end{table}
+
+All eight selected programs implement sustained $L$-side repair. Each
+passes candidate matrices to the common evaluator throughout search;
+none substitutes a private distance test that filters solutions before
+their first charged evaluation.

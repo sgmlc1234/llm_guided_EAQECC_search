@@ -1,0 +1,18 @@
+{
+  "path": "n13.json",
+  "sha256": "ba8500691115226cdbf27c16eb49566a537fdb0ad321b9879f2a6e57d3fa3315",
+  "parameters_n_k_d_c": [
+    13,
+    1,
+    12,
+    10
+  ],
+  "rank_S": 22,
+  "dim_dual": 4,
+  "radical_dimension": 2,
+  "logical_weight_distribution": {
+    "12": 8,
+    "13": 4
+  },
+  "status": "PASS"
+}

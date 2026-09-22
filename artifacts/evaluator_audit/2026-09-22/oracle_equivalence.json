@@ -1,0 +1,1181 @@
+{
+  "status": "PASS",
+  "cases": 54,
+  "seed": 20260922,
+  "scope": "Differential check across all nonzero ranks for n=2..7. Not a proof or timing benchmark.",
+  "sources": {
+    "scripts/alphaevolve_eaqecc/helpers_eaqecc.py": "24c62cac81888de8a26f2f4b559d50431a71cef15d139b34c5b5a9def8dde4a9",
+    "experiments/hitl_ablation/runtime/controlled_helpers.py": "286c5bacb721edddacddccb7bec4eb5a7a250bf336677533a54cdd01866a2abe"
+  },
+  "records": [
+    {
+      "n": 2,
+      "rank": 1,
+      "generators": [
+        11
+      ],
+      "result": {
+        "n": 2,
+        "s": 1,
+        "c": 0,
+        "iso": 1,
+        "k": 1,
+        "d": 1,
+        "offending": 0,
+        "logical_count": 6
+      }
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "generators": [
+        15,
+        1
+      ],
+      "result": {
+        "n": 2,
+        "s": 2,
+        "c": 1,
+        "iso": 0,
+        "k": 1,
+        "d": 1,
+        "offending": 0,
+        "logical_count": 3
+      }
+    },
+    {
+      "n": 2,
+      "rank": 3,
+      "generators": [
+        14,
+        6,
+        1
+      ],
+      "result": {
+        "n": 2,
+        "s": 3,
+        "c": 1,
+        "iso": 1,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 2,
+      "rank": 4,
+      "generators": [
+        10,
+        7,
+        2,
+        1
+      ],
+      "result": {
+        "n": 2,
+        "s": 4,
+        "c": 2,
+        "iso": 0,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 3,
+      "rank": 1,
+      "generators": [
+        47
+      ],
+      "result": {
+        "n": 3,
+        "s": 1,
+        "c": 0,
+        "iso": 1,
+        "k": 2,
+        "d": 1,
+        "offending": 3,
+        "logical_count": 30
+      }
+    },
+    {
+      "n": 3,
+      "rank": 2,
+      "generators": [
+        46,
+        30
+      ],
+      "result": {
+        "n": 3,
+        "s": 2,
+        "c": 1,
+        "iso": 0,
+        "k": 2,
+        "d": 1,
+        "offending": 2,
+        "logical_count": 15
+      }
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "generators": [
+        55,
+        18,
+        13
+      ],
+      "result": {
+        "n": 3,
+        "s": 3,
+        "c": 1,
+        "iso": 1,
+        "k": 1,
+        "d": 2,
+        "offending": 0,
+        "logical_count": 6
+      }
+    },
+    {
+      "n": 3,
+      "rank": 4,
+      "generators": [
+        45,
+        18,
+        10,
+        6
+      ],
+      "result": {
+        "n": 3,
+        "s": 4,
+        "c": 1,
+        "iso": 2,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 3,
+      "rank": 5,
+      "generators": [
+        38,
+        19,
+        12,
+        5,
+        3
+      ],
+      "result": {
+        "n": 3,
+        "s": 5,
+        "c": 2,
+        "iso": 1,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 3,
+      "rank": 6,
+      "generators": [
+        35,
+        25,
+        15,
+        5,
+        3,
+        1
+      ],
+      "result": {
+        "n": 3,
+        "s": 6,
+        "c": 3,
+        "iso": 0,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 4,
+      "rank": 1,
+      "generators": [
+        164
+      ],
+      "result": {
+        "n": 4,
+        "s": 1,
+        "c": 0,
+        "iso": 1,
+        "k": 3,
+        "d": 1,
+        "offending": 30,
+        "logical_count": 126
+      }
+    },
+    {
+      "n": 4,
+      "rank": 2,
+      "generators": [
+        87,
+        5
+      ],
+      "result": {
+        "n": 4,
+        "s": 2,
+        "c": 1,
+        "iso": 0,
+        "k": 3,
+        "d": 1,
+        "offending": 16,
+        "logical_count": 63
+      }
+    },
+    {
+      "n": 4,
+      "rank": 3,
+      "generators": [
+        254,
+        33,
+        16
+      ],
+      "result": {
+        "n": 4,
+        "s": 3,
+        "c": 1,
+        "iso": 1,
+        "k": 2,
+        "d": 1,
+        "offending": 12,
+        "logical_count": 30
+      }
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "generators": [
+        182,
+        118,
+        29,
+        14
+      ],
+      "result": {
+        "n": 4,
+        "s": 4,
+        "c": 2,
+        "iso": 0,
+        "k": 2,
+        "d": 2,
+        "offending": 5,
+        "logical_count": 15
+      }
+    },
+    {
+      "n": 4,
+      "rank": 5,
+      "generators": [
+        133,
+        117,
+        44,
+        10,
+        1
+      ],
+      "result": {
+        "n": 4,
+        "s": 5,
+        "c": 2,
+        "iso": 1,
+        "k": 1,
+        "d": 2,
+        "offending": 1,
+        "logical_count": 6
+      }
+    },
+    {
+      "n": 4,
+      "rank": 6,
+      "generators": [
+        199,
+        118,
+        35,
+        21,
+        7,
+        2
+      ],
+      "result": {
+        "n": 4,
+        "s": 6,
+        "c": 3,
+        "iso": 0,
+        "k": 1,
+        "d": 1,
+        "offending": 1,
+        "logical_count": 3
+      }
+    },
+    {
+      "n": 4,
+      "rank": 7,
+      "generators": [
+        210,
+        100,
+        37,
+        18,
+        10,
+        4,
+        1
+      ],
+      "result": {
+        "n": 4,
+        "s": 7,
+        "c": 3,
+        "iso": 1,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 4,
+      "rank": 8,
+      "generators": [
+        246,
+        96,
+        35,
+        22,
+        12,
+        5,
+        2,
+        1
+      ],
+      "result": {
+        "n": 4,
+        "s": 8,
+        "c": 4,
+        "iso": 0,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 5,
+      "rank": 1,
+      "generators": [
+        256
+      ],
+      "result": {
+        "n": 5,
+        "s": 1,
+        "c": 0,
+        "iso": 1,
+        "k": 4,
+        "d": 1,
+        "offending": 240,
+        "logical_count": 510
+      }
+    },
+    {
+      "n": 5,
+      "rank": 2,
+      "generators": [
+        270,
+        245
+      ],
+      "result": {
+        "n": 5,
+        "s": 2,
+        "c": 0,
+        "iso": 2,
+        "k": 3,
+        "d": 1,
+        "offending": 90,
+        "logical_count": 252
+      }
+    },
+    {
+      "n": 5,
+      "rank": 3,
+      "generators": [
+        712,
+        300,
+        113
+      ],
+      "result": {
+        "n": 5,
+        "s": 3,
+        "c": 1,
+        "iso": 1,
+        "k": 3,
+        "d": 1,
+        "offending": 41,
+        "logical_count": 126
+      }
+    },
+    {
+      "n": 5,
+      "rank": 4,
+      "generators": [
+        620,
+        446,
+        82,
+        41
+      ],
+      "result": {
+        "n": 5,
+        "s": 4,
+        "c": 2,
+        "iso": 0,
+        "k": 3,
+        "d": 2,
+        "offending": 24,
+        "logical_count": 63
+      }
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "generators": [
+        711,
+        378,
+        53,
+        14,
+        5
+      ],
+      "result": {
+        "n": 5,
+        "s": 5,
+        "c": 2,
+        "iso": 1,
+        "k": 2,
+        "d": 2,
+        "offending": 12,
+        "logical_count": 30
+      }
+    },
+    {
+      "n": 5,
+      "rank": 6,
+      "generators": [
+        736,
+        304,
+        128,
+        104,
+        11,
+        6
+      ],
+      "result": {
+        "n": 5,
+        "s": 6,
+        "c": 2,
+        "iso": 2,
+        "k": 1,
+        "d": 2,
+        "offending": 3,
+        "logical_count": 12
+      }
+    },
+    {
+      "n": 5,
+      "rank": 7,
+      "generators": [
+        1013,
+        265,
+        203,
+        91,
+        45,
+        18,
+        15
+      ],
+      "result": {
+        "n": 5,
+        "s": 7,
+        "c": 2,
+        "iso": 3,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 5,
+      "rank": 8,
+      "generators": [
+        586,
+        281,
+        129,
+        116,
+        40,
+        28,
+        4,
+        3
+      ],
+      "result": {
+        "n": 5,
+        "s": 8,
+        "c": 4,
+        "iso": 0,
+        "k": 1,
+        "d": 3,
+        "offending": 2,
+        "logical_count": 3
+      }
+    },
+    {
+      "n": 5,
+      "rank": 9,
+      "generators": [
+        636,
+        281,
+        190,
+        72,
+        39,
+        16,
+        12,
+        5,
+        3
+      ],
+      "result": {
+        "n": 5,
+        "s": 9,
+        "c": 4,
+        "iso": 1,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 5,
+      "rank": 10,
+      "generators": [
+        780,
+        263,
+        147,
+        64,
+        41,
+        27,
+        10,
+        5,
+        3,
+        1
+      ],
+      "result": {
+        "n": 5,
+        "s": 10,
+        "c": 5,
+        "iso": 0,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 6,
+      "rank": 1,
+      "generators": [
+        237
+      ],
+      "result": {
+        "n": 6,
+        "s": 1,
+        "c": 0,
+        "iso": 1,
+        "k": 5,
+        "d": 1,
+        "offending": 963,
+        "logical_count": 2046
+      }
+    },
+    {
+      "n": 6,
+      "rank": 2,
+      "generators": [
+        3100,
+        281
+      ],
+      "result": {
+        "n": 6,
+        "s": 2,
+        "c": 1,
+        "iso": 0,
+        "k": 5,
+        "d": 1,
+        "offending": 480,
+        "logical_count": 1023
+      }
+    },
+    {
+      "n": 6,
+      "rank": 3,
+      "generators": [
+        2190,
+        264,
+        66
+      ],
+      "result": {
+        "n": 6,
+        "s": 3,
+        "c": 1,
+        "iso": 1,
+        "k": 4,
+        "d": 1,
+        "offending": 233,
+        "logical_count": 510
+      }
+    },
+    {
+      "n": 6,
+      "rank": 4,
+      "generators": [
+        2088,
+        1206,
+        508,
+        148
+      ],
+      "result": {
+        "n": 6,
+        "s": 4,
+        "c": 2,
+        "iso": 0,
+        "k": 4,
+        "d": 1,
+        "offending": 111,
+        "logical_count": 255
+      }
+    },
+    {
+      "n": 6,
+      "rank": 5,
+      "generators": [
+        2103,
+        1037,
+        286,
+        208,
+        17
+      ],
+      "result": {
+        "n": 6,
+        "s": 5,
+        "c": 2,
+        "iso": 1,
+        "k": 3,
+        "d": 1,
+        "offending": 54,
+        "logical_count": 126
+      }
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "generators": [
+        3255,
+        1753,
+        980,
+        295,
+        228,
+        125
+      ],
+      "result": {
+        "n": 6,
+        "s": 6,
+        "c": 2,
+        "iso": 2,
+        "k": 2,
+        "d": 2,
+        "offending": 31,
+        "logical_count": 60
+      }
+    },
+    {
+      "n": 6,
+      "rank": 7,
+      "generators": [
+        3099,
+        1633,
+        545,
+        260,
+        223,
+        76,
+        61
+      ],
+      "result": {
+        "n": 6,
+        "s": 7,
+        "c": 3,
+        "iso": 1,
+        "k": 2,
+        "d": 2,
+        "offending": 10,
+        "logical_count": 30
+      }
+    },
+    {
+      "n": 6,
+      "rank": 8,
+      "generators": [
+        2055,
+        1902,
+        809,
+        267,
+        175,
+        72,
+        37,
+        28
+      ],
+      "result": {
+        "n": 6,
+        "s": 8,
+        "c": 4,
+        "iso": 0,
+        "k": 2,
+        "d": 3,
+        "offending": 6,
+        "logical_count": 15
+      }
+    },
+    {
+      "n": 6,
+      "rank": 9,
+      "generators": [
+        3125,
+        1651,
+        579,
+        288,
+        227,
+        68,
+        54,
+        16,
+        11
+      ],
+      "result": {
+        "n": 6,
+        "s": 9,
+        "c": 4,
+        "iso": 1,
+        "k": 1,
+        "d": 4,
+        "offending": 2,
+        "logical_count": 6
+      }
+    },
+    {
+      "n": 6,
+      "rank": 10,
+      "generators": [
+        3210,
+        1304,
+        610,
+        422,
+        146,
+        115,
+        41,
+        17,
+        7,
+        3
+      ],
+      "result": {
+        "n": 6,
+        "s": 10,
+        "c": 4,
+        "iso": 2,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 6,
+      "rank": 11,
+      "generators": [
+        3211,
+        1584,
+        561,
+        323,
+        210,
+        70,
+        32,
+        23,
+        11,
+        4,
+        3
+      ],
+      "result": {
+        "n": 6,
+        "s": 11,
+        "c": 5,
+        "iso": 1,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 6,
+      "rank": 12,
+      "generators": [
+        2778,
+        1508,
+        536,
+        432,
+        129,
+        101,
+        48,
+        20,
+        9,
+        4,
+        2,
+        1
+      ],
+      "result": {
+        "n": 6,
+        "s": 12,
+        "c": 6,
+        "iso": 0,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 7,
+      "rank": 1,
+      "generators": [
+        4369
+      ],
+      "result": {
+        "n": 7,
+        "s": 1,
+        "c": 0,
+        "iso": 1,
+        "k": 6,
+        "d": 1,
+        "offending": 4572,
+        "logical_count": 8190
+      }
+    },
+    {
+      "n": 7,
+      "rank": 2,
+      "generators": [
+        11906,
+        4622
+      ],
+      "result": {
+        "n": 7,
+        "s": 2,
+        "c": 1,
+        "iso": 0,
+        "k": 6,
+        "d": 1,
+        "offending": 2292,
+        "logical_count": 4095
+      }
+    },
+    {
+      "n": 7,
+      "rank": 3,
+      "generators": [
+        8877,
+        4173,
+        3488
+      ],
+      "result": {
+        "n": 7,
+        "s": 3,
+        "c": 1,
+        "iso": 1,
+        "k": 5,
+        "d": 1,
+        "offending": 1159,
+        "logical_count": 2046
+      }
+    },
+    {
+      "n": 7,
+      "rank": 4,
+      "generators": [
+        9273,
+        7407,
+        2350,
+        827
+      ],
+      "result": {
+        "n": 7,
+        "s": 4,
+        "c": 1,
+        "iso": 2,
+        "k": 4,
+        "d": 1,
+        "offending": 568,
+        "logical_count": 1020
+      }
+    },
+    {
+      "n": 7,
+      "rank": 5,
+      "generators": [
+        11787,
+        7199,
+        3249,
+        589,
+        37
+      ],
+      "result": {
+        "n": 7,
+        "s": 5,
+        "c": 2,
+        "iso": 1,
+        "k": 4,
+        "d": 1,
+        "offending": 288,
+        "logical_count": 510
+      }
+    },
+    {
+      "n": 7,
+      "rank": 6,
+      "generators": [
+        12119,
+        7379,
+        3766,
+        1658,
+        689,
+        382
+      ],
+      "result": {
+        "n": 7,
+        "s": 6,
+        "c": 3,
+        "iso": 0,
+        "k": 4,
+        "d": 2,
+        "offending": 139,
+        "logical_count": 255
+      }
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "generators": [
+        9513,
+        4726,
+        3340,
+        1163,
+        681,
+        272,
+        10
+      ],
+      "result": {
+        "n": 7,
+        "s": 7,
+        "c": 3,
+        "iso": 1,
+        "k": 3,
+        "d": 2,
+        "offending": 68,
+        "logical_count": 126
+      }
+    },
+    {
+      "n": 7,
+      "rank": 8,
+      "generators": [
+        8771,
+        4841,
+        2709,
+        1124,
+        516,
+        367,
+        91,
+        61
+      ],
+      "result": {
+        "n": 7,
+        "s": 8,
+        "c": 4,
+        "iso": 0,
+        "k": 3,
+        "d": 3,
+        "offending": 32,
+        "logical_count": 63
+      }
+    },
+    {
+      "n": 7,
+      "rank": 9,
+      "generators": [
+        13816,
+        7729,
+        2406,
+        1122,
+        831,
+        289,
+        147,
+        22,
+        12
+      ],
+      "result": {
+        "n": 7,
+        "s": 9,
+        "c": 4,
+        "iso": 1,
+        "k": 2,
+        "d": 2,
+        "offending": 17,
+        "logical_count": 30
+      }
+    },
+    {
+      "n": 7,
+      "rank": 10,
+      "generators": [
+        8755,
+        8138,
+        2438,
+        1052,
+        641,
+        280,
+        138,
+        77,
+        58,
+        4
+      ],
+      "result": {
+        "n": 7,
+        "s": 10,
+        "c": 4,
+        "iso": 2,
+        "k": 1,
+        "d": 3,
+        "offending": 5,
+        "logical_count": 12
+      }
+    },
+    {
+      "n": 7,
+      "rank": 11,
+      "generators": [
+        13468,
+        4656,
+        3530,
+        1153,
+        902,
+        259,
+        209,
+        73,
+        42,
+        29,
+        4
+      ],
+      "result": {
+        "n": 7,
+        "s": 11,
+        "c": 5,
+        "iso": 1,
+        "k": 1,
+        "d": 3,
+        "offending": 4,
+        "logical_count": 6
+      }
+    },
+    {
+      "n": 7,
+      "rank": 12,
+      "generators": [
+        8616,
+        4112,
+        3720,
+        1442,
+        887,
+        256,
+        140,
+        98,
+        45,
+        29,
+        13,
+        5
+      ],
+      "result": {
+        "n": 7,
+        "s": 12,
+        "c": 6,
+        "iso": 0,
+        "k": 1,
+        "d": 3,
+        "offending": 3,
+        "logical_count": 3
+      }
+    },
+    {
+      "n": 7,
+      "rank": 13,
+      "generators": [
+        10341,
+        7341,
+        3223,
+        1123,
+        721,
+        290,
+        194,
+        71,
+        37,
+        24,
+        9,
+        6,
+        3
+      ],
+      "result": {
+        "n": 7,
+        "s": 13,
+        "c": 6,
+        "iso": 1,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    },
+    {
+      "n": 7,
+      "rank": 14,
+      "generators": [
+        8609,
+        4303,
+        3122,
+        1409,
+        668,
+        407,
+        162,
+        101,
+        32,
+        18,
+        14,
+        4,
+        3,
+        1
+      ],
+      "result": {
+        "n": 7,
+        "s": 14,
+        "c": 7,
+        "iso": 0,
+        "k": 0,
+        "d": null,
+        "offending": 0,
+        "logical_count": 0
+      }
+    }
+  ]
+}

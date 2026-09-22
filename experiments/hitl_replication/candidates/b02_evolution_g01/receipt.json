@@ -1,0 +1,25 @@
+{
+  "id": "b02_evolution_g01",
+  "elapsed_s": 10.778777122497559,
+  "model_version": "gemini-3.5-flash",
+  "response_id": "40OxasbuJemektwPn5CamAs",
+  "usage": {
+    "promptTokenCount": 2960,
+    "candidatesTokenCount": 905,
+    "totalTokenCount": 5214,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2960
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 905
+      }
+    ],
+    "thoughtsTokenCount": 1349
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Develop a Python search program for binary entanglement-assisted quantum codes.\nThis pipeline accepts research ideas from a human, uses model-generated programs\nand execution feedback to develop them, and verifies the resulting constructions.\nThis experiment asks whether iterative feedback helps turn a shared research idea\ninto an effective program. It reconstructs known feasible parameters; it does not\nclaim new discoveries.\n\nSHARED RESEARCH IDEA: Instead of maintaining and mutating a basis of S of rank\nn-k+c, consider maintaining and mutating a basis of its symplectic dual L of rank\nn+k-c throughout the search. For these training cells L has only four vectors.\nConvert each candidate L to S with E.nullspace([E._J(v,n) for v in L],2*n) when\ncalling the exact evaluator. Merely constructing L once and subsequently mutating\nS is different from searching in L throughout. This changes the representation\nand local neighborhood, not the set of possible codes. Decide how to implement\nand improve this idea using rank checks, signature penalties, mutations and\nrestarts. The same suggestion is provided to every proposal in both policies.\nNo successful witness, family formula or working L-side search code is supplied.\n\nDefine search(target, max_evals). E, np and rng are supplied. Target contains\nq=2,n,k,c,d and is read-only. Each target and seed runs in a separate sandbox.\nThere is NO controller initialization; all success must come from your program.\nUse while E.remaining. E.evaluate(gens) consumes one allowance even for invalid\ninputs. Integers encode bit 2*i=X, bit 2*i+1=Z. The result includes n,s,c,iso,k,d,\noffending,logical_count; malformed inputs or wrong signatures carry error.\nFor signature mismatches, numeric c/offending fields may still be useful for\nrepair; d can be None. A solution must have matching k,c and offending=0.\nThe controller stops immediately on a verified solution and retains the best\nvalid candidate otherwise. Return None, or return one generator list whose\nverification also consumes the SAME quota; no extra free evaluation is allowed.\n\nHelpers: E.gf2_basis, E.nullspace(rows,nbits), E._J(v,n), E.sform(a,b,n),\nE.random_stabilizer(n,s,rng), E.span_array, E.symplectic_weights.\nE.nullspace computes binary orthogonality; E._J swaps X and Z bits.\nE.incumbent and E.incumbent_parameters return copies of the best valid candidate\nand its measurements observed within this execution. Initially they are None.\nHelpers do not consume evaluator calls, but remain within CPU/memory limits.\n\nSelection prioritizes the mean normalized area under the success-versus-calls\ncurve: on success at call h with budget B, utility=1-h/B; on a miss it is zero.\nTie-breakers are mean success fraction, then mean clipped distance ratio.\nTraining feedback contains calls, success, distance and errors, not witness\nmatrices. Validation/test data are withheld throughout generation. The supplied\nstarting code is the current selected parent for this proposal. If a recent\nattempt is supplied, it may have been rejected; use its feedback accordingly.\n\nAllowed imports: math,itertools,numpy. Use rng, not an unseeded random source.\nModule-level code may contain imports, functions and docstrings only. No files,\nnetwork, processes, reflection, classes, global declarations or module attribute\nmutation. No time module. Use at most 20,000 source bytes and preferably <150\nlines. Each target has 120 CPU seconds soft,125 hard,135 wall,1 GiB RSS. Helper\nwork is included in these limits. Return JSON with one string field code holding\nthe complete source, without markdown or external dependencies.\n\nTraining targets:\n[{\"q\": 2, \"n\": 9, \"k\": 1, \"c\": 6, \"d\": 8}, {\"q\": 2, \"n\": 11, \"k\": 1, \"c\": 8, \"d\": 10}]\nStarting code:\n\"\"\"Refine the protected starting state, then use the same annealing heuristic.\"\"\"\n\nimport math\n\n\ndef search(target, max_evals):\n    n, s = target[\"n\"], target[\"n\"] - target[\"k\"] + target[\"c\"]\n\n    def objective(res):\n        if res.get(\"offending\") is None or res.get(\"c\") is None:\n            return 10**9\n        return 5000 * abs(res[\"c\"] - target[\"c\"]) + res[\"offending\"]\n\n    def random_pauli():\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\n        delta = 0\n        for q in qubits:\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\n        return delta\n\n    initial_state = E.incumbent\n    initial_measurement = E.incumbent_parameters\n    while E.remaining:\n        if initial_state is not None:\n            state = initial_state\n            cur = objective(initial_measurement)\n            initial_state = None\n        else:\n            state = list(E.random_stabilizer(n, s, rng))\n            cur = objective(E.evaluate(state))\n        temp, fails = 30.0, 0\n        while fails < 1500 and E.remaining:\n            temp = max(0.1, temp * 0.995)\n            candidate = list(state)\n            candidate[int(rng.integers(s))] ^= random_pauli()\n            if len(E.gf2_basis(candidate)) != s:\n                fails += 1\n                continue\n            new_obj = objective(E.evaluate(candidate))\n            delta = new_obj - cur\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\n                state, cur = candidate, new_obj\n                fails = 0 if delta < 0 else fails + 1\n            else:\n                fails += 1\n    # The trusted driver retains the best verified candidate from E.evaluate.\n    return None\n\nTraining feedback:\n{\"mean_utility\": 0.0, \"success_fraction\": 0.0, \"mean_distance_ratio\": 0.8375, \"errors\": 0, \"cases\": [{\"n\": 9, \"seed\": 915623956298162445, \"success\": false, \"calls\": 10000, \"distance\": 7, \"offending\": 2, \"error\": null, \"termination\": \"returned\"}, {\"n\": 9, \"seed\": 10359306715852221640, \"success\": false, \"calls\": 10000, \"distance\": 7, \"offending\": 3, \"error\": null, \"termination\": \"returned\"}, {\"n\": 11, \"seed\": 3458227643274499324, \"success\": false, \"calls\": 10000, \"distance\": 8, \"offending\": 5, \"error\": null, \"termination\": \"returned\"}, {\"n\": 11, \"seed\": 13605866955483619266, \"success\": false, \"calls\": 10000, \"distance\": 8, \"offending\": 4, \"error\": null, \"termination\": \"returned\"}]}"
+        }
+      ]
+    }
+  ],
+  "generationConfig": {
+    "maxOutputTokens": 8192,
+    "candidateCount": 1,
+    "thinkingConfig": {
+      "thinkingLevel": "LOW"
+    },
+    "seed": 2026092401,
+    "responseMimeType": "application/json",
+    "responseSchema": {
+      "type": "OBJECT",
+      "properties": {
+        "code": {
+          "type": "STRING"
+        }
+      },
+      "required": [
+        "code"
+      ]
+    }
+  },
+  "labels": {
+    "experiment": "eaqecc-hitl-v4",
+    "arm": "independent"
+  }
+}

@@ -47,3 +47,10 @@ artifacts/sat_sweep/
 
 # Local Lean dependency/build caches; certificates and lockfiles remain tracked.
 .lake/
+
+# Private operational access notes
+/notes/private/
+
+# Public records supporting the revised controlled-study results.
+!/experiments/hitl_followup/
+!/experiments/hitl_replication/

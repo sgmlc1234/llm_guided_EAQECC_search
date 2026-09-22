@@ -1,0 +1,202 @@
+Cloning into '<verification-root>/.lake/packages/repl'...
+done.
+Note: switching to '1d17a15a60811e58edfbf73e13a114537e999a41'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 1d17a15 chore: bump toolchain to v4.29.0-rc6 (#150)
+Cloning into '<verification-root>/.lake/packages/mathlib'...
+done.
+Note: switching to '1f3cdaa7a7f82a2e521d285b11e261110e1e1962'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files:  92% (7796/8470)Updating files:  93% (7878/8470)Updating files:  94% (7962/8470)Updating files:  95% (8047/8470)Updating files:  96% (8132/8470)Updating files:  97% (8216/8470)Updating files:  98% (8301/8470)Updating files:  99% (8386/8470)Updating files: 100% (8470/8470)Updating files: 100% (8470/8470), done.
+Previous HEAD position was 1f3cdaa7a7 chore(AlgebraicTopology): cleaning up ExtraDegeneracy.lean (#36857)
+HEAD is now at 1ea3462986 chore: rm_set_option.py (#37066)
+Cloning into '<verification-root>/.lake/packages/plausible'...
+done.
+Note: switching to 'e84e3e16aea6b72cc5d311ca1bb25caad417e162'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at e84e3e1 Merge pull request #68 from leanprover-community/lean-pr-testing-12325
+Cloning into '<verification-root>/.lake/packages/LeanSearchClient'...
+done.
+Note: switching to 'c5d5b8fe6e5158def25cd28eb94e4141ad97c843'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at c5d5b8f fix typo in usage: "woould" -> "would" (#31)
+Cloning into '<verification-root>/.lake/packages/importGraph'...
+done.
+Note: switching to 'f207d9fcf0cef00ba79962a33ef156061914d9c7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at f207d9f chore: bump toolchain to v4.29.0-rc6 (#110)
+Cloning into '<verification-root>/.lake/packages/proofwidgets'...
+done.
+Note: switching to '2e58165a9dcdca9837b666528f974299ee1a51cc'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 2e58165 chore: bump toolchain to v4.29.0-rc6 (#162)
+Cloning into '<verification-root>/.lake/packages/aesop'...
+done.
+Note: switching to 'c3361708f266893de5d1769192b60d4b1831f2bb'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at c336170 chore: bump toolchain to v4.29.0-rc6 (#316)
+Cloning into '<verification-root>/.lake/packages/Qq'...
+done.
+Note: switching to '221e8088e3a066b8676dc471ff10638cf1c10835'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 221e808 chore: bump toolchain to v4.29.0-rc6 (#133)
+Cloning into '<verification-root>/.lake/packages/batteries'...
+done.
+Note: switching to '77a5160a74772214ef37caba2847cfe9ab600285'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 77a5160a feat: add linter.simpNF.respectTransparency option (#1720)
+Cloning into '<verification-root>/.lake/packages/Cli'...
+done.
+Note: switching to '3de531c1135f5e3a01f3ac04830996fda476b28e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 3de531c chore: bump toolchain to v4.29.0-rc6 (#75)

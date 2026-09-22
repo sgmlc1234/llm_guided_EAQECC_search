@@ -1,0 +1,29 @@
+{
+  "status": "REVIEWED",
+  "programs": {
+    "b00_independent_g01": "058f6df2f838bcc86b1308ad6f61741c913136e4f2de769c67c7ef838f32c499",
+    "b00_evolution_g06": "3da8b4a6f43578892342bf535508565053e732c578e39ccd8fd4708abd3629f5",
+    "b01_independent_g04": "b017db14178e046ec407818036e4d4b1b25914c36f957f8530cc5163fba1e529",
+    "b01_evolution_g02": "2734474b1ca82d991cd1161072c71d51014e06dcf3450a79ad4a625b1d4a2c6c",
+    "b02_independent_g03": "62ba35ebbfbbc4627e4dd9367d8c432ac50efd152d273fc98895e7c5a3b6fef7",
+    "b02_evolution_g02": "8837e0ca1e6009f6a54b3d4011fb1ab2421ded81d8802ed639c878ceaba448ce",
+    "b03_independent_g04": "a50e0f80b4c3043f0fdd87c690c00fb9a42807d13888ac9ddb964c38f55bd6f1",
+    "b03_evolution_g06": "a3ca4cccf5536abd27778bc71932280d3716a36f30667c02bcd55f13e93adb77",
+    "b04_independent_g04": "ef20516e3eeb44440661890ae64840b81e868a6f486d42e4f940b4f435648fae",
+    "b04_evolution_g05": "605fb053e5a3f5157adf568e4cf5be34e3a6b1787cdd5f27d4732f7497078c8f",
+    "b05_independent_g00": "d76d72013c06b2c8ea4448a72927a9d6f04b112308afa449ccf0381196d13664",
+    "b05_evolution_g05": "5561a2fdfdd9a7af3d8f3091412149b7f3e36e40376cd0480652888cf3351b22",
+    "b06_independent_g02": "1e07f5ef4bbae597b31932e4cd55c9d6aa36d2e19913f1140292f01b9aafa8e7",
+    "b06_evolution_g02": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+    "b07_independent_g02": "bab0864801a250ccfbc5f74aed8f725e6f8343ad67a0d48cd14838a0592da6a4",
+    "b07_evolution_g05": "f48c68638382566ad585001d90e1f9574090c4ed21689736e1e10567e567ed07"
+  },
+  "findings": [
+    "All 16 sources maintain and mutate L and convert it to S for the charged exact evaluator.",
+    "No selected source enumerates logical weights or calls a private distance evaluator.",
+    "The only E helper calls are evaluate, nullspace, _J and gf2_basis.",
+    "Incumbent access before the first search evaluation receives None because protected initialization is disabled.",
+    "b05_evolution_g05 changes the basis without evaluating the unchanged subspace; this is not a hidden candidate-distance test.",
+    "Sources are preserved without repairs, including ineffective or redundant search operations."
+  ]
+}

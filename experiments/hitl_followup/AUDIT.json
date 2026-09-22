@@ -1,0 +1,11 @@
+{
+  "state": "PASS",
+  "runs": 1560,
+  "independently_verified_successes": 545,
+  "execution_errors": [],
+  "inputs_unchanged": true,
+  "protocol_unchanged": true,
+  "allocated_calls": 31120000,
+  "observed_calls": 26337133,
+  "scope": "All generated codes verified in the runner with the independent bit-matrix implementation; this audit validates its saved receipts and hashes."
+}

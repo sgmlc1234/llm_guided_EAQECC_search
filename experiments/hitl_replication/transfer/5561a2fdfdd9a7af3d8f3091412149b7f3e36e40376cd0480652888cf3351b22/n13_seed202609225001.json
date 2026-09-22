@@ -1,0 +1,102 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "101bd1981ef49b638fbc49979c98977f297bd229b59052c603c4eea84accbf11",
+  "code_sha256": "5561a2fdfdd9a7af3d8f3091412149b7f3e36e40376cd0480652888cf3351b22",
+  "mean_closed": 1.0,
+  "mean_distance_ratio": 1.0,
+  "score": 1.001,
+  "runs": [
+    {
+      "seed": 202609225001,
+      "closed": 1,
+      "distance_ratio": 1.0,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 13,
+            "k": 1,
+            "c": 10,
+            "d": 12
+          },
+          "seed": 6761923861532250453,
+          "allocated_evals": 30000,
+          "n_evals": 27897,
+          "nullspace_calls": 27897,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 27897,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 10475,
+          "final_verifications": 0,
+          "termination": "solved",
+          "error": null,
+          "unused_evals": 2103,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 13,
+            "s": 22,
+            "c": 10,
+            "iso": 2,
+            "k": 1,
+            "d": 12,
+            "offending": 0,
+            "logical_count": 12
+          },
+          "generators": [
+            16777217,
+            54525954,
+            37748740,
+            16777224,
+            37748752,
+            16793632,
+            54526016,
+            16777344,
+            16777472,
+            37749248,
+            54526976,
+            16779264,
+            37752832,
+            54534144,
+            37781504,
+            16842752,
+            54657024,
+            38010880,
+            55050240,
+            38797312,
+            18874368,
+            25165824
+          ],
+          "closed": true,
+          "distance_ratio": 1.0,
+          "found_phase": "search",
+          "elapsed_s": 12.815948291914538,
+          "target_sha256": "8aa832bda36274f2c7ce571689a54f5e1bc2f1e8359add0cc9db2d2aca50c6f3",
+          "code_sha256": "5561a2fdfdd9a7af3d8f3091412149b7f3e36e40376cd0480652888cf3351b22",
+          "id": 0,
+          "independent_check": {
+            "path": "artifact/transfer/5561a2fdfdd9a7af3d8f3091412149b7f3e36e40376cd0480652888cf3351b22/n13_seed202609225001.witness.json",
+            "sha256": "a81694ba374e7e983a64ad2bd24bc02257a6f06b579ed155c18f3d33e27faaf9",
+            "parameters_n_k_d_c": [
+              13,
+              1,
+              12,
+              10
+            ],
+            "rank_S": 22,
+            "dim_dual": 4,
+            "radical_dimension": 2,
+            "logical_weight_distribution": {
+              "12": 8,
+              "13": 4
+            },
+            "status": "PASS"
+          }
+        }
+      ]
+    }
+  ]
+}

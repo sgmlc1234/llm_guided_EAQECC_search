@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n = target[\\\"n\\\"]\\n    k = target[\\\"k\\\"]\\n    target_c = target[\\\"c\\\"]\\n    target_d = target[\\\"d\\\"]\\n    s_L = n + k - target_c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        val = 5000 * abs(res[\\\"c\\\"] - target_c) + res[\\\"offending\\\"]\\n        if res.get(\\\"d\\\") is not None:\\n            val += 100 * max(0, target_d - res[\\\"d\\\"])\\n        return val\\n\\n    def random_pauli():\\n        # Often make 1-qubit mutations to preserve locality, occasionally 2-qubit\\n        num_qubits = 1 if rng.random() < 0.7 else 2\\n        qubits = rng.choice(n, size=num_qubits, replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_random_L():\\n        while True:\\n            L = [int(rng.integers(1, 1 << (2 * n))) for _ in range(s_L)]\\n            if len(E.gf2_basis(L)) == s_L:\\n                return L\\n\\n    L = get_random_L()\\n    S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n    cur = objective(E.evaluate(S))\\n    \\n    best_L = list(L)\\n    best_obj = cur\\n    \\n    temp = 30.0\\n    fails = 0\\n\\n    while E.remaining:\\n        temp = max(0.1, temp * 0.995)\\n        candidate_L = list(L)\\n        idx = int(rng.integers(s_L))\\n        candidate_L[idx] ^= random_pauli()\\n        \\n        if len(E.gf2_basis(candidate_L)) != s_L:\\n            fails += 1\\n            if fails > 300:\\n                # Restart from best or random\\n                if rng.random() < 0.5:\\n                    L = list(best_L)\\n                    # perturb best\\n                    for _ in range(2):\\n                        L[int(rng.integers(s_L))] ^= random_pauli()\\n                else:\\n                    L = get_random_L()\\n                S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n                cur = objective(E.evaluate(S))\\n                fails = 0\\n            continue\\n\\n        candidate_S = E.nullspace([E._J(v, n) for v in candidate_L], 2 * n)\\n        res = E.evaluate(candidate_S)\\n        new_obj = objective(res)\\n        \\n        if res.get(\\\"offending\\\") == 0 and res.get(\\\"c\\\") == target_c and res.get(\\\"d\\\", 0) >= target_d:\\n            return candidate_S\\n            \\n        delta = new_obj - cur\\n        if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n            L, cur = candidate_L, new_obj\\n            fails = 0\\n            if cur < best_obj:\\n                best_obj = cur\\n                best_L = list(L)\\n        else:\\n            fails += 1\\n            if fails > 300:\\n                if rng.random() < 0.5:\\n                    L = list(best_L)\\n                    for _ in range(2):\\n                        L[int(rng.integers(s_L))] ^= random_pauli()\\n                else:\\n                    L = get_random_L()\\n                S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n                cur = objective(E.evaluate(S))\\n                fails = 0\\n    return None\"\n}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3165,
+    "candidatesTokenCount": 1051,
+    "totalTokenCount": 4644,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3165
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1051
+      }
+    ],
+    "thoughtsTokenCount": 428
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T14:58:20.438145Z",
+  "responseId": "DEaxaoHfGralktwP642TmQs"
+}

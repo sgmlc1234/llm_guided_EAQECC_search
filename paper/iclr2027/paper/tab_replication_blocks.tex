@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{crrrrr}
+\toprule
+Block & Independent & Iterative & $\Delta$ area & $n=13$ & $n=15$\\
+ & \multicolumn{2}{c}{Test successes /64} & & \multicolumn{2}{c}{Independent / iterative}\\
+\midrule
+1 & 25 & 19 & -0.063 & 3 / 5 & 0 / 2\\
+2 & 25 & 30 & +0.007 & 3 / 10 & 0 / 5\\
+3 & 24 & 35 & -0.001 & 2 / 15 & 1 / 4\\
+4 & 39 & 45 & +0.021 & 17 / 16 & 5 / 7\\
+5 & 26 & 64 & +0.578 & 6 / 32 & 2 / 32\\
+6 & 34 & 40 & +0.095 & 15 / 8 & 0 / 3\\
+7 & 25 & 62 & +0.417 & 3 / 32 & 0 / 28\\
+8 & 25 & 2 & -0.264 & 1 / 0 & 0 / 0\\
+\midrule
+Total/mean & 223/512 & 297/512 & $+0.099$ & 50 / 118 & 8 / 81\\
+\bottomrule
+\end{tabular}
+\caption{New generation blocks.}\label{tab:replication-blocks}
+\end{table}

@@ -1,0 +1,25 @@
+{
+  "id": "b07_independent_g02",
+  "elapsed_s": 4.706701993942261,
+  "model_version": "gemini-3.5-flash",
+  "response_id": "AEaxavPSFruUktwPmKXgkAU",
+  "usage": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 606,
+    "totalTokenCount": 2772,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 606
+      }
+    ],
+    "thoughtsTokenCount": 369
+  }
+}

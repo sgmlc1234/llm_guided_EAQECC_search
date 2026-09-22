@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, target_c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + target_c\\n    dim_L = 2 * n - s\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - target_c) + res[\\\"offending\\\"]\\n\\n    def get_S_from_L(L_basis):\\n        eqs = [E._J(v, n) for v in L_basis]\\n        return E.nullspace(eqs, 2 * n)\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 4)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    while E.remaining:\\n        # Start by generating a random stabilizer S of rank s\\n        S = list(E.random_stabilizer(n, s, rng))\\n        # Its symplectic dual L has dimension dim_L\\n        L_eqs = [E._J(v, n) for v in S]\\n        L_basis = E.nullspace(L_eqs, 2 * n)\\n        if len(L_basis) != dim_L:\\n            continue\\n\\n        res = E.evaluate(S)\\n        cur_obj = objective(res)\\n        \\n        temp = 30.0\\n        fails = 0\\n        while fails < 1000 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            # Mutate L\\n            candidate_L = list(L_basis)\\n            idx = int(rng.integers(dim_L))\\n            candidate_L[idx] ^= random_pauli()\\n            \\n            if len(E.gf2_basis(candidate_L)) != dim_L:\\n                fails += 1\\n                continue\\n            \\n            candidate_S = get_S_from_L(candidate_L)\\n            if len(candidate_S) != s:\\n                fails += 1\\n                continue\\n                \\n            res = E.evaluate(candidate_S)\\n            new_obj = objective(res)\\n            delta = new_obj - cur_obj\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L_basis, cur_obj = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"\n}",
+            "thoughtSignature": "AY89a19SOZ/IheUBcuauUr8G6q0CBxV2jFdHuTta/dmGckNuiQdAkVQSQ0U4hdyVaha5hiK/H7H5GBNpCQNWgp9KWT00VHxA+RAY"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 716,
+    "totalTokenCount": 2513,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 716
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:35:55.812241Z",
+  "responseId": "206xatHJMb-I0ckPpYqz4Ag"
+}

@@ -11,7 +11,8 @@ entanglement-assisted quantum error-correcting codes (EAQECCs).
 
 A code with parameters $[[n,k,d;c]]_q$ encodes $k$ logical qudits into
 $n$ transmitted $q$-level systems using $c$ shared maximally entangled
-pairs. For qubits ($q=2$), each pair supplies one ebit. The receiver's
+qudit pairs. Each pair contains $\log_2 q$ ebits, equal to one for
+qubits ($q=2$)~\citep{GHW2022}. The receiver's
 halves are assumed noiseless and are not counted in $n$.
 
 The distance $d$ determines the code's guaranteed error protection.
@@ -58,13 +59,13 @@ We use \textsc{AlphaEvolve} as the evolution engine for EAQECC discovery,
 supplying target parameters, an exact evaluator and researcher-directed
 construction ideas.
 
-Quantum-code search has also used genetic and reinforcement-learning
-methods. \citet{WebsterBrowne2024} mutate and recombine binary
-representations of stabilizer codes to optimize distance and performance
-under biased noise. Reinforcement learning has been used to discover
-quantum codes, optimize tensor-network constructions, and jointly design
-codes and encoders~\citep{Nautrup2019,Su2023,Mauron2023,Olle2024}.
-Our search instead evolves the executable procedure that proposes codes.
-This permits changes to construction rules and search policies while
-retaining the same exact verification interface; the controlled study
-measures the contribution of iterative program feedback.
+Quantum-code discovery also uses genetic algorithms to evolve stabilizer
+representations~\citep{WebsterBrowne2024}, and reinforcement learning to
+optimize codes and encoders~\citep{Nautrup2019,Su2023,Mauron2023,Olle2024}.
+More directly, \citet{CruzBenito2026} evolve Python generators for
+bivariate bicycle codes, verify candidates, and derive structural results.
+Our contribution concerns EAQECC distance--entanglement targets: exact
+finite-field evaluation supports finite constructions, a prime-power
+family with a Lean-checked algebraic certificate, and certified
+nonexistence results. The controlled study compares independent proposals
+with iterative program feedback under a shared researcher proposal.

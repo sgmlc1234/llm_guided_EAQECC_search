@@ -1,4 +1,33 @@
-# Release validation, 2026-09-15
+# Final post-review validation, 2026-09-22
+
+The final public tree adds the prospective eight-block replication, the
+frozen-program repeat, fresh SAT/DRAT resource records, binary-normalization
+certificates, nonbinary construction provenance and the Linux Comparator replay.
+Private host configuration and operational notes remain under the ignored
+`notes/private/` directory.
+
+| Check | Observed result |
+|---|---|
+| Mathematical deterministic tier | PASS: 115 core code records, 54 family gap closures and 398 EA-Plotkin corrections |
+| Prospective generation audit | PASS: 111 received proposals in eight blocks, 16 validation selections, 3,136 execution records and 1,171 independently rechecked successful records |
+| Prospective policy result | Test curve-area difference +0.0987 in 5/8 positive blocks; descriptive sign-flip $p=0.3281$ |
+| Unseen lengths 13 and 15 | Independent 50/256 and 8/256; iterative 118/256 and 81/256 |
+| Frozen-program repeat | PASS: 1,560 runs, 545 independently verified successful records, zero execution errors |
+| Binary normalization | PASS: seven normalized UNSAT instances with checked DRAT proofs; feasible `[[6,1,5;2]]_2` positive control remains SAT and independently verifies |
+| Original exclusions | PASS: all ten decisions and DRAT certificates checked; on-demand binary proof regenerated |
+| Nonbinary provenance | PASS: all 23 q=4,5 matrices mapped to preserved search evidence; the missing historical q=4 record was reconstructed byte-identically |
+| Magma | PASS in the preserved V2.28-20 record: 148/148 objects, zero mismatches |
+| Lean | PASS: 13 source hashes and two exact goal pairs; fresh macOS kernel build and Linux Comparator replays for Theorem 1 and supporting Lemma 2 |
+| Paper and editable package | PASS: nine main pages, 25 total pages, Results on page 5; single-TeX `v17_B` package independently compiles and parses on all pages |
+| Public-bundle replay | PASS: 64/64 executions of a selected new-cohort program match the sanitized archive |
+
+The manuscript reports the new eight-block cohort as a separate prospective
+replication. Generation blocks, not repeated execution seeds, are the inference
+units. The original four-block cohort and its fresh-seed repeat remain available
+for transparency without being pooled into the new result. Longer-code outcomes
+are secondary endpoints.
+
+# Historical release validation, 2026-09-15
 
 Validation used a separately extracted ZIP and a newly installed environment:
 Python 3.12.12, NumPy 2.5.1, psutil 7.2.2 on macOS. Outputs were written outside
@@ -76,9 +105,10 @@ both submitted Solutions report only `propext`, `Classical.choice`, `Quot.sound`
 no `sorryAx` is present. The original lockfile was not updated. Build output and
 a machine-readable result are preserved in `formal/eaqecc/verification/`.
 
-The Linux Comparator run is the supplied verification record, not a fresh run
-performed during integration. Its missing full raw logs and exact exporter CLI
-patch are identified in the artifact guide. Source-integrity/goal-pair checks
+At the September 16 integration, Linux Comparator evidence was limited to the
+supplied verification excerpts; full raw logs and the historical CLI patch
+were unavailable. The September 21 fresh replay below now supplies full logs
+and a newly documented compatibility patch. Source-integrity/goal-pair checks
 and a negative control that changes the formal goal pass locally. Appendix D
 presents only Theorem 1, with explicit formalization scope; Lemma 2 remains
 supporting codebase evidence. PDF rendering keeps nine research pages and
@@ -97,3 +127,15 @@ The protected archive manifest and Lean source audit pass. The latest-study
 audit and table evidence mapping pass; five focused release/Lean tests and lint
 pass. README file and image links resolve. This release does not claim a fresh
 Lean, SAT/Magma or model-generation run.
+
+## Fresh Linux Comparator replay, 2026-09-21
+
+Both Theorem 1 and the supporting Lemma 2 passed Comparator and its Lean-kernel
+replay on Linux x86_64. All thirteen original package files remain unchanged,
+and all ten dependency revisions match the original lockfile. The full logs,
+binary hashes, failed unpatched attempt and one-line landrun CLI repair are in
+[the verification record](../formal/eaqecc/verification/linux-2026-09-21/README.md).
+The patch inserts an argument separator before the sandboxed executable; no
+exporter, comparison, axiom-policy or kernel-checking logic was changed. The
+optional nanoda checker was not enabled. Private server addresses and raw
+unredacted operational logs are excluded from Git.

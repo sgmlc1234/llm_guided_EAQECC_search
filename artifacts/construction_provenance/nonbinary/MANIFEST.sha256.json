@@ -1,0 +1,11 @@
+{
+  "registry.json": "6ed5c4221a58d9a3f8f76cc6bd5af3e66cea461270480b6e7ff0f1f47b927c48",
+  "fresh_q4_n8_c5.json": "6858d18b7c2f95016d794e721813bd4c6c167a7b5095098aebca9b5e50d345ef",
+  "README.md": "c5c222523783c3d888684b97121a551f798d2d1e8a912cafa44cc85ef57f3956",
+  "logs/q5_descent.log": "dd742f678537c6b8645232fb2063b9eb620815149d6f57e4ce3781654b893b3b",
+  "logs/q5_critical_12_5_long.log": "6e06ef2dd829640d15cba0bbd2e4091f919fa23880390e9edf0bc1c0c42007e7",
+  "logs/q4_descent.log": "32e5cb8088895db6b692b76af02ceffb378ce3d56246f30fee47af7b310491a4",
+  "scripts/sa_gammaq.py": "eba3fd68a9d7625e08f8b655981c4439eb910b330d7e7e2a8a231198a7fe23aa",
+  "scripts/helpers_eaqecc_fq.py": "d642d5c1aa46b6542ed14881f1eb8f6a5ae853784b605cc8c708f024dca1dbb9",
+  "scripts/sa_gamma4.py": "a6c77ec64b0627adac690f66991ff97fbad0b9c8e3bd6bbf58bc076bd0d40aba"
+}

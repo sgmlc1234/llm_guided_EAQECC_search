@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    len_L = 2 * n - s  # for these targets, len_L = 4\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    # Generate a random independent basis L of size len_L\\n    def get_random_L():\\n        while True:\\n            candidate = []\\n            for _ in range(len_L):\\n                # random non-zero vector\\n                val = 0\\n                while val == 0:\\n                    val = int(rng.integers(1, 1 << (2 * n)))\\n                candidate.append(val)\\n            if len(E.gf2_basis(candidate)) == len_L:\\n                return candidate\\n\\n    L = get_random_L()\\n    S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n    cur = objective(E.evaluate(S))\\n\\n    temp, fails = 30.0, 0\\n    while E.remaining:\\n        temp = max(0.1, temp * 0.998)\\n        # Mutate L\\n        candidate_L = list(L)\\n        mut_idx = int(rng.integers(len_L))\\n        if rng.random() < 0.4:\\n            # XOR with another element in L\\n            other_idx = (mut_idx + int(rng.integers(1, len_L))) % len_L\\n            candidate_L[mut_idx] ^= candidate_L[other_idx]\\n        else:\\n            # XOR with random Pauli\\n            candidate_L[mut_idx] ^= random_pauli()\\n        \\n        if candidate_L[mut_idx] == 0 or len(E.gf2_basis(candidate_L)) != len_L:\\n            fails += 1\\n            if fails > 200:\\n                L = get_random_L()\\n                S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n                cur = objective(E.evaluate(S))\\n                fails = 0\\n            continue\\n\\n        candidate_S = E.nullspace([E._J(v, n) for v in candidate_L], 2 * n)\\n        if len(candidate_S) != s:\\n            continue\\n\\n        res = E.evaluate(candidate_S)\\n        new_obj = objective(res)\\n        delta = new_obj - cur\\n\\n        if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n            L, cur = candidate_L, new_obj\\n            fails = 0\\n        else:\\n            fails += 1\\n            if fails > 200:\\n                L = get_random_L()\\n                S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n                cur = objective(E.evaluate(S))\\n                fails = 0\\n\\n    return None\"}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 914,
+    "totalTokenCount": 3253,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 914
+      }
+    ],
+    "thoughtsTokenCount": 542
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T14:40:11.589821Z",
+  "responseId": "y0Gxav3_I_aAktwP34uD6Ac"
+}

@@ -1,0 +1,19 @@
+{
+  "created_unix": 1790003957.570976,
+  "trigger": "One response uncertain after 78 completed proposals; no response bytes recovered",
+  "rule": "Never resend uncertain logical slot. Retain its full reservation and missing-response record; continue only the other already authorized slots, at most 112 slots total. Use the most recent received program and training feedback. No placeholder program or fabricated feedback.",
+  "transport_timeout_for_future_requests_s": 600,
+  "consecutive_unavailable_stop": 2,
+  "primary_analysis": "All eight planned blocks using available generated programs under the same allocated seven slots per arm. Report response counts; complete paired blocks as sensitivity analysis. Decisions precede validation/test.",
+  "unchanged": [
+    "model",
+    "research proposal",
+    "source mutation policy",
+    "training and heldout seeds",
+    "selection rule",
+    "evaluator budgets",
+    "KRW10000 authorization",
+    "original 24-hour deadline"
+  ],
+  "script_sha256": "8f7945eeb0f3410be30cd25f451368d5688f96ff2d627b38a15ed96bea9f6af5"
+}

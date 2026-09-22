@@ -1,9 +1,17 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Assump{\c{c}}{\~a}o et~al.(2026)Assump{\c{c}}{\~a}o, Ferreira, Campos,
+  and Murai]{CodeEvolve}
+Henrique Assump{\c{c}}{\~a}o, Diego Ferreira, Leandro Campos, and Fabricio
+  Murai.
+\newblock {CodeEvolve}: an open source evolutionary coding agent for
+  algorithmic discovery and optimization.
+\newblock \emph{arXiv preprint arXiv:2510.14150}, 2026.
 
 \bibitem[Brun et~al.(2006)Brun, Devetak, and Hsieh]{BrunDevetakHsieh2006}
 Todd Brun, Igor Devetak, and Min-Hsiu Hsieh.
@@ -17,6 +25,14 @@ A.~R. Calderbank, E.~M. Rains, P.~W. Shor, and N.~J.~A. Sloane.
 \newblock arXiv:quant-ph/9608006v5, 1997.
 \newblock URL \url{https://arxiv.org/abs/quant-ph/9608006v5}.
 \newblock Version dated 10 September 1997.
+
+\bibitem[Cruz-Benito et~al.(2026)Cruz-Benito, Cross, Kremer, and
+  Faro]{CruzBenito2026}
+Juan Cruz-Benito, Andrew~W. Cross, David Kremer, and Ismael Faro.
+\newblock Evolutionary discovery of bivariate bicycle codes with {LLM}-guided
+  search.
+\newblock arXiv:2606.02418, 2026.
+\newblock URL \url{https://arxiv.org/abs/2606.02418}.
 
 \bibitem[Georgiev et~al.(2025)Georgiev, G{\'o}mez-Serrano, Tao, and
   Wagner]{Georgiev2025}
@@ -59,6 +75,18 @@ Luobin Guo and Ruihu Li.
 \newblock Linear {P}lotkin bound for entanglement-assisted quantum codes.
 \newblock \emph{Physical Review A}, 87:\penalty0 032309, 2013.
 \newblock \doi{10.1103/PhysRevA.87.032309}.
+
+\bibitem[Lange et~al.(2025)Lange, Imajuku, and Cetin]{ShinkaEvolve}
+Robert~Tjarko Lange, Yuki Imajuku, and Edoardo Cetin.
+\newblock {ShinkaEvolve}: Towards open-ended and sample-efficient program
+  evolution.
+\newblock \emph{arXiv preprint arXiv:2509.19349}, 2025.
+
+\bibitem[{Lean Project}(2026)]{LeanComparator}
+{Lean Project}.
+\newblock Comparator.
+\newblock \url{https://github.com/leanprover/comparator}, 2026.
+\newblock Revision a4f696825c583ed8a5b4060d9a0faa5b882d365b.
 
 \bibitem[Luo et~al.(2022)Luo, Ezerman, Grassl, and Ling]{Luo2022}
 Gaojun Luo, Martianus~Frederic Ezerman, Markus Grassl, and San Ling.
@@ -109,6 +137,12 @@ Bernardino Romera-Paredes, Mohammadamin Barekatain, Alexander Novikov, Matej
 \newblock \emph{Nature}, 625:\penalty0 468--475, 2024.
 \newblock \doi{10.1038/s41586-023-06924-6}.
 
+\bibitem[Sharma(2025)]{OpenEvolve}
+Asankhaya Sharma.
+\newblock {OpenEvolve}: an open-source evolutionary coding agent.
+\newblock \url{https://github.com/algorithmicsuperintelligence/openevolve},
+  2025.
+
 \bibitem[Shin et~al.(2011)Shin, Heo, and Brun]{Shin2011}
 Jeonghwan Shin, Jun Heo, and Todd~A. Brun.
 \newblock Entanglement-assisted codeword stabilized quantum codes.
@@ -143,5 +177,13 @@ Mark~M. Wilde and Todd~A. Brun.
   coding.
 \newblock \emph{Physical Review A}, 77:\penalty0 064302, 2008.
 \newblock \doi{10.1103/PhysRevA.77.064302}.
+
+\bibitem[Yang et~al.(2026)Yang, Zhong, Li, Wu, Yuan, Chen, Yang, and
+  Yue]{TurboEvolve}
+Yang Yang, Zining Zhong, Jindong Li, Jiemin Wu, Kaishen Yuan, Wenshuo Chen,
+  Menglin Yang, and Yutao Yue.
+\newblock {TurboEvolve}: Towards fast and robust {LLM}-driven program
+  evolution.
+\newblock \emph{arXiv preprint arXiv:2604.18607}, 2026.
 
 \end{thebibliography}

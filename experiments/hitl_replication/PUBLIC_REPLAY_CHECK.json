@@ -1,0 +1,8 @@
+{
+  "program": "b04_evolution_g05",
+  "split": "transfer",
+  "executions": 64,
+  "matches_archive": 64,
+  "successes": 64,
+  "scope": "Fresh replay from the sanitized public bundle, without model calls."
+}

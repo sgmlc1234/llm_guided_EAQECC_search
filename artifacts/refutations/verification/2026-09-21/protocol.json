@@ -1,0 +1,22 @@
+{
+  "created_unix": 1789997973.4489841,
+  "scope": "Re-decide archived CNFs; replay 9 shipped proofs; regenerate missing proof for q2_n10_k1_c5_d9",
+  "time_limit_per_step_s": 920,
+  "output_limit_per_step_bytes": 2147483648,
+  "global_wall_limit_s": 14400,
+  "solver_sha256": "1b2175a694cf89a843291a0ff7c10ab71258c5af5cb3b0807af34543c4bc1c84",
+  "checker_sha256": "2a92f76b682bc64ab76ebd1d23f188e66ff138cf7f8172f80ec7ea94ecc5389a",
+  "solver_version": "3.0.0",
+  "source_cnf_sha256": {
+    "nonexist_5_2_4_3": "90f308989ced89cd9742e471e5e6e150affad2406c29df823908d7bb15dfd520",
+    "nonexist_6_2_5_4": "dde412661f7225473c3bcdb745135043551889ea666ed0b4ea38cdc8defb73d4",
+    "q2_n7_k1_c3_d6": "5d01de8476f928b621b84cd0823c8115e3dfb3e43aa21f8d30df2a3f34eee2c0",
+    "q2_n9_k1_c5_d8": "ce91e4f0a44e22d73f96adfb87ebc40ec81543b4703e239d6affe6061175f7c5",
+    "q2_n11_k1_c7_d10": "3994a0a64a0af5aa551772eac085916000ab5e8489e06bcca53c2b19ef51b2dd",
+    "q2_n6_k1_c1_d5": "ef0ca9662c976220e43811ec8c7ddbbc6e7ad61100372c759e24da284b322300",
+    "q2_n8_k1_c3_d7": "56f94cea505f6096a6509027fd7fd1f9d682ccc29f9145f2b5611e78e797537d",
+    "q2_n10_k1_c5_d9": "29392f0d39b1f59e398a2c2738684a7f95905314a3035777f1bb4add6d464a69",
+    "q3_n10_k1_c4_d9": "dbca73e637394948b6e3917f869d51c16cd6d3a19eb4e3c481c66971694b7553",
+    "q2_n13_k1_c8_d12": "8cdf4bfb63e849d32478cba69af75f1225b60e71dbd1b2041ffb056397dd5e70"
+  }
+}

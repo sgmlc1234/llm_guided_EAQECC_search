@@ -1,0 +1,25 @@
+{
+  "id": "b03_evolution_g00",
+  "elapsed_s": 5.96418309211731,
+  "model_version": "gemini-3.5-flash",
+  "response_id": "mUGxaqHuLsqBktwP_Ljl2QM",
+  "usage": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 651,
+    "totalTokenCount": 3019,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 651
+      }
+    ],
+    "thoughtsTokenCount": 571
+  }
+}

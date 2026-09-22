@@ -1,0 +1,30 @@
+For certificate verification,\label{app:sat-resources} the original CNFs
+are summarized in Table~\ref{tab:sat-resources}. Solver time
+measures a fresh UNSAT decision; for $[[10,1,9;5]]_2$, it also includes
+proof generation. The check time uses DRAT-trim. Peak is the larger solver/checker resident set.
+Concurrent workloads preclude isolated timing comparisons. Execution
+conditions and logs are in the \artifactlink{}.
+
+\begin{table}[H]
+\centering
+\caption{Original SAT refutation resources.}\label{tab:sat-resources}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+\multicolumn{1}{c}{\multirow{2}{*}{Excluded code}} & \multicolumn{1}{c}{\multirow{2}{*}{Variables}} & \multicolumn{1}{c}{\multirow{2}{*}{Clauses}} & \multicolumn{1}{c}{Proof} & \multicolumn{1}{c}{Solver} & \multicolumn{1}{c}{Check} & \multicolumn{1}{c}{Peak} \\
+ & & & \multicolumn{1}{c}{(MiB)} & \multicolumn{1}{c}{(s)} & \multicolumn{1}{c}{(s)} & \multicolumn{1}{c}{(MiB)} \\
+\midrule
+$[[5,2,4;3]]_2$ & 414 & 1,275 & 0.03 & 0.02 & 0.46 & 48.2 \\
+$[[6,1,5;1]]_2$ & 1,881 & 6,425 & 22.86 & 1.88 & 1.88 & 68.1 \\
+$[[6,2,5;4]]_2$ & 498 & 1,540 & 0.04 & 0.02 & 0.04 & 48.1 \\
+$[[7,1,6;3]]_2$ & 1,110 & 3,666 & 7.66 & 0.61 & 0.51 & 57.2 \\
+$[[8,1,7;3]]_2$ & 2,513 & 8,609 & 172.27 & 16.94 & 13.58 & 195.0 \\
+$[[9,1,8;5]]_2$ & 1,430 & 4,734 & 11.86 & 0.89 & 0.73 & 60.2 \\
+$[[10,1,9;5]]_2$ & 3,145 & 10,793 & 234.91 & 66.33 & 58.76 & 491.0 \\
+$[[11,1,10;7]]_2$ & 1,750 & 5,802 & 16.58 & 1.23 & 0.89 & 63.1 \\
+$[[13,1,12;8]]_2$ & 4,093 & 14,069 & 43.48 & 3.46 & 2.48 & 81.3 \\
+$[[10,1,9;4]]_3$ & 33,033 & 476,271 & 28.93 & 11.90 & 62.25 & 239.9 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,89 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "7b5732d819890f2a60b9dc8f1abd5d3e33738f9b7de389c8dcbd56cb44c78828",
+  "code_sha256": "f786c3cb544154bb1b4c60364852ee3e39a45ad3c56c537d92414afc5f0b69f7",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.9,
+  "score": 0.0009000000000000001,
+  "runs": [
+    {
+      "seed": 202609211027,
+      "closed": 0,
+      "distance_ratio": 0.9,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 11,
+            "k": 1,
+            "c": 8,
+            "d": 10
+          },
+          "seed": 16867216491239525672,
+          "allocated_evals": 10000,
+          "n_evals": 10000,
+          "nullspace_calls": 10000,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 10000,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 4059,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 0,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 11,
+            "s": 18,
+            "c": 8,
+            "iso": 2,
+            "k": 1,
+            "d": 9,
+            "offending": 1,
+            "logical_count": 12
+          },
+          "generators": [
+            524289,
+            1048578,
+            1048580,
+            524296,
+            1572880,
+            524320,
+            3670080,
+            1575040,
+            1048832,
+            524800,
+            3673088,
+            528384,
+            1056768,
+            1064960,
+            557056,
+            589824,
+            2752512,
+            1310720
+          ],
+          "closed": false,
+          "distance_ratio": 0.9,
+          "found_phase": "search",
+          "elapsed_s": 3.0125237500760704,
+          "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+          "code_sha256": "f786c3cb544154bb1b4c60364852ee3e39a45ad3c56c537d92414afc5f0b69f7",
+          "id": 0
+        }
+      ]
+    }
+  ],
+  "dispatch": {
+    "phase": "fresh",
+    "program": "b03_independent_g02",
+    "n": 11,
+    "seed": 202609211027,
+    "budget": 10000,
+    "id": 1350
+  },
+  "host_elapsed_s": 3.088218166027218
+}

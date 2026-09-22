@@ -1,0 +1,18 @@
+{
+  "path": "n15.json",
+  "sha256": "a9236c82e50a5bfc7f0df7bd9f1a39b97bfdfda0b8b96527541bfed40d63fd02",
+  "parameters_n_k_d_c": [
+    15,
+    1,
+    14,
+    12
+  ],
+  "rank_S": 26,
+  "dim_dual": 4,
+  "radical_dimension": 2,
+  "logical_weight_distribution": {
+    "14": 8,
+    "15": 4
+  },
+  "status": "PASS"
+}

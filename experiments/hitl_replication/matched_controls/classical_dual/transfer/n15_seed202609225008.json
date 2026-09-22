@@ -1,0 +1,88 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "f7e5f7815539d56f461a55f76367d647ccb7eb56dd9980aba39e965ef37973a2",
+  "code_sha256": "ad5717c83f05df24affa8077fd99ba5a91e75d48d090f19b78ce9584080987eb",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.7857142857142857,
+  "score": 0.0007857142857142857,
+  "runs": [
+    {
+      "seed": 202609225008,
+      "closed": 0,
+      "distance_ratio": 0.7857142857142857,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 15,
+            "k": 1,
+            "c": 12,
+            "d": 14
+          },
+          "seed": 17631762863823254391,
+          "allocated_evals": 30000,
+          "n_evals": 30000,
+          "nullspace_calls": 30000,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 30000,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 12302,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 0,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 15,
+            "s": 26,
+            "c": 12,
+            "iso": 2,
+            "k": 1,
+            "d": 11,
+            "offending": 4,
+            "logical_count": 12
+          },
+          "generators": [
+            872415233,
+            67108866,
+            1006632964,
+            603979784,
+            603979792,
+            268435488,
+            872415296,
+            603979904,
+            469762304,
+            872415744,
+            603980800,
+            872417280,
+            805310464,
+            872423424,
+            872431616,
+            335577088,
+            536936448,
+            872546304,
+            805568512,
+            872939520,
+            269484032,
+            874512384,
+            541065216,
+            880803840,
+            754974720,
+            973078528
+          ],
+          "closed": false,
+          "distance_ratio": 0.7857142857142857,
+          "found_phase": "search",
+          "elapsed_s": 18.194805125007406,
+          "target_sha256": "c1793f144e374c1516569105167e34d8a375047221e45c3285cdcd480546dddc",
+          "code_sha256": "ad5717c83f05df24affa8077fd99ba5a91e75d48d090f19b78ce9584080987eb",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

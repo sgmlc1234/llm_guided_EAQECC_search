@@ -13,41 +13,94 @@ proof. The sources and pinned project are in the \artifactlink{}.
   morekeywords={theorem,by,exact,let,have,rcases,with,obtain,if,then,else}}
 
 \subsection{Exact goal and mathematical interpretation}\label{app:lean-theorem}
-Let $q=|\mathbb{F}|$ and $t=\texttt{tail}>0$. The coordinate type has
-$n=2q+t$ positions, so the length condition is exactly $n\ge2q+1$.
-The disjunction below gives the $q\ge3$ branch and the odd-length binary
-branch. Within namespace \texttt{ICLR2027EAQECC.Comparator}, the
+Use the field $\F_q$ and enumeration $u_1,\ldots,u_q$ from
+Appendix~\ref{app:theorem}. Lean denotes this field by $\mathbb F$ and
+its cardinality by \texttt{Fintype.card} $\mathbb F$, which equals $q$.
+The natural number \texttt{tail} is $t=n-2q>0$; hence $n=2q+t$.
+The disjunction below specifies the same $q\ge3$ and odd-length binary
+cases as Theorem~\ref{thm:unified}. Within namespace \texttt{ICLR2027EAQECC.Comparator}, the
 submitted declaration is:
 
 \input{lean_theorem1_goal}
 
-\texttt{NormalizerSideCertificate} records properties of the actual
-linear map \texttt{closedWord}, rather than checks at sampled lengths.
-Its proof-bearing fields establish:
-\begin{itemize}\setlength{\itemsep}{1pt}
-\item injectivity of the coefficient-to-vector map and a nonzero Gram entry;
-\item the restricted symplectic-product formula and the radical condition;
-\item normalizer dimension $q+2$ and radical-coefficient dimension $q$;
-\item weight at least $n-1$ outside the radical and a vector attaining $n-1$.
-\end{itemize}
-The injective parametrization identifies the coefficient radical with
-the radical of the constructed space. The standard stabilizer
-correspondence in Appendix~\ref{app:symplectic} then gives
-$k=1$, $d=n-1$ and $c=n-q-1$. The certificate also stores a parameter
-record and BDH excess $q-2$ as default data fields; these fields are not
-additional proofs of the correspondence. Lean checks the algebraic
-certificate; the paper supplies its coding-theoretic interpretation.
+Lean represents the radical coefficients by the function space
+\[
+ \mathcal T=\{f:\F_q\to\F_q\}.
+\]
+A function $f$ assigns one scalar to each field element; $f$ need not be linear. Addition and scalar multiplication are pointwise,
+$(f+g)(u)=f(u)+g(u)$ and $(a f)(u)=a f(u)$ for $a\in\F_q$.
+The enumeration $u_1,\ldots,u_q$ identifies $f$ with the vector
+$\vct\tau=(f(u_1),\ldots,f(u_q))\in\F_q^q$.
+This evaluation map is a linear isomorphism, so $\dim_{\F_q}\mathcal T=q$.
+Thus Lean's \texttt{ClosedCoeff} type is
+$\mathcal C=\F_q^2\oplus\mathcal T\cong\F_q^{q+2}$.
+Write $\vct\eta=(\alpha,\beta,f)$ and $\tau_i=f(u_i)$, matching the
+coefficients of $\vct a,\vct b,\vct\rho_i$ in Appendix~\ref{app:theorem}.
+Relabeling the paired coordinates by $i=1,\ldots,q$, the linear map
+$\Phi=\texttt{closedWord}$ is
+\[
+\begin{aligned}
+ \Phi(\vct{\eta})_{(i,0)}&=(\alpha+\beta u_i,\,\beta+\tau_i),\\
+ \Phi(\vct{\eta})_{(i,1)}&=(\alpha+\beta u_i,\,\beta z_2-\tau_i),\\
+ \Phi(\vct{\eta})_{\mathrm{tail},j}&=(\alpha,\,\beta\lambda_j),
+ \qquad 0\le j<t,
+\end{aligned}
+\]
+where $\lambda_0=\lambda$ and $\lambda_j=1$ for $j>0$.
+Thus $\Phi(\vct{\eta})=\alpha\vct a+\beta\vct b+
+\sum_{i=1}^q\tau_i\vct\rho_i$ in the formal coordinate order.
+Let $L=\operatorname{im}\Phi$, $\mathcal C_0=
+\{(0,0,f):f\in\mathcal T\}$, and
+$\delta=\langle\Phi(1,0,0_{\mathcal T}),\Phi(0,1,0_{\mathcal T})\rangle_s$,
+where $0_{\mathcal T}$ is the zero function.
+The certificate constructed by \texttt{theorem1\_exact} proves:
+\begingroup
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\begin{enumerate}\setlength{\itemsep}{2pt}
+\item \texttt{encodeInjective} and \texttt{deltaNonzero}:
+$\Phi$ is injective and $\delta\ne0$.
+\item \texttt{gramFormula} and \texttt{radicalIff}: for all
+$\vct\eta=(\alpha,\beta,f)$ and
+$\vct\eta'=(\alpha',\beta',g)$,
+\[
+ \langle\Phi(\vct\eta),\Phi(\vct\eta')\rangle_s
+ = (\alpha\beta'-\beta\alpha')\delta,
+ \qquad \Phi(\vct\eta)\in\operatorname{rad}(L)
+ \iff \vct\eta\in\mathcal C_0.
+\]
+\item \texttt{normalizerFinrank} and \texttt{radicalFinrank}:
+$\dim L=q+2$ and $\dim\mathcal C_0=q$.
+\item \texttt{distanceLower} and \texttt{distanceAttained}:
+\[
+ \forall\vct\eta\notin\mathcal C_0,\quad
+ \wt(\Phi(\vct\eta))\ge n-1,
+ \qquad
+ \exists\vct\eta\notin\mathcal C_0,\quad
+ \wt(\Phi(\vct\eta))=n-1.
+\]
+\end{enumerate}
+\endgroup
+Injectivity identifies $\Phi(\mathcal C_0)$ with the $q$-dimensional
+radical of $L$. Taking $S=L^\perp$ gives $\dim S=2n-q-2$.
+The standard stabilizer correspondence
+(Appendix~\ref{app:symplectic}) therefore yields
+$c=(\dim S-q)/2=n-q-1$, $k=n-\dim S+c=1$ and $d=n-1$.
+These are the code parameters recorded by the certificate; the
+proof-bearing fields above certify their underlying symplectic construction.
 
-\paragraph{Coordinate convention.}
-The formalization indexes paired coordinates by $\mathbb{F}\times\mathrm{Bool}$
-and puts the distinguished $\lambda$ coordinate first in the tail.
-The displayed construction in Appendix~\ref{app:theorem} puts it last.
-These are related by a coordinate permutation, which preserves the
-symplectic product and weight. The declaration's existential $z_2$ is
-instantiated by the proof as $0$ in characteristic two and $1$ otherwise.
+For the coordinate convention, Lean's $(u_i,\mathrm{false})$ and
+$(u_i,\mathrm{true})$ are our
+$(i,0)$ and $(i,1)$. Its tail puts $\lambda$ first; Appendix~\ref{app:theorem}
+puts it last. This permutation preserves the symplectic product and weight.
+The proof chooses $z_2=0$ in characteristic two and $z_2=1$ otherwise.
 
-\clearpage
-\subsection{Solution and verification record}\label{app:lean-replay}
+Figure~\ref{fig:lean-dependencies} groups the certificate's mathematical
+dependencies. The dashed arrow is the standard stabilizer interpretation
+used in the paper; it is separate from the Lean-checked algebraic fields.
+\input{fig_lean_dependencies}
+\FloatBarrier
+
+\subsection{Solution and formal verification}\label{app:lean-replay}
 The solution above invokes \texttt{theorem1\_exact}. Its proof body is
 reproduced verbatim below. For $q\ge3$, it chooses $\lambda$ outside two
 forbidden values. In the binary branch, odd length permits $\lambda=1$.
@@ -57,19 +110,9 @@ lemmas in the same source module.
 
 \input{lean_theorem1_solution}
 
-The pinned project uses Lean 4.29.0-rc6 and Mathlib revision
-\texttt{1ea3462986d0}. The proof module and submitted solution contain no
-\texttt{sorry} and use only \texttt{propext}, \texttt{Quot.sound} and
-\texttt{Classical.choice}. The statement-only challenge intentionally has
-an unproved body and is not imported by the proof.
-
-The recorded Linux/aarch64 run used Comparator revision
-\texttt{a4f696825c58} and lean4export revision \texttt{048394e1afee}.
-Comparator checks the challenge--solution statement correspondence,
-permitted axioms and acceptance by Lean's default kernel; its
-\texttt{enable\_nanoda} setting is false~\citep{LeanComparator}.
-The supplied record reports acceptance. We separately rebuild the proof
-and solution with the pinned toolchain on macOS; this kernel check is
-recorded separately from the supplied Linux Comparator run. Reproduction
-commands, full source hashes and the reported exporter CLI compatibility
-adjustment are documented in the artifact.
+The proof and submitted solution use only \texttt{propext},
+\texttt{Quot.sound} and \texttt{Classical.choice}. Comparator confirms
+that the solution proves the specified goal under this axiom policy,
+and Lean's kernel accepts the proof~\citep{LeanComparator}.
+The \artifactlink{} provides the pinned project and reproducible
+verification records.

@@ -1,0 +1,18 @@
+info: Lean4Checker: cloning https://github.com/leanprover/lean4checker
+info: Lean4Checker: checking out revision 'b7398199245524275543dec6113229c9bb4902e5'
+✔ [6/20] Built Comparator.Util (4.7s)
+✔ [7/20] Built Comparator.Util:c.o (503ms)
+✔ [8/20] Built Lean4Checker.Replay (4.2s)
+✔ [9/20] Built Lean4Checker.Replay:c.o (3.6s)
+✔ [10/20] Built Export.Parse (10s)
+✔ [11/20] Built Comparator.Axioms (2.3s)
+✔ [12/20] Built Comparator.Axioms:c.o (810ms)
+✔ [13/20] Built Comparator.Compare (1.6s)
+✔ [14/20] Built Comparator.Compare:c.o (546ms)
+✔ [15/20] Built Comparator (888ms)
+✔ [16/20] Built Comparator:c.o (104ms)
+✔ [17/20] Built Main (4.0s)
+✔ [18/20] Built Main:c.o (1.3s)
+✔ [19/20] Built Export.Parse:c.o (18s)
+✔ [20/20] Built comparator:exe (3.3s)
+Build completed successfully (20 jobs).

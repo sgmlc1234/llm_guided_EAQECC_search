@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    l = n + k - c\\n    s = n - k + c\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        dist_gap = max(0, target[\\\"d\\\"] - res.get(\\\"d\\\", 0)) if res.get(\\\"d\\\") is not None else target[\\\"d\\\"]\\n        return 10000 * abs(res[\\\"c\\\"] - c) + 1000 * res[\\\"offending\\\"] + 100 * dist_gap\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return list(E.nullspace(rows, 2 * n))\\n\\n    def random_vector(weight=None):\\n        v = 0\\n        if weight is None:\\n            weight = int(rng.integers(1, 4))\\n        qubits = rng.choice(n, size=weight, replace=False)\\n        for q in qubits:\\n            v |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return v\\n\\n    best_L = None\\n    best_obj = 10**9\\n\\n    while E.remaining:\\n        # Generate initial valid basis L\\n        L = []\\n        while len(L) < l and E.remaining:\\n            v = random_vector()\\n            cand = L + [v]\\n            if len(E.gf2_basis(cand)) == len(cand):\\n                L.append(v)\\n        if len(L) < l:\\n            break\\n\\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        if cur < best_obj:\\n            best_obj = cur\\n            best_L = list(L)\\n\\n        temp, fails = 30.0, 0\\n        while fails < 1500 and E.remaining:\\n            temp = max(0.01, temp * 0.995)\\n            \\n            # More frequent backtracking to the best known L\\n            if fails > 0 and fails % 150 == 0 and best_L is not None:\\n                L = list(best_L)\\n                cur = best_obj\\n\\n            idx = int(rng.integers(l))\\n            old_v = L[idx]\\n            \\n            r = rng.random()\\n            if r < 0.4:\\n                # Small perturbation: 1 qubit mutation\\n                L[idx] ^= random_vector(weight=1)\\n            elif r < 0.7:\\n                # Medium perturbation\\n                L[idx] ^= random_vector()\\n            else:\\n                # Mix with another basis element\\n                other = int(rng.integers(l))\\n                if other != idx:\\n                    L[idx] ^= L[other]\\n                else:\\n                    L[idx] ^= random_vector(weight=1)\\n                \\n            if len(E.gf2_basis(L)) != l:\\n                L[idx] = old_v\\n                fails += 1\\n                continue\\n                \\n            S = get_S(L)\\n            res = E.evaluate(S)\\n            new_obj = objective(res)\\n            \\n            if new_obj < best_obj:\\n                best_obj = new_obj\\n                best_L = list(L)\\n\\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                cur = new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                L[idx] = old_v\\n                fails += 1\\n                \\n    return None\"}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3269,
+    "candidatesTokenCount": 985,
+    "totalTokenCount": 4789,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3269
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 985
+      }
+    ],
+    "thoughtsTokenCount": 535
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:40:39.639667Z",
+  "responseId": "90-xarOFJ7-I0ckPpYqz4Ag"
+}

@@ -1,7 +1,21 @@
+# Current Figure 4
+
+Figure 4 now shows the prospective eight-block replication: panel (a) aggregates
+n=9,11 at 10,000 evaluations, and panel (b) aggregates n=13,15 at 30,000.
+Each policy has 512 executions per panel; each unchanged control has 64.
+The controls use matching execution seeds and were replayed after the new policy
+outcomes were available, without tuning. No error band treats execution seeds
+as additional generation blocks; the paired block table reports variability.
+
+Rebuild with `python scripts/eaqecc_ablation/make_replication_figure.py`.
+The manuscript uses `hitl_replication_content.tex`; PNG/PDF/SVG companions have
+the same stem. Figure 5 still reports the older frozen-program repeat.
+The following notes retain the generation instructions for historical figures.
+
 # Current paper figures
 
-Figure 4 contains three preserved success curves at each of n=9 and n=11:
-initial program, independent proposals and iterative evolution. The initial
+Figure 4 contains four success curves at each of n=9 and n=11:
+initial program, classical L-side control, independent proposals and iterative evolution. The initial
 program has eight executions per target; each policy has 32 (four selected
 programs on eight seeds). Endpoints retain those denominators. The n=13,15
 transfer outcomes remain in the main text and appendix, not in Figure 4.
@@ -39,7 +53,7 @@ Algorithm 2 and the controlled comparison describe a separate preserved program.
 
 ## Figures embedded in the README
 
-The README uses PNG previews of all four paper figures, with PDF/SVG companions
+The README uses PNG previews of the paper figures, with PDF/SVG companions
 under `paper/iclr2027/figures/`. Figures 1 and 4 use their existing generators.
 Run `python3 scripts/make_readme_figures.py` to export Figures 2 and 3 from the
 current manuscript TeX. These exports omit the paper captions and replace the
@@ -92,3 +106,22 @@ tectonic -X compile paper/iclr2027/paper/fig_overview_standalone.tex
 
 Export that PDF with `pdftocairo -svg` for the matching SVG. Figure geometry,
 arrows and type remain vector content; the supplied logos are embedded images.
+
+Figure 4 uses the original test cohort. Rebuild it with
+`python3 scripts/eaqecc_ablation/make_figure.py`. Figure 5 shows the separate
+32-seed repeat at all four lengths; rebuild it with
+`python3 scripts/eaqecc_ablation/make_followup_figure.py`. Both use the same
+LaTeX Times font as Figure 2 and export PDF/SVG/PNG. No cohorts are pooled.
+
+## Figure 5 and the Lean dependency diagram
+
+The manuscript now shows only n=13,15 in Figure 5. The shorter-length outcomes
+are retained numerically in the body, block table and source records. Generate
+the two-panel paper figure with `python scripts/eaqecc_ablation/make_followup_figure.py`.
+Use `--all-lengths` to generate `hitl_followup_all_lengths.{pdf,png,svg}` separately;
+this reproduces the complete four-panel record without overwriting the paper figure.
+
+Figure 6 is native TikZ in `paper/iclr2027/paper/fig_lean_dependencies.tex`.
+It groups mathematical dependencies from the preserved `Theorem1.lean` source,
+not every declaration in its import graph. The dashed edge marks the standard
+stabilizer correspondence used in the paper, outside the algebraic certificate.

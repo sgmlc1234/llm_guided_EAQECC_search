@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "scope": "Theorem-1 binary coordinates at n=5..24; separate archived even construction at n=6,8,10. Finite checks, not new universal optimality theorem.",
+  "theorem_coordinates": [
+    {
+      "n": 5,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 6,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 7,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 8,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 9,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 10,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 11,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 12,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 13,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 14,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 15,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 16,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 17,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 18,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 19,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 20,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 21,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 22,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    },
+    {
+      "n": 23,
+      "delta": 1,
+      "dim_L": 4,
+      "radical_size": 4
+    },
+    {
+      "n": 24,
+      "delta": 0,
+      "dim_L": 4,
+      "radical_size": 16
+    }
+  ],
+  "even_construction_verified_lengths": [
+    6,
+    8,
+    10
+  ]
+}

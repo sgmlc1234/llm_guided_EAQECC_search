@@ -1,0 +1,28 @@
+warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it
+✔ [2/22] Built Cache.Init (626ms)
+✔ [3/22] Built Cache.Lean (893ms)
+✔ [4/22] Built Cache.Init:c.o (378ms)
+✔ [5/22] Built Cache.Lean:c.o (287ms)
+✔ [8/22] Built Batteries.Data.String.Basic (809ms)
+✔ [9/22] Built Batteries.Data.String.Basic:c.o (190ms)
+✔ [10/22] Built Batteries.Data.Array.Match (1.4s)
+✔ [11/22] Built Batteries.Data.String.Matcher (701ms)
+✔ [12/22] Built Batteries.Data.Array.Match:c.o (688ms)
+✔ [13/22] Built Cache.IO (3.2s)
+✔ [14/22] Built Batteries.Data.String.Matcher:c.o (347ms)
+✔ [15/22] Built Cache.Hashing (1.5s)
+✔ [16/22] Built Cache.Hashing:c.o (879ms)
+✔ [17/22] Built Cache.IO:c.o (3.6s)
+✔ [18/22] Built Cache.Requests (4.0s)
+✔ [19/22] Built Cache.Main (1.8s)
+✔ [20/22] Built Cache.Main:c.o (1.3s)
+✔ [21/22] Built Cache.Requests:c.o (5.3s)
+✔ [22/22] Built cache:exe (2.9s)
+Fetching ProofWidgets cloud release... done!
+Current branch: HEAD
+Using cache (Azure) from origin: packages/mathlib
+No files to download
+No files to download
+Decompressing 8181 file(s) (3 already decompressed)
+Decompressed in 31164 ms
+Completed successfully!

@@ -1,0 +1,31 @@
+% Grouped mathematical dependencies, checked against Theorem1.lean.
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize,
+  box/.style={draw=black!30,rounded corners=2pt,fill=black!3,
+    align=center,inner sep=4pt,minimum height=8mm},
+  arr/.style={-{Latex[length=1.7mm]},draw=black!55,line width=.6pt}]
+\node[box,text width=12.1cm] (map) at (0,0)
+  {Coordinate map $\Phi$ and admissible parameters
+   $\lambda\ne0$, $1+z_2\ne0$, $\delta\ne0$};
+\node[box,text width=3.65cm,minimum height=12mm] (dim) at (-4.15,-1.6)
+  {Injectivity\\$\dim L=q+2$\\$\dim\mathcal C_0=q$};
+\node[box,text width=3.65cm,minimum height=12mm] (gram) at (0,-1.6)
+  {Gram formula\\Radical identification\\$\operatorname{rad}(L)=\Phi(\mathcal C_0)$};
+\node[box,text width=3.65cm,minimum height=12mm] (dist) at (4.15,-1.6)
+  {Weight lower bound\\$\wt\ge n-1$\\Equality attained};
+\node[box,fill=achieve!8,draw=achieve!55,text width=5.3cm] (cert) at (-2.6,-3.35)
+  {Lean algebraic certificate\\\texttt{NormalizerSideCertificate}};
+\node[box,fill=white,text width=5.1cm] (code) at (3.5,-3.35)
+  {Standard stabilizer correspondence\\$[[n,1,n-1;n-q-1]]_q$};
+\draw[arr] (map.south -| dim.north)--(dim.north);
+\draw[arr] (map.south)--(gram.north);
+\draw[arr] (map.south -| dist.north)--(dist.north);
+\draw[arr] (dim.south)--(dim.south |- cert.north);
+\draw[arr] (gram.south)--(cert.north);
+\draw[arr] (dist.south)--([xshift=1.9cm]cert.north);
+\draw[arr,dashed] (cert.east)--(code.west);
+\end{tikzpicture}
+\caption{Dependencies of the algebraic certificate.}
+\label{fig:lean-dependencies}
+\end{figure}

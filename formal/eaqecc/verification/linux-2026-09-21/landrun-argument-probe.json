@@ -1,0 +1,14 @@
+[
+  {
+    "extra_separator_before_executable": false,
+    "exit": 1,
+    "stdout": "NAME:\n   landrun - Run a command in a Landlock sandbox\n\nUSAGE:\n   landrun [global options]\n\nVERSION:\n   0.1.17\n\nGLOBAL OPTIONS:\n   --log-level string                       Set logging level (error, info, debug) (default: \"error\") [$LANDRUN_LOG_LEVEL]\n   --ro string [ --ro string ]              Allow read-only access to this path\n   --rox string [ --rox string ]            Allow read-only access with execution to this path\n   --rw string [ --rw string ]              Allow read-write access to this path\n   --rwx string [ --rwx string ]            Allow read-write access with execution to this path\n   --unix string [ --unix string ]          Allow connect(2)/sendmsg(2) on this pathname UNIX domain socket (Landlock ABI v9+)\n   --bind-tcp int [ --bind-tcp int ]        Allow binding to these TCP ports\n   --connect-tcp int [ --connect-tcp int ]  Allow connecting to these TCP ports\n   --best-effort                            Use best effort mode (fall back to less restrictive sandbox if necessary)\n   --env string [ --env string ]            Environment variables to pass to the sandboxed command (KEY=VALUE or just KEY to pass current value)\n   --unrestricted-filesystem                Allow unrestricted filesystem access\n   --unrestricted-network                   Allow unrestricted network access\n   --unrestricted-scoped                    Allow unrestricted IPC scoping (do not restrict abstract UNIX sockets and signals; Landlock ABI v6+)\n   --ignore-missing                         Gracefully ignore paths that do not exist instead of failing\n   --log-disable-originating                Disable audit logging of denials from the originating process (Landlock ABI v7+)\n   --log-enable-subprocesses                Enable audit logging of denials after execve(2) in subprocesses (Landlock ABI v7+)\n   --log-disable-subdomains                 Disable audit logging of denials from nested Landlock domains (Landlock ABI v7+)\n   --ldd                                    Automatically detect and add library dependencies to --rox\n   --add-exec                               Automatically add the executable path to --rox\n   --help, -h                               show help\n   --version, -v                            print the version\n",
+    "stderr": "Incorrect Usage: flag provided but not defined: -c\n\n[landrun:error] 2026/09/21 22:56:35 flag provided but not defined: -c\n"
+  },
+  {
+    "extra_separator_before_executable": true,
+    "exit": 0,
+    "stdout": "['MODULE', '--', 'DECL']\n",
+    "stderr": ""
+  }
+]

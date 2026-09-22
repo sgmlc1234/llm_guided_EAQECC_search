@@ -152,3 +152,32 @@ program remain inspectable through the portable audit/replay tools.
 For a new historical-style AlphaEvolve campaign, use
 [the optional cloud setup](alphaevolve_gcp_setup.md). It requires the reader's own
 account and budget; fresh model sampling is not an exact replay of this paper.
+
+## Frozen-program follow-up
+
+The separate [follow-up bundle](../experiments/hitl_followup/README.md) contains
+1,560 fresh executions, including the missing classical baseline and all three
+preserved lineage stages. Its integrity audit and replay commands are listed
+there. These are additional execution seeds of fixed programs, not new
+generation blocks. The original audit above still checks the original cohort.
+
+## Prospective eight-block replication
+
+The new [cohort](../experiments/hitl_replication/README.md) is separate from the
+original study above. Verify it without model calls:
+
+```sh
+python scripts/eaqecc_ablation/audit_replication.py
+python scripts/eaqecc_ablation/replay.py --bundle experiments/hitl_replication --program b04_evolution_g05 --split transfer --out ../checks/replication-example
+python scripts/eaqecc_ablation/make_replication_figure.py
+```
+
+Figure 4 uses this cohort; Figure 5 retains the original frozen-program repeat.
+All 16 new selected sources are in `selected_programs.json`. The full eight-block
+comparison, including the unavailable-response block, is the primary analysis;
+the seven complete blocks are a sensitivity analysis.
+
+The [binary-normalization replay](../artifacts/refutations/binary_normalization/2026-09-22/README.md)
+provides seven newly checked proofs of existing exclusions and a feasible positive
+control. SAT and DRAT-trim installation remains separate from the default Python
+checks; see EXTERNAL_VERIFICATION.md.

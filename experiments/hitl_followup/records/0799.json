@@ -1,0 +1,97 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "f7e5f7815539d56f461a55f76367d647ccb7eb56dd9980aba39e965ef37973a2",
+  "code_sha256": "e5e10b94fb055a25e3057402cfe92ad3a1e98c5a0c8647130271f8aaae2bfd77",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.8571428571428571,
+  "score": 0.0008571428571428571,
+  "runs": [
+    {
+      "seed": 202609211016,
+      "closed": 0,
+      "distance_ratio": 0.8571428571428571,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 15,
+            "k": 1,
+            "c": 12,
+            "d": 14
+          },
+          "seed": 6792874994216410921,
+          "allocated_evals": 30000,
+          "n_evals": 30000,
+          "nullspace_calls": 30000,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 30000,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 12414,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 0,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 15,
+            "s": 26,
+            "c": 12,
+            "iso": 2,
+            "k": 1,
+            "d": 12,
+            "offending": 9,
+            "logical_count": 12
+          },
+          "generators": [
+            33554433,
+            536870914,
+            436207620,
+            167772168,
+            134217744,
+            268435488,
+            167772224,
+            134217856,
+            167772416,
+            301990400,
+            134218752,
+            33556480,
+            402657280,
+            436215808,
+            268451840,
+            167804928,
+            704708608,
+            973209600,
+            268697600,
+            168296448,
+            437256192,
+            270532608,
+            306184192,
+            411041792,
+            989855744,
+            469762048
+          ],
+          "closed": false,
+          "distance_ratio": 0.8571428571428571,
+          "found_phase": "search",
+          "elapsed_s": 18.02473841700703,
+          "target_sha256": "c1793f144e374c1516569105167e34d8a375047221e45c3285cdcd480546dddc",
+          "code_sha256": "e5e10b94fb055a25e3057402cfe92ad3a1e98c5a0c8647130271f8aaae2bfd77",
+          "id": 0
+        }
+      ]
+    }
+  ],
+  "dispatch": {
+    "phase": "fresh",
+    "program": "b00_independent_g02",
+    "n": 15,
+    "seed": 202609211016,
+    "budget": 30000,
+    "id": 799
+  },
+  "host_elapsed_s": 18.099064457928762
+}

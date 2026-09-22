@@ -1,4 +1,4 @@
-"""Render the three preserved search curves in the manuscript's Times/TikZ font."""
+"""Render the preserved search curves and the unchanged classical control in the manuscript's Times/TikZ font."""
 import argparse
 import shutil
 import subprocess
@@ -21,11 +21,12 @@ def step_coordinates(cases, budget=10000, width=5.65, height=3.65):
 def render(bundle, out):
     out.mkdir(parents=True,exist_ok=True)
     result=read(bundle/'heldout_results.json')
+    control=read(ROOT/'experiments/hitl_followup/results.json')
     initial=read(bundle/'test'/code_hash((bundle/'initial_program.py').read_text())/'evaluation.json')
     lines=[r'% Data-derived TikZ; the main document supplies the same font as Figure 2.',
-           r'\definecolor{hcinitial}{HTML}{A37545}',r'\definecolor{hcind}{HTML}{78818E}',r'\definecolor{hcevo}{HTML}{00858B}',
+           r'\definecolor{hcinitial}{HTML}{A37545}',r'\definecolor{hcind}{HTML}{78818E}',r'\definecolor{hccontrol}{HTML}{B55D32}',r'\definecolor{hcevo}{HTML}{00858B}',
            r'\begin{tikzpicture}[x=1cm,y=1cm,font=\scriptsize,baseline]',
-           r'\path[use as bounding box] (-1.05,-1.32) rectangle (13.15,4.35);']
+           r'\path[use as bounding box] (-1.05,-1.72) rectangle (13.15,4.35);']
     for n,offset,panel in [(9,0,'a'),(11,7.2,'b')]:
         lines += [f'\\begin{{scope}}[xshift={offset}cm]',
                   f'\\node[font=\\scriptsize\\bfseries] at (2.825,4.14) {{({panel}) $n={n},\\ d={n-1}$}};']
@@ -42,18 +43,23 @@ def render(bundle, out):
             assert len(cases)==32
             hits=sum(c['closed'] for c in cases); rate=hits/len(cases)
             lines.append(f'\\draw[{color},line width=1.15pt] '+step_coordinates(cases)+';')
-            dy=-.21 if n==9 and arm=='independent' else .17
+            dy=-.21 if n==9 and arm=='independent' else .20
             lines.append(f'\\node[anchor=east,text={color},font=\\scriptsize\\bfseries] at (5.60,{3.65*rate+dy:.5f}) {{{hits}/{len(cases)}}};')
+        classical=[c for c in control if c['phase']=='archived_baseline' and c['n']==n]
+        assert len(classical)==8
+        hits=sum(c['closed'] for c in classical);rate=hits/len(classical)
+        lines.append(r'\draw[hccontrol,line width=1.0pt,dash pattern=on 4pt off 1.5pt] '+step_coordinates(classical)+';')
+        lines.append(fr'\node[anchor=east,text=hccontrol,font=\scriptsize\bfseries] at (5.60,{3.65*rate-.17:.5f}) {{{hits}/8}};')
         cases=[c for c in initial['cases'] if c['target']['n']==n]
         assert len(cases)==8 and all(c['allocated_evals']==10000 for c in cases)
         hits=sum(c['closed'] for c in cases)
         lines.append(r'\draw[hcinitial,line width=.9pt,dash pattern=on 3pt off 2pt] '+step_coordinates(cases)+';')
         lines.append(f'\\node[anchor=south east,text=hcinitial] at (5.60,{3.65*hits/len(cases)+.04:.5f}) {{{hits}/{len(cases)}}};')
         lines.append(r'\end{scope}')
-    for x,label,color,dashed in [(0,'Initial program','hcinitial',True),(3.9,'Independent proposals','hcind',False),(9.0,'Iterative evolution','hcevo',False)]:
+    for x,y,label,color,dashed in [(1,-1.10,'Initial program','hcinitial',True),(7.1,-1.10,'Classical L-side control','hccontrol',True),(1,-1.53,'Independent proposals','hcind',False),(7.1,-1.53,'Iterative evolution','hcevo',False)]:
         style=',dash pattern=on 3pt off 2pt' if dashed else ''
-        lines += [f'\\draw[{color},line width=1pt{style}] ({x},-1.12)--({x+.55},-1.12);',
-                  f'\\node[anchor=west] at ({x+.65},-1.12) {{{label}}};']
+        lines += [fr'\draw[{color},line width=1pt{style}] ({x},{y})--({x+.55},{y});',
+                  fr'\node[anchor=west] at ({x+.65},{y}) {{{label}}};']
     lines.append(r'\end{tikzpicture}')
     content=out/'hitl_ablation_content.tex';content.write_text('\n'.join(lines)+'\n')
     wrapper=out/'hitl_ablation_standalone.tex'

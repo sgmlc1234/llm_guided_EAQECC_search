@@ -1,0 +1,88 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "f7e5f7815539d56f461a55f76367d647ccb7eb56dd9980aba39e965ef37973a2",
+  "code_sha256": "1e07f5ef4bbae597b31932e4cd55c9d6aa36d2e19913f1140292f01b9aafa8e7",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.8571428571428571,
+  "score": 0.0008571428571428571,
+  "runs": [
+    {
+      "seed": 202609225025,
+      "closed": 0,
+      "distance_ratio": 0.8571428571428571,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 15,
+            "k": 1,
+            "c": 12,
+            "d": 14
+          },
+          "seed": 5712013574982205427,
+          "allocated_evals": 30000,
+          "n_evals": 30000,
+          "nullspace_calls": 30000,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 30000,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 12225,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 0,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 15,
+            "s": 26,
+            "c": 12,
+            "iso": 2,
+            "k": 1,
+            "d": 12,
+            "offending": 6,
+            "logical_count": 12
+          },
+          "generators": [
+            671088641,
+            822083586,
+            419430404,
+            687865864,
+            536870928,
+            553648160,
+            536870976,
+            134217856,
+            553648384,
+            687866368,
+            536871936,
+            134219776,
+            134221824,
+            671096832,
+            536887296,
+            134250496,
+            805371904,
+            134348800,
+            402915328,
+            554172416,
+            135266304,
+            404750336,
+            138412032,
+            545259520,
+            704643072,
+            738197504
+          ],
+          "closed": false,
+          "distance_ratio": 0.8571428571428571,
+          "found_phase": "search",
+          "elapsed_s": 20.045404499862343,
+          "target_sha256": "c1793f144e374c1516569105167e34d8a375047221e45c3285cdcd480546dddc",
+          "code_sha256": "1e07f5ef4bbae597b31932e4cd55c9d6aa36d2e19913f1140292f01b9aafa8e7",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

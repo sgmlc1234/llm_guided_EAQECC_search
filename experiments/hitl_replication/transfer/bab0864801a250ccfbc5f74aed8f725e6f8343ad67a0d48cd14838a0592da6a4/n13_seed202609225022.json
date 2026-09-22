@@ -1,0 +1,84 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "101bd1981ef49b638fbc49979c98977f297bd229b59052c603c4eea84accbf11",
+  "code_sha256": "bab0864801a250ccfbc5f74aed8f725e6f8343ad67a0d48cd14838a0592da6a4",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.75,
+  "score": 0.00075,
+  "runs": [
+    {
+      "seed": 202609225022,
+      "closed": 0,
+      "distance_ratio": 0.75,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 13,
+            "k": 1,
+            "c": 10,
+            "d": 12
+          },
+          "seed": 16773396370909936930,
+          "allocated_evals": 30000,
+          "n_evals": 3774,
+          "nullspace_calls": 3774,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 3774,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 1550,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 26226,
+          "underused_without_solution": true,
+          "parameters": {
+            "n": 13,
+            "s": 22,
+            "c": 10,
+            "iso": 2,
+            "k": 1,
+            "d": 9,
+            "offending": 4,
+            "logical_count": 12
+          },
+          "generators": [
+            25165825,
+            33554434,
+            58720260,
+            18874376,
+            16777232,
+            58720288,
+            50331712,
+            58720384,
+            18874624,
+            10486272,
+            33555456,
+            58722304,
+            58724352,
+            25174016,
+            8404992,
+            60850176,
+            2162688,
+            44171264,
+            35913728,
+            59244544,
+            61865984,
+            54525952
+          ],
+          "closed": false,
+          "distance_ratio": 0.75,
+          "found_phase": "search",
+          "elapsed_s": 1.8064143750816584,
+          "target_sha256": "8aa832bda36274f2c7ce571689a54f5e1bc2f1e8359add0cc9db2d2aca50c6f3",
+          "code_sha256": "bab0864801a250ccfbc5f74aed8f725e6f8343ad67a0d48cd14838a0592da6a4",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

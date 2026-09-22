@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    l = n + k - c\\n    s = n - k + c\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        dist_gap = max(0, target[\\\"d\\\"] - res.get(\\\"d\\\", 0)) if res.get(\\\"d\\\") is not None else target[\\\"d\\\"]\\n        return 10000 * abs(res[\\\"c\\\" ] - c) + 1000 * res[\\\"offending\\\"] + 100 * dist_gap\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return list(E.nullspace(rows, 2 * n))\\n\\n    def random_vector():\\n        v = 0\\n        qubits = rng.choice(n, size=int(rng.integers(1, 4)), replace=False)\\n        for q in qubits:\\n            v |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return v\\n\\n    while E.remaining:\\n        L = []\\n        while len(L) < l and E.remaining:\\n            v = random_vector()\\n            cand = L + [v]\\n            if len(E.gf2_basis(cand)) == len(cand):\\n                L.append(v)\\n        if len(L) < l:\\n            break\\n\\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        \\n        temp, fails = 30.0, 0\\n        # Set a tighter failure limit to trigger restarts earlier and prevent local minima trap\\n        while fails < 300 and E.remaining:\\n            temp = max(0.01, temp * 0.995)\\n            idx = int(rng.integers(l))\\n            old_v = L[idx]\\n            \\n            r = rng.random()\\n            if r < 0.25:\\n                L[idx] = random_vector()\\n            elif r < 0.65:\\n                L[idx] ^= random_vector()\\n            else:\\n                other = int(rng.integers(l))\\n                if other != idx:\\n                    L[idx] ^= L[other]\\n                else:\\n                    L[idx] ^= random_vector()\\n                \\n            if len(E.gf2_basis(L)) != l:\\n                L[idx] = old_v\\n                fails += 1\\n                continue\\n                \\n            S = get_S(L)\\n            res = E.evaluate(S)\\n            new_obj = objective(res)\\n            delta = new_obj - cur\\n            \\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                cur = new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                L[idx] = old_v\\n                fails += 1\\n                \\n    return None\"\n}",
+            "thoughtSignature": "AY89a18Dr8n6jXqnZS1nYisi7LaEGCwgd31xzoND71TO3fbzkPp0rgj0IvGfBelBD/1JoJu03dqMRsfP79bS+HCJO9l1emiIA//udS9D6OjXwyyNHRAwxg/bsXzIHGYDdYwGgpnGV6mfvGCSnv6AfUDW7eanS7r/205LgT3SHSvtM4Tq+/Mco2B76Tl9Gh1Eu1QxcFLxAj3kltclv+2iumy50O2y87hERtSRZd8CXrRcw+01PA3Xas9YrV/7kDCOSzj6fbVxVe/Qcr9PchVofCrePRxTlLiTIN7mcHgG64coSppiMI74L6snRiJdbtywM4cz49WsPXS2NkoTUoh8KZlOc8zV63uakP07YuTVl9ukaO/ONCj/fisZmLk1A+gICSVpCjlDrQUzmWOjlQgppcYj2FoWkv44A0F66O2W6hy98q8W+5qyDFdf9cQtXPJ8x1bYUKT/rlvoH8Vt+C7fNgd5MBdWVmrAL+FihyDy4lDj16K7B1MICgbT8gaUexM0UvcOA/sDpZO5ZdB+8H2tZGMYBt2egSn7nbWHboT5xLP8FPZwuhnfIrYHbwTYfU45ZJKAfDppk6G3MnwHDgQ5BEdH68uX0yCkCeDatXoFUGUjLiffED6HVuXBDhlqOCNASEWb4h4hVLMlbpe/TLsq5xSJ7qj3LBuQ9obKDdljsAIIN7DbIciodznESvCyPEYcVcLJgm0urecMXgibUKFjTlr7N+qBe4Gaw+T2iG2F1QVFg/m+NdrIsiIgqr9nrNIBLuqSTYc+Z4XZbaeZxAN5gojWJjLV719ahdZiVem7yoHbajHL5bBt376AZCvu3SDpa0Ui2WH5kVE8Go7iQ761ahchz6ca71Tj3ywuPhCuSCfIHCG4wlqQkSrFA7+Mn+XFQEiSIn8TdzkTIe9cmbdT2lxCNQG91N2NcYf8cRq/XAKDAo2J4eJ4zs8JVCVFfKixB03zujWX7GZmQmdxk1+nkjk+Cl0wSS1x3CKjRXDEyoLFFE6albFe9oYHga61Z8pR3IBWl3R5UGsPYlRGjWrofB96Zn7oZtVMrJlW01Oq3MTMZDjNsnyx5AWhn4mAs/xniCXdf3ja9KZ3MiY28DpgEzJl01G+cQh0D+fX2Xhy/2o535HuPUAjFIul5em42bqKP9pvVUIwpKfe6Bcbbc06Zqs8oeDeRT1RdGNgk5J9VgxbR9j3kNuEFdv1Zx8cwE0f"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3170,
+    "candidatesTokenCount": 809,
+    "totalTokenCount": 4184,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3170
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 809
+      }
+    ],
+    "thoughtsTokenCount": 205
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:01:54.391751Z",
+  "responseId": "4kaxasf0F-mektwPn5CamAs"
+}

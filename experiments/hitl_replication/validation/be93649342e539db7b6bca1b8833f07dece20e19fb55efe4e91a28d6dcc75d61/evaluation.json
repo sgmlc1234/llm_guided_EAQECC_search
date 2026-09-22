@@ -1,0 +1,641 @@
+{
+  "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+  "mean_utility": 0.72005,
+  "success_fraction": 1.0,
+  "mean_distance_ratio": 1.0,
+  "errors": 0,
+  "cases": [
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 4901990437192825674,
+      "allocated_evals": 10000,
+      "n_evals": 780,
+      "nullspace_calls": 780,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 780,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 188,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 9220,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        65537,
+        196610,
+        131108,
+        65544,
+        65584,
+        196672,
+        69760,
+        196864,
+        131584,
+        66560,
+        198656,
+        204800,
+        147456,
+        229376
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.16347191692329943,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+      "id": 0,
+      "independent_check": {
+        "path": "artifact/validation/be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61/n9_seed202609223004.witness.json",
+        "sha256": "21a19bdfa02b55399f3b8560317d94bdd0b3bf8971f7aecb727573c882179f9f",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "9": 4,
+          "8": 8
+        },
+        "status": "PASS"
+      },
+      "utility": 0.922
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 6060026862040951443,
+      "allocated_evals": 10000,
+      "n_evals": 1318,
+      "nullspace_calls": 1318,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 1318,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 326,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 8682,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        196609,
+        65538,
+        131092,
+        196632,
+        65568,
+        131136,
+        196736,
+        198912,
+        131584,
+        134144,
+        135168,
+        73728,
+        147456,
+        229376
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.2698360001668334,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+      "id": 0,
+      "independent_check": {
+        "path": "artifact/validation/be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61/n9_seed202609223003.witness.json",
+        "sha256": "ea90d5c1f10c6d0f40f28f10514e0c77ed989ad57e7500bd6254ed14f1497eca",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "8": 8,
+          "9": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.8682
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 8049216556105197687,
+      "allocated_evals": 10000,
+      "n_evals": 659,
+      "nullspace_calls": 659,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 659,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 156,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 9341,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        196609,
+        139266,
+        65540,
+        131080,
+        196624,
+        131104,
+        67648,
+        198784,
+        65792,
+        197120,
+        134144,
+        208896,
+        147456,
+        98304
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.14053674996830523,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+      "id": 0,
+      "independent_check": {
+        "path": "artifact/validation/be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61/n9_seed202609223002.witness.json",
+        "sha256": "a5bb90b916d0ef493bb65ffa2e28e9232af5883f0f5203f3483c29d349c18fcd",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "8": 8,
+          "9": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.9341
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 9,
+        "k": 1,
+        "c": 6,
+        "d": 8
+      },
+      "seed": 10273514179653553651,
+      "allocated_evals": 10000,
+      "n_evals": 4960,
+      "nullspace_calls": 4960,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 4960,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 1176,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 5040,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 9,
+        "s": 14,
+        "c": 6,
+        "iso": 2,
+        "k": 1,
+        "d": 8,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        32769,
+        65538,
+        32772,
+        98376,
+        229392,
+        163872,
+        32896,
+        98560,
+        33280,
+        99328,
+        34816,
+        69632,
+        40960,
+        81920
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.9771765419282019,
+      "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+      "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+      "id": 0,
+      "independent_check": {
+        "path": "artifact/validation/be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61/n9_seed202609223001.witness.json",
+        "sha256": "f17d3c36f300e67f8bc1c22227485088e1c08a21068f7c70e356d3b99a7381f4",
+        "parameters_n_k_d_c": [
+          9,
+          1,
+          8,
+          6
+        ],
+        "rank_S": 14,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "8": 8,
+          "9": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.504
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 788135654182923395,
+      "allocated_evals": 10000,
+      "n_evals": 5116,
+      "nullspace_calls": 5116,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 5116,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 1189,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 4884,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        1310721,
+        1048578,
+        262148,
+        1048584,
+        262160,
+        1048608,
+        1310784,
+        262272,
+        1310976,
+        1049088,
+        2360320,
+        1050624,
+        1183744,
+        1318912,
+        1327104,
+        1081344,
+        1507328,
+        1572864
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 1.6704197919461876,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+      "id": 0,
+      "independent_check": {
+        "path": "artifact/validation/be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61/n11_seed202609223004.witness.json",
+        "sha256": "25586dc499ca9c1bef5998d59309c1d0eeac1b6a2b75c1a179fe563a227132a1",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "11": 4,
+          "10": 8
+        },
+        "status": "PASS"
+      },
+      "utility": 0.48839999999999995
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 4271591019608428234,
+      "allocated_evals": 10000,
+      "n_evals": 5386,
+      "nullspace_calls": 5386,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 5386,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 1266,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 4614,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        262145,
+        3145730,
+        3670020,
+        262152,
+        262160,
+        3145760,
+        262208,
+        3408000,
+        3145984,
+        3408384,
+        1311744,
+        3147776,
+        3411968,
+        270336,
+        278528,
+        3440640,
+        3211264,
+        3538944
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 1.7032641659025103,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+      "id": 0,
+      "independent_check": {
+        "path": "artifact/validation/be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61/n11_seed202609223001.witness.json",
+        "sha256": "9bbf4be57ffe6e8425973b477d96fe9c3934fefc821b340ed4a556d24ba60f79",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "10": 8,
+          "11": 4
+        },
+        "status": "PASS"
+      },
+      "utility": 0.46140000000000003
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 6989372053622694338,
+      "allocated_evals": 10000,
+      "n_evals": 2418,
+      "nullspace_calls": 2418,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 2418,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 551,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 7582,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        1572865,
+        3670018,
+        524292,
+        2097192,
+        524304,
+        2621504,
+        524416,
+        2621696,
+        2097664,
+        2098176,
+        526336,
+        2101248,
+        2629632,
+        2113536,
+        2654208,
+        2162688,
+        2752512,
+        2883584
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.7615268339868635,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+      "id": 0,
+      "independent_check": {
+        "path": "artifact/validation/be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61/n11_seed202609223003.witness.json",
+        "sha256": "5c609965fcf22abd01dcf3cd2fd5f5d92e6742690b257956190a2b3017cb0a6c",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "11": 4,
+          "10": 8
+        },
+        "status": "PASS"
+      },
+      "utility": 0.7582
+    },
+    {
+      "target": {
+        "q": 2,
+        "n": 11,
+        "k": 1,
+        "c": 8,
+        "d": 10
+      },
+      "seed": 16883341448873091117,
+      "allocated_evals": 10000,
+      "n_evals": 1759,
+      "nullspace_calls": 1759,
+      "phase_evals": {
+        "initialization": 0,
+        "search": 1759,
+        "final_return": 0
+      },
+      "protected_initialization": false,
+      "invalid_evaluations": 369,
+      "final_verifications": 0,
+      "termination": "solved",
+      "error": null,
+      "unused_evals": 8241,
+      "underused_without_solution": false,
+      "parameters": {
+        "n": 11,
+        "s": 18,
+        "c": 8,
+        "iso": 2,
+        "k": 1,
+        "d": 10,
+        "offending": 0,
+        "logical_count": 12
+      },
+      "generators": [
+        524289,
+        3670018,
+        524292,
+        3670024,
+        524304,
+        3145760,
+        2621504,
+        1572992,
+        3148032,
+        526848,
+        3671040,
+        528384,
+        3678208,
+        3686400,
+        3178496,
+        589824,
+        3276800,
+        3407872
+      ],
+      "closed": true,
+      "distance_ratio": 1.0,
+      "found_phase": "search",
+      "elapsed_s": 0.5370655830483884,
+      "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+      "code_sha256": "be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61",
+      "id": 0,
+      "independent_check": {
+        "path": "artifact/validation/be93649342e539db7b6bca1b8833f07dece20e19fb55efe4e91a28d6dcc75d61/n11_seed202609223002.witness.json",
+        "sha256": "7d2ef02563a037f89dc49ab0af44ad1d01e107f49757ac19a70752b9930dc429",
+        "parameters_n_k_d_c": [
+          11,
+          1,
+          10,
+          8
+        ],
+        "rank_S": 18,
+        "dim_dual": 4,
+        "radical_dimension": 2,
+        "logical_weight_distribution": {
+          "11": 4,
+          "10": 8
+        },
+        "status": "PASS"
+      },
+      "utility": 0.8241
+    }
+  ]
+}

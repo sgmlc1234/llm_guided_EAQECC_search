@@ -1,0 +1,80 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "7b5732d819890f2a60b9dc8f1abd5d3e33738f9b7de389c8dcbd56cb44c78828",
+  "code_sha256": "fde19be305c479de6d53e3d32a4cb136092382d0ba48ec01bbd0c0a75d9fb375",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.8,
+  "score": 0.0008,
+  "runs": [
+    {
+      "seed": 202609222001,
+      "closed": 0,
+      "distance_ratio": 0.8,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 11,
+            "k": 1,
+            "c": 8,
+            "d": 10
+          },
+          "seed": 3458227643274499324,
+          "allocated_evals": 10000,
+          "n_evals": 10000,
+          "nullspace_calls": 10000,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 10000,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 4261,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 0,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 11,
+            "s": 18,
+            "c": 8,
+            "iso": 2,
+            "k": 1,
+            "d": 8,
+            "offending": 5,
+            "logical_count": 12
+          },
+          "generators": [
+            2228225,
+            1179650,
+            262148,
+            2490376,
+            2490384,
+            3538976,
+            3145792,
+            2228352,
+            3145984,
+            1180160,
+            2229248,
+            3409920,
+            3149824,
+            2236416,
+            3424256,
+            294912,
+            1245184,
+            2621440
+          ],
+          "closed": false,
+          "distance_ratio": 0.8,
+          "found_phase": "search",
+          "elapsed_s": 3.0125635410659015,
+          "target_sha256": "cb20898098c6c09bddf745dea84ba7dfe25e71897723db9e39fec0b2bd2228b3",
+          "code_sha256": "fde19be305c479de6d53e3d32a4cb136092382d0ba48ec01bbd0c0a75d9fb375",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

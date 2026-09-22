@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    m = n + k - c\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def get_S(L):\\n        return E.nullspace([E._J(v, n) for v in L], 2 * n)\\n\\n    # Initialize L with m linearly independent random vectors\\n    while E.remaining:\\n        L = []\\n        for _ in range(m):\\n            while True:\\n                v = int(rng.integers(1, 1 << (2 * n)))\\n                test_L = L + [v]\\n                if len(E.gf2_basis(test_L)) == len(test_L):\\n                    L.append(v)\\n                    break\\n        \\n        S = get_S(L)\\n        cur_obj = objective(E.evaluate(S))\\n        if cur_obj == 0:\\n            return S\\n\\n        temp, fails = 30.0, 0\\n        while fails < 2000 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            idx = int(rng.integers(m))\\n            candidate_L = list(L)\\n            if rng.random() < 0.2:\\n                candidate_L[idx] = int(rng.integers(1, 1 << (2 * n)))\\n            else:\\n                candidate_L[idx] ^= random_pauli()\\n            \\n            if len(E.gf2_basis(candidate_L)) != m:\\n                fails += 1\\n                continue\\n                \\n            cand_S = get_S(candidate_L)\\n            new_obj = objective(E.evaluate(cand_S))\\n            if new_obj == 0:\\n                return cand_S\\n                \\n            delta = new_obj - cur_obj\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur_obj = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"\n}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 712,
+    "totalTokenCount": 3593,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 712
+      }
+    ],
+    "thoughtsTokenCount": 1084
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:02:23.021138Z",
+  "responseId": "_0axapKlAemektwPn5CamAs"
+}

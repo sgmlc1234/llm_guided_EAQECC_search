@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    l_rank = n + k - c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    while E.remaining:\\n        # Generate a random independent basis L of rank l_rank\\n        while True:\\n            L = []\\n            for _ in range(l_rank):\\n                # Generate random elements\\n                qubits = rng.choice(n, size=int(rng.integers(1, n // 2 + 1)), replace=False)\\n                val = 0\\n                for q in qubits:\\n                    val |= int(rng.integers(1, 4)) << (2 * int(q))\\n                L.append(val)\\n            if len(E.gf2_basis(L)) == l_rank:\\n                break\\n        \\n        # Convert L to S\\n        S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n        if len(S) != s:\\n            continue\\n        \\n        cur = objective(E.evaluate(S))\\n        temp, fails = 30.0, 0\\n        \\n        while fails < 1500 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            candidate_L = list(L)\\n            idx = int(rng.integers(l_rank))\\n            candidate_L[idx] ^= random_pauli()\\n            \\n            if len(E.gf2_basis(candidate_L)) != l_rank:\\n                fails += 1\\n                continue\\n                \\n            cand_S = E.nullspace([E._J(v, n) for v in candidate_L], 2 * n)\\n            if len(cand_S) != s:\\n                fails += 1\\n                continue\\n                \\n            new_obj = objective(E.evaluate(cand_S))\\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"}",
+            "thoughtSignature": "AY89a1+JAOzxvnj1Jm/ZhdD1ihwHAJpzbJZu76FyFS0AsPFlTKmAmmeDimdIln2Wt2y+GOySs/ut5xf9zZ0EXz+T700+PvZ+ghYy9zNGb/RI6eA6Z7E/t6XlLhrmQ5EokTrmtuDdlZShsPIeqO1WRVyyHQwCJ6FQuj61Rx1UJNQ6U9Sd5iku8ouE6kQWc+BhEBDwPxgYpLQ0M8PHBaXRI+wGupW4T1Y3JeNBsFH/iHjKqzveSpT/KATSSgv+OohO1jZFJHlcNmWotukus82m7wqCw4qH7295QgVakRiY42TXV3UaHM5PVDObMsQcEYryu1orckWx8tDZdCAckTjrugjugTLOP5wuM8cUFMMXDqzgpXKQCpCirJQrrX5/rS7So2/j2Iri4xhbYx/m4CP2zczqAaB2EadsJ/A+JdczokzOtT1jOJ+ci1QjpQLM+HCF4u8efa1Uy4Xij2aga4kjiiAHRBA4zsBXtY9P4n/PCUpbQuXn/jzZ5lF9BcE+21eHEpgYnbDaKj5L+L2uIT1lmsxaXvRuksfBCYNDPTxsD4RPMyJTYhsF30PiWzaHpxI+f2tX6AsKvx50y5wi++z0aHEEm6BKRGt8uKQe8A+8IjPMYQa+JY1OkL8djmqUY7cz6SHWyQ7exy/z0T1JNHuTX27Q29iIC8W4UHkkVwP9fT+F2pj0T8NUEAgtOwmU8XMBOrzLZU7xbl4NTgW4id5lbHywm05A6MqduLjgml3QA2nv6fbTe/H5IXSwA6gqDm5tsutyVgy91sjQlyw0CH95CwmG3Yz4B3UOjWNleYC6lFcCc2kJo3atuGxB1fM6NUyuCgCwApj8xGbtYuKCnQ5+3fMeCQdRmrp5ZSxHFqsD0xoFIhr9gJVrVinEgzqVPExElRTcdv6B+zHS9/WkgRfGMzsIdyTz12DcJhkotsiGsJ7ixDUZPlgwIYQPLkAK8qTP0X7N2wIFzdTArFUbhUktPGxdDjVu6KdZWTQAr67Zi3pOqHb0YPLORRY1EsFa3F2ej2mqK9OmCYjSGVxWEuk4mOv/MiZbzUzhwFgRXp7JIvN9TUgqIaa62b3WXI3OPs1Pnqtdiu0Ab79EBbgRgRA8VQYZKauYYa6ZpYbGBO9WlJXn55D560hes+C2MKoMwLmIW6lLSDFi5RQP7Fqo0wYHb3V4v4U4kG6LU1JCswGJv+xMtTk0tzBG8jBpaE6VBJDRRhM15pCNtNDLX7V8Sp7nzOiGrRNqKUpmtu4uanmgJOdjavz0tP1XKYxYRs/ogxsXOgN2MyRvfrxZhE3WsOCiR0md33Yg3BIqwv6f7k2HkWdNcezlVEn/cDXr1Hxvnpz+tevtVN71jaK/MiqLWtbP/m+DXJMHyJGnUM/1fn9i2K+lGfStturfYmN6/KOdjk75TbA/R6+y1fL90PuktTYP6pROsoC3VaPfCxjX5HfRfob22A3YZonu9aXY63uFMYRbGsXb0AkvHmv5l1HLBKQ20IfrifZNcKiIlcNT3k22bFY3iP7CH/oisr+kPv4R+K9l2Fx7vTV2jaSieuW1Jd9AeQMn1e8xdNFs3BGrMAU5K7MjAIAjkYpOqEsWvUewSAs4XrL9ZA4ZZ0A1Ja5kMawpSGiK6BqHIZugrHPT7+XXfBcYuvecAA6L+TiG8xIvC92QV02G38nMmSKrrfDGW6HR1V0UQH3hgGxyVvC8IkO1El1dkNSa873aysGv0EAqokuvhQm5e320MyHsKqjUL0XwUB4fPxJiSOwmDLSP/LtzSbJf4Bsz3H+asnSEWeCowA=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 720,
+    "totalTokenCount": 2969,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 720
+      }
+    ],
+    "thoughtsTokenCount": 452
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:38:37.854419Z",
+  "responseId": "fU-xapOTNKeb0ckP272MyQU"
+}

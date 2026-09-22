@@ -1,0 +1,7 @@
+{
+  "created_unix": 1790004742.916403,
+  "trigger": "Confirmed non-billed HTTP503 after 80 completed proposals; the earlier one uncertain response remains unresent",
+  "change": "Known HTTP503 joins HTTP429 in the same at-most-three-attempt rule. Fixed spacing between accepted model requests raised from 5 to 30 seconds to reduce service pressure.",
+  "unchanged": "logical request slots, model, prompts, seeds, policies, selection, budgets, original 24h deadline; no uncertain retries",
+  "script_sha256": "15a5abfb1cb3e52fd293572315fc9b552e80a7d230fd651e9949ba3aea96942b"
+}

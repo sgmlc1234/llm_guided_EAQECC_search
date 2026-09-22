@@ -1,0 +1,88 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "f7e5f7815539d56f461a55f76367d647ccb7eb56dd9980aba39e965ef37973a2",
+  "code_sha256": "ef20516e3eeb44440661890ae64840b81e868a6f486d42e4f940b4f435648fae",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.8571428571428571,
+  "score": 0.0008571428571428571,
+  "runs": [
+    {
+      "seed": 202609225027,
+      "closed": 0,
+      "distance_ratio": 0.8571428571428571,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 15,
+            "k": 1,
+            "c": 12,
+            "d": 14
+          },
+          "seed": 13831106896711140257,
+          "allocated_evals": 30000,
+          "n_evals": 30000,
+          "nullspace_calls": 30000,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 30000,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 12492,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 0,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 15,
+            "s": 26,
+            "c": 12,
+            "iso": 2,
+            "k": 1,
+            "d": 12,
+            "offending": 8,
+            "logical_count": 12
+          },
+          "generators": [
+            536870913,
+            268435459,
+            134217729,
+            83886086,
+            33554433,
+            16777228,
+            8388615,
+            4194309,
+            2097153,
+            1048578,
+            524301,
+            262158,
+            131086,
+            65548,
+            32780,
+            16387,
+            8194,
+            4097,
+            2061,
+            1028,
+            514,
+            259,
+            129,
+            74,
+            43,
+            24
+          ],
+          "closed": false,
+          "distance_ratio": 0.8571428571428571,
+          "found_phase": "search",
+          "elapsed_s": 20.66196991596371,
+          "target_sha256": "c1793f144e374c1516569105167e34d8a375047221e45c3285cdcd480546dddc",
+          "code_sha256": "ef20516e3eeb44440661890ae64840b81e868a6f486d42e4f940b4f435648fae",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

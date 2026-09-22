@@ -1,0 +1,11 @@
+{
+  "exit": 0,
+  "stdout": "[[8,1,7;5]]_4 FOUND & verified (1 restarts)\n",
+  "stderr": "",
+  "elapsed_s": 0.1737807090394199,
+  "output_sha256": "3008d20f957e364e8da1374377b5ef9f27115c3df9b25c0c24f5daa71d07c58f",
+  "archived_sha256": "3008d20f957e364e8da1374377b5ef9f27115c3df9b25c0c24f5daa71d07c58f",
+  "byte_identical": true,
+  "same_matrix": true,
+  "scope": "Fresh bounded replay of preserved source, not recovery of the historical log"
+}

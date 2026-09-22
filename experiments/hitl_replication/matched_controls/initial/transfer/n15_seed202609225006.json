@@ -1,0 +1,88 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "f7e5f7815539d56f461a55f76367d647ccb7eb56dd9980aba39e965ef37973a2",
+  "code_sha256": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.7857142857142857,
+  "score": 0.0007857142857142857,
+  "runs": [
+    {
+      "seed": 202609225006,
+      "closed": 0,
+      "distance_ratio": 0.7857142857142857,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 15,
+            "k": 1,
+            "c": 12,
+            "d": 14
+          },
+          "seed": 9773688166031221527,
+          "allocated_evals": 30000,
+          "n_evals": 30000,
+          "nullspace_calls": 0,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 30000,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 11929,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 0,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 15,
+            "s": 26,
+            "c": 12,
+            "iso": 2,
+            "k": 1,
+            "d": 11,
+            "offending": 6,
+            "logical_count": 12
+          },
+          "generators": [
+            615616263,
+            1013402066,
+            600888073,
+            43879520,
+            258392641,
+            152723384,
+            818812595,
+            140655961,
+            870401244,
+            311113587,
+            836729231,
+            1054994623,
+            264329948,
+            327798785,
+            1022884865,
+            21019261,
+            234957547,
+            567969821,
+            862132516,
+            966920869,
+            218379379,
+            841633529,
+            233153465,
+            186265755,
+            617733302,
+            202880215
+          ],
+          "closed": false,
+          "distance_ratio": 0.7857142857142857,
+          "found_phase": "search",
+          "elapsed_s": 18.595075000077486,
+          "target_sha256": "c1793f144e374c1516569105167e34d8a375047221e45c3285cdcd480546dddc",
+          "code_sha256": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

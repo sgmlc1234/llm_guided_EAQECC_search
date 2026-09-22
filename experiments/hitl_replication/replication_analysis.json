@@ -1,0 +1,390 @@
+{
+  "state": "COMPLETE",
+  "generation_blocks": 8,
+  "accepted_proposals": 111,
+  "unavailable_proposals": {
+    "b07_evolution_g04": {
+      "ledger_id": "b07_evolution_g04",
+      "reason": "response uncertain; never resent",
+      "request_sha256": "473666bd18a29d617255d9cab82e7f46f699408d5ba3e46a7a4dd9cea3020193",
+      "reserved_krw": 293.21987453375
+    }
+  },
+  "completed_slots": 112,
+  "primary_mean_auc_difference": 0.0986875,
+  "block_differences": [
+    -0.06305156249999999,
+    0.006618749999999979,
+    -0.0007906249999999893,
+    0.020950000000000024,
+    0.5776328125,
+    0.09517343750000001,
+    0.41657968749999996,
+    -0.26361249999999997
+  ],
+  "positive_blocks": 5,
+  "descriptive_two_sided_sign_flip_p": 0.328125,
+  "by_length": {
+    "independent": {
+      "9": {
+        "successes": 154,
+        "runs": 256,
+        "mean_utility": 0.39519140625,
+        "errors": 0
+      },
+      "11": {
+        "successes": 69,
+        "runs": 256,
+        "mean_utility": 0.1248984375,
+        "errors": 0
+      },
+      "13": {
+        "successes": 50,
+        "runs": 256,
+        "mean_utility": 0.098740625,
+        "errors": 0
+      },
+      "15": {
+        "successes": 8,
+        "runs": 256,
+        "mean_utility": 0.011782161458333332,
+        "errors": 0
+      }
+    },
+    "evolution": {
+      "9": {
+        "successes": 186,
+        "runs": 256,
+        "mean_utility": 0.4655078125,
+        "errors": 0
+      },
+      "11": {
+        "successes": 111,
+        "runs": 256,
+        "mean_utility": 0.25195703125,
+        "errors": 0
+      },
+      "13": {
+        "successes": 118,
+        "runs": 256,
+        "mean_utility": 0.3088197916666667,
+        "errors": 0
+      },
+      "15": {
+        "successes": 81,
+        "runs": 256,
+        "mean_utility": 0.19336471354166668,
+        "errors": 0
+      }
+    }
+  },
+  "blocks": {
+    "0": {
+      "test": {
+        "independent": {
+          "successes": 25,
+          "runs": 64,
+          "mean_utility": 0.246890625,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 19,
+          "runs": 64,
+          "mean_utility": 0.1838390625,
+          "errors": 0
+        }
+      },
+      "transfer": {
+        "independent": {
+          "successes": 3,
+          "runs": 64,
+          "mean_utility": 0.020364062500000002,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 7,
+          "runs": 64,
+          "mean_utility": 0.03309947916666667,
+          "errors": 0
+        }
+      },
+      "selected": {
+        "independent": "b00_independent_g01",
+        "evolution": "b00_evolution_g06"
+      }
+    },
+    "1": {
+      "test": {
+        "independent": {
+          "successes": 25,
+          "runs": 64,
+          "mean_utility": 0.246890625,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 30,
+          "runs": 64,
+          "mean_utility": 0.253509375,
+          "errors": 0
+        }
+      },
+      "transfer": {
+        "independent": {
+          "successes": 3,
+          "runs": 64,
+          "mean_utility": 0.020364062500000002,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 15,
+          "runs": 64,
+          "mean_utility": 0.1120046875,
+          "errors": 0
+        }
+      },
+      "selected": {
+        "independent": "b01_independent_g04",
+        "evolution": "b01_evolution_g02"
+      }
+    },
+    "2": {
+      "test": {
+        "independent": {
+          "successes": 24,
+          "runs": 64,
+          "mean_utility": 0.2176640625,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 35,
+          "runs": 64,
+          "mean_utility": 0.21687343750000002,
+          "errors": 0
+        }
+      },
+      "transfer": {
+        "independent": {
+          "successes": 3,
+          "runs": 64,
+          "mean_utility": 0.030590625,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 19,
+          "runs": 64,
+          "mean_utility": 0.1099421875,
+          "errors": 0
+        }
+      },
+      "selected": {
+        "independent": "b02_independent_g03",
+        "evolution": "b02_evolution_g02"
+      }
+    },
+    "3": {
+      "test": {
+        "independent": {
+          "successes": 39,
+          "runs": 64,
+          "mean_utility": 0.353478125,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 45,
+          "runs": 64,
+          "mean_utility": 0.374428125,
+          "errors": 0
+        }
+      },
+      "transfer": {
+        "independent": {
+          "successes": 22,
+          "runs": 64,
+          "mean_utility": 0.1749953125,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 23,
+          "runs": 64,
+          "mean_utility": 0.16925729166666667,
+          "errors": 0
+        }
+      },
+      "selected": {
+        "independent": "b03_independent_g04",
+        "evolution": "b03_evolution_g06"
+      }
+    },
+    "4": {
+      "test": {
+        "independent": {
+          "successes": 26,
+          "runs": 64,
+          "mean_utility": 0.24295625,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 64,
+          "runs": 64,
+          "mean_utility": 0.8205890625,
+          "errors": 0
+        }
+      },
+      "transfer": {
+        "independent": {
+          "successes": 8,
+          "runs": 64,
+          "mean_utility": 0.061343229166666666,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 64,
+          "runs": 64,
+          "mean_utility": 0.8971083333333333,
+          "errors": 0
+        }
+      },
+      "selected": {
+        "independent": "b04_independent_g04",
+        "evolution": "b04_evolution_g05"
+      }
+    },
+    "5": {
+      "test": {
+        "independent": {
+          "successes": 34,
+          "runs": 64,
+          "mean_utility": 0.2464046875,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 40,
+          "runs": 64,
+          "mean_utility": 0.341578125,
+          "errors": 0
+        }
+      },
+      "transfer": {
+        "independent": {
+          "successes": 15,
+          "runs": 64,
+          "mean_utility": 0.10168072916666666,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 11,
+          "runs": 64,
+          "mean_utility": 0.05377447916666667,
+          "errors": 0
+        }
+      },
+      "selected": {
+        "independent": "b05_independent_g00",
+        "evolution": "b05_evolution_g05"
+      }
+    },
+    "6": {
+      "test": {
+        "independent": {
+          "successes": 25,
+          "runs": 64,
+          "mean_utility": 0.246890625,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 62,
+          "runs": 64,
+          "mean_utility": 0.6634703125,
+          "errors": 0
+        }
+      },
+      "transfer": {
+        "independent": {
+          "successes": 3,
+          "runs": 64,
+          "mean_utility": 0.020364062500000002,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 60,
+          "runs": 64,
+          "mean_utility": 0.6335515625,
+          "errors": 0
+        }
+      },
+      "selected": {
+        "independent": "b06_independent_g02",
+        "evolution": "b06_evolution_g02"
+      }
+    },
+    "7": {
+      "test": {
+        "independent": {
+          "successes": 25,
+          "runs": 64,
+          "mean_utility": 0.279184375,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 2,
+          "runs": 64,
+          "mean_utility": 0.015571875,
+          "errors": 0
+        }
+      },
+      "transfer": {
+        "independent": {
+          "successes": 1,
+          "runs": 64,
+          "mean_utility": 0.012389062499999999,
+          "errors": 0
+        },
+        "evolution": {
+          "successes": 0,
+          "runs": 64,
+          "mean_utility": 0.0,
+          "errors": 0
+        }
+      },
+      "selected": {
+        "independent": "b07_independent_g02",
+        "evolution": "b07_evolution_g05"
+      }
+    }
+  },
+  "model_usage": {
+    "independent": {
+      "requests": 56,
+      "input": 100632,
+      "output": 41801,
+      "reported_reasoning": 58067,
+      "request_latency_mean_s": 10.445492259093694
+    },
+    "evolution": {
+      "requests": 55,
+      "input": 165819,
+      "output": 49296,
+      "reported_reasoning": 64426,
+      "request_latency_mean_s": 11.48370555530895
+    }
+  },
+  "committed_krw": 4308.1661316325,
+  "model_cost_estimate_krw": 3211.957005679,
+  "HTTP429_rejections": 5,
+  "HTTP503_rejections": 1,
+  "model_cost_estimate_scope": "Received usage only; unavailable responses retain their full reservation in committed_krw",
+  "protocol_sha256": "7acabc772bfa9c08facaac48310f6f705ef554915c754905affdcadcb90c1444",
+  "interpretation": "Eight new paired generation blocks, reported separately from the original four. Transfer is secondary. No test-based program reselection.",
+  "complete_block_sensitivity": {
+    "blocks": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "mean_test_auc_difference": 0.15044464285714285
+  }
+}

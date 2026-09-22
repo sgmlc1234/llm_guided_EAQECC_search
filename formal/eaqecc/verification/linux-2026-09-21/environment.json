@@ -1,0 +1,71 @@
+{
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+  "architecture": "x86_64",
+  "cpu_model": "12th Gen Intel(R) Core(TM) i7-12700K",
+  "lean": "Lean (version 4.29.0-rc6, x86_64-unknown-linux-gnu, commit 00659f8e6071d7e46131ed643bf8003b99b044e9, Release)",
+  "packages": {
+    "repl": {
+      "expected": "1d17a15a60811e58edfbf73e13a114537e999a41",
+      "observed": "1d17a15a60811e58edfbf73e13a114537e999a41"
+    },
+    "mathlib": {
+      "expected": "1ea3462986d06c85c98fb18c10082274043405e4",
+      "observed": "1ea3462986d06c85c98fb18c10082274043405e4"
+    },
+    "plausible": {
+      "expected": "e84e3e16aea6b72cc5d311ca1bb25caad417e162",
+      "observed": "e84e3e16aea6b72cc5d311ca1bb25caad417e162"
+    },
+    "LeanSearchClient": {
+      "expected": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "observed": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+    },
+    "importGraph": {
+      "expected": "f207d9fcf0cef00ba79962a33ef156061914d9c7",
+      "observed": "f207d9fcf0cef00ba79962a33ef156061914d9c7"
+    },
+    "proofwidgets": {
+      "expected": "2e58165a9dcdca9837b666528f974299ee1a51cc",
+      "observed": "2e58165a9dcdca9837b666528f974299ee1a51cc"
+    },
+    "aesop": {
+      "expected": "c3361708f266893de5d1769192b60d4b1831f2bb",
+      "observed": "c3361708f266893de5d1769192b60d4b1831f2bb"
+    },
+    "Qq": {
+      "expected": "221e8088e3a066b8676dc471ff10638cf1c10835",
+      "observed": "221e8088e3a066b8676dc471ff10638cf1c10835"
+    },
+    "batteries": {
+      "expected": "77a5160a74772214ef37caba2847cfe9ab600285",
+      "observed": "77a5160a74772214ef37caba2847cfe9ab600285"
+    },
+    "Cli": {
+      "expected": "3de531c1135f5e3a01f3ac04830996fda476b28e",
+      "observed": "3de531c1135f5e3a01f3ac04830996fda476b28e"
+    }
+  },
+  "source_sha256": {
+    "CodingTheoryLib/Research/ICLR2027EAQECC/Definitions.lean": "1b428a3a2f8a59f7e4e84e7d6ded1eba7ee087eeff04cd23d376e92eabf3eea4",
+    "CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean": "4a51c971dfb9441d96013fbdbee5c4656d60ae5eabea47107f42b403de8618fc",
+    "CodingTheoryLib/Research/ICLR2027EAQECC/Theorem1.lean": "0876587ffec57b030814434b923051fddace8d538569dcef21ae9c317d69df6b",
+    "CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Theorem1Solution.lean": "efa11a54cd267de3cf4847231a4e405b07905b1318a3b7d3a10acc3ba16240a4",
+    "CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2Solution.lean": "94a59d89cbbff5893b42ac1cd37e8de1b3ab31f15b9cab98e3879d3e77da763b",
+    "CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2Challenge.lean": "79678f9ee9f3d8159d784c0c40852455edf881c8ccedcf0ba28c0c4b2f46a324",
+    "CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Theorem1Challenge.lean": "9ffb404c963ab87ccfb6b4c6f4cd57e94e37f85479baba6092f9a12f653064dc"
+  },
+  "binaries_sha256": {
+    "comparator": "df21b8b21c1ee8369923afefd0dfe3d0dda98438465e5d672a89c749faefe93b",
+    "lean4export": "293e221ed1b515de1aeaf06d2fe8f3f919f0b75f1e4d3b228f43f53d576501ea",
+    "landrun": "6ada66a06669e8994e174a7271af2db636308e55a0d6ec896cc7d326b46727f6"
+  },
+  "comparator_commit": "a4f696825c583ed8a5b4060d9a0faa5b882d365b",
+  "exporter_commit": "048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d",
+  "comparator_source_diff": "Main.lean | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)",
+  "exporter_source_diff": "",
+  "nanoda_enabled": false,
+  "kind": "fresh replay, not recovered historical run",
+  "CLI_patch": "New one-line landrun argument separator fix; original historical patch not recovered.",
+  "source_manifest_sha256": "8c728100de72c63571b331f12e18372042be33a592d8c5b53c1fab81dff6f58d",
+  "lake_manifest_sha256": "14a79994cee05d06edb020003e671b0e1632a5a952f4e6b78b984a9fe9db692b"
+}

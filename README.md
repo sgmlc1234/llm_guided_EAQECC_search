@@ -29,7 +29,7 @@ proof of a bound are distinct outputs with distinct evidence.
 **Formal verification of the discovered construction.** The final stage checks
 Theorem 1's algebraic certificate in Lean. The repository now includes the
 [exact goal, proof and pinned project](formal/eaqecc/README.md), together with a
-fresh kernel-build record and the supplied Linux Comparator record. Appendix D
+fresh macOS kernel-build and Linux Comparator records. Appendix D
 explains the formal statement and its relation to the EAQECC construction.
 The independent Lemma 2 proof remains available as supporting codebase evidence.
 
@@ -38,12 +38,13 @@ The independent Lemma 2 proof remains available as supporting codebase evidence.
 - **A researcher-in-the-loop discovery pipeline:** researcher proposals, program
   evolution, mathematical generalization and formal proof checking, with preserved
   outputs for reconstruction and independent verification.
-- **General constructions from evolved codes:** Theorem 1 and ebit lifting close
+- **General constructions from evolved program outputs:** Theorem 1 and entanglement lifting close
   54 listed gaps; the general family was not supplied in the initial search tasks.
-- **Measured contributions of iterative evolution:** under shared guidance,
-  held-out success rises from 50.0% to 68.8% at length 9 and from 15.6% to 50.0%
-  at length 11. One selected program succeeds in 3/4 runs at each unseen length
-  13 and 15; full block-level results are reported below.
+- **Program development and generalization:** across eight paired generation
+  blocks, validation-selected iterative programs achieve 118/256 and 81/256
+  successes at unseen lengths 13 and 15, versus 50/256 and 8/256 for independent
+  proposals. Block-level inference and the preserved lineages are reported with
+  the pooled execution outcomes.
 
 ## From finite constructions to a general theorem
 
@@ -61,7 +62,7 @@ $$
 $$
 
 for prime powers $q\geq3$ and $n\geq2q+1$, and for $q=2$ at odd lengths
-$n\geq5$. The family and ebit lifting close **54 previously listed gaps**.
+$n\geq5$. The family and entanglement lifting close **54 previously listed gaps**.
 The proof in Appendix A.2 establishes the result for all admissible parameters.
 Appendix D presents the Lean certificate for its algebraic construction; finite
 computations separately check implemented instances.
@@ -70,7 +71,7 @@ computations separately check implemented instances.
 |---|---|---|
 | Initial search | Researchers proposed construction directions; evolved programs produced finite qubit codes. | [Initial task](artifacts/campaigns/prompts/campaign1.txt), campaign records in Appendix B.1 |
 | Mathematical generalization | Researchers derived the odd-length qubit family, then extended it to the prime-power construction. | Theorem 1 and its full proof in Appendix A.2; [family implementations](scripts/families/) |
-| Formal verification | Lean checks the algebraic construction; the supplied Comparator record checks the exact formal goal and axiom policy. | [Pinned Lean project and verification records](formal/eaqecc/README.md), Appendix D |
+| Formal verification | Lean checks the algebraic construction; fresh Linux Comparator replay checks the exact formal goal and axiom policy. | [Pinned Lean project and verification records](formal/eaqecc/README.md), Appendix D |
 | Further program evolution | Later tasks supplied the discovered qubit family and proposed further construction directions. | [Later task](artifacts/campaigns/prompts/campaign3.txt), Algorithm 1 |
 | Controlled comparison | Both policies received the same proposal to search the symplectic dual; only iterative evolution used earlier generated programs and feedback. | [Shared task](experiments/hitl_ablation/task.txt), [study records](experiments/hitl_ablation/README.md) |
 
@@ -103,34 +104,70 @@ to search the symplectic dual. The comparison measures what changes when a new
 proposal can use earlier programs and their evaluation feedback.
 
 <p align="center">
-  <img src="paper/iclr2027/figures/hitl_ablation.png" alt="Figure 4: success versus evaluator calls for the initial program, independent proposals and iterative evolution at lengths 9 and 11" width="900">
+  <img src="paper/iclr2027/figures/hitl_replication.png" alt="Prospective eight-block replication: program generation and generalization to longer codes" width="900">
 </p>
 
-| Held-out target | Initial program | Independent proposals | Iterative evolution |
-|---|---:|---:|---:|
-| Length 9, distance 8 | 0/8 (0%) | 16/32 (50.0%) | **22/32 (68.8%)** |
-| Length 11, distance 10 | 0/8 (0%) | 5/32 (15.6%) | **16/32 (50.0%)** |
-| Combined | 0/16 | 21/64 (32.8%) | **38/64 (59.4%)** |
+**New eight-block replication.** At lengths 9 and 11, independent success is
+154/256 and 69/256, versus 186/256 and 111/256 for iterative evolution.
+At unseen lengths 13 and 15, independent success is 50/256 (19.5%) and
+8/256 (3.1%), versus 118/256 (46.1%) and 81/256 (31.6%). Each policy
+contributes eight selected programs and 32 runs per program and length.
+The unchanged controls were replayed on the same execution seeds.
 
-Each policy contributes four validation-selected programs tested on eight seeds
-per target, while the initial program has eight executions per target. All use
-10,000 evaluator calls per execution. Mean normalized success-curve area is
-0.239 for independent proposals and 0.358 for iterative evolution; the direction
-of the difference varies across the four generation blocks.
+The paired mean test curve-area gain is +0.0987, positive in 5/8 blocks
+(descriptive sign-flip p=0.3281). One of 112 allocated proposal slots has
+no received response; all eight blocks are retained, with a complete-block
+sensitivity analysis. Longer-code performance is secondary. These results
+support the reported improvement in this cohort; generation blocks remain
+the units for policy-level inference.
 
-**Generalization to longer codes.** The supplementary program shown in Algorithm 2,
-[`b02_evolution_g02`](experiments/hitl_ablation/candidates/b02_evolution_g02/program.py),
-reconstructs both the length-13 and length-15 targets in **3/4 executions each**
-under a separate 30,000-call allowance. These lengths were withheld during
-training and selection. Across all selected programs, the longer-length outcome
-is 6/32 for iterative evolution and 0/32 for independent proposals; all six
-successes come from that one program.
+[New cohort, complete results and replay](experiments/hitl_replication/README.md)
 
-[Study protocol and records](experiments/hitl_ablation/README.md) · [Replay instructions](docs/REVIEWER_GUIDE.md#3-re-execute-the-programs-and-the-policy-comparison)
+**Original test cohort.** At lengths 9 and 11, independent success is 16/32
+and 5/32, iterative success is 22/32 and 16/32, and the unchanged classical
+control succeeds in 5/8 and 3/8. Each policy aggregates four previously
+validation-selected programs; the fixed control has one program. The initial
+program succeeds in 0/8 at both lengths. All use 10,000 evaluator calls.
+
+**Repeat on 32 fresh execution seeds per program and length.** Programs and
+selections were frozen before this repeat. The short-length success-rate
+ordering reverses, while longer-code success remains higher for the selected
+iterative programs. The independent generation sample is still four blocks.
+
+| Length | Initial | Classical L-side | Independent selections | Iterative selections |
+|---|---:|---:|---:|---:|
+| 9 | 1/32 | 26/32 | 96/128 | 81/128 |
+| 11 | 0/32 | 10/32 | 39/128 | 34/128 |
+| 13 | 0/32 | 3/32 | 17/128 | 39/128 |
+| 15 | 0/32 | 0/32 | 1/128 | 20/128 |
+
+<p align="center">
+  <img src="paper/iclr2027/figures/hitl_followup.png" alt="Longer-code outcomes in the original frozen-program repeat" width="900">
+</p>
+
+**A concrete program improvement.** The selected block-3 program in Algorithm 2
+originally succeeded in 3/4 runs at each longer length; the fresh repeat gives
+30/32 and 20/32. Replaying its preserved ancestors shows that adding a
+distance-shortfall penalty improves length-13 success from 13/32 to 29/32 and
+length-15 success from 3/32 to 28/32. The subsequently selected child reaches
+30/32 and 20/32, so the last edit does not improve every length. The original
+validation selection is retained; the better parent is not substituted after
+looking at the new tests.
+
+The shorter-length outcomes remain in the table above and the manuscript text.
+The [complete four-length plot](paper/iclr2027/figures/hitl_followup_all_lengths.pdf)
+is retained as a supplementary view.
+
+[Original study](experiments/hitl_ablation/README.md) · [Complete follow-up and replay](experiments/hitl_followup/README.md) · [Result-to-evidence map](docs/RESULTS_AND_EVIDENCE.md)
+
+The [discovery-stage map](docs/DISCOVERY_AND_REPRODUCTION.md) explains how early
+finite codes, the researcher-derived family and later program replay relate.
+For q=4,5, [preserved finite-field annealing routines and provenance records](artifacts/construction_provenance/nonbinary/README.md)
+support the 23 nonbinary constructions.
 
 ## Verified mathematical results
 
-| Core code records | Listed gaps closed by the family and ebit lifting | Certified exclusions |
+| Core code records | Listed gaps closed by the family and entanglement lifting | Certified exclusions |
 |:---:|:---:|:---:|
 | **115** across q=2,3,4,5 | **54** | **10** |
 
@@ -182,8 +219,9 @@ expected results. For a direct result-to-file lookup use
 | Check formal source integrity | `python3 scripts/audit_lean_certificate.py` | 13 original files; two matching goal/solution pairs; no Lean execution |
 | Check mathematical evidence | `python3 scripts/reproduce_eaqecc.py --tier deterministic` | 115 core codes, 54 family gap closures, 398 upper-bound corrections; PASS |
 | Inspect Tables 1 and 2 | `python3 scripts/paper_results.py` | All 18 rows linked to codes, 13 historical intervals checked |
-| Audit the controlled study | `python3 scripts/eaqecc_ablation/audit.py` | Selection and prompts verified; 21/64 vs 38/64 main-test successes |
-| Re-execute selected programs | `python3 scripts/eaqecc_ablation/replay_selected.py --out ../checks/replay` | 208 archived executions matched; requires the recorded macOS sandbox backend |
+| Audit the original controlled study | `python3 scripts/eaqecc_ablation/audit.py` | Selection and prompts verified; 21/64 vs 38/64 main-test successes |
+| Audit the new generation cohort | `python3 scripts/eaqecc_ablation/audit_replication.py` | 111 proposals, 16 selections, all block metrics and saved codes checked |
+| Re-execute original selected programs | `python3 scripts/eaqecc_ablation/replay_selected.py --out ../checks/replay` | 208 archived executions matched; requires the recorded macOS sandbox backend |
 | Replay historical programs | `python3 scripts/reproduce_eaqecc.py --claim search-determinism` | 12 proposal lists match at nominal N=5,000 |
 | Replay proofs or Magma | `python3 scripts/reproduce_eaqecc.py --claim refutations` or `--claim magma-crosscheck` | Requires the corresponding external tools; unavailable checks remain explicit |
 

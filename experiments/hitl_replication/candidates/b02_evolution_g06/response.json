@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n = target[\\\"n\\\"]\\n    k = target[\\\"k\\\"]\\n    c = target[\\\"c\\\"]\\n    s = n - k + c\\n    l_size = 2 * n - s\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        # Favor local changes (1 or 2 qubits)\\n        num_qubits = int(rng.choice([1, 2, 3], p=[0.6, 0.3, 0.1]))\\n        qubits = rng.choice(n, size=min(num_qubits, n), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    def init_L():\\n        L = []\\n        while len(L) < l_size:\\n            v = int(rng.integers(1, 1 << (2 * n)))\\n            candidate = L + [v]\\n            if len(E.gf2_basis(candidate)) == len(candidate):\\n                L.append(v)\\n        return L\\n\\n    L = init_L()\\n    S = get_S(L)\\n    cur = objective(E.evaluate(S))\\n\\n    temp = 30.0\\n    fails = 0\\n    while E.remaining:\\n        temp = max(0.01, temp * 0.998)\\n        idx = int(rng.integers(l_size))\\n        old_val = L[idx]\\n\\n        if rng.random() < 0.10:\\n            L[idx] = int(rng.integers(1, 1 << (2 * n)))\\n        else:\\n            L[idx] ^= random_pauli()\\n\\n        if len(E.gf2_basis(L)) != l_size:\\n            L[idx] = old_val\\n            fails += 1\\n            if fails > 1200:\\n                L = init_L()\\n                cur = objective(E.evaluate(get_S(L)))\\n                fails = 0\\n                temp = 30.0\\n            continue\\n\\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        new_obj = objective(res)\\n\\n        delta = new_obj - cur\\n        if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n            cur = new_obj\\n            fails = 0\\n        else:\\n            L[idx] = old_val\\n            fails += 1\\n\\n    return None\"}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3092,
+    "candidatesTokenCount": 774,
+    "totalTokenCount": 4382,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3092
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 774
+      }
+    ],
+    "thoughtsTokenCount": 516
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:47:40.806696Z",
+  "responseId": "nFGxaqieMfuj0ckPrPvroQc"
+}

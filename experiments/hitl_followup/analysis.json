@@ -1,0 +1,1290 @@
+{
+  "status": "PASS",
+  "fixed_program_results": {
+    "initial": {
+      "sha256": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+      "arm": "initial",
+      "block": null,
+      "source": "experiments/hitl_ablation/initial_program.py",
+      "by_length": {
+        "9": {
+          "successes": 1,
+          "runs": 32,
+          "rate": 0.03125,
+          "wilson95_execution_interval_descriptive": [
+            0.005537860164003122,
+            0.15744263820012558
+          ],
+          "mean_curve_area": 0.021540625,
+          "mean_charged_evals": 9784.59375,
+          "errors": 0,
+          "mean_wall_s": 1.8968258957538637
+        },
+        "11": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 10000,
+          "errors": 0,
+          "mean_wall_s": 3.08069182941108
+        },
+        "13": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 13.415316522063222
+        },
+        "15": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 19.3182337746548
+        }
+      }
+    },
+    "classical_dual": {
+      "sha256": "ad5717c83f05df24affa8077fd99ba5a91e75d48d090f19b78ce9584080987eb",
+      "arm": "classical_dual",
+      "block": null,
+      "source": "experiments/hitl_ablation/controls/dual_count.py",
+      "by_length": {
+        "9": {
+          "successes": 26,
+          "runs": 32,
+          "rate": 0.8125,
+          "wilson95_execution_interval_descriptive": [
+            0.6469084479862404,
+            0.9111045531043405
+          ],
+          "mean_curve_area": 0.51283125,
+          "mean_charged_evals": 4871.6875,
+          "errors": 0,
+          "mean_wall_s": 0.9923028450502898
+        },
+        "11": {
+          "successes": 10,
+          "runs": 32,
+          "rate": 0.3125,
+          "wilson95_execution_interval_descriptive": [
+            0.17952541633609734,
+            0.4856667830095541
+          ],
+          "mean_curve_area": 0.143640625,
+          "mean_charged_evals": 8563.59375,
+          "errors": 0,
+          "mean_wall_s": 2.5686789037572453
+        },
+        "13": {
+          "successes": 3,
+          "runs": 32,
+          "rate": 0.09375,
+          "wilson95_execution_interval_descriptive": [
+            0.032401551298366194,
+            0.24218154728387864
+          ],
+          "mean_curve_area": 0.028565624999999997,
+          "mean_charged_evals": 29143.03125,
+          "errors": 0,
+          "mean_wall_s": 12.784516813808295
+        },
+        "15": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 18.8235852395228
+        }
+      }
+    },
+    "b00_independent_g02": {
+      "sha256": "e5e10b94fb055a25e3057402cfe92ad3a1e98c5a0c8647130271f8aaae2bfd77",
+      "arm": "independent",
+      "block": 0,
+      "source": "experiments/hitl_ablation/candidates/b00_independent_g02/program.py",
+      "by_length": {
+        "9": {
+          "successes": 26,
+          "runs": 32,
+          "rate": 0.8125,
+          "wilson95_execution_interval_descriptive": [
+            0.6469084479862404,
+            0.9111045531043405
+          ],
+          "mean_curve_area": 0.378175,
+          "mean_charged_evals": 6218.25,
+          "errors": 0,
+          "mean_wall_s": 1.2389100884465734
+        },
+        "11": {
+          "successes": 12,
+          "runs": 32,
+          "rate": 0.375,
+          "wilson95_execution_interval_descriptive": [
+            0.22933887309454212,
+            0.5474559264692255
+          ],
+          "mean_curve_area": 0.1481625,
+          "mean_charged_evals": 8518.375,
+          "errors": 0,
+          "mean_wall_s": 2.5706754283892224
+        },
+        "13": {
+          "successes": 6,
+          "runs": 32,
+          "rate": 0.1875,
+          "wilson95_execution_interval_descriptive": [
+            0.08889544689565954,
+            0.3530915520137596
+          ],
+          "mean_curve_area": 0.05129791666666667,
+          "mean_charged_evals": 28461.0625,
+          "errors": 0,
+          "mean_wall_s": 12.534403580641083
+        },
+        "15": {
+          "successes": 1,
+          "runs": 32,
+          "rate": 0.03125,
+          "wilson95_execution_interval_descriptive": [
+            0.005537860164003122,
+            0.15744263820012558
+          ],
+          "mean_curve_area": 0.014123958333333332,
+          "mean_charged_evals": 29576.28125,
+          "errors": 0,
+          "mean_wall_s": 18.47715768875787
+        }
+      }
+    },
+    "b00_evolution_g01": {
+      "sha256": "23e9b6e7b2f82f7ba2a443066c71ff01dd0401d1f6bf5e918464d1d3dea977b9",
+      "arm": "evolution",
+      "block": 0,
+      "source": "experiments/hitl_ablation/candidates/b00_evolution_g01/program.py",
+      "by_length": {
+        "9": {
+          "successes": 7,
+          "runs": 32,
+          "rate": 0.21875,
+          "wilson95_execution_interval_descriptive": [
+            0.11023836252604186,
+            0.3875499364924353
+          ],
+          "mean_curve_area": 0.1252875,
+          "mean_charged_evals": 8747.125,
+          "errors": 0,
+          "mean_wall_s": 1.739293229104078
+        },
+        "11": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 10000,
+          "errors": 0,
+          "mean_wall_s": 3.101664276131487
+        },
+        "13": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 13.426487796845322
+        },
+        "15": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 19.528947955761396
+        }
+      }
+    },
+    "b01_independent_g00": {
+      "sha256": "b4058ebf6e719698590497563f445b57224d9bf604d521ffc719c3a1b2012570",
+      "arm": "independent",
+      "block": 1,
+      "source": "experiments/hitl_ablation/candidates/b01_independent_g00/program.py",
+      "by_length": {
+        "9": {
+          "successes": 22,
+          "runs": 32,
+          "rate": 0.6875,
+          "wilson95_execution_interval_descriptive": [
+            0.5143332169904459,
+            0.8204745836639026
+          ],
+          "mean_curve_area": 0.381284375,
+          "mean_charged_evals": 6187.15625,
+          "errors": 0,
+          "mean_wall_s": 1.2468145703314804
+        },
+        "11": {
+          "successes": 5,
+          "runs": 32,
+          "rate": 0.15625,
+          "wilson95_execution_interval_descriptive": [
+            0.0686442028250571,
+            0.3175414959753039
+          ],
+          "mean_curve_area": 0.109003125,
+          "mean_charged_evals": 8909.96875,
+          "errors": 0,
+          "mean_wall_s": 2.686977118559298
+        },
+        "13": {
+          "successes": 1,
+          "runs": 32,
+          "rate": 0.03125,
+          "wilson95_execution_interval_descriptive": [
+            0.005537860164003122,
+            0.15744263820012558
+          ],
+          "mean_curve_area": 0.013861458333333333,
+          "mean_charged_evals": 29584.15625,
+          "errors": 0,
+          "mean_wall_s": 12.924043851526221
+        },
+        "15": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 18.96734618741175
+        }
+      }
+    },
+    "b01_evolution_g00": {
+      "sha256": "c5b5e4f70b97b3d4d6f21bd11270ddf1c2aa9a3f8bbbffe9efdfb107b6c00022",
+      "arm": "evolution",
+      "block": 1,
+      "source": "experiments/hitl_ablation/candidates/b01_evolution_g00/program.py",
+      "by_length": {
+        "9": {
+          "successes": 20,
+          "runs": 32,
+          "rate": 0.625,
+          "wilson95_execution_interval_descriptive": [
+            0.4525440735307745,
+            0.7706611269054578
+          ],
+          "mean_curve_area": 0.40011874999999997,
+          "mean_charged_evals": 5998.8125,
+          "errors": 0,
+          "mean_wall_s": 1.2063197213064996
+        },
+        "11": {
+          "successes": 6,
+          "runs": 32,
+          "rate": 0.1875,
+          "wilson95_execution_interval_descriptive": [
+            0.08889544689565954,
+            0.3530915520137596
+          ],
+          "mean_curve_area": 0.06249062500000001,
+          "mean_charged_evals": 9375.09375,
+          "errors": 0,
+          "mean_wall_s": 2.8407553072538576
+        },
+        "13": {
+          "successes": 2,
+          "runs": 32,
+          "rate": 0.0625,
+          "wilson95_execution_interval_descriptive": [
+            0.017310567031640967,
+            0.2014712314415458
+          ],
+          "mean_curve_area": 0.0069833333333333344,
+          "mean_charged_evals": 29790.5,
+          "errors": 0,
+          "mean_wall_s": 12.915831351572706
+        },
+        "15": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 18.872988224036817
+        }
+      }
+    },
+    "b02_independent_g05": {
+      "sha256": "331aadd05658636afde127a1204503ef7bc0923b9d99833979e85a6a843c3329",
+      "arm": "independent",
+      "block": 2,
+      "source": "experiments/hitl_ablation/candidates/b02_independent_g05/program.py",
+      "by_length": {
+        "9": {
+          "successes": 22,
+          "runs": 32,
+          "rate": 0.6875,
+          "wilson95_execution_interval_descriptive": [
+            0.5143332169904459,
+            0.8204745836639026
+          ],
+          "mean_curve_area": 0.388396875,
+          "mean_charged_evals": 6116.03125,
+          "errors": 0,
+          "mean_wall_s": 1.2323477251484292
+        },
+        "11": {
+          "successes": 12,
+          "runs": 32,
+          "rate": 0.375,
+          "wilson95_execution_interval_descriptive": [
+            0.22933887309454212,
+            0.5474559264692255
+          ],
+          "mean_curve_area": 0.16478125,
+          "mean_charged_evals": 8352.1875,
+          "errors": 0,
+          "mean_wall_s": 2.5174888006658875
+        },
+        "13": {
+          "successes": 7,
+          "runs": 32,
+          "rate": 0.21875,
+          "wilson95_execution_interval_descriptive": [
+            0.11023836252604186,
+            0.3875499364924353
+          ],
+          "mean_curve_area": 0.08376562500000001,
+          "mean_charged_evals": 27487.03125,
+          "errors": 0,
+          "mean_wall_s": 12.31173305871198
+        },
+        "15": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 18.607699390697235
+        }
+      }
+    },
+    "b02_evolution_g02": {
+      "sha256": "6f72784ec3605df102ddd0af096a4d2f8c6dec03095f3ba9cc019974c908ad97",
+      "arm": "evolution",
+      "block": 2,
+      "source": "experiments/hitl_ablation/candidates/b02_evolution_g02/program.py",
+      "by_length": {
+        "9": {
+          "successes": 30,
+          "runs": 32,
+          "rate": 0.9375,
+          "wilson95_execution_interval_descriptive": [
+            0.7985287685584542,
+            0.982689432968359
+          ],
+          "mean_curve_area": 0.735328125,
+          "mean_charged_evals": 2646.71875,
+          "errors": 0,
+          "mean_wall_s": 0.5608875391480979
+        },
+        "11": {
+          "successes": 19,
+          "runs": 32,
+          "rate": 0.59375,
+          "wilson95_execution_interval_descriptive": [
+            0.42260024875382873,
+            0.7448036515733456
+          ],
+          "mean_curve_area": 0.391759375,
+          "mean_charged_evals": 6082.40625,
+          "errors": 0,
+          "mean_wall_s": 1.8818556223195628
+        },
+        "13": {
+          "successes": 30,
+          "runs": 32,
+          "rate": 0.9375,
+          "wilson95_execution_interval_descriptive": [
+            0.7985287685584542,
+            0.982689432968359
+          ],
+          "mean_curve_area": 0.561253125,
+          "mean_charged_evals": 13162.40625,
+          "errors": 0,
+          "mean_wall_s": 5.877487481746357
+        },
+        "15": {
+          "successes": 20,
+          "runs": 32,
+          "rate": 0.625,
+          "wilson95_execution_interval_descriptive": [
+            0.4525440735307745,
+            0.7706611269054578
+          ],
+          "mean_curve_area": 0.3171875,
+          "mean_charged_evals": 20484.375,
+          "errors": 0,
+          "mean_wall_s": 12.986372886814934
+        }
+      }
+    },
+    "b03_independent_g02": {
+      "sha256": "f786c3cb544154bb1b4c60364852ee3e39a45ad3c56c537d92414afc5f0b69f7",
+      "arm": "independent",
+      "block": 3,
+      "source": "experiments/hitl_ablation/candidates/b03_independent_g02/program.py",
+      "by_length": {
+        "9": {
+          "successes": 26,
+          "runs": 32,
+          "rate": 0.8125,
+          "wilson95_execution_interval_descriptive": [
+            0.6469084479862404,
+            0.9111045531043405
+          ],
+          "mean_curve_area": 0.51283125,
+          "mean_charged_evals": 4871.6875,
+          "errors": 0,
+          "mean_wall_s": 1.0020369258345454
+        },
+        "11": {
+          "successes": 10,
+          "runs": 32,
+          "rate": 0.3125,
+          "wilson95_execution_interval_descriptive": [
+            0.17952541633609734,
+            0.4856667830095541
+          ],
+          "mean_curve_area": 0.143640625,
+          "mean_charged_evals": 8563.59375,
+          "errors": 0,
+          "mean_wall_s": 2.607181665393
+        },
+        "13": {
+          "successes": 3,
+          "runs": 32,
+          "rate": 0.09375,
+          "wilson95_execution_interval_descriptive": [
+            0.032401551298366194,
+            0.24218154728387864
+          ],
+          "mean_curve_area": 0.028565624999999997,
+          "mean_charged_evals": 29143.03125,
+          "errors": 0,
+          "mean_wall_s": 12.872011101564567
+        },
+        "15": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 18.50604308725451
+        }
+      }
+    },
+    "b03_evolution_g00": {
+      "sha256": "004e2059f593d39e4b5ddb20154e6f7fdd9f3d48cebb402ccdc4209d27b4bb77",
+      "arm": "evolution",
+      "block": 3,
+      "source": "experiments/hitl_ablation/candidates/b03_evolution_g00/program.py",
+      "by_length": {
+        "9": {
+          "successes": 24,
+          "runs": 32,
+          "rate": 0.75,
+          "wilson95_execution_interval_descriptive": [
+            0.5789344100575552,
+            0.8674759908149096
+          ],
+          "mean_curve_area": 0.446921875,
+          "mean_charged_evals": 5530.78125,
+          "errors": 0,
+          "mean_wall_s": 1.1098293386312434
+        },
+        "11": {
+          "successes": 9,
+          "runs": 32,
+          "rate": 0.28125,
+          "wilson95_execution_interval_descriptive": [
+            0.15564580497742764,
+            0.45374509425916565
+          ],
+          "mean_curve_area": 0.099296875,
+          "mean_charged_evals": 9007.03125,
+          "errors": 0,
+          "mean_wall_s": 2.7360276953186258
+        },
+        "13": {
+          "successes": 7,
+          "runs": 32,
+          "rate": 0.21875,
+          "wilson95_execution_interval_descriptive": [
+            0.11023836252604186,
+            0.3875499364924353
+          ],
+          "mean_curve_area": 0.07374375,
+          "mean_charged_evals": 27787.6875,
+          "errors": 0,
+          "mean_wall_s": 12.321712945224135
+        },
+        "15": {
+          "successes": 0,
+          "runs": 32,
+          "rate": 0.0,
+          "wilson95_execution_interval_descriptive": [
+            0.0,
+            0.1071791982550706
+          ],
+          "mean_curve_area": 0,
+          "mean_charged_evals": 30000,
+          "errors": 0,
+          "mean_wall_s": 18.71984248568333
+        }
+      }
+    },
+    "b02_evolution_g00": {
+      "sha256": "b6c3700312038ce77f8578cdd4458ec77aaa1562017088b81abbcd851356f512",
+      "arm": "lineage",
+      "block": 2,
+      "source": "experiments/hitl_ablation/candidates/b02_evolution_g00/program.py",
+      "by_length": {
+        "9": {
+          "successes": 27,
+          "runs": 32,
+          "rate": 0.84375,
+          "wilson95_execution_interval_descriptive": [
+            0.682458504024696,
+            0.9313557971749429
+          ],
+          "mean_curve_area": 0.5311125,
+          "mean_charged_evals": 4688.875,
+          "errors": 0,
+          "mean_wall_s": 0.9746142213480198
+        },
+        "11": {
+          "successes": 19,
+          "runs": 32,
+          "rate": 0.59375,
+          "wilson95_execution_interval_descriptive": [
+            0.42260024875382873,
+            0.7448036515733456
+          ],
+          "mean_curve_area": 0.297759375,
+          "mean_charged_evals": 7022.40625,
+          "errors": 0,
+          "mean_wall_s": 2.118548436294077
+        },
+        "13": {
+          "successes": 13,
+          "runs": 32,
+          "rate": 0.40625,
+          "wilson95_execution_interval_descriptive": [
+            0.2551963484266544,
+            0.5773997512461713
+          ],
+          "mean_curve_area": 0.18503645833333335,
+          "mean_charged_evals": 24448.90625,
+          "errors": 0,
+          "mean_wall_s": 10.738180239713984
+        },
+        "15": {
+          "successes": 3,
+          "runs": 32,
+          "rate": 0.09375,
+          "wilson95_execution_interval_descriptive": [
+            0.032401551298366194,
+            0.24218154728387864
+          ],
+          "mean_curve_area": 0.04766666666666666,
+          "mean_charged_evals": 28570,
+          "errors": 0,
+          "mean_wall_s": 17.875726488280634
+        }
+      }
+    },
+    "b02_evolution_g01": {
+      "sha256": "7db6445bd175bbce9d5492ea3887ab0fcdebe02ef3c3bc12add6723412f3a844",
+      "arm": "lineage",
+      "block": 2,
+      "source": "experiments/hitl_ablation/candidates/b02_evolution_g01/program.py",
+      "by_length": {
+        "9": {
+          "successes": 28,
+          "runs": 32,
+          "rate": 0.875,
+          "wilson95_execution_interval_descriptive": [
+            0.7193169451834978,
+            0.9502986561251991
+          ],
+          "mean_curve_area": 0.586871875,
+          "mean_charged_evals": 4131.28125,
+          "errors": 0,
+          "mean_wall_s": 0.8539835534174927
+        },
+        "11": {
+          "successes": 23,
+          "runs": 32,
+          "rate": 0.71875,
+          "wilson95_execution_interval_descriptive": [
+            0.5462549057408342,
+            0.8443541950225723
+          ],
+          "mean_curve_area": 0.3889375,
+          "mean_charged_evals": 6110.625,
+          "errors": 0,
+          "mean_wall_s": 1.8950361184615758
+        },
+        "13": {
+          "successes": 29,
+          "runs": 32,
+          "rate": 0.90625,
+          "wilson95_execution_interval_descriptive": [
+            0.7578184527161212,
+            0.9675984487016337
+          ],
+          "mean_curve_area": 0.6948979166666667,
+          "mean_charged_evals": 9153.0625,
+          "errors": 0,
+          "mean_wall_s": 4.122990755153296
+        },
+        "15": {
+          "successes": 28,
+          "runs": 32,
+          "rate": 0.875,
+          "wilson95_execution_interval_descriptive": [
+            0.7193169451834978,
+            0.9502986561251991
+          ],
+          "mean_curve_area": 0.4855114583333333,
+          "mean_charged_evals": 15434.65625,
+          "errors": 0,
+          "mean_wall_s": 9.809352807278628
+        }
+      }
+    }
+  },
+  "pooled_execution_results": {
+    "initial": {
+      "9": {
+        "successes": 1,
+        "runs": 32,
+        "rate": 0.03125,
+        "wilson95_execution_interval_descriptive": [
+          0.005537860164003122,
+          0.15744263820012558
+        ],
+        "mean_curve_area": 0.021540625,
+        "mean_charged_evals": 9784.59375,
+        "errors": 0,
+        "mean_wall_s": 1.8968258957538637
+      },
+      "11": {
+        "successes": 0,
+        "runs": 32,
+        "rate": 0.0,
+        "wilson95_execution_interval_descriptive": [
+          0.0,
+          0.1071791982550706
+        ],
+        "mean_curve_area": 0,
+        "mean_charged_evals": 10000,
+        "errors": 0,
+        "mean_wall_s": 3.08069182941108
+      },
+      "13": {
+        "successes": 0,
+        "runs": 32,
+        "rate": 0.0,
+        "wilson95_execution_interval_descriptive": [
+          0.0,
+          0.1071791982550706
+        ],
+        "mean_curve_area": 0,
+        "mean_charged_evals": 30000,
+        "errors": 0,
+        "mean_wall_s": 13.415316522063222
+      },
+      "15": {
+        "successes": 0,
+        "runs": 32,
+        "rate": 0.0,
+        "wilson95_execution_interval_descriptive": [
+          0.0,
+          0.1071791982550706
+        ],
+        "mean_curve_area": 0,
+        "mean_charged_evals": 30000,
+        "errors": 0,
+        "mean_wall_s": 19.3182337746548
+      }
+    },
+    "classical_dual": {
+      "9": {
+        "successes": 26,
+        "runs": 32,
+        "rate": 0.8125,
+        "wilson95_execution_interval_descriptive": [
+          0.6469084479862404,
+          0.9111045531043405
+        ],
+        "mean_curve_area": 0.51283125,
+        "mean_charged_evals": 4871.6875,
+        "errors": 0,
+        "mean_wall_s": 0.9923028450502898
+      },
+      "11": {
+        "successes": 10,
+        "runs": 32,
+        "rate": 0.3125,
+        "wilson95_execution_interval_descriptive": [
+          0.17952541633609734,
+          0.4856667830095541
+        ],
+        "mean_curve_area": 0.143640625,
+        "mean_charged_evals": 8563.59375,
+        "errors": 0,
+        "mean_wall_s": 2.5686789037572453
+      },
+      "13": {
+        "successes": 3,
+        "runs": 32,
+        "rate": 0.09375,
+        "wilson95_execution_interval_descriptive": [
+          0.032401551298366194,
+          0.24218154728387864
+        ],
+        "mean_curve_area": 0.028565624999999997,
+        "mean_charged_evals": 29143.03125,
+        "errors": 0,
+        "mean_wall_s": 12.784516813808295
+      },
+      "15": {
+        "successes": 0,
+        "runs": 32,
+        "rate": 0.0,
+        "wilson95_execution_interval_descriptive": [
+          0.0,
+          0.1071791982550706
+        ],
+        "mean_curve_area": 0,
+        "mean_charged_evals": 30000,
+        "errors": 0,
+        "mean_wall_s": 18.8235852395228
+      }
+    },
+    "independent": {
+      "9": {
+        "successes": 96,
+        "runs": 128,
+        "rate": 0.75,
+        "wilson95_execution_interval_descriptive": [
+          0.6684443704768313,
+          0.8169871513864144
+        ],
+        "mean_curve_area": 0.415171875,
+        "mean_charged_evals": 5848.28125,
+        "errors": 0,
+        "mean_wall_s": 1.180027327440257
+      },
+      "11": {
+        "successes": 39,
+        "runs": 128,
+        "rate": 0.3046875,
+        "wilson95_execution_interval_descriptive": [
+          0.2316056151523922,
+          0.38915100839194705
+        ],
+        "mean_curve_area": 0.141396875,
+        "mean_charged_evals": 8586.03125,
+        "errors": 0,
+        "mean_wall_s": 2.595580753251852
+      },
+      "13": {
+        "successes": 17,
+        "runs": 128,
+        "rate": 0.1328125,
+        "wilson95_execution_interval_descriptive": [
+          0.08460228531840389,
+          0.20242016694495388
+        ],
+        "mean_curve_area": 0.04437265625,
+        "mean_charged_evals": 28668.8203125,
+        "errors": 0,
+        "mean_wall_s": 12.660547898110963
+      },
+      "15": {
+        "successes": 1,
+        "runs": 128,
+        "rate": 0.0078125,
+        "wilson95_execution_interval_descriptive": [
+          0.0013804318928742412,
+          0.04292625943886061
+        ],
+        "mean_curve_area": 0.003530989583333333,
+        "mean_charged_evals": 29894.0703125,
+        "errors": 0,
+        "mean_wall_s": 18.63956158853034
+      }
+    },
+    "evolution": {
+      "9": {
+        "successes": 81,
+        "runs": 128,
+        "rate": 0.6328125,
+        "wilson95_execution_interval_descriptive": [
+          0.5465700424986025,
+          0.7113154534912468
+        ],
+        "mean_curve_area": 0.42691406249999997,
+        "mean_charged_evals": 5730.859375,
+        "errors": 0,
+        "mean_wall_s": 1.1540824570474797
+      },
+      "11": {
+        "successes": 34,
+        "runs": 128,
+        "rate": 0.265625,
+        "wilson95_execution_interval_descriptive": [
+          0.19675501016357286,
+          0.3481529380896342
+        ],
+        "mean_curve_area": 0.13838671875,
+        "mean_charged_evals": 8616.1328125,
+        "errors": 0,
+        "mean_wall_s": 2.6400757252558833
+      },
+      "13": {
+        "successes": 39,
+        "runs": 128,
+        "rate": 0.3046875,
+        "wilson95_execution_interval_descriptive": [
+          0.2316056151523922,
+          0.38915100839194705
+        ],
+        "mean_curve_area": 0.16049505208333334,
+        "mean_charged_evals": 25185.1484375,
+        "errors": 0,
+        "mean_wall_s": 11.13537989384713
+      },
+      "15": {
+        "successes": 20,
+        "runs": 128,
+        "rate": 0.15625,
+        "wilson95_execution_interval_descriptive": [
+          0.10348354800906658,
+          0.22904810942897047
+        ],
+        "mean_curve_area": 0.079296875,
+        "mean_charged_evals": 27621.09375,
+        "errors": 0,
+        "mean_wall_s": 17.52703788807412
+      }
+    }
+  },
+  "block_comparison": {
+    "0": {
+      "test": {
+        "programs": {
+          "independent": "b00_independent_g02",
+          "evolution": "b00_evolution_g01"
+        },
+        "metrics": {
+          "independent": {
+            "successes": 38,
+            "runs": 64,
+            "rate": 0.59375,
+            "wilson95_execution_interval_descriptive": [
+              0.4714520812860451,
+              0.7054309075028039
+            ],
+            "mean_curve_area": 0.26316875,
+            "mean_charged_evals": 7368.3125,
+            "errors": 0,
+            "mean_wall_s": 1.9047927584178979
+          },
+          "evolution": {
+            "successes": 7,
+            "runs": 64,
+            "rate": 0.109375,
+            "wilson95_execution_interval_descriptive": [
+              0.05400113344416797,
+              0.20898641326896122
+            ],
+            "mean_curve_area": 0.06264375,
+            "mean_charged_evals": 9373.5625,
+            "errors": 0,
+            "mean_wall_s": 2.4204787526177824
+          }
+        },
+        "auc_difference": -0.200525
+      },
+      "transfer": {
+        "programs": {
+          "independent": "b00_independent_g02",
+          "evolution": "b00_evolution_g01"
+        },
+        "metrics": {
+          "independent": {
+            "successes": 7,
+            "runs": 64,
+            "rate": 0.109375,
+            "wilson95_execution_interval_descriptive": [
+              0.05400113344416797,
+              0.20898641326896122
+            ],
+            "mean_curve_area": 0.0327109375,
+            "mean_charged_evals": 29018.671875,
+            "errors": 0,
+            "mean_wall_s": 15.505780634699477
+          },
+          "evolution": {
+            "successes": 0,
+            "runs": 64,
+            "rate": 0.0,
+            "wilson95_execution_interval_descriptive": [
+              0.0,
+              0.05662405979280534
+            ],
+            "mean_curve_area": 0,
+            "mean_charged_evals": 30000,
+            "errors": 0,
+            "mean_wall_s": 16.47771787630336
+          }
+        },
+        "auc_difference": -0.0327109375
+      }
+    },
+    "1": {
+      "test": {
+        "programs": {
+          "independent": "b01_independent_g00",
+          "evolution": "b01_evolution_g00"
+        },
+        "metrics": {
+          "independent": {
+            "successes": 27,
+            "runs": 64,
+            "rate": 0.421875,
+            "wilson95_execution_interval_descriptive": [
+              0.30869782474345486,
+              0.5438996845991709
+            ],
+            "mean_curve_area": 0.24514375,
+            "mean_charged_evals": 7548.5625,
+            "errors": 0,
+            "mean_wall_s": 1.9668958444453892
+          },
+          "evolution": {
+            "successes": 26,
+            "runs": 64,
+            "rate": 0.40625,
+            "wilson95_execution_interval_descriptive": [
+              0.2945690924971961,
+              0.5285479187139549
+            ],
+            "mean_curve_area": 0.2313046875,
+            "mean_charged_evals": 7686.953125,
+            "errors": 0,
+            "mean_wall_s": 2.0235375142801786
+          }
+        },
+        "auc_difference": -0.013839062499999999
+      },
+      "transfer": {
+        "programs": {
+          "independent": "b01_independent_g00",
+          "evolution": "b01_evolution_g00"
+        },
+        "metrics": {
+          "independent": {
+            "successes": 1,
+            "runs": 64,
+            "rate": 0.015625,
+            "wilson95_execution_interval_descriptive": [
+              0.002763541923337505,
+              0.08334101600094265
+            ],
+            "mean_curve_area": 0.006930729166666667,
+            "mean_charged_evals": 29792.078125,
+            "errors": 0,
+            "mean_wall_s": 15.945695019468985
+          },
+          "evolution": {
+            "successes": 2,
+            "runs": 64,
+            "rate": 0.03125,
+            "wilson95_execution_interval_descriptive": [
+              0.008612138346171874,
+              0.10697291770958313
+            ],
+            "mean_curve_area": 0.0034916666666666672,
+            "mean_charged_evals": 29895.25,
+            "errors": 0,
+            "mean_wall_s": 15.894409787804761
+          }
+        },
+        "auc_difference": -0.0034390624999999994
+      }
+    },
+    "2": {
+      "test": {
+        "programs": {
+          "independent": "b02_independent_g05",
+          "evolution": "b02_evolution_g02"
+        },
+        "metrics": {
+          "independent": {
+            "successes": 34,
+            "runs": 64,
+            "rate": 0.53125,
+            "wilson95_execution_interval_descriptive": [
+              0.41072087051471007,
+              0.6482401257482395
+            ],
+            "mean_curve_area": 0.2765890625,
+            "mean_charged_evals": 7234.109375,
+            "errors": 0,
+            "mean_wall_s": 1.8749182629071584
+          },
+          "evolution": {
+            "successes": 49,
+            "runs": 64,
+            "rate": 0.765625,
+            "wilson95_execution_interval_descriptive": [
+              0.6486674241743136,
+              0.8525010440607586
+            ],
+            "mean_curve_area": 0.56354375,
+            "mean_charged_evals": 4364.5625,
+            "errors": 0,
+            "mean_wall_s": 1.2213715807338303
+          }
+        },
+        "auc_difference": 0.2869546875
+      },
+      "transfer": {
+        "programs": {
+          "independent": "b02_independent_g05",
+          "evolution": "b02_evolution_g02"
+        },
+        "metrics": {
+          "independent": {
+            "successes": 7,
+            "runs": 64,
+            "rate": 0.109375,
+            "wilson95_execution_interval_descriptive": [
+              0.05400113344416797,
+              0.20898641326896122
+            ],
+            "mean_curve_area": 0.041882812500000005,
+            "mean_charged_evals": 28743.515625,
+            "errors": 0,
+            "mean_wall_s": 15.459716224704607
+          },
+          "evolution": {
+            "successes": 50,
+            "runs": 64,
+            "rate": 0.78125,
+            "wilson95_execution_interval_descriptive": [
+              0.6656721604337418,
+              0.8649768059328052
+            ],
+            "mean_curve_area": 0.4392203125,
+            "mean_charged_evals": 16823.390625,
+            "errors": 0,
+            "mean_wall_s": 9.431930184280645
+          }
+        },
+        "auc_difference": 0.3973375
+      }
+    },
+    "3": {
+      "test": {
+        "programs": {
+          "independent": "b03_independent_g02",
+          "evolution": "b03_evolution_g00"
+        },
+        "metrics": {
+          "independent": {
+            "successes": 36,
+            "runs": 64,
+            "rate": 0.5625,
+            "wilson95_execution_interval_descriptive": [
+              0.4408620895699301,
+              0.6770599029559693
+            ],
+            "mean_curve_area": 0.3282359375,
+            "mean_charged_evals": 6717.640625,
+            "errors": 0,
+            "mean_wall_s": 1.8046092956137727
+          },
+          "evolution": {
+            "successes": 33,
+            "runs": 64,
+            "rate": 0.515625,
+            "wilson95_execution_interval_descriptive": [
+              0.39581601478580125,
+              0.6336644833456737
+            ],
+            "mean_curve_area": 0.273109375,
+            "mean_charged_evals": 7268.90625,
+            "errors": 0,
+            "mean_wall_s": 1.9229285169749346
+          }
+        },
+        "auc_difference": -0.05512656250000003
+      },
+      "transfer": {
+        "programs": {
+          "independent": "b03_independent_g02",
+          "evolution": "b03_evolution_g00"
+        },
+        "metrics": {
+          "independent": {
+            "successes": 3,
+            "runs": 64,
+            "rate": 0.046875,
+            "wilson95_execution_interval_descriptive": [
+              0.016069016786292974,
+              0.12899653740093686
+            ],
+            "mean_curve_area": 0.014282812499999999,
+            "mean_charged_evals": 29571.515625,
+            "errors": 0,
+            "mean_wall_s": 15.68902709440954
+          },
+          "evolution": {
+            "successes": 7,
+            "runs": 64,
+            "rate": 0.109375,
+            "wilson95_execution_interval_descriptive": [
+              0.05400113344416797,
+              0.20898641326896122
+            ],
+            "mean_curve_area": 0.036871875,
+            "mean_charged_evals": 28893.84375,
+            "errors": 0,
+            "mean_wall_s": 15.520777715453733
+          }
+        },
+        "auc_difference": 0.0225890625
+      }
+    }
+  },
+  "mean_test_auc_difference": 0.004366015624999997,
+  "descriptive_four_block_sign_flip_p": 1.0,
+  "archived_control": {
+    "9": {
+      "successes": 5,
+      "runs": 8,
+      "rate": 0.625,
+      "wilson95_execution_interval_descriptive": [
+        0.30574239460262737,
+        0.8631557141764026
+      ],
+      "mean_curve_area": 0.4916625,
+      "mean_charged_evals": 5083.375,
+      "errors": 0,
+      "mean_wall_s": 1.0224902761692647
+    },
+    "11": {
+      "successes": 3,
+      "runs": 8,
+      "rate": 0.375,
+      "wilson95_execution_interval_descriptive": [
+        0.13684428582359742,
+        0.6942576053973727
+      ],
+      "mean_curve_area": 0.3039625,
+      "mean_charged_evals": 6960.375,
+      "errors": 0,
+      "mean_wall_s": 2.030594473850215
+    },
+    "13": {
+      "successes": 0,
+      "runs": 4,
+      "rate": 0.0,
+      "wilson95_execution_interval_descriptive": [
+        0.0,
+        0.4898908364545973
+      ],
+      "mean_curve_area": 0,
+      "mean_charged_evals": 30000,
+      "errors": 0,
+      "mean_wall_s": 12.679828833264764
+    },
+    "15": {
+      "successes": 0,
+      "runs": 4,
+      "rate": 0.0,
+      "wilson95_execution_interval_descriptive": [
+        0.0,
+        0.4898908364545973
+      ],
+      "mean_curve_area": 0,
+      "mean_charged_evals": 30000,
+      "errors": 0,
+      "mean_wall_s": 18.31671883352101
+    }
+  },
+  "interpretation": "Fresh seed repeat of already selected programs, not fresh generation replication. Pooled Wilson intervals do not measure uncertainty of generation-policy superiority. Lineage was chosen after earlier performance; edits are not causally isolated."
+}

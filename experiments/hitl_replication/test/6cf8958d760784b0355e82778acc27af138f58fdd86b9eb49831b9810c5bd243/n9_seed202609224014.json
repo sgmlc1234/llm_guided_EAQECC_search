@@ -1,0 +1,76 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "c220906eafa74a902b0277af017945711f2cbc7f155ce21345c390eb9ce2d068",
+  "code_sha256": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.875,
+  "score": 0.000875,
+  "runs": [
+    {
+      "seed": 202609224014,
+      "closed": 0,
+      "distance_ratio": 0.875,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 9,
+            "k": 1,
+            "c": 6,
+            "d": 8
+          },
+          "seed": 5256619090713108836,
+          "allocated_evals": 10000,
+          "n_evals": 10000,
+          "nullspace_calls": 0,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 10000,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 3845,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 0,
+          "underused_without_solution": false,
+          "parameters": {
+            "n": 9,
+            "s": 14,
+            "c": 6,
+            "iso": 2,
+            "k": 1,
+            "d": 7,
+            "offending": 3,
+            "logical_count": 12
+          },
+          "generators": [
+            230493,
+            97955,
+            33210,
+            13051,
+            188028,
+            182154,
+            145679,
+            234454,
+            11878,
+            159513,
+            69936,
+            67451,
+            962,
+            118038
+          ],
+          "closed": false,
+          "distance_ratio": 0.875,
+          "found_phase": "search",
+          "elapsed_s": 1.968448624946177,
+          "target_sha256": "611c6b69d6e61b171f870de7260aafe0935ec3280df70b721e57e01e6de54e3d",
+          "code_sha256": "6cf8958d760784b0355e82778acc27af138f58fdd86b9eb49831b9810c5bd243",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

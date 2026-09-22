@@ -120,3 +120,13 @@ Do not add binaries, tool clones, `magmapassfile`, credentials, host configurati
 or machine-local reports to Git. The environment variables above are execution
 settings, not manuscript inputs. The anonymous ZIP contains the original evidence
 and generic instructions, while your fresh verification outputs stay separate.
+
+## Fresh replay resource measurements
+
+The [September 21 verification record](../artifacts/refutations/verification/2026-09-21/README.md)
+reports CNF sizes, proof sizes, elapsed times and peak memory for all ten
+exclusions. Nine archived proofs passed replay; the on-demand proof for
+`[[10,1,9;5]]₂` was regenerated with pinned CaDiCaL and checked with pinned
+drat-trim. Full logs and command arguments are included. Measurements were
+collected concurrently with local program replays, so they describe that
+execution environment rather than isolated solver performance.

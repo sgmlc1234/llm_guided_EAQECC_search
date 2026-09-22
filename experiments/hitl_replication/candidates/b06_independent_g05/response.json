@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    l_rank = n + k - c\\n    s_rank = n - k + c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    while E.remaining:\\n        # Initialize L\\n        L = list(E.random_stabilizer(n, l_rank, rng))\\n        S = get_S(L)\\n        if len(S) != s_rank:\\n            continue\\n        cur = objective(E.evaluate(S))\\n\\n        temp, fails = 30.0, 0\\n        while fails < 1500 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            candidate_L = list(L)\\n            candidate_L[int(rng.integers(l_rank))] ^= random_pauli()\\n            if len(E.gf2_basis(candidate_L)) != l_rank:\\n                fails += 1\\n                continue\\n            \\n            candidate_S = get_S(candidate_L)\\n            if len(candidate_S) != s_rank:\\n                fails += 1\\n                continue\\n                \\n            new_obj = objective(E.evaluate(candidate_S))\\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"\n}",
+            "thoughtSignature": "AY89a18QyU1/TD5/k192U22fUGz2xBPrg8bK1KYO2SS+dY15sWFYTY6R2q3rgf2acFuaGSIfTM9QbOYkCNYOC+kA636NGQq6+bhFFc2TeUnzpDcyEGCYmUSc1VXEvPiq7muNcqTTvvWsSuoYxnjtlPdLCNk4d2AKhuCE8gCHEjpG0phTUFMBJpg0b/gIuWcJy2qIej3o514cR4f8pVQPIhFZ+0HAZyC7BSWWy9GpB9meApBH0iVID89o9O+JcgohWCpXnFnLgHQWL7qAhAAaqt7FJQXqekUQ9r5HcYMdOrE+b3NrMUXMRc3dl65rND5HyDng0onclOhdVEJQ0VUyijtMF6JqUDqNoC9gCRHLL//CNgDvgXmOR6SH1a24VTnp5jyjSvM77pqf9JGXPlOjfdYBQYXrKMAfXjkqPOyynrQE5yvTSSv11SR9utuNtAKE5nB8iTu1/x41dXJAJw7JUVUhOW/77kyJWyzSGmbWIvY+UROXR5UmegSVOOseBoo1SD5xDibQibqR7mczEoTkwD7gpDZW+OzqWXGgPDRsF3snkAU6JaYdl8WbeDYNtu7FyXEem9jxzTjq8zJW+A9KTUNs2OeorGbb+KqDGePqV/Cw6ctJGCeMSgaU9cHXgUbe/NIqpm0VfRHEelxNmuqJdAEi3k5jsX3mLSdoQXfli26zU6HjvSqkimRR3KXSqFQEKkCmOeAzZDN/sP7RnZnxKfl+H031F35xdYwi15jhvCf+vlBpqf5jgakPgta38IVGnstKmcw9Wd3hnh/7iI45zypfCQy7J3XGnwyCpQOfleqHMGjvcPBsLZ1bGWbHE8LgEfhdwlg4EGG9fy2q98G53nHPVTajYBIC9XOhrUZimaw9/EnDzc7fRbKEXWzDqz4aDyvYbe98sV6rpkc2uAZAI3S1YBO9IWiGxZ3LBFPFS5SBIUFTzIY2U2PdRpBUZgpit4k6HWfQIJpMGv9IJtQ/fezEI0FnRcdxkDTtPZWa/fbU0bWSKtMU5FASiVPihPp81vysex/DTeQaXjRxXQVnVXNDZ5zNM3j7UBoNWVVgp9KcCAUL6OoKoZaDuiiA3WiUInknoGcnKlNa4ghB59HH4FtjYsixjXiwhKzg5gJtPj+rkcxFFODezF0EQzQ1p+t7sys9DeGBaX6orAqq1AbUbD/jZBzr6tiEfhvGw9eJVtbw8SIjzR9xD4GiIiBJljbOkAAolQju/1RNQqz5rN9h03p15v9nfAEs5RYGYbHGpZntIRekve3ICJMhImapRgoNZq5x4kAvvGl/KKsmc0kx7PwC1E0o7dY2hthl9nrerUvDuiM8h/H6q+JPu6ppHXEUJur0zya5KS7ub98qn8U2NNmp+5HiCMjtBY1F81GpXkgYcJVTEsi6lwFX4l1in9twXKcBlNNPEhLbp600lE12/NCo++MNpyQEOSnzsls0MH3luz4l+fhE6CToRrVS3wVybTnD8U1Ius2BPQ0/yM58eIQ48GYRhddn8NNSeUcxQVVXqughgW/Z+qpAnJwopBPL5P/OS17fZuRH2SBiV2RuyMYxTcI+cuzQ2lSNhzQ3XwB6ZWzBQlvZWnPg/gbdOyEKbYE3UVdvWf8ouytc+XwGtjGp673TR2Tv3O8uV+1WsgeXxLJ4UnI6SMJVgph3Oo1Eq/Qq3uFQKkH6bEKCBrhz5JwLKbbrAsozjzDPCy0QxrJXbo15Z2TSCQ9ID1PviJwXD9LbLhZ++MY3Hwdgajuhl6E27TCJI86mDtGTVlz8ZDoto1iKakuzLxFLBSDtONZRF4orqNXuUxqe6i0PsmOwARy9QkW2CfpXvz97GtrqmUmsKPnXe9q1SirgX8iRJztAxbjNBAkahCO5OqN5OWuPWeiJ0UDWuHc5M5Npf3EcC/6g8rwGPoZJN6rgiw7j/G/nH0dW40tt2T+egx/FU9ioCFzZ3ogBcmMg"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 603,
+    "totalTokenCount": 2854,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 603
+      }
+    ],
+    "thoughtsTokenCount": 454
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:41:19.870109Z",
+  "responseId": "H1Cxat2NNaeb0ckP272MyQU"
+}

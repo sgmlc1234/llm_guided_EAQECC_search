@@ -64,20 +64,29 @@ and are excluded from Git and the anonymous release.
   See [JSON record](verification/kernel-build-macos.json) and
   [build output](verification/kernel-build-macos.log). Both proof modules and
   both submitted Solutions build; no `sorryAx` occurs in their dependencies.
-- **Supplied Linux Comparator record:** the original package README records
-  acceptance of both separate challenges on Ubuntu/aarch64, using Comparator
-  `a4f696825c583ed8a5b4060d9a0faa5b882d365b` and lean4export
-  `048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d`. This integration did not rerun Linux
-  Comparator; the original package contains output excerpts rather than full
-  raw run logs. Its configurations disable the optional nanoda checker.
+- **Fresh Linux Comparator replay:** PASS for Theorem 1 and the supporting
+  Lemma 2 on Linux x86_64, with the preserved Lean 4.29.0-rc6 toolchain and
+  all ten locked package revisions. See the [full logs, environment and
+  CLI patch](verification/linux-2026-09-21/README.md). Comparator is pinned to
+  `a4f696825c583ed8a5b4060d9a0faa5b882d365b`, and lean4export to
+  `048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d`.
+- **Historical supplied record:** the original package README separately records
+  acceptance on Ubuntu/aarch64. Its excerpts are preserved unchanged. The new
+  Linux run above is independently recorded and does not replace that history.
 
 Comparator requires Linux `landrun` and compatible `comparator` and `lean4export`
-binaries. The original record documents a CLI adjustment because landrun 0.1.17
-consumed the separator after the module argument; it states that export and
-kernel logic were unchanged. The exact original patch is not supplied. Preserve
-and document this adjustment when reproducing that Linux run; the pinned
-[exporter CLI](https://github.com/leanprover/lean4export/blob/048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d/Main.lean)
-parses module names before `--` and declaration names after it.
+binaries. The fresh run reproduced the landrun 0.1.17 argument-separator issue.
+The archived [one-line patch](verification/linux-2026-09-21/comparator-landrun-separator.patch)
+adds `--` before the executable name in Comparator's `buildLandrunArgs`.
+Apply it to the pinned Comparator source and rebuild. The exporter source,
+statement comparison, axiom policy and kernel-checking logic are unchanged.
+This is a newly documented compatibility fix; the original historical patch
+was not recovered. Both configurations disable optional nanoda, so these are
+Lean-kernel replays, not independent-kernel validation. The pinned
+[Comparator documentation](https://github.com/leanprover/comparator/blob/a4f696825c583ed8a5b4060d9a0faa5b882d365b/README.md)
+separates its statement/dependency comparison, permitted-axiom checks and
+Lean kernel check from the optional additional-kernel check. We do not claim
+the latter. The original reason for disabling nanoda is not documented.
 
 With those compatible binaries available, from this directory run:
 

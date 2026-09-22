@@ -1,0 +1,82 @@
+warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it
+Building CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Lemma2Challenge
+warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it
+⚠ [8200/8201] Replayed CodingTheoryLib.Research.ICLR2027EAQECC.Definitions
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Definitions.lean:60:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Definitions.lean:68:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8201/8201] Replayed CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Lemma2Challenge
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2Challenge.lean:11:8: declaration uses `sorry`
+Build completed successfully (8201 jobs).
+Exporting #[ICLR2027EAQECC.Comparator.lemma2_coordinate_normalization_goal, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList] from CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Lemma2Challenge
+Building CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Lemma2Solution
+warning: manifest out of date: git revision of dependency 'mathlib' changed; use `lake update mathlib` to update it
+⚠ [8200/8202] Replayed CodingTheoryLib.Research.ICLR2027EAQECC.Definitions
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Definitions.lean:60:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Definitions.lean:68:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8201/8202] Replayed CodingTheoryLib.Research.ICLR2027EAQECC.Lemma2
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:53:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:73:51: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:93:51: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:66:51: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:81:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:82:54: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:157:30: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: CodingTheoryLib/Research/ICLR2027EAQECC/Lemma2.lean:271:0: 'ICLR2027EAQECC.lemma2_coordinate_normalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8202/8202] Replayed CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Lemma2Solution
+info: CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2Solution.lean:21:0: 'ICLR2027EAQECC.Comparator.lemma2_coordinate_normalization_goal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (8202 jobs).
+Exporting #[ICLR2027EAQECC.Comparator.lemma2_coordinate_normalization_goal, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList] from CodingTheoryLib.Research.ICLR2027EAQECC.Comparator.Lemma2Solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+	Command being timed: "timeout 1800 lake env comparator CodingTheoryLib/Research/ICLR2027EAQECC/Comparator/Lemma2.json"
+	User time (seconds): 76.19
+	System time (seconds): 10.60
+	Percent of CPU this job got: 94%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:31.53
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6478016
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 632027
+	Voluntary context switches: 152660
+	Involuntary context switches: 79056
+	Swaps: 0
+	File system inputs: 8
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

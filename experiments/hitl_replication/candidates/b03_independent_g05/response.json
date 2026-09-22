@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n = target[\\\"n\\\"]\\n    k = target[\\\"k\\\"]\\n    c_target = target[\\\"c\\\"]\\n    s = n - k + c_target\\n    l_size = 2 * n - s\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c_target) + res[\\\"offending\\\"]\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return E.nullspace(rows, 2 * n)\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    # Initialize L as a linearly independent basis of size l_size\\n    L = []\\n    while len(L) < l_size:\\n        v = int(rng.integers(1, 1 << (2 * n)))\\n        test_L = L + [v]\\n        if len(E.gf2_basis(test_L)) == len(test_L):\\n            L.append(v)\\n\\n    S = get_S(L)\\n    cur = objective(E.evaluate(S))\\n\\n    temp, fails = 30.0, 0\\n    while E.remaining:\\n        temp = max(0.1, temp * 0.995)\\n        candidate_L = list(L)\\n        idx = int(rng.integers(l_size))\\n        candidate_L[idx] ^= random_pauli()\\n        if len(E.gf2_basis(candidate_L)) != l_size:\\n            fails += 1\\n            if fails > 1000:\\n                # Restart search with a new random L\\n                L = []\\n                while len(L) < l_size:\\n                    v = int(rng.integers(1, 1 << (2 * n)))\\n                    test_L = L + [v]\\n                    if len(E.gf2_basis(test_L)) == len(test_L):\\n                        L.append(v)\\n                S = get_S(L)\\n                cur = objective(E.evaluate(S))\\n                fails = 0\\n            continue\\n\\n        candidate_S = get_S(candidate_L)\\n        new_obj = objective(E.evaluate(candidate_S))\\n        delta = new_obj - cur\\n        if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n            L, cur = candidate_L, new_obj\\n            fails = 0 if delta < 0 else fails + 1\\n        else:\\n            fails += 1\\n    return None\"}",
+            "thoughtSignature": "AY89a19pyY7UuXKeq7m99wft7lTUa6KOccDDhnLuBQt0+TNFFRf0Vcz292Q+k6QsK/F8a92EtmwCEcYe4B4t6NVHefS93S7RHD2OtN7z+YRsMINz2WRtm1I/vrU2r3UZwsZp8R9xocPPYcCP64juqE1idkL5bGuQ1QAJoPE59WnECeVl7+vznwHmJOGi5OdX0BAp3X0ZaETP6ZL8yoLmurA0GRCy2qR/gi+iMFLdUzF17Nam5Hvv+UzS9Gn4O4x7hIf7zWAaKRF+kQPpCbxq0bE0iGBgkfkpBxgDNkUNLqjN4GQfR4F9EQGyneqSqcnoZmN2+HcAMI2LDurV66hOYn1U4/x7/b2btli9nzrGQuJwJBxDfjvKfRGhcdO1yrxF1IBFcs/k8JWJ4wcIjzfvWhQS+L0+sBKZOSV3vK7+pxVpRBAzKZ6mflVXHJ+QFFIsZZq/Nlcau6/6uRJEwcZB1LeWcrpIsNxZMzIwmF9tVpYvLuEg+eoKvbUXgD/KaXO3794+wbpAD0spYRe8CHn331da+cp5PpA2MX9fgtb9bVSyGpjbvmK9RTQDFRpa9Mm5o0Jj6+tcehlp8PEabK1KmZRr+UZWUXeiD+hqsMoWZ0159DK7tsrgcbk4tUHdrUm1OE+Pys8UKIUZlgLfgqXEp9ypMcGuDTxAJr/dqBxzZ8hdHUlboZMT3MBkNrYAyEvlHQGH2UjumYlSV5nJJcADfHSlKW7sMbn7irwfTAiRb6+johPsVrR+322IRPwB/eDhok0bjG62dXd27fcxV4aPQT140MpSFsQVD4XINL6UX7iLVqCE+4VilQCsq/2VLXYTE3Z2fm/nO/8zN8KoMc68DUS2bgIWRbkFQ+aiZ+E1rsyfMBT9OCDHz3ea+Wrqgy1LqtvLGUSVFf7imZKkJ77pwOnsA+w6TVDdKlY26rnqHnvkmO9o9V0tl1z3dGKS6iSu6DtDXKmfZ2ea602qraCB6H9U/ayMTZl9f7DHb0Cfvpc5o/WqwsxUp6xIvbnZOguzOaqKX0wv7IrRFKY7Ax+LnhDZTaT8tcxY2DAddV1kPmOPGacBPwA61W0R3RpP5ArveYsy61fREBCvrJC6IH3mn0PCFyvR5/OfzDNg2mO+M5+WRy000O6ZLY/ys/9WDiymL4RxePSZIJDlc/QMrg84M8oq/vWYz+lL7qDSDZnXx6twwx4MsPkpv/osgh1QNE4H0Lm/KtKMliWFcES5Y4yXuAFDYT8mXUtZvCLKY3rjHDlLw7v0BLgYuJsQMSsa20oak3kwMBnZTnoB+gQa88/STaIhkjJygul5BV2NoGBEiKDr7r5g9QgzI6souc01qtYzy+alGiWcV2pQ"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 758,
+    "totalTokenCount": 2917,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 758
+      }
+    ],
+    "thoughtsTokenCount": 362
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:36:34.370861Z",
+  "responseId": "Ak-xaq3RFvuj0ckPrPvroQc"
+}

@@ -1,0 +1,9 @@
+{
+  "state": "COMPLETED",
+  "completed": 1560,
+  "planned": 1560,
+  "errors": 0,
+  "elapsed_s": 3180.4057062920183,
+  "successes": 545,
+  "started_unix": 1789997768.741645
+}

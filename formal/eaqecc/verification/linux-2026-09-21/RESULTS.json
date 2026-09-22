@@ -1,0 +1,19 @@
+{
+  "Theorem1": {
+    "status": "PASS",
+    "exit": 0,
+    "wall_time": "1:21.59",
+    "peak_RSS_KiB": 6474776
+  },
+  "Lemma2": {
+    "status": "PASS",
+    "exit": 0,
+    "wall_time": "1:31.53",
+    "peak_RSS_KiB": 6478016
+  },
+  "source_manifest_before_and_after": "PASS",
+  "nanoda": "disabled in original settings; not run",
+  "CLI_patch": "new documented separator patch, not recovered historical patch",
+  "raw_log_location": "ignored notes/private/; sanitized full logs here",
+  "original_Linux_full_log": "not recovered"
+}

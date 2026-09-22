@@ -1,0 +1,403 @@
+[
+  {
+    "tag": "nonexist_5_2_4_3",
+    "q": 2,
+    "n": 5,
+    "k": 2,
+    "d": 4,
+    "c": 3,
+    "variables": 414,
+    "clauses": 1275,
+    "cnf_bytes": 15855,
+    "cnf_sha256": "90f308989ced89cd9742e471e5e6e150affad2406c29df823908d7bb15dfd520",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/nonexist_5_2_4_3.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 0.022174375131726265,
+      "peak_rss_bytes": 4292608,
+      "stdout": "nonexist_5_2_4_3-decide.log",
+      "resource_log": "nonexist_5_2_4_3-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 34735,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/nonexist_5_2_4_3.cnf",
+        "<repository>/artifacts/refutations/nonexist_5_2_4_3.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.45875262492336333,
+      "peak_rss_bytes": 50511872,
+      "stdout": "nonexist_5_2_4_3-check.log",
+      "resource_log": "nonexist_5_2_4_3-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "nonexist_6_2_5_4",
+    "q": 2,
+    "n": 6,
+    "k": 2,
+    "d": 5,
+    "c": 4,
+    "variables": 498,
+    "clauses": 1540,
+    "cnf_bytes": 19356,
+    "cnf_sha256": "dde412661f7225473c3bcdb745135043551889ea666ed0b4ea38cdc8defb73d4",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/nonexist_6_2_5_4.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 0.02054874994792044,
+      "peak_rss_bytes": 4079616,
+      "stdout": "nonexist_6_2_5_4-decide.log",
+      "resource_log": "nonexist_6_2_5_4-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 36781,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/nonexist_6_2_5_4.cnf",
+        "<repository>/artifacts/refutations/nonexist_6_2_5_4.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.039247999899089336,
+      "peak_rss_bytes": 50462720,
+      "stdout": "nonexist_6_2_5_4-check.log",
+      "resource_log": "nonexist_6_2_5_4-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "q2_n7_k1_c3_d6",
+    "q": 2,
+    "n": 7,
+    "k": 1,
+    "d": 6,
+    "c": 3,
+    "variables": 1110,
+    "clauses": 3666,
+    "cnf_bytes": 48756,
+    "cnf_sha256": "5d01de8476f928b621b84cd0823c8115e3dfb3e43aa21f8d30df2a3f34eee2c0",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/q2_n7_k1_c3_d6.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 0.6148067908361554,
+      "peak_rss_bytes": 12238848,
+      "stdout": "q2_n7_k1_c3_d6-decide.log",
+      "resource_log": "q2_n7_k1_c3_d6-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 8029643,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/q2_n7_k1_c3_d6.cnf",
+        "<run-directory>/q2_n7_k1_c3_d6.unpacked.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.5132853328250349,
+      "peak_rss_bytes": 59949056,
+      "stdout": "q2_n7_k1_c3_d6-check.log",
+      "resource_log": "q2_n7_k1_c3_d6-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "q2_n9_k1_c5_d8",
+    "q": 2,
+    "n": 9,
+    "k": 1,
+    "d": 8,
+    "c": 5,
+    "variables": 1430,
+    "clauses": 4734,
+    "cnf_bytes": 64550,
+    "cnf_sha256": "ce91e4f0a44e22d73f96adfb87ebc40ec81543b4703e239d6affe6061175f7c5",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/q2_n9_k1_c5_d8.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 0.892141249962151,
+      "peak_rss_bytes": 14598144,
+      "stdout": "q2_n9_k1_c5_d8-decide.log",
+      "resource_log": "q2_n9_k1_c5_d8-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 12434866,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/q2_n9_k1_c5_d8.cnf",
+        "<run-directory>/q2_n9_k1_c5_d8.unpacked.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.7301497079897672,
+      "peak_rss_bytes": 63127552,
+      "stdout": "q2_n9_k1_c5_d8-check.log",
+      "resource_log": "q2_n9_k1_c5_d8-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "q2_n11_k1_c7_d10",
+    "q": 2,
+    "n": 11,
+    "k": 1,
+    "d": 10,
+    "c": 7,
+    "variables": 1750,
+    "clauses": 5802,
+    "cnf_bytes": 81645,
+    "cnf_sha256": "3994a0a64a0af5aa551772eac085916000ab5e8489e06bcca53c2b19ef51b2dd",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/q2_n11_k1_c7_d10.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 1.2270996670704335,
+      "peak_rss_bytes": 17317888,
+      "stdout": "q2_n11_k1_c7_d10-decide.log",
+      "resource_log": "q2_n11_k1_c7_d10-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 17390616,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/q2_n11_k1_c7_d10.cnf",
+        "<run-directory>/q2_n11_k1_c7_d10.unpacked.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.8881422921549529,
+      "peak_rss_bytes": 66174976,
+      "stdout": "q2_n11_k1_c7_d10-check.log",
+      "resource_log": "q2_n11_k1_c7_d10-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "q2_n6_k1_c1_d5",
+    "q": 2,
+    "n": 6,
+    "k": 1,
+    "d": 5,
+    "c": 1,
+    "variables": 1881,
+    "clauses": 6425,
+    "cnf_bytes": 90674,
+    "cnf_sha256": "ef0ca9662c976220e43811ec8c7ddbbc6e7ad61100372c759e24da284b322300",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/q2_n6_k1_c1_d5.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 1.8833755829837173,
+      "peak_rss_bytes": 18087936,
+      "stdout": "q2_n6_k1_c1_d5-decide.log",
+      "resource_log": "q2_n6_k1_c1_d5-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 23971314,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/q2_n6_k1_c1_d5.cnf",
+        "<run-directory>/q2_n6_k1_c1_d5.unpacked.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 1.8766741252038628,
+      "peak_rss_bytes": 71368704,
+      "stdout": "q2_n6_k1_c1_d5-check.log",
+      "resource_log": "q2_n6_k1_c1_d5-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "q2_n8_k1_c3_d7",
+    "q": 2,
+    "n": 8,
+    "k": 1,
+    "d": 7,
+    "c": 3,
+    "variables": 2513,
+    "clauses": 8609,
+    "cnf_bytes": 125440,
+    "cnf_sha256": "56f94cea505f6096a6509027fd7fd1f9d682ccc29f9145f2b5611e78e797537d",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/q2_n8_k1_c3_d7.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 16.942187124863267,
+      "peak_rss_bytes": 41533440,
+      "stdout": "q2_n8_k1_c3_d7-decide.log",
+      "resource_log": "q2_n8_k1_c3_d7-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 180633277,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/q2_n8_k1_c3_d7.cnf",
+        "<run-directory>/q2_n8_k1_c3_d7.unpacked.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 13.581576082855463,
+      "peak_rss_bytes": 204439552,
+      "stdout": "q2_n8_k1_c3_d7-check.log",
+      "resource_log": "q2_n8_k1_c3_d7-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "q2_n10_k1_c5_d9",
+    "q": 2,
+    "n": 10,
+    "k": 1,
+    "d": 9,
+    "c": 5,
+    "variables": 3145,
+    "clauses": 10793,
+    "cnf_bytes": 159816,
+    "cnf_sha256": "29392f0d39b1f59e398a2c2738684a7f95905314a3035777f1bb4add6d464a69",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/q2_n10_k1_c5_d9.cnf",
+        "<run-directory>/q2_n10_k1_c5_d9.drat"
+      ],
+      "exit_code": 20,
+      "wall_s": 66.32610383420251,
+      "peak_rss_bytes": 83279872,
+      "stdout": "q2_n10_k1_c5_d9-generate.log",
+      "resource_log": "q2_n10_k1_c5_d9-generate.resources.log"
+    },
+    "proof_origin": "freshly_generated_binary_DRAT",
+    "proof_bytes": 246317326,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/q2_n10_k1_c5_d9.cnf",
+        "<run-directory>/q2_n10_k1_c5_d9.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 58.76256858278066,
+      "peak_rss_bytes": 514883584,
+      "stdout": "q2_n10_k1_c5_d9-check.log",
+      "resource_log": "q2_n10_k1_c5_d9-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "q3_n10_k1_c4_d9",
+    "q": 3,
+    "n": 10,
+    "k": 1,
+    "d": 9,
+    "c": 4,
+    "variables": 33033,
+    "clauses": 476271,
+    "cnf_bytes": 10396932,
+    "cnf_sha256": "dbca73e637394948b6e3917f869d51c16cd6d3a19eb4e3c481c66971694b7553",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/q3_n10_k1_c4_d9.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 11.89607254206203,
+      "peak_rss_bytes": 251510784,
+      "stdout": "q3_n10_k1_c4_d9-decide.log",
+      "resource_log": "q3_n10_k1_c4_d9-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 30331150,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/q3_n10_k1_c4_d9.cnf",
+        "<run-directory>/q3_n10_k1_c4_d9.unpacked.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 62.248187750112265,
+      "peak_rss_bytes": 172326912,
+      "stdout": "q3_n10_k1_c4_d9-check.log",
+      "resource_log": "q3_n10_k1_c4_d9-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  },
+  {
+    "tag": "q2_n13_k1_c8_d12",
+    "q": 2,
+    "n": 13,
+    "k": 1,
+    "d": 12,
+    "c": 8,
+    "variables": 4093,
+    "clauses": 14069,
+    "cnf_bytes": 211918,
+    "cnf_sha256": "8cdf4bfb63e849d32478cba69af75f1225b60e71dbd1b2041ffb056397dd5e70",
+    "solver": {
+      "command": [
+        "<tools-directory>/cadical/build/cadical",
+        "-q",
+        "<repository>/artifacts/refutations/q2_n13_k1_c8_d12.cnf"
+      ],
+      "exit_code": 20,
+      "wall_s": 3.4637520420365036,
+      "peak_rss_bytes": 30998528,
+      "stdout": "q2_n13_k1_c8_d12-decide.log",
+      "resource_log": "q2_n13_k1_c8_d12-decide.resources.log"
+    },
+    "proof_origin": "archived",
+    "proof_bytes": 45593931,
+    "checker": {
+      "command": [
+        "<tools-directory>/drat-trim/drat-trim",
+        "<repository>/artifacts/refutations/q2_n13_k1_c8_d12.cnf",
+        "<run-directory>/q2_n13_k1_c8_d12.unpacked.drat"
+      ],
+      "exit_code": 0,
+      "wall_s": 2.4799815830774605,
+      "peak_rss_bytes": 85213184,
+      "stdout": "q2_n13_k1_c8_d12-check.log",
+      "resource_log": "q2_n13_k1_c8_d12-check.resources.log"
+    },
+    "certificate_pass": true,
+    "source_cnf_unchanged": true
+  }
+]

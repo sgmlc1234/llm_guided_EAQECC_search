@@ -1,0 +1,84 @@
+{
+  "schema": "per-target-v2",
+  "manifest_sha256": "101bd1981ef49b638fbc49979c98977f297bd229b59052c603c4eea84accbf11",
+  "code_sha256": "bab0864801a250ccfbc5f74aed8f725e6f8343ad67a0d48cd14838a0592da6a4",
+  "mean_closed": 0.0,
+  "mean_distance_ratio": 0.8333333333333334,
+  "score": 0.0008333333333333334,
+  "runs": [
+    {
+      "seed": 202609225023,
+      "closed": 0,
+      "distance_ratio": 0.8333333333333334,
+      "failed_targets": 0,
+      "per_target": [
+        {
+          "target": {
+            "q": 2,
+            "n": 13,
+            "k": 1,
+            "c": 10,
+            "d": 12
+          },
+          "seed": 15863683807734330290,
+          "allocated_evals": 30000,
+          "n_evals": 8079,
+          "nullspace_calls": 8079,
+          "phase_evals": {
+            "initialization": 0,
+            "search": 8079,
+            "final_return": 0
+          },
+          "protected_initialization": false,
+          "invalid_evaluations": 2754,
+          "final_verifications": 0,
+          "termination": "returned",
+          "error": null,
+          "unused_evals": 21921,
+          "underused_without_solution": true,
+          "parameters": {
+            "n": 13,
+            "s": 22,
+            "c": 10,
+            "iso": 2,
+            "k": 1,
+            "d": 10,
+            "offending": 8,
+            "logical_count": 12
+          },
+          "generators": [
+            8388609,
+            10485762,
+            2097156,
+            50331656,
+            16,
+            2097184,
+            44040256,
+            50331776,
+            44040448,
+            18874880,
+            33555456,
+            58722304,
+            41947136,
+            27271168,
+            2113536,
+            50364416,
+            52494336,
+            25296896,
+            61079552,
+            50855936,
+            53477376,
+            62914560
+          ],
+          "closed": false,
+          "distance_ratio": 0.8333333333333334,
+          "found_phase": "search",
+          "elapsed_s": 3.869030874921009,
+          "target_sha256": "8aa832bda36274f2c7ce571689a54f5e1bc2f1e8359add0cc9db2d2aca50c6f3",
+          "code_sha256": "bab0864801a250ccfbc5f74aed8f725e6f8343ad67a0d48cd14838a0592da6a4",
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

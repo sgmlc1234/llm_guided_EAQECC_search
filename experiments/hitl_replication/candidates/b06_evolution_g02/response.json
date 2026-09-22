@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    l = n + k - c\\n    s = n - k + c\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        dist_gap = max(0, target[\\\"d\\\"] - res.get(\\\"d\\\", 0)) if res.get(\\\"d\\\") is not None else target[\\\"d\\\"]\\n        return 10000 * abs(res[\\\"c\\\"] - c) + 1000 * res[\\\"offending\\\"] + 100 * dist_gap\\n\\n    def get_S(L):\\n        rows = [E._J(v, n) for v in L]\\n        return list(E.nullspace(rows, 2 * n))\\n\\n    def random_vector():\\n        v = 0\\n        # Favor sparse but highly structured mutations: 1 to 3 qubits\\n        qubits = rng.choice(n, size=int(rng.integers(1, 4)), replace=False)\\n        for q in qubits:\\n            v |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return v\\n\\n    while E.remaining:\\n        L = []\\n        while len(L) < l and E.remaining:\\n            v = random_vector()\\n            cand = L + [v]\\n            if len(E.gf2_basis(cand)) == len(cand):\\n                L.append(v)\\n        if len(L) < l:\\n            break\\n\\n        S = get_S(L)\\n        res = E.evaluate(S)\\n        cur = objective(res)\\n        \\n        temp, fails = 30.0, 0\\n        while fails < 1200 and E.remaining:\\n            temp = max(0.01, temp * 0.995)\\n            idx = int(rng.integers(l))\\n            old_v = L[idx]\\n            \\n            r = rng.random()\\n            if r < 0.2:\\n                L[idx] = random_vector()\\n            elif r < 0.6:\\n                # Mutate by adding a small perturbation\\n                L[idx] ^= random_vector()\\n            else:\\n                # Mix with another basis element\\n                other = int(rng.integers(l))\\n                if other != idx:\\n                    L[idx] ^= L[other]\\n                else:\\n                    L[idx] ^= random_vector()\\n                \\n            if len(E.gf2_basis(L)) != l:\\n                L[idx] = old_v\\n                fails += 1\\n                continue\\n                \\n            S = get_S(L)\\n            res = E.evaluate(S)\\n            new_obj = objective(res)\\n            delta = new_obj - cur\\n            \\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                cur = new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                L[idx] = old_v\\n                fails += 1\\n                \\n    return None\"\n}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3042,
+    "candidatesTokenCount": 826,
+    "totalTokenCount": 4494,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3042
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 826
+      }
+    ],
+    "thoughtsTokenCount": 626
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T14:57:33.681338Z",
+  "responseId": "3UWxavrKKcuXktwPl4DdgA8"
+}

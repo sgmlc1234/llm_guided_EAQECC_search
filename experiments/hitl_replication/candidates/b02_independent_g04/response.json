@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    l_rank = n + k - c\\n    s = n - k + c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_pauli():\\n        qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n        delta = 0\\n        for q in qubits:\\n            delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n        return delta\\n\\n    while E.remaining:\\n        # Generate a random independent basis L of size l_rank\\n        # We can start by generating a larger independent set and taking a subset\\n        L = []\\n        while len(L) < l_rank:\\n            cand = int(rng.integers(1, 1 << (2 * n)))\\n            test = L + [cand]\\n            if len(E.gf2_basis(test)) == len(test):\\n                L.append(cand)\\n        \\n        # Convert L to S\\n        dual_gens = [E._J(v, n) for v in L]\\n        S = list(E.nullspace(dual_gens, 2 * n))\\n        cur_eval = E.evaluate(S)\\n        cur = objective(cur_eval)\\n        if cur_eval.get(\\\"offending\\\") == 0 and cur_eval.get(\\\"c\\\") == c and cur_eval.get(\\\"k\\\") == k:\\n            return S\\n\\n        temp, fails = 30.0, 0\\n        while fails < 2000 and E.remaining:\\n            temp = max(0.1, temp * 0.998)\\n            candidate_L = list(L)\\n            idx = int(rng.integers(l_rank))\\n            # Mutate L by either XORing a random Pauli or adding another vector\\n            if rng.random() < 0.5:\\n                candidate_L[idx] ^= random_pauli()\\n            else:\\n                other = int(rng.integers(l_rank))\\n                if other != idx:\\n                    candidate_L[idx] ^= candidate_L[other]\\n                    \\n            if len(E.gf2_basis(candidate_L)) != l_rank:\\n                fails += 1\\n                continue\\n                \\n            dual_gens = [E._J(v, n) for v in candidate_L]\\n            candidate_S = list(E.nullspace(dual_gens, 2 * n))\\n            if len(candidate_S) != s:\\n                fails += 1\\n                continue\\n                \\n            new_eval = E.evaluate(candidate_S)\\n            new_obj = objective(new_eval)\\n            \\n            if new_eval.get(\\\"offending\\\") == 0 and new_eval.get(\\\"c\\\") == c and new_eval.get(\\\"k\\\") == k:\\n                return candidate_S\\n                \\n            delta = new_obj - cur\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur = candidate_L, new_obj\\n                fails = 0 if delta < 0 else fails + 1\\n            else:\\n                fails += 1\\n    return None\"\n}",
+            "thoughtSignature": "AY89a1/hfop8Q4fkMSd4Vcn1s4N9iyOfJ8W8+XGBlSf2U2fS20JBIpx0Rml4/pPK/NCDCm0vZmw0czCCqzKHuEsTptI9ws+DmZHqBjTmGt10vcLjN9aHsSY1qi2CuWpEIynSam8uQlKv4VLpKyjz0Pz6yS7pHKwbRCc5FgrYGv6zpv4+fsqNDh5n1uG6N0a1OxFR6G+1M9j6fUnZpjX5+uvv+GvM7jku0PynP75F/nRuDx8gEcHzb3o2ph4rzeacnS70DjU5B+cP7TOHADRQduSHyncG3019CPyNy9Fy++Alb+LfBdT47aa0xWtlzgLWpwFjW/m1CW0VKvB/guGrT/kphpAvZNUkldsi8JC4WG8xyzSKo35g0ea3SYb4JbSTAsllRHMpEUmWB8ipsSnmUocEkj9x6VrfK0CfyxMSj9yBSW29M8DfyrPFT+VhJyP4RKREbzkHxSWpcnANaVPzi2uuGAvVj0+PSz2FqO70BVhAPj5IPipYEbWagLAPnn3rDlyFxNt0yQ/RiB5950VVV4LQi8HN6M67kFWppXoDMWbJElarp/O+zHBHi6mpvfwScLhPlG6SBtnspZ3U1roSLNeObsHaWK73f5AT/raVjYww0RRmg75BUBMb34NkO5AJ1qy1AmEU3MLzAZUop7G/NTMXG3EigQZzQmAjYhY556cJtDg9uDY3bzXdofcfxqcL62VzMFmoHmDVw6SBX90rDrC77cuVAu87VjnmysoQdRTWzo2wXI+Tj163nJ7ulY+pTF+IVjpVgoGznrOy1qg6vj7/ZkfbzqABLuIaH9pzfQsJl9I3bq6IY//VG99kubhqONQKfhIplrZmtHailxyrH8kMzH6QlMeoVhEGESawVhK4nnSYKUQPQhzBeJYeGzrUY88+hBQKQU4wYYBxGlHsjw9ISmk16FzU3kA/lpbr3MZAHJy+bO/29iX24c8LPTj31kqXhNLpLOhbzAWkOtz9+MG+7T1pmQmsEFdh9pnH1xfrGzILU3B5hKkiBNwJJ3AoWaSlKDpqPVzqVMhHd3azuaLiIAtzHvMbR1OYHaIgd6EPfFjwenBhYby4YjhAdKLTVPThp5H/OKEi/C2qFaKY8LHv9NRFCuik066aCxZEwxcu5ACg7bsyQNQbS3uY6MU+JvGWpoANB1wki/4RU4G1OeULvVfl0i8i1xCbvsvXCj7Dr3nvhtITrBvApPHspWx9eBvamZpRJPfz5443GELLK7jWgba/lm4a+qB5d7UwfIrbE1jhpu55JuacD3ZlosLi4sOa9t0eZozMKJZ0nyKGP9HPGirZtXspSiLH7EAbdCLVxy9dzNtspI1lI6lLx9XMsmz3OnLb4XyfnRUtTOQ6pscukii8jauWI/CoMchfIez6IMXySk4OEJb+3N2ThhVp7xHY9G9AXu/9msYNhgmPDoxowu6K/SjFV2hqly+fS0KEM5J4vvS30MWdULlBRl0Pe6yfWYWnbgT24Aq6SkeieWHP7upWmhF2R0UKdy67ZED8+B6Vr1UoY/SnhGfbKHwifkNOPZKWSb7J2REUf/ZTRqvssf27ve/Vlz0K7eGiJP8i/TZ/muT3iD94v1YqoRBbz4NJrxIYnmkfvc1iBN1EHtJivNQNwe1yQvDd+MaTklMSgIwdA4H13fgehZr0jRU3Az8MGi+dfdHSWmJwY6rVXWN/EGeGY8XPZZpULfMK4PTS4jc2s4sr+KvZKn5PWZ/yusUsJfLsZYDNkeQCZ+UPud8fRJ+jVCbHnt+9TrwcnYgx005F2ZS3nzT5K3sojQ8AhJVC5g9l6jmKzIzTm9Fdf+CsW6exvH+s+W5m1zEnubrQtWpf33nCHZsl4aRrzDT07YYtGyjs"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 892,
+    "totalTokenCount": 3164,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 892
+      }
+    ],
+    "thoughtsTokenCount": 475
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T15:04:16.675334Z",
+  "responseId": "cEexaoacKbuUktwPmKXgkAU"
+}

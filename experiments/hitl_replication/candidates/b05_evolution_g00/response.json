@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    r = 2 * n - s\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_vector():\\n        val = 0\\n        for i in range(n):\\n            val |= int(rng.integers(0, 4)) << (2 * i)\\n        return val\\n\\n    while E.remaining:\\n        # Initialize L of rank r\\n        L = []\\n        while len(L) < r:\\n            v = random_vector()\\n            temp = L + [v]\\n            if len(E.gf2_basis(temp)) == len(temp):\\n                L.append(v)\\n        \\n        S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n        if len(S) != s:\\n            continue\\n        \\n        cur_obj = objective(E.evaluate(S))\\n        temp, fails = 30.0, 0\\n        \\n        while fails < 2000 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            # Mutate L\\n            idx = int(rng.integers(r))\\n            old_val = L[idx]\\n            # Perturb with a random non-zero Pauli on 1 or 2 qubits\\n            qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n            delta = 0\\n            for q in qubits:\\n                delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n            \\n            L[idx] ^= delta\\n            if len(E.gf2_basis(L)) != r:\\n                L[idx] = old_val\\n                fails += 1\\n                continue\\n            \\n            cand_S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n            if len(cand_S) != s:\\n                L[idx] = old_val\\n                fails += 1\\n                continue\\n                \\n            new_obj = objective(E.evaluate(cand_S))\\n            diff = new_obj - cur_obj\\n            if diff <= 0 or rng.random() < math.exp(-diff / temp):\\n                cur_obj = new_obj\\n                fails = 0 if diff < 0 else fails + 1\\n            else:\\n                L[idx] = old_val\\n                fails += 1\\n    return None\"\n}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 724,
+    "totalTokenCount": 3365,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 724
+      }
+    ],
+    "thoughtsTokenCount": 844
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T14:40:23.887749Z",
+  "responseId": "10GxasWXNquAncoP6uudyQM"
+}

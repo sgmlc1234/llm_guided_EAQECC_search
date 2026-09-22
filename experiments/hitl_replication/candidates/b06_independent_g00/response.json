@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\nimport numpy as np\\n\\ndef search(target, max_evals):\\n    n, k, c = target[\\\"n\\\"], target[\\\"k\\\"], target[\\\"c\\\"]\\n    s = n - k + c\\n    l_size = n + k - c\\n\\n    def objective(res):\\n        if res is None or res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        return 5000 * abs(res[\\\"c\\\"] - c) + res[\\\"offending\\\"]\\n\\n    def random_vector():\\n        # Generate a random integer representing a Pauli on n qubits\\n        val = 0\\n        for i in range(n):\\n            val |= int(rng.integers(0, 4)) << (2 * i)\\n        return val\\n\\n    def mutate(L):\\n        L_new = list(L)\\n        idx = int(rng.integers(l_size))\\n        # Mutate by either replacing or adding a random Pauli\\n        if rng.random() < 0.3:\\n            L_new[idx] = random_vector()\\n        else:\\n            # Add a random sparse Pauli\\n            qubits = rng.choice(n, size=int(rng.integers(1, 3)), replace=False)\\n            delta = 0\\n            for q in qubits:\\n                delta |= int(rng.integers(1, 4)) << (2 * int(q))\\n            L_new[idx] ^= delta\\n        return L_new\\n\\n    def L_to_S(L):\\n        # Symplectic dual computation\\n        # E._J(v, n) swaps X and Z components of v\\n        eqs = [E._J(v, n) for v in L]\\n        return E.nullspace(eqs, 2 * n)\\n\\n    best_L = None\\n    best_val = 10**9\\n\\n    # Restart loop\\n    while E.remaining:\\n        # Initialize a valid random basis L of size l_size\\n        L = []\\n        while len(L) < l_size:\\n            candidate = random_vector()\\n            temp = L + [candidate]\\n            if len(E.gf2_basis(temp)) == len(temp):\\n                L.append(candidate)\\n        \\n        S = L_to_S(L)\\n        cur_val = objective(E.evaluate(S))\\n        if cur_val < best_val:\\n            best_val = cur_val\\n            best_L = list(L)\\n\\n        temp = 30.0\\n        fails = 0\\n        while fails < 1000 and E.remaining:\\n            temp = max(0.1, temp * 0.995)\\n            cand_L = mutate(L)\\n            if len(E.gf2_basis(cand_L)) != l_size:\\n                fails += 1\\n                continue\\n            \\n            cand_S = L_to_S(cand_L)\\n            new_val = objective(E.evaluate(cand_S))\\n            delta = new_val - cur_val\\n            if delta <= 0 or rng.random() < math.exp(-delta / temp):\\n                L, cur_val = cand_L, new_val\\n                fails = 0 if delta < 0 else fails + 1\\n                if cur_val < best_val:\\n                    best_val = cur_val\\n                    best_L = list(L)\\n            else:\\n                fails += 1\\n                \\n    return None\"}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1797,
+    "candidatesTokenCount": 878,
+    "totalTokenCount": 3374,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1797
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 878
+      }
+    ],
+    "thoughtsTokenCount": 699
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T14:40:54.878275Z",
+  "responseId": "9kGxasPNNbuUktwPmKXgkAU"
+}

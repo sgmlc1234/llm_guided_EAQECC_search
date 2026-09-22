@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"code\": \"import math\\n\\ndef search(target, max_evals):\\n    n = target[\\\"n\\\"]\\n    target_c = target[\\\"c\\\"]\\n    target_k = target[\\\"k\\\"]\\n    target_d = target[\\\"d\\\"]\\n    num_L = n + target_k - target_c\\n\\n    def objective(res):\\n        if res.get(\\\"offending\\\") is None or res.get(\\\"c\\\") is None:\\n            return 10**9\\n        c_diff = abs(res[\\\"c\\\"] - target_c)\\n        off = res[\\\"offending\\\"]\\n        d = res.get(\\\"d\\\")\\n        d_score = max(0, target_d - d) if d is not None else 100\\n        return 10000 * c_diff + 200 * off + d_score\\n\\n    def get_random_L():\\n        while True:\\n            L = [int(rng.integers(1, 1 << (2 * n))) for _ in range(num_L)]\\n            if len(E.gf2_basis(L)) == num_L:\\n                return L\\n\\n    def mutate_L(L):\\n        for _ in range(15):\\n            L_new = list(L)\\n            idx = int(rng.integers(num_L))\\n            choice = rng.integers(4)\\n            if choice == 0:\\n                L_new[idx] = int(rng.integers(1, 1 << (2 * n)))\\n            elif choice == 1:\\n                qubit = int(rng.integers(n))\\n                delta = int(rng.integers(1, 4)) << (2 * qubit)\\n                L_new[idx] ^= delta\\n            elif choice == 2:\\n                other = int(rng.integers(num_L))\\n                if other != idx:\\n                    L_new[idx] ^= L_new[other]\\n            else:\\n                # Small perturbation on up to 2 qubits\\n                for _ in range(rng.integers(1, 3)):\\n                    qubit = int(rng.integers(n))\\n                    delta = int(rng.integers(1, 4)) << (2 * qubit)\\n                    L_new[idx] ^= delta\\n            if len(E.gf2_basis(L_new)) == num_L:\\n                return L_new\\n        return L\\n\\n    # Maintain a pool of best solutions to avoid getting stuck\\n    pool_size = 4\\n    pool = []\\n    \\n    while len(pool) < pool_size and E.remaining:\\n        L = get_random_L()\\n        S = E.nullspace([E._J(v, n) for v in L], 2 * n)\\n        res = E.evaluate(S)\\n        obj = objective(res)\\n        pool.append((obj, L))\\n    \\n    pool.sort(key=lambda x: x[0])\\n\\n    while E.remaining:\\n        # Select one from the pool with bias towards better candidates\\n        parent_idx = int(rng.choice(len(pool), p=[0.4, 0.3, 0.2, 0.1][:len(pool)]))\\n        parent_obj, parent_L = pool[parent_idx]\\n        \\n        L_cand = mutate_L(parent_L)\\n        S_cand = E.nullspace([E._J(v, n) for v in L_cand], 2 * n)\\n        res_cand = E.evaluate(S_cand)\\n        new_obj = objective(res_cand)\\n        \\n        if new_obj < parent_obj:\\n            pool[parent_idx] = (new_obj, L_cand)\\n            pool.sort(key=lambda x: x[0])\\n        elif rng.random() < 0.15:\\n            # Accept slightly worse candidates to explore\\n            pool[parent_idx] = (new_obj, L_cand)\\n            pool.sort(key=lambda x: x[0])\\n            \\n        # Periodic restart of the worst element to maintain diversity\\n        if rng.random() < 0.05 and len(pool) == pool_size:\\n            pool[-1] = (objective(E.evaluate(E.nullspace([E._J(v, n) for v in get_random_L()], 2 * n))), get_random_L())\\n            pool.sort(key=lambda x: x[0])\\n            \\n    return None\"}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3195,
+    "candidatesTokenCount": 1096,
+    "totalTokenCount": 5088,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3195
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1096
+      }
+    ],
+    "thoughtsTokenCount": 797
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-09-21T14:57:51.399979Z",
+  "responseId": "70Wxauu0GLuUktwPmKXgkAU"
+}

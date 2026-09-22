@@ -1,0 +1,50 @@
+\subsection{Prospective generation replication}\label{app:replication}
+The new cohort fixes eight paired blocks and seven proposal slots per
+policy before generation. Model, shared task, starting program,
+representation helpers, ranking and validation selection match the
+original study. New model seeds and disjoint training, validation,
+test and longer-code execution seeds separate the cohorts. Each block
+uses two training seeds, four validation seeds and 32 held-out seeds
+per length. The test budget is 10,000 calls at $n=9,11$; longer-code
+performance at 30,000 calls is secondary.
+
+Of 112 allocated slots, 111 return programs: 56 independent and 55
+iterative. One response in block 8 is unavailable. Before validation
+or testing, the recorded rule retained all eight blocks, using received
+programs without replacing the missing proposal. Subsequent iterative
+requests use the most recent received source and feedback. The seven
+fully received paired blocks provide a sensitivity analysis. No
+program is reselected using test or longer-code outcomes.
+
+Table~\ref{tab:replication-blocks} reports all blocks; each longer-length
+entry has 32 executions per policy and block. The mean primary
+curve-area difference is $+0.0987$; five differences are positive and
+the descriptive two-sided sign-flip value is $p=0.3281$. On the seven
+complete blocks, the mean difference is $+0.1504$. These are eight
+paired generation observations, not 512 independent generation trials.
+
+\input{tab_replication_blocks}
+
+All 16 selected sources are distinct. Source inspection finds sustained
+search in $L$, with exact distance feedback obtained through the common
+charged evaluator. Rank checks and basis conversions do not compute
+distance privately. One program performs uncharged basis-row additions
+that leave the subspace unchanged; other proposals evaluate their
+candidate subspaces. Reads of the incumbent before search return no
+matrix because controller initialization is disabled. The artifact audit
+reconstructs all 111 prompts and parent choices, reproduces validation
+selection, checks evaluation quotas and independently verifies saved codes.
+
+The received independent requests use 100,632 input, 41,801 output and
+58,067 reported reasoning tokens; iterative requests use 165,819,
+49,296 and 64,426, respectively. Equal proposal allocations therefore
+do not imply equal token costs. Full transport records and the
+missing-response rule are preserved in the artifact.
+
+For Figure~\ref{fig:ablation-comparison}, the original initial program
+and classical $L$-side control are also run on these execution seeds.
+This fixed-control replay was added after the new policy results were
+available; neither control was modified, tuned or selected using them.
+Each control has 32 runs per length, and is separate from the eight
+paired policy observations. These runs contextualize the success curves;
+the prespecified policy endpoint and its analysis remain unchanged.

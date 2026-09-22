@@ -1,0 +1,30 @@
+{
+  "state": "COMPLETED",
+  "blocks": 8,
+  "block_differences": [
+    -0.06305156249999999,
+    0.006618749999999979,
+    -0.0007906249999999893,
+    0.020950000000000024,
+    0.5776328125,
+    0.09517343750000001,
+    0.41657968749999996,
+    -0.26361249999999997
+  ],
+  "mean_difference": 0.0986875,
+  "arms": {
+    "independent": {
+      "mean_utility": 0.260044921875,
+      "success_fraction": 0.435546875,
+      "mean_distance_ratio": 0.93212890625
+    },
+    "evolution": {
+      "mean_utility": 0.358732421875,
+      "success_fraction": 0.580078125,
+      "mean_distance_ratio": 0.94912109375
+    }
+  },
+  "new_estimated_model_krw": 3211.957005679,
+  "new_committed_krw": 4308.1661316325,
+  "aggregate_committed_krw": 4308.1661316325
+}

@@ -22,7 +22,8 @@
     \State $\mathbf{G}\gets\textsc{RandomStabilizer}(n,s)$
   \EndIf
   \State $o\gets\Phi(\textsc{Evaluate}(n,\mathbf{G},d_t),t)$; $\textsc{KeepBest}(best,t,\mathbf{G},o)$
-  \State \textbf{if} $o=0$ \textbf{then continue}; $\tau\gets30$; $f\gets0$
+  \State \textbf{if} $o=0$ \textbf{then continue}
+  \State $\tau\gets30$; $f\gets0$
   \While{$f<1500$ \textbf{and} time remains}
     \State $\tau\gets\max(0.1,0.995\tau)$
     \State $\mathbf{G}'\gets\algdelta{$\textsc{MixedMove}(\mathbf{G})$}$
