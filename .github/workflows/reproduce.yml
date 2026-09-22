@@ -90,13 +90,12 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
       - name: install into a sandbox-readable virtual environment
         run: |
-          python -m venv "$RUNNER_TEMP/eaqecc-venv"
-          "$RUNNER_TEMP/eaqecc-venv/bin/python" -m pip install -r requirements-ablation.txt
+          uv python install 3.12.12
+          uv venv --python 3.12.12 "$RUNNER_TEMP/eaqecc-venv"
+          uv pip install --python "$RUNNER_TEMP/eaqecc-venv/bin/python" -r requirements-ablation.txt
           echo "$RUNNER_TEMP/eaqecc-venv/bin" >> "$GITHUB_PATH"
       - run: python scripts/eaqecc_ablation/audit.py
       - run: python scripts/eaqecc_ablation/replay_selected.py --out ci-output/ablation-replay
