@@ -20,6 +20,7 @@ Private host configuration and operational notes remain under the ignored
 | Lean | PASS: 13 source hashes and two exact goal pairs; fresh macOS kernel build and Linux Comparator replays for Theorem 1 and supporting Lemma 2 |
 | Paper and editable package | PASS: nine main pages, 25 total pages, Results on page 5; single-TeX `v17_B` package independently compiles and parses on all pages |
 | Public-bundle replay | PASS: 64/64 executions of a selected new-cohort program match the sanitized archive |
+| CI portability | The macOS replay selects the available Python 3.12 release and uploads from a workspace-local path; the deterministic jobs also audit the new replication, follow-up and nonbinary evidence |
 
 The manuscript reports the new eight-block cohort as a separate prospective
 replication. Generation blocks, not repeated execution seeds, are the inference

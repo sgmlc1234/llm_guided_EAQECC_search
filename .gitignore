@@ -36,6 +36,7 @@ artifacts/sat_sweep/
 /artifacts/program_qualitative_review/
 /artifacts/paper_ablation_figure.json
 /local_runs/
+/ci-output/
 
 # Local verification and release outputs
 /release/
